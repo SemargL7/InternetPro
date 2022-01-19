@@ -1,0 +1,35 @@
+package com.finalproject.internetpro.filter;
+
+import com.finalproject.internetpro.dao.DAOrealisation.DAOService;
+import com.finalproject.internetpro.model.User;
+import org.apache.log4j.Logger;
+
+import javax.servlet.*;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+public class AuthFilter implements Filter {
+    static final Logger logger = Logger.getLogger(DAOService.class);
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        Filter.super.init(filterConfig);
+    }
+
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
+        User user = (User) servletRequest.getServletContext().getAttribute("logUser");
+        if(user == null)
+        {
+            logger.warn("User isn`t logged");
+            response.sendRedirect("/login");
+            return;
+        }
+        filterChain.doFilter(servletRequest, servletResponse);
+    }
+
+    @Override
+    public void destroy() {
+        Filter.super.destroy();
+    }
+}
