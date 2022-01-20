@@ -21,7 +21,7 @@ import javax.servlet.annotation.*;
 
 @WebServlet("/")
 public class Servlet extends HttpServlet {
-    static final Logger logger = Logger.getLogger(DAOService.class);
+    static final Logger logger = Logger.getLogger(Servlet.class);
     static final Integer ELEMENTS_PAGINATION_PAGE = 5;
     private DAOUser daoUser;
     private DAOTariff daoTariff;
@@ -323,7 +323,7 @@ public class Servlet extends HttpServlet {
             throws SQLException, IOException, Exception {
         String res = request.getParameter("balance");
         double depMoney = 0.0;
-        if(res.length() > 0)
+        if(res.length() > 0 && Double.parseDouble(res) >= 0)
             depMoney = Double.parseDouble(res);
         logUser.setBalance(logUser.getBalance()+depMoney);
         daoUser.update(logUser);

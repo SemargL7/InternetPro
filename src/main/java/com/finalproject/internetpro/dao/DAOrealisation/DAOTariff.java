@@ -16,7 +16,7 @@ import java.util.*;
  * @see com.finalproject.internetpro.database.Database
  */
 public class DAOTariff implements DAO<Tariff> {
-    static final Logger logger = Logger.getLogger(DAOService.class);
+    static final Logger logger = Logger.getLogger(DAOTariff.class);
 
     /**
      * Selected Tariff by id

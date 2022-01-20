@@ -115,7 +115,7 @@
             <table style="with: 80%">
                 <tr>
                     <td id="depositMoney_HTML">Deposit money:</td>
-                    <td><input type="number" name="balance" /></td>
+                    <td><input type="number" name="balance" min="0" /></td>
                 </tr>
             </table>
             <input id="submit_HTML" type="submit" value="⇨" />

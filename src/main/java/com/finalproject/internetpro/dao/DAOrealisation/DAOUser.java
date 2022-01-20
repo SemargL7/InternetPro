@@ -19,7 +19,7 @@ import java.util.*;
  * @see com.finalproject.internetpro.database.Database
  */
 public class DAOUser implements DAO<User> {
-    static final Logger logger = Logger.getLogger(DAOService.class);
+    static final Logger logger = Logger.getLogger(DAOUser.class);
 
     /**
      * Selected User by id

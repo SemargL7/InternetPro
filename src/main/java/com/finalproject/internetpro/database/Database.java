@@ -1,6 +1,7 @@
 package com.finalproject.internetpro.database;
 
 import com.finalproject.internetpro.dao.DAOrealisation.DAOService;
+
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -12,7 +13,7 @@ import java.sql.DriverManager;
  * @see java.sql.DriverManager
  */
 public class Database {
-    static final Logger logger = Logger.getLogger(DAOService.class);
+    static final Logger logger = Logger.getLogger(Database.class);
 
     /**
      * @return returning database connection
