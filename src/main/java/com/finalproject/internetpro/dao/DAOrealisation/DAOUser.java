@@ -6,10 +6,8 @@ import com.finalproject.internetpro.model.Tariff;
 import com.finalproject.internetpro.model.User;
 import org.apache.log4j.Logger;
 
-import java.sql.Connection;
+import java.sql.*;
 import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 
 import java.util.*;
@@ -328,6 +326,42 @@ public class DAOUser implements DAO<User> {
             posted.executeUpdate();
 
             logger.info("blockStatusUser|"+id+"|"+block);
+        }catch (Exception e) {
+            logger.error("blockStatusUser|ERROR:"+e);
+        }
+    }
+
+    public void updateAllUsersBalances(){
+        try {
+            String sql ="update internetprovider.Users " +
+                    "inner join  internetprovider.TariffConnected on TariffConnected.idUser = Users.id " +
+                    "inner join  internetprovider.Tariff on Tariff.id = TariffConnected.idTariff " +
+                    "set Users.blocked = case " +
+                        "when (Users.balance < Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then true " +
+                        "when (Users.balance >= Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then false " +
+                        "else false end, " +
+                    "Users.balance = case " +
+                        "when (Users.balance < Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then balance " +
+                        "when (Users.balance >= Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then balance - cost " +
+                        "else balance end, " +
+                    "TariffConnected.dateOfLastConnection = case " +
+                        "when (Users.balance < Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then dateOfLastConnection " +
+                        "when (Users.balance >= Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then now() " +
+                        "else dateOfLastConnection end where Users.id = ?;";
+            Connection con = Database.getConnection();
+            PreparedStatement posted = con.prepareStatement(sql);
+
+            List<User> userList = getAll();
+            userList.forEach(x->{
+                try {
+                    posted.setInt(1,x.getId());
+                    posted.executeUpdate();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+
+            logger.info("updateAllBalances");
         }catch (Exception e) {
             logger.error("blockStatusUser|ERROR:"+e);
         }

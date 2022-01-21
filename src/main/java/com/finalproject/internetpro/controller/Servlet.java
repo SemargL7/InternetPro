@@ -276,6 +276,7 @@ public class Servlet extends HttpServlet {
             throws SQLException, IOException, Exception {
         int idTariff = Integer.parseInt(request.getParameter("id"));
         daoUser.connectTariffConnection(logUser.getId(),idTariff);
+        daoUser.updateAllUsersBalances();
         logUser = daoUser.get(logUser.getId()).get();
         response.sendRedirect("/home/tariffsList");
     }
@@ -284,6 +285,7 @@ public class Servlet extends HttpServlet {
             throws SQLException, IOException, Exception {
         int idTariff = Integer.parseInt(request.getParameter("id"));
         daoUser.deleteTariffConnection(logUser.getId(),idTariff);
+        daoUser.updateAllUsersBalances();
         logUser = daoUser.get(logUser.getId()).get();
         response.sendRedirect("/home/userTariffsList");
     }
@@ -327,6 +329,8 @@ public class Servlet extends HttpServlet {
             depMoney = Double.parseDouble(res);
         logUser.setBalance(logUser.getBalance()+depMoney);
         daoUser.update(logUser);
+        daoUser.updateAllUsersBalances();
+        logUser = daoUser.get(logUser.getId()).get();
         response.sendRedirect("/home");
     }
 
