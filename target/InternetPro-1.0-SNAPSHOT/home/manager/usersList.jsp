@@ -114,7 +114,7 @@
 <body>
 <nav>
     <ul>
-        <li><a id="home_HTML" href="/home/home">Home</a></li>
+        <li><a id="home_HTML" href="/home">Home</a></li>
         <li><a id="usersList_HTML" href="/home/usersList">Users</a></li>
         <li><a id="tariffsList_HTML" href="/home/managerTariffsList">Tariffs</a></li>
     </ul>

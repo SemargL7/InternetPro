@@ -122,15 +122,15 @@
 
 
 <div class="mainBody">
-    <table class="table table-bordered2">
+    <table class="table table-bordered">
         <thead>
         <tr>
-            <th id="id2_HTML">ID</th>
-            <th id="service2_HTML">Service</th>
-            <th id="cost2_HTML">Cost</th>
-            <th id="daysOfTariff2_HTML">Days of Tariff</th>
-            <th id="description2_HTML">Description</th>
-            <th id="action2_HTML">Action</th>
+            <th id="id_HTML">ID</th>
+            <th id="service_HTML">Service</th>
+            <th id="cost_HTML">Cost</th>
+            <th id="daysOfTariff_HTML">Days of Tariff</th>
+            <th id="description_HTML">Description</th>
+            <th id="action_HTML">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -178,21 +178,15 @@
 
         "userTariffsList_HTML","tariffsList_HTML",
 
-        "depositBalance_HTML","balance_HTML",
+        "balance_HTML",
 
         "id_HTML","service_HTML","cost_HTML","daysOfTariff_HTML",
-        "description_HTML","action_HTML","connect_HTML",
-
-        "id2_HTML","service2_HTML","cost2_HTML","daysOfTariff2_HTML",
-        "description2_HTML","action2_HTML","disconnect_HTML"];
+        "description_HTML","action_HTML","disconnect_HTML"];
     let langEng =["Home","Login-Out",
 
         "Connected tariffs","Tariffs",
 
-        "Deposit Balance","Balance",
-
-        "ID","Service","Cost","Days of Tariff",
-        "Description","Action","Connect",
+        "Balance:${userBalance}",
 
         "ID","Service","Cost","Days of Tariff",
         "Description","Action","Disconnect"];
@@ -200,10 +194,7 @@
 
         "Під'єднанні тарифи","Тарифи",
 
-        "Поповнити Рахунок","Рахунок",
-
-        "Номер","Сервіс","Ціна","К-ть днів дії",
-        "Опис","Дія","З'єднати",
+        "Рахунок:${userBalance}",
 
         "Номер","Сервіс","Ціна","К-ть днів дії",
         "Опис","Дія","Роз'єднати"];

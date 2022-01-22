@@ -103,31 +103,28 @@
 <script type="text/javascript">
     let lang=["home_HTML","loginOut_HTML",
 
-        "depositBalance_HTML","balance_HTML",
+        "balance_HTML",
 
-        "id_HTML","service_HTML","cost_HTML","daysOfTariff_HTML",
-        "description_HTML","action_HTML","connect_HTML",
+        "userTariffsList_HTML",
+        "tariffsList_HTML"
 
-        "id2_HTML","service2_HTML","cost2_HTML","daysOfTariff2_HTML",
-        "description2_HTML","action2_HTML","disconnect_HTML",,"userTariffsList_HTML"];
+        ];
     let langEng =["Home","Login-Out",
 
         "Balance:${userBalance}",
 
-        "ID","Service","Cost","Days of Tariff",
-        "Description","Action","Connect",
+        "Connected Tariffs",
+        "All tariffs"
 
-        "ID","Service","Cost","Days of Tariff",
-        "Description","Action","Disconnect","Connected tariffs"];
+        ];
     let langUa =["Додому","Вийти",
 
         "Рахунок:${userBalance}",
 
-        "Номер","Сервіс","Ціна","К-ть днів дії",
-        "Опис","Дія","З'єднати",
+        "Підключені тарифи",
+        "Всі тарифи"
 
-        "Номер","Сервіс","Ціна","К-ть днів дії",
-        "Опис","Дія","Роз'єднати","Під'єднанні тарифи"];
+        ];
     let language = parseInt('${(language).intValue()}');
 
     if(language == 2)

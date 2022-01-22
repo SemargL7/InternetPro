@@ -146,9 +146,9 @@
     }
 
 
-    let lang=["home_HTML","login_HTML","sure_HTML","loginOutButton_HTML","backHomeButton_HTML"];
-    let langEng =["Home","Login","Are you sure?","Yes","No"];
-    let langUa =["Додому","Вхід","Ви впевнені?","Так","Ні"];
+    let lang=["home_HTML","sure_HTML","loginOutButton_HTML","backHomeButton_HTML"];
+    let langEng =["Home","Are you sure?","Yes","No"];
+    let langUa =["Додому","Ви впевнені?","Так","Ні"];
     let language = parseInt('${(language).intValue()}');
 
     if(language == 2)

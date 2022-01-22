@@ -9,9 +9,11 @@ import com.finalproject.internetpro.model.User;
 import org.apache.log4j.Logger;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -345,10 +347,16 @@ public class Servlet extends HttpServlet {
             throws SQLException, IOException, Exception {
         if(language == 2)language = 1;
         else language = 2;
-        String page =Arrays
+        List<String> link = Arrays
                 .stream(request.getHeader("referer").split("/"))
-                .reduce((first, second) -> second).orElse("");
-        response.sendRedirect("/"+page);
+                .toList();
+        String page = "";
+        for (int i = link.size() - 1; i >= 0; i--) {
+            if(link.get(i).contains(request.getServerName()))
+                break;
+            page = "/" + link.get(i) + page;
+        }
+        response.sendRedirect(page);
     }
 
 
@@ -463,7 +471,16 @@ public class Servlet extends HttpServlet {
         String fileName = "tariffs.txt";
 
         String str ="";
-        tariffList.sort((o1, o2) -> o1.getService().getServiceName().compareToIgnoreCase(o2.getService().getServiceName()));
+        //tariffList.sort((o1, o2) -> o1.getService().getServiceName().compareToIgnoreCase(o2.getService().getServiceName()));
+        tariffList.sort(new Comparator<Tariff>() {
+            @Override
+            public int compare(Tariff o1, Tariff o2) {
+                if(o1.getService().getServiceName().equalsIgnoreCase(o2.getService().getServiceName()))
+                    return (int) (o1.getCost() - o2.getCost());
+                else
+                    return o1.getService().getServiceName().compareToIgnoreCase(o2.getService().getServiceName());
+            }
+        });
         for (int i = 0; i < tariffList.size(); i++) {
             str += ("\nID:"+String.valueOf(tariffList.get(i).getId()));
             str+=("\nService:"+String.valueOf(tariffList.get(i).getService().getServiceName()));
@@ -473,7 +490,9 @@ public class Servlet extends HttpServlet {
             str+=("\n\n");
         }
         try {
-            FileWriter myObj = new FileWriter("tariffs.txt");
+            OutputStreamWriter myObj =
+                    new OutputStreamWriter(new FileOutputStream("tariffs.txt"), StandardCharsets.UTF_8);
+
             myObj.write(str);
             myObj.close();
         } catch (IOException e) {
@@ -481,19 +500,26 @@ public class Servlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        PrintWriter out = response.getWriter();
+
+        PrintWriter out = new PrintWriter(new OutputStreamWriter(
+                response.getOutputStream(), StandardCharsets.UTF_8), true);
+
         String filename = "tariffs.txt";
         response.setContentType("APPLICATION/OCTET-STREAM");
         response.setHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
 
-        FileInputStream fileInputStream = new FileInputStream(filename);
+        FileInputStream fis = new FileInputStream(filename);
+        InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
+        BufferedReader reader = new BufferedReader(isr);
 
         int i;
-        while( (i = fileInputStream.read()) != -1 )
+        while( (i = reader.read()) != -1 )
         {
             out.write(i);
         }
-        fileInputStream.close();
+        fis.close();
+        isr.close();
+        reader.close();
         out.close();
 
         response.sendRedirect("/home/tariffsList");

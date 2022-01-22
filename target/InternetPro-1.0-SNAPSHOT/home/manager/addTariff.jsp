@@ -150,9 +150,9 @@
 </div>
 </body>
 <script type="text/javascript">
-    let lang=["home_HTML","loginOut_HTML","service_HTML","cost_HTML","days_HTML","language_HTML","descriptionENG_HTML","descriptionUA_HTML","submit_HTML"];
-    let langEng =["Home","Login-out","Service","Cost","Days","Language","Description ENG","Description UA","Submit"];
-    let langUa =["Додому","Вийти","Сервіс","Ціна","Днів","Мова","Опис Англ.","Опис Укр.","Подати"];
+    let lang=       ["home_HTML","usersList_HTML","tariffsList_HTML","loginOut_HTML","service_HTML","cost_HTML","days_HTML","descriptionENG_HTML","descriptionUA_HTML"];
+    let langEng =   ["Home","Users","Tariffs","Login-out","Service","Cost","Days","Description ENG","Description UA"];
+    let langUa =    ["Додому","Користувачі","Тарифи","Вийти","Сервіс","Ціна","Днів","Опис Англ.","Опис Укр."];
     let language = parseInt('${(language).intValue()}');
 
     if(language == 2)
