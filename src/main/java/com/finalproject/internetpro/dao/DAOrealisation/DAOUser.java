@@ -332,4 +332,25 @@ public class DAOUser implements DAO<User> {
             logger.error("blockStatusUser|ERROR:"+e);
         }
     }
+    public boolean mailFree(String email){
+        try {
+            String sql = "SELECT id from Users where email = ?";
+            Connection con = Database.getConnection();
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            statement.setString(1,email);
+
+            ResultSet result = statement.executeQuery();
+            Integer res = null;
+
+            while (result.next())
+                res = result.getInt(1);
+
+            logger.error("mailFree|"+email);
+            return (res == null);
+        }catch (Exception e){
+            logger.error("mailFree|ERROR:"+e);
+        }
+        return false;
+    }
 }

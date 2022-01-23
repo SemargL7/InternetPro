@@ -1,6 +1,7 @@
 <%@ page import="com.finalproject.internetpro.dao.DAOrealisation.DAOUser" %>
 <%@ page import="com.finalproject.internetpro.model.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Insert title here</title>
@@ -9,7 +10,6 @@
             color: #B1D0E0;
             background-color: #1A374D;
         }
-
         nav{
             width: 100%;
             margin: -10px auto;
@@ -87,6 +87,14 @@
             border-radius: 5px 20px 5px;
 
         }
+        .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+            width: 300px;
+            position: fixed;
+            bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -100,6 +108,14 @@
         <li><a id="changeLanguage_HTML" href="/changeLanguage">ENG/UA</a></li>
     </ul>
 </nav>
+
+<c:if test = "${regWarning == true}">
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        This email isn`t available
+    </div>
+</c:if>
+
 <div class="mainBody">
     <div class="registerForm">
         <h1 id="registerForm_HTML">Register Form</h1>
@@ -107,23 +123,23 @@
                 <table style="with: 80%">
                 <tr>
                     <td id="name_HTML">Name</td>
-                    <td><input type="text" name="name" /></td>
+                    <td><input type="text" name="name" required/></td>
                 </tr>
                 <tr>
                     <td id="surname_HTML">Surname</td>
-                    <td><input type="text" name="surname" /></td>
+                    <td><input type="text" name="surname" required/></td>
                 </tr>
                 <tr>
                     <td id="email_HTML">Email</td>
-                    <td><input type="email" name="email" /></td>
+                    <td><input type="email" name="email" required/></td>
                 </tr>
                 <tr>
                     <td id="password_HTML">Password</td>
-                    <td><input type="password" name="password" /></td>
+                    <td><input type="password" name="password" required/></td>
                 </tr>
                 <tr>
                     <td id="dateOfBirth_HTML">Date of Birth</td>
-                    <td><input id="dateField" type="date" name="dataOfBirth" min='1900-01-01' max='2100-01-01'/></td>
+                    <td><input id="dateField" type="date" name="dataOfBirth" min='1900-01-01' max='2100-01-01' required/></td>
                 </tr>
             </table>
             <input id="submit_HTML" type="submit" value="⇨" />

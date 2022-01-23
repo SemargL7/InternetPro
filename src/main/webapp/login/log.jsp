@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,6 +101,14 @@
             transform: scale(0.9);
 
         }
+        .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+            width: 300px;
+            position: fixed;
+            bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -116,6 +125,13 @@
 
 <img id="meme"class="meme" srcset="https://memepedia.ru/wp-content/uploads/2018/07/x3qyh3anr0o.jpg">
 
+<c:if test = "${logWarning == true}">
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        Wrong email or password
+    </div>
+</c:if>
+
 <div class="mainBody">
     <div class="loginForm">
         <h1 id="login2_HTML">Login</h1>
@@ -123,11 +139,11 @@
             <table style="with: 80%">
                 <tr>
                     <td id="email_HTML">Email</td>
-                    <td><input type="email" name="email" /></td>
+                    <td><input type="email" name="email" required/></td>
                 </tr>
                 <tr>
                     <td id="password_HTML">Password</td>
-                    <td><input type="password" name="password" /></td>
+                    <td><input type="password" name="password" required/></td>
                 </tr>
             </table>
             <input id="submit_HTML" type="submit" onmouseup="hoverOnOutBut()" value="⇨" />

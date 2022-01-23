@@ -204,6 +204,8 @@ public class Servlet extends HttpServlet {
     private void viewLogin(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         request.getSession().setAttribute("language", language);
+        request.getSession().setAttribute("logWarning", request.getServletContext().getAttribute("logWarning"));
+        request.getServletContext().setAttribute("logWarning", false);
         RequestDispatcher dispatcher = request.getRequestDispatcher("login/log.jsp");
         dispatcher.forward(request, response);
     }
@@ -218,6 +220,8 @@ public class Servlet extends HttpServlet {
     private void viewRegister(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         request.getSession().setAttribute("language", language);
+        request.getSession().setAttribute("regWarning", request.getServletContext().getAttribute("regWarning"));
+        request.getServletContext().setAttribute("regWarning", false);
         RequestDispatcher dispatcher = request.getRequestDispatcher("register/register.jsp");
         dispatcher.forward(request, response);
     }
@@ -233,12 +237,13 @@ public class Servlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String url = "";
-        if (daoUser.loggingUser(email,password) != null) {
+        if (email!=null && password !=null && daoUser.loggingUser(email,password) != null) {
             logUser = daoUser.get(daoUser.loggingUser(email,password)).get();
             request.getServletContext().setAttribute("logUser", logUser);
             url = "/home";
         } else {
-            url = "log";
+            request.getServletContext().setAttribute("logWarning", true);
+            url = "/login";
         }
         response.sendRedirect(url);
     }
@@ -251,20 +256,26 @@ public class Servlet extends HttpServlet {
         String password = request.getParameter("password");
         String dateOfBirth = request.getParameter("dataOfBirth");
 
-        User user = new User();
+        if(daoUser.mailFree(email)) {
+            User user = new User();
 
-        user.setName(name);
-        user.setSurname(surname);
-        user.setEmail(email);
-        user.setPassword(password);
-        user.setDateOfBirth(Date.valueOf(dateOfBirth));
-        user.setBalance(0);
-        user.setBlocked(true);
-        user.setSpecialAccess(false);
+            user.setName(name);
+            user.setSurname(surname);
+            user.setEmail(email);
+            user.setPassword(password);
+            user.setDateOfBirth(Date.valueOf(dateOfBirth));
+            user.setBalance(0);
+            user.setBlocked(true);
+            user.setSpecialAccess(false);
 
-        daoUser.save(user);
+            daoUser.save(user);
 
-        response.sendRedirect("/login");
+            response.sendRedirect("/login");
+        }else{
+            request.getServletContext().setAttribute("regWarning", true);
+            response.sendRedirect("/register");
+        }
+
     }
 
     private void blockSwitcher(HttpServletRequest request, HttpServletResponse response)
@@ -280,6 +291,7 @@ public class Servlet extends HttpServlet {
         daoUser.connectTariffConnection(logUser.getId(),idTariff);
         daoUser.updateAllUsersBalances();
         logUser = daoUser.get(logUser.getId()).get();
+        request.getServletContext().setAttribute("logUser", logUser);
         response.sendRedirect("/home/tariffsList");
     }
 
@@ -289,6 +301,7 @@ public class Servlet extends HttpServlet {
         daoUser.deleteTariffConnection(logUser.getId(),idTariff);
         daoUser.updateAllUsersBalances();
         logUser = daoUser.get(logUser.getId()).get();
+        request.getServletContext().setAttribute("logUser", logUser);
         response.sendRedirect("/home/userTariffsList");
     }
 
@@ -333,6 +346,7 @@ public class Servlet extends HttpServlet {
         daoUser.update(logUser);
         daoUser.updateAllUsersBalances();
         logUser = daoUser.get(logUser.getId()).get();
+        request.getServletContext().setAttribute("logUser", logUser);
         response.sendRedirect("/home");
     }
 
@@ -457,7 +471,6 @@ public class Servlet extends HttpServlet {
 
         request.getSession().setAttribute("paginationMax", listTariff.size()/ELEMENTS_PAGINATION_PAGE);
         double userBalance = logUser.getBalance();
-        request.getSession().setAttribute("userBalance", userBalance);
 
         request.getSession().setAttribute("language", language);
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/user/tariffsList.jsp");

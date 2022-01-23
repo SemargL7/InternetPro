@@ -113,19 +113,19 @@
                 <input type="hidden" name="id" value="<c:out value='${tariff.id}' />" />
                 <tr>
                     <td id="cost_HTML">Cost</td>
-                    <td><input type="number" name="cost" /></td>
+                    <td><input type="number" name="cost" required/></td>
                 </tr>
                 <tr>
                     <td id="days_HTML">Days</td>
-                    <td><input type="number" name="daysOfTariff" /></td>
+                    <td><input type="number" name="daysOfTariff" required/></td>
                 </tr>
                 <tr>
                     <td id="descriptionENG_HTML">Description ENG</td>
-                    <td><input type="text" name="descriptionENG" /></td>
+                    <td><input type="text" name="descriptionENG" required/></td>
                 </tr>
                 <tr>
                     <td id="descriptionUA_HTML">Description UA</td>
-                    <td><input type="text" name="descriptionUA" /></td>
+                    <td><input type="text" name="descriptionUA" required/></td>
                 </tr>
             </table>
             <input id="submit_HTML" type="submit" value="⇨" />
