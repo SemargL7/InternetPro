@@ -10,19 +10,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.*;
 
-/**
- * A class that implement DAO pattern for interaction with database(MySQL)
- * @see com.finalproject.internetpro.model.Service
- * @see com.finalproject.internetpro.database.Database
- */
+
 public class DAOTariff implements DAO<Tariff> {
     static final Logger logger = Logger.getLogger(DAOTariff.class);
 
-    /**
-     * Selected Tariff by id
-     * @param id Tariff`s id
-     * @return returning Tariff witch could be null
-     */
+    private DAOTariff instance;
+
+    public DAOTariff getInstance(){
+        if(instance == null)
+            instance = new DAOTariff();
+        return instance;
+    }
+
+    public DAOTariff() {
+    }
+
     @Override
     public Optional<Tariff> get(long id){
         Tariff tariff = null;
@@ -66,10 +68,6 @@ public class DAOTariff implements DAO<Tariff> {
         return Optional.ofNullable(tariff);
     }
 
-    /**
-     * Selecting All Tariffs from database
-     * @return returning List of Tariffs from the database
-     */
     @Override
     public List<Tariff> getAll(){
         List<Tariff> tariffs = null;
@@ -90,10 +88,6 @@ public class DAOTariff implements DAO<Tariff> {
         return tariffs;
     }
 
-    /**
-     * Inserting the tariff in the database
-     * @param tariff Tariff
-     */
     @Override
     public void save(Tariff tariff){
         try {
@@ -136,10 +130,6 @@ public class DAOTariff implements DAO<Tariff> {
         }
     }
 
-    /**
-     * Updating the tariff in the database
-     * @param tariff Tariff
-     */
     @Override
     public void update(Tariff tariff){
         try {
@@ -177,10 +167,6 @@ public class DAOTariff implements DAO<Tariff> {
 
     }
 
-    /**
-     * Deleting the tariff by id in the database
-     * @param id Tariff`s id
-     */
     @Override
     public void delete(int id){
         try {

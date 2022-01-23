@@ -2080,3 +2080,1706 @@
 2022-01-22 20:53:32 INFO  Database:30 - Connect with database MySQL
 2022-01-22 20:53:32 INFO  DAOService:48 - get|1
 2022-01-22 20:53:32 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:00 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:00 INFO  DAOService:48 - get|1
+2022-01-22 20:55:00 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:01 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:01 INFO  DAOService:48 - get|1
+2022-01-22 20:55:01 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:01 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:01 INFO  DAOService:48 - get|1
+2022-01-22 20:55:01 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:01 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:01 INFO  DAOService:48 - get|1
+2022-01-22 20:55:01 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:01 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:01 INFO  DAOService:48 - get|1
+2022-01-22 20:55:01 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:04 INFO  Servlet:36 - Init Servlet
+2022-01-22 20:55:04 WARN  AuthFilter:24 - User isn`t logged
+2022-01-22 20:55:04 INFO  Servlet:51 - action->viewLogin
+2022-01-22 20:55:04 INFO  Servlet:51 - action->viewLogin
+2022-01-22 20:55:06 INFO  Servlet:83 - action->login
+2022-01-22 20:55:06 INFO  Servlet:147 - action->default
+2022-01-22 20:55:07 INFO  DAOService:18 - Print today`s date
+2022-01-22 20:55:07 INFO  DAOService:18 - Print today`s date
+2022-01-22 20:55:07 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:07 ERROR DAOUser:223 - loggingUser|romandubil03@gmail.com|1
+2022-01-22 20:55:07 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:07 ERROR DAOUser:223 - loggingUser|romandubil03@gmail.com|1
+2022-01-22 20:55:07 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:07 INFO  DAOUser:70 - get|1
+2022-01-22 20:55:07 INFO  Servlet:95 - action->viewHome
+2022-01-22 20:55:07 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:55:07 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:07 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:07 INFO  DAOUser:70 - get|1
+2022-01-22 20:55:07 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:07 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:07 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:07 INFO  DAOService:48 - get|1
+2022-01-22 20:55:07 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:07 INFO  DAOUser:70 - get|2
+2022-01-22 20:55:07 INFO  DAOUser:97 - End getALL
+2022-01-22 20:55:07 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:55:07 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:07 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:07 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:07 INFO  DAOService:48 - get|1
+2022-01-22 20:55:07 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:07 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:55:07 INFO  Servlet:103 - action->viewManagerTariffsList
+2022-01-22 20:55:07 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:55:07 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:07 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:07 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:07 INFO  DAOService:48 - get|1
+2022-01-22 20:55:07 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:07 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:55:09 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:09 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:09 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:09 INFO  DAOService:48 - get|1
+2022-01-22 20:55:09 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:10 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:55:10 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:10 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:10 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:10 INFO  DAOService:48 - get|1
+2022-01-22 20:55:10 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:12 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:55:12 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:12 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:12 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:12 INFO  DAOService:48 - get|1
+2022-01-22 20:55:12 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:13 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:55:13 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:13 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:13 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:13 INFO  DAOService:48 - get|1
+2022-01-22 20:55:13 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:18 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:55:18 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:18 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:18 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:18 INFO  DAOService:48 - get|1
+2022-01-22 20:55:18 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:19 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:55:19 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:19 INFO  DAOService:48 - get|1
+2022-01-22 20:55:19 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:41 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:41 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:41 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:41 INFO  DAOService:48 - get|1
+2022-01-22 20:55:41 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:41 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:41 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:41 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:41 INFO  DAOService:48 - get|1
+2022-01-22 20:55:41 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:41 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:42 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:42 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:42 INFO  DAOService:48 - get|1
+2022-01-22 20:55:42 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:44 INFO  Servlet:36 - Init Servlet
+2022-01-22 20:55:44 WARN  AuthFilter:24 - User isn`t logged
+2022-01-22 20:55:44 INFO  Servlet:51 - action->viewLogin
+2022-01-22 20:55:44 INFO  Servlet:51 - action->viewLogin
+2022-01-22 20:55:44 INFO  Servlet:51 - action->viewLogin
+2022-01-22 20:55:46 INFO  Servlet:147 - action->default
+2022-01-22 20:55:46 INFO  Servlet:83 - action->login
+2022-01-22 20:55:46 INFO  DAOService:18 - Print today`s date
+2022-01-22 20:55:46 INFO  DAOService:18 - Print today`s date
+2022-01-22 20:55:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:46 ERROR DAOUser:223 - loggingUser|romandubil03@gmail.com|1
+2022-01-22 20:55:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:46 ERROR DAOUser:223 - loggingUser|romandubil03@gmail.com|1
+2022-01-22 20:55:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:46 INFO  DAOUser:70 - get|1
+2022-01-22 20:55:46 INFO  Servlet:95 - action->viewHome
+2022-01-22 20:55:46 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:55:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:46 INFO  DAOUser:70 - get|1
+2022-01-22 20:55:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:46 INFO  DAOService:48 - get|1
+2022-01-22 20:55:46 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:46 INFO  DAOUser:70 - get|2
+2022-01-22 20:55:46 INFO  DAOUser:97 - End getALL
+2022-01-22 20:55:46 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:55:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:46 INFO  DAOService:48 - get|1
+2022-01-22 20:55:46 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:46 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:55:47 INFO  Servlet:103 - action->viewManagerTariffsList
+2022-01-22 20:55:47 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:55:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:47 INFO  DAOService:48 - get|1
+2022-01-22 20:55:47 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:47 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:55:49 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:49 INFO  DAOService:48 - get|1
+2022-01-22 20:55:49 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:49 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:55:49 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:49 INFO  DAOService:48 - get|1
+2022-01-22 20:55:49 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:52 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:55:52 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:52 INFO  DAOService:48 - get|1
+2022-01-22 20:55:52 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:52 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:55:52 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:52 INFO  DAOService:48 - get|1
+2022-01-22 20:55:52 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:53 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:55:53 INFO  Servlet:67 - action->viewTariffChange
+2022-01-22 20:55:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:53 INFO  DAOService:48 - get|1
+2022-01-22 20:55:53 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:54 INFO  Servlet:95 - action->viewHome
+2022-01-22 20:55:54 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:55:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:54 INFO  DAOUser:70 - get|1
+2022-01-22 20:55:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:54 INFO  DAOService:48 - get|1
+2022-01-22 20:55:54 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:54 INFO  DAOUser:70 - get|2
+2022-01-22 20:55:54 INFO  DAOUser:97 - End getALL
+2022-01-22 20:55:54 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:55:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:55:54 INFO  DAOService:48 - get|1
+2022-01-22 20:55:54 INFO  DAOTariff:62 - get|1
+2022-01-22 20:55:54 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:55:55 INFO  Servlet:87 - action->viewLoginOut
+2022-01-22 20:55:56 INFO  Servlet:147 - action->default
+2022-01-22 20:55:56 INFO  DAOService:18 - Print today`s date
+2022-01-22 20:55:56 INFO  DAOService:18 - Print today`s date
+2022-01-22 20:55:56 INFO  Servlet:135 - action->logOut
+2022-01-22 20:55:56 INFO  DAOService:18 - Print today`s date
+2022-01-22 20:55:56 INFO  DAOService:18 - Print today`s date
+2022-01-22 20:55:57 INFO  Servlet:51 - action->viewLogin
+2022-01-22 20:56:01 INFO  Servlet:51 - action->viewLogin
+2022-01-22 20:56:03 INFO  Servlet:83 - action->login
+2022-01-22 20:56:03 INFO  Servlet:147 - action->default
+2022-01-22 20:56:03 INFO  DAOService:18 - Print today`s date
+2022-01-22 20:56:03 INFO  DAOService:18 - Print today`s date
+2022-01-22 20:56:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:03 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 20:56:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:03 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 20:56:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:03 INFO  DAOService:48 - get|1
+2022-01-22 20:56:03 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:03 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:03 INFO  Servlet:95 - action->viewHome
+2022-01-22 20:56:03 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:56:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:03 INFO  DAOUser:70 - get|1
+2022-01-22 20:56:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:03 INFO  DAOService:48 - get|1
+2022-01-22 20:56:03 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:03 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:03 INFO  DAOUser:97 - End getALL
+2022-01-22 20:56:03 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:03 INFO  DAOService:48 - get|1
+2022-01-22 20:56:03 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:03 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:56:06 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:56:06 INFO  Servlet:95 - action->viewHome
+2022-01-22 20:56:06 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:56:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:06 INFO  DAOUser:70 - get|1
+2022-01-22 20:56:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:06 INFO  DAOService:48 - get|1
+2022-01-22 20:56:06 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:06 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:06 INFO  DAOUser:97 - End getALL
+2022-01-22 20:56:06 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:06 INFO  DAOService:48 - get|1
+2022-01-22 20:56:06 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:06 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:56:09 INFO  Servlet:79 - action->viewUserBalance
+2022-01-22 20:56:11 INFO  Servlet:131 - action->depositBalance
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  DAOUser:253 - checkTariff|2|1
+2022-01-22 20:56:11 INFO  DAOUser:169 - update|User{id=2, name='Roman', surname='Dubil', email='romandubil07@gmail.com', password='1', balance=100.0, dateOfBirth=2022-01-04, blocked=false, specialAccess=false, tariffs=[Tariff{id=1, service=Service{id=1, serviceName='Internet'}, cost=3000.0, daysOfTariff=30, description={1=Do Something, 2=Робить щось}}]}
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  DAOUser:70 - get|1
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  DAOService:48 - get|1
+2022-01-22 20:56:11 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:11 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:11 INFO  DAOUser:97 - End getALL
+2022-01-22 20:56:11 INFO  DAOUser:364 - updateAllBalances
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  DAOService:48 - get|1
+2022-01-22 20:56:11 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:11 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:11 INFO  Servlet:95 - action->viewHome
+2022-01-22 20:56:11 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  DAOUser:70 - get|1
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  DAOService:48 - get|1
+2022-01-22 20:56:11 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:11 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:11 INFO  DAOUser:97 - End getALL
+2022-01-22 20:56:11 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:11 INFO  DAOService:48 - get|1
+2022-01-22 20:56:11 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:11 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:56:14 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:56:14 INFO  Servlet:95 - action->viewHome
+2022-01-22 20:56:14 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:56:14 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:14 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:14 INFO  DAOUser:70 - get|1
+2022-01-22 20:56:14 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:14 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:14 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:14 INFO  DAOService:48 - get|1
+2022-01-22 20:56:14 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:14 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:14 INFO  DAOUser:97 - End getALL
+2022-01-22 20:56:14 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:14 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:14 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:14 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:14 INFO  DAOService:48 - get|1
+2022-01-22 20:56:14 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:14 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:56:15 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 20:56:16 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 20:56:16 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:16 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:16 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:16 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:16 INFO  DAOService:48 - get|1
+2022-01-22 20:56:16 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:16 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:56:17 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 20:56:17 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 20:56:17 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:18 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:18 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:18 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:18 INFO  DAOService:48 - get|1
+2022-01-22 20:56:18 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:18 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:56:19 INFO  Servlet:123 - action->connectTariff
+2022-01-22 20:56:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:19 ERROR DAOUser:308 - connectTariffConnection|ERROR:java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '2-1' for key 'tariffconnected.my_uniq_id'
+2022-01-22 20:56:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:19 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:56:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:19 INFO  DAOUser:70 - get|1
+2022-01-22 20:56:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:19 INFO  DAOService:48 - get|1
+2022-01-22 20:56:19 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:19 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:19 INFO  DAOUser:97 - End getALL
+2022-01-22 20:56:19 INFO  DAOUser:364 - updateAllBalances
+2022-01-22 20:56:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:19 INFO  DAOService:48 - get|1
+2022-01-22 20:56:19 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:19 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:19 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 20:56:19 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:19 INFO  DAOService:48 - get|1
+2022-01-22 20:56:19 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:19 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:56:20 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 20:56:22 INFO  Servlet:127 - action->disconnectTariff
+2022-01-22 20:56:22 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:22 INFO  DAOUser:279 - deleteTariffConnection|2|1
+2022-01-22 20:56:22 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:22 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:56:22 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:22 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:22 INFO  DAOUser:70 - get|1
+2022-01-22 20:56:22 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:22 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:22 INFO  DAOUser:97 - End getALL
+2022-01-22 20:56:22 INFO  DAOUser:364 - updateAllBalances
+2022-01-22 20:56:22 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:22 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:22 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 20:56:25 INFO  Servlet:79 - action->viewUserBalance
+2022-01-22 20:56:29 INFO  Servlet:131 - action->depositBalance
+2022-01-22 20:56:29 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:29 INFO  DAOUser:169 - update|User{id=2, name='Roman', surname='Dubil', email='romandubil07@gmail.com', password='1', balance=100.0, dateOfBirth=2022-01-04, blocked=true, specialAccess=false, tariffs=[]}
+2022-01-22 20:56:29 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:29 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:56:29 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:29 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:29 INFO  DAOUser:70 - get|1
+2022-01-22 20:56:29 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:29 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:29 INFO  DAOUser:97 - End getALL
+2022-01-22 20:56:29 INFO  DAOUser:364 - updateAllBalances
+2022-01-22 20:56:29 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:29 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:29 INFO  Servlet:95 - action->viewHome
+2022-01-22 20:56:29 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:56:29 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:29 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:29 INFO  DAOUser:70 - get|1
+2022-01-22 20:56:29 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:29 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:29 INFO  DAOUser:97 - End getALL
+2022-01-22 20:56:29 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:29 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:29 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:29 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:29 INFO  DAOService:48 - get|1
+2022-01-22 20:56:29 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:29 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:56:30 INFO  Servlet:79 - action->viewUserBalance
+2022-01-22 20:56:31 INFO  Servlet:131 - action->depositBalance
+2022-01-22 20:56:32 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:32 INFO  DAOUser:169 - update|User{id=2, name='Roman', surname='Dubil', email='romandubil07@gmail.com', password='1', balance=3100.0, dateOfBirth=2022-01-04, blocked=true, specialAccess=false, tariffs=[]}
+2022-01-22 20:56:32 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:32 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:56:32 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:32 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:32 INFO  DAOUser:70 - get|1
+2022-01-22 20:56:32 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:32 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:32 INFO  DAOUser:97 - End getALL
+2022-01-22 20:56:32 INFO  DAOUser:364 - updateAllBalances
+2022-01-22 20:56:32 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:32 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:32 INFO  Servlet:95 - action->viewHome
+2022-01-22 20:56:32 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:56:32 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:32 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:32 INFO  DAOUser:70 - get|1
+2022-01-22 20:56:32 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:32 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:32 INFO  DAOUser:97 - End getALL
+2022-01-22 20:56:32 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:32 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:32 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:32 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:32 INFO  DAOService:48 - get|1
+2022-01-22 20:56:32 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:32 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:56:33 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 20:56:34 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 20:56:34 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:34 INFO  DAOService:48 - get|1
+2022-01-22 20:56:34 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:34 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:56:35 INFO  Servlet:123 - action->connectTariff
+2022-01-22 20:56:35 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:35 INFO  DAOUser:306 - connectTariffConnection|2|1
+2022-01-22 20:56:35 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:35 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:56:35 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:35 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:35 INFO  DAOUser:70 - get|1
+2022-01-22 20:56:35 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:35 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:35 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:35 INFO  DAOService:48 - get|1
+2022-01-22 20:56:35 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:35 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:35 INFO  DAOUser:97 - End getALL
+2022-01-22 20:56:35 INFO  DAOUser:364 - updateAllBalances
+2022-01-22 20:56:35 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:35 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:35 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:35 INFO  DAOService:48 - get|1
+2022-01-22 20:56:35 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:35 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:35 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 20:56:35 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:35 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:35 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:35 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:35 INFO  DAOService:48 - get|1
+2022-01-22 20:56:35 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:35 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:56:37 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 20:56:38 INFO  Servlet:95 - action->viewHome
+2022-01-22 20:56:38 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:56:38 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:38 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:38 INFO  DAOUser:70 - get|1
+2022-01-22 20:56:38 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:38 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:38 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:38 INFO  DAOService:48 - get|1
+2022-01-22 20:56:38 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:38 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:38 INFO  DAOUser:97 - End getALL
+2022-01-22 20:56:38 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:38 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:38 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:38 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:38 INFO  DAOService:48 - get|1
+2022-01-22 20:56:38 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:38 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:56:39 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 20:56:40 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:56:40 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 20:56:41 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 20:56:42 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 20:56:42 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:42 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:42 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:42 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:42 INFO  DAOService:48 - get|1
+2022-01-22 20:56:42 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:42 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:56:47 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 20:56:50 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 20:56:50 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:50 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:50 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:50 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:50 INFO  DAOService:48 - get|1
+2022-01-22 20:56:50 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:50 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:56:52 INFO  Servlet:79 - action->viewUserBalance
+2022-01-22 20:56:53 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:56:53 INFO  Servlet:79 - action->viewUserBalance
+2022-01-22 20:56:54 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:56:54 INFO  Servlet:79 - action->viewUserBalance
+2022-01-22 20:56:55 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:56:55 INFO  Servlet:79 - action->viewUserBalance
+2022-01-22 20:56:58 INFO  Servlet:95 - action->viewHome
+2022-01-22 20:56:58 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:56:58 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:58 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:58 INFO  DAOUser:70 - get|1
+2022-01-22 20:56:58 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:58 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:58 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:58 INFO  DAOService:48 - get|1
+2022-01-22 20:56:58 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:58 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:58 INFO  DAOUser:97 - End getALL
+2022-01-22 20:56:58 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:58 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:58 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:58 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:58 INFO  DAOService:48 - get|1
+2022-01-22 20:56:58 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:58 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:56:59 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:56:59 INFO  Servlet:95 - action->viewHome
+2022-01-22 20:56:59 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:56:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:59 INFO  DAOUser:70 - get|1
+2022-01-22 20:56:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:59 INFO  DAOService:48 - get|1
+2022-01-22 20:56:59 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:59 INFO  DAOUser:70 - get|2
+2022-01-22 20:56:59 INFO  DAOUser:97 - End getALL
+2022-01-22 20:56:59 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:56:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:56:59 INFO  DAOService:48 - get|1
+2022-01-22 20:56:59 INFO  DAOTariff:62 - get|1
+2022-01-22 20:56:59 INFO  DAOTariff:86 - End getAll
+2022-01-22 20:57:00 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 20:57:00 INFO  Servlet:95 - action->viewHome
+2022-01-22 20:57:00 INFO  DAOUser:86 - Start getALL
+2022-01-22 20:57:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:57:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:57:00 INFO  DAOUser:70 - get|1
+2022-01-22 20:57:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:57:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:57:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:57:00 INFO  DAOService:48 - get|1
+2022-01-22 20:57:00 INFO  DAOTariff:62 - get|1
+2022-01-22 20:57:00 INFO  DAOUser:70 - get|2
+2022-01-22 20:57:00 INFO  DAOUser:97 - End getALL
+2022-01-22 20:57:00 INFO  DAOTariff:77 - Start getAll
+2022-01-22 20:57:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:57:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:57:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 20:57:00 INFO  DAOService:48 - get|1
+2022-01-22 20:57:00 INFO  DAOTariff:62 - get|1
+2022-01-22 20:57:00 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:00:54 INFO  Servlet:95 - action->viewHome
+2022-01-22 21:00:54 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:00:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:54 INFO  DAOUser:70 - get|1
+2022-01-22 21:00:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:54 INFO  DAOService:48 - get|1
+2022-01-22 21:00:54 INFO  DAOTariff:62 - get|1
+2022-01-22 21:00:54 INFO  DAOUser:70 - get|2
+2022-01-22 21:00:54 INFO  DAOUser:97 - End getALL
+2022-01-22 21:00:54 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:00:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:54 INFO  DAOService:48 - get|1
+2022-01-22 21:00:54 INFO  DAOTariff:62 - get|1
+2022-01-22 21:00:54 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:00:55 INFO  Servlet:95 - action->viewHome
+2022-01-22 21:00:55 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  DAOUser:70 - get|1
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  DAOService:48 - get|1
+2022-01-22 21:00:55 INFO  DAOTariff:62 - get|1
+2022-01-22 21:00:55 INFO  DAOUser:70 - get|2
+2022-01-22 21:00:55 INFO  DAOUser:97 - End getALL
+2022-01-22 21:00:55 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  DAOService:48 - get|1
+2022-01-22 21:00:55 INFO  DAOTariff:62 - get|1
+2022-01-22 21:00:55 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:00:55 INFO  Servlet:95 - action->viewHome
+2022-01-22 21:00:55 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  DAOUser:70 - get|1
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  DAOService:48 - get|1
+2022-01-22 21:00:55 INFO  DAOTariff:62 - get|1
+2022-01-22 21:00:55 INFO  DAOUser:70 - get|2
+2022-01-22 21:00:55 INFO  DAOUser:97 - End getALL
+2022-01-22 21:00:55 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:00:55 INFO  DAOService:48 - get|1
+2022-01-22 21:00:55 INFO  DAOTariff:62 - get|1
+2022-01-22 21:00:55 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:00:58 INFO  Servlet:36 - Init Servlet
+2022-01-22 21:00:58 WARN  AuthFilter:24 - User isn`t logged
+2022-01-22 21:00:58 INFO  Servlet:51 - action->viewLogin
+2022-01-22 21:00:58 INFO  Servlet:51 - action->viewLogin
+2022-01-22 21:01:00 INFO  Servlet:83 - action->login
+2022-01-22 21:01:00 INFO  Servlet:147 - action->default
+2022-01-22 21:01:00 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:01:00 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:01:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:00 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:01:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:00 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:01:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:00 INFO  DAOService:48 - get|1
+2022-01-22 21:01:00 INFO  DAOTariff:62 - get|1
+2022-01-22 21:01:00 INFO  DAOUser:70 - get|2
+2022-01-22 21:01:00 INFO  Servlet:95 - action->viewHome
+2022-01-22 21:01:00 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:01:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:00 INFO  DAOUser:70 - get|1
+2022-01-22 21:01:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:00 INFO  DAOService:48 - get|1
+2022-01-22 21:01:00 INFO  DAOTariff:62 - get|1
+2022-01-22 21:01:00 INFO  DAOUser:70 - get|2
+2022-01-22 21:01:00 INFO  DAOUser:97 - End getALL
+2022-01-22 21:01:00 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:01:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:00 INFO  DAOService:48 - get|1
+2022-01-22 21:01:00 INFO  DAOTariff:62 - get|1
+2022-01-22 21:01:00 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:01:01 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 21:01:01 INFO  Servlet:95 - action->viewHome
+2022-01-22 21:01:01 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:01:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:01 INFO  DAOUser:70 - get|1
+2022-01-22 21:01:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:01 INFO  DAOService:48 - get|1
+2022-01-22 21:01:01 INFO  DAOTariff:62 - get|1
+2022-01-22 21:01:01 INFO  DAOUser:70 - get|2
+2022-01-22 21:01:01 INFO  DAOUser:97 - End getALL
+2022-01-22 21:01:01 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:01:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:01:01 INFO  DAOService:48 - get|1
+2022-01-22 21:01:01 INFO  DAOTariff:62 - get|1
+2022-01-22 21:01:01 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:01:04 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:02:00 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:02:00 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:02:01 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:02:03 INFO  Servlet:36 - Init Servlet
+2022-01-22 21:02:03 WARN  AuthFilter:24 - User isn`t logged
+2022-01-22 21:02:03 INFO  Servlet:51 - action->viewLogin
+2022-01-22 21:02:04 INFO  Servlet:51 - action->viewLogin
+2022-01-22 21:02:06 INFO  Servlet:83 - action->login
+2022-01-22 21:02:06 INFO  Servlet:147 - action->default
+2022-01-22 21:02:06 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:02:06 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:02:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:02:06 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:02:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:02:06 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:02:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:02:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:02:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:02:06 INFO  DAOService:48 - get|1
+2022-01-22 21:02:06 INFO  DAOTariff:62 - get|1
+2022-01-22 21:02:06 INFO  DAOUser:70 - get|2
+2022-01-22 21:02:06 INFO  Servlet:95 - action->viewHome
+2022-01-22 21:02:06 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:02:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:02:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:02:06 INFO  DAOUser:70 - get|1
+2022-01-22 21:02:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:02:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:02:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:02:06 INFO  DAOService:48 - get|1
+2022-01-22 21:02:06 INFO  DAOTariff:62 - get|1
+2022-01-22 21:02:06 INFO  DAOUser:70 - get|2
+2022-01-22 21:02:06 INFO  DAOUser:97 - End getALL
+2022-01-22 21:02:06 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:02:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:02:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:02:06 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:02:06 INFO  DAOService:48 - get|1
+2022-01-22 21:02:06 INFO  DAOTariff:62 - get|1
+2022-01-22 21:02:06 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:02:07 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:02:08 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 21:02:08 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:03:42 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:03:43 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:03:43 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:03:43 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:03:46 INFO  Servlet:36 - Init Servlet
+2022-01-22 21:03:46 WARN  AuthFilter:24 - User isn`t logged
+2022-01-22 21:03:46 INFO  Servlet:51 - action->viewLogin
+2022-01-22 21:03:46 INFO  Servlet:51 - action->viewLogin
+2022-01-22 21:03:47 INFO  Servlet:51 - action->viewLogin
+2022-01-22 21:03:48 INFO  Servlet:83 - action->login
+2022-01-22 21:03:48 INFO  Servlet:147 - action->default
+2022-01-22 21:03:49 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:03:49 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:03:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:49 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:03:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:49 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:03:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:49 INFO  DAOService:48 - get|1
+2022-01-22 21:03:49 INFO  DAOTariff:62 - get|1
+2022-01-22 21:03:49 INFO  DAOUser:70 - get|2
+2022-01-22 21:03:49 INFO  Servlet:95 - action->viewHome
+2022-01-22 21:03:49 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:03:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:49 INFO  DAOUser:70 - get|1
+2022-01-22 21:03:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:49 INFO  DAOService:48 - get|1
+2022-01-22 21:03:49 INFO  DAOTariff:62 - get|1
+2022-01-22 21:03:49 INFO  DAOUser:70 - get|2
+2022-01-22 21:03:49 INFO  DAOUser:97 - End getALL
+2022-01-22 21:03:49 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:03:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:49 INFO  DAOService:48 - get|1
+2022-01-22 21:03:49 INFO  DAOTariff:62 - get|1
+2022-01-22 21:03:49 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:03:49 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:03:50 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 21:03:50 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:03:53 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:03:53 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:03:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:03:53 INFO  DAOService:48 - get|1
+2022-01-22 21:03:53 INFO  DAOTariff:62 - get|1
+2022-01-22 21:03:53 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:04:45 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:04:45 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:04:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:45 INFO  DAOService:48 - get|1
+2022-01-22 21:04:45 INFO  DAOTariff:62 - get|1
+2022-01-22 21:04:45 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:04:45 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:04:45 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:04:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:45 INFO  DAOService:48 - get|1
+2022-01-22 21:04:45 INFO  DAOTariff:62 - get|1
+2022-01-22 21:04:45 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:04:46 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:04:46 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:04:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:46 INFO  DAOService:48 - get|1
+2022-01-22 21:04:46 INFO  DAOTariff:62 - get|1
+2022-01-22 21:04:46 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:04:46 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:04:46 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:04:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:46 INFO  DAOService:48 - get|1
+2022-01-22 21:04:46 INFO  DAOTariff:62 - get|1
+2022-01-22 21:04:46 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:04:46 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:04:46 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:04:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:46 INFO  DAOService:48 - get|1
+2022-01-22 21:04:46 INFO  DAOTariff:62 - get|1
+2022-01-22 21:04:46 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:04:46 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:04:46 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:04:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:46 INFO  DAOService:48 - get|1
+2022-01-22 21:04:46 INFO  DAOTariff:62 - get|1
+2022-01-22 21:04:46 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:04:46 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:04:46 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:04:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:46 INFO  DAOService:48 - get|1
+2022-01-22 21:04:46 INFO  DAOTariff:62 - get|1
+2022-01-22 21:04:46 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:04:47 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:04:47 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:04:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:47 INFO  DAOService:48 - get|1
+2022-01-22 21:04:47 INFO  DAOTariff:62 - get|1
+2022-01-22 21:04:47 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:04:49 INFO  Servlet:36 - Init Servlet
+2022-01-22 21:04:49 WARN  AuthFilter:24 - User isn`t logged
+2022-01-22 21:04:49 INFO  Servlet:51 - action->viewLogin
+2022-01-22 21:04:50 INFO  Servlet:51 - action->viewLogin
+2022-01-22 21:04:50 INFO  Servlet:51 - action->viewLogin
+2022-01-22 21:04:52 INFO  Servlet:83 - action->login
+2022-01-22 21:04:52 INFO  Servlet:147 - action->default
+2022-01-22 21:04:52 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:04:52 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:04:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:52 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:04:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:52 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:04:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:52 INFO  DAOService:48 - get|1
+2022-01-22 21:04:52 INFO  DAOTariff:62 - get|1
+2022-01-22 21:04:52 INFO  DAOUser:70 - get|2
+2022-01-22 21:04:52 INFO  Servlet:95 - action->viewHome
+2022-01-22 21:04:52 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:04:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:52 INFO  DAOUser:70 - get|1
+2022-01-22 21:04:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:52 INFO  DAOService:48 - get|1
+2022-01-22 21:04:52 INFO  DAOTariff:62 - get|1
+2022-01-22 21:04:52 INFO  DAOUser:70 - get|2
+2022-01-22 21:04:52 INFO  DAOUser:97 - End getALL
+2022-01-22 21:04:52 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:04:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:52 INFO  DAOService:48 - get|1
+2022-01-22 21:04:52 INFO  DAOTariff:62 - get|1
+2022-01-22 21:04:52 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:04:54 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:04:54 INFO  Servlet:139 - action->changeLanguage
+2022-01-22 21:04:54 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:04:55 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:04:55 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:04:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:55 INFO  DAOService:48 - get|1
+2022-01-22 21:04:55 INFO  DAOTariff:62 - get|1
+2022-01-22 21:04:55 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:04:57 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:04:57 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:04:57 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:04:57 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:57 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:57 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:57 INFO  DAOService:48 - get|1
+2022-01-22 21:04:57 INFO  DAOTariff:62 - get|1
+2022-01-22 21:04:57 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:04:58 INFO  Servlet:143 - action->downloadDocx
+2022-01-22 21:04:58 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:04:58 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:58 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:58 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:04:58 INFO  DAOService:48 - get|1
+2022-01-22 21:04:58 INFO  DAOTariff:62 - get|1
+2022-01-22 21:04:58 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:52 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:09:52 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:09:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:52 INFO  DAOService:48 - get|1
+2022-01-22 21:09:52 INFO  DAOTariff:62 - get|1
+2022-01-22 21:09:52 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:52 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:09:52 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:09:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:52 INFO  DAOService:48 - get|1
+2022-01-22 21:09:52 INFO  DAOTariff:62 - get|1
+2022-01-22 21:09:52 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:52 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:09:52 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:09:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:52 INFO  DAOService:48 - get|1
+2022-01-22 21:09:52 INFO  DAOTariff:62 - get|1
+2022-01-22 21:09:52 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:52 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:09:52 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:09:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:52 INFO  DAOService:48 - get|1
+2022-01-22 21:09:52 INFO  DAOTariff:62 - get|1
+2022-01-22 21:09:52 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:52 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:09:52 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:09:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:52 INFO  DAOService:48 - get|1
+2022-01-22 21:09:52 INFO  DAOTariff:62 - get|1
+2022-01-22 21:09:52 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:53 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:09:53 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  DAOService:48 - get|1
+2022-01-22 21:09:53 INFO  DAOTariff:62 - get|1
+2022-01-22 21:09:53 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:53 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:09:53 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  DAOService:48 - get|1
+2022-01-22 21:09:53 INFO  DAOTariff:62 - get|1
+2022-01-22 21:09:53 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:53 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:09:53 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  DAOService:48 - get|1
+2022-01-22 21:09:53 INFO  DAOTariff:62 - get|1
+2022-01-22 21:09:53 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:53 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:09:53 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  DAOService:48 - get|1
+2022-01-22 21:09:53 INFO  DAOTariff:62 - get|1
+2022-01-22 21:09:53 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:53 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:09:53 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  DAOService:48 - get|1
+2022-01-22 21:09:53 INFO  DAOTariff:62 - get|1
+2022-01-22 21:09:53 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:53 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:09:53 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:53 INFO  DAOService:48 - get|1
+2022-01-22 21:09:53 INFO  DAOTariff:62 - get|1
+2022-01-22 21:09:53 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:54 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:09:54 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:09:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:54 INFO  DAOService:48 - get|1
+2022-01-22 21:09:54 INFO  DAOTariff:62 - get|1
+2022-01-22 21:09:54 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:54 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:09:54 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:09:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:54 INFO  DAOService:48 - get|1
+2022-01-22 21:09:54 INFO  DAOTariff:62 - get|1
+2022-01-22 21:09:54 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:54 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:09:54 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:09:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:54 INFO  DAOService:48 - get|1
+2022-01-22 21:09:54 INFO  DAOTariff:62 - get|1
+2022-01-22 21:09:54 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:54 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:09:54 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:09:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:09:54 INFO  DAOService:48 - get|1
+2022-01-22 21:09:54 INFO  DAOTariff:62 - get|1
+2022-01-22 21:09:54 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:09:57 INFO  Servlet:36 - Init Servlet
+2022-01-22 21:09:57 WARN  AuthFilter:24 - User isn`t logged
+2022-01-22 21:09:57 INFO  Servlet:51 - action->viewLogin
+2022-01-22 21:09:57 INFO  Servlet:51 - action->viewLogin
+2022-01-22 21:10:00 INFO  Servlet:147 - action->default
+2022-01-22 21:10:00 INFO  Servlet:83 - action->login
+2022-01-22 21:10:00 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:10:00 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:10:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:00 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:10:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:00 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:10:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:00 INFO  DAOService:48 - get|1
+2022-01-22 21:10:00 INFO  DAOTariff:62 - get|1
+2022-01-22 21:10:00 INFO  DAOUser:70 - get|2
+2022-01-22 21:10:00 INFO  Servlet:95 - action->viewHome
+2022-01-22 21:10:00 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:10:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:01 INFO  DAOUser:70 - get|1
+2022-01-22 21:10:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:01 INFO  DAOService:48 - get|1
+2022-01-22 21:10:01 INFO  DAOTariff:62 - get|1
+2022-01-22 21:10:01 INFO  DAOUser:70 - get|2
+2022-01-22 21:10:01 INFO  DAOUser:97 - End getALL
+2022-01-22 21:10:01 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:10:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:01 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:01 INFO  DAOService:48 - get|1
+2022-01-22 21:10:01 INFO  DAOTariff:62 - get|1
+2022-01-22 21:10:01 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:10:01 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:10:02 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:10:02 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:10:02 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:02 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:02 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:02 INFO  DAOService:48 - get|1
+2022-01-22 21:10:02 INFO  DAOTariff:62 - get|1
+2022-01-22 21:10:02 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:10:03 INFO  Servlet:143 - action->downloadDocx
+2022-01-22 21:10:03 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:10:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:03 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:03 INFO  DAOService:48 - get|1
+2022-01-22 21:10:03 INFO  DAOTariff:62 - get|1
+2022-01-22 21:10:03 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:10:52 INFO  Servlet:36 - Init Servlet
+2022-01-22 21:10:52 WARN  AuthFilter:24 - User isn`t logged
+2022-01-22 21:10:52 INFO  Servlet:51 - action->viewLogin
+2022-01-22 21:10:54 INFO  Servlet:147 - action->default
+2022-01-22 21:10:54 INFO  Servlet:83 - action->login
+2022-01-22 21:10:54 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:10:54 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:10:54 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:55 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:10:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:55 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:10:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:55 INFO  DAOService:48 - get|1
+2022-01-22 21:10:55 INFO  DAOTariff:62 - get|1
+2022-01-22 21:10:55 INFO  DAOUser:70 - get|2
+2022-01-22 21:10:55 INFO  Servlet:95 - action->viewHome
+2022-01-22 21:10:55 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:10:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:55 INFO  DAOUser:70 - get|1
+2022-01-22 21:10:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:55 INFO  DAOService:48 - get|1
+2022-01-22 21:10:55 INFO  DAOTariff:62 - get|1
+2022-01-22 21:10:55 INFO  DAOUser:70 - get|2
+2022-01-22 21:10:55 INFO  DAOUser:97 - End getALL
+2022-01-22 21:10:55 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:10:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:55 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:55 INFO  DAOService:48 - get|1
+2022-01-22 21:10:55 INFO  DAOTariff:62 - get|1
+2022-01-22 21:10:55 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:10:55 INFO  Servlet:107 - action->viewUserTariffsList
+2022-01-22 21:10:56 INFO  Servlet:111 - action->viewTariffsList
+2022-01-22 21:10:56 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:10:56 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:56 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:56 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:56 INFO  DAOService:48 - get|1
+2022-01-22 21:10:56 INFO  DAOTariff:62 - get|1
+2022-01-22 21:10:56 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:10:57 INFO  Servlet:143 - action->downloadDocx
+2022-01-22 21:10:57 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:10:57 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:57 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:57 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:10:57 INFO  DAOService:48 - get|1
+2022-01-22 21:10:57 INFO  DAOTariff:62 - get|1
+2022-01-22 21:10:57 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:15:33 INFO  Servlet:37 - Init Servlet
+2022-01-22 21:15:33 WARN  AuthFilter:24 - User isn`t logged
+2022-01-22 21:15:33 INFO  Servlet:52 - action->viewLogin
+2022-01-22 21:15:34 INFO  Servlet:52 - action->viewLogin
+2022-01-22 21:15:36 INFO  Servlet:84 - action->login
+2022-01-22 21:15:36 INFO  Servlet:148 - action->default
+2022-01-22 21:15:36 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:15:36 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:15:36 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:36 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:15:36 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:36 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:15:36 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:36 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:36 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:36 INFO  DAOService:48 - get|1
+2022-01-22 21:15:36 INFO  DAOTariff:62 - get|1
+2022-01-22 21:15:36 INFO  DAOUser:70 - get|2
+2022-01-22 21:15:36 INFO  Servlet:96 - action->viewHome
+2022-01-22 21:15:36 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:15:36 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:36 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:36 INFO  DAOUser:70 - get|1
+2022-01-22 21:15:36 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:36 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:36 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:36 INFO  DAOService:48 - get|1
+2022-01-22 21:15:36 INFO  DAOTariff:62 - get|1
+2022-01-22 21:15:36 INFO  DAOUser:70 - get|2
+2022-01-22 21:15:36 INFO  DAOUser:97 - End getALL
+2022-01-22 21:15:36 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:15:36 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:36 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:36 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:36 INFO  DAOService:48 - get|1
+2022-01-22 21:15:36 INFO  DAOTariff:62 - get|1
+2022-01-22 21:15:36 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:15:37 INFO  Servlet:108 - action->viewUserTariffsList
+2022-01-22 21:15:37 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:15:37 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:15:37 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:38 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:38 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:38 INFO  DAOService:48 - get|1
+2022-01-22 21:15:38 INFO  DAOTariff:62 - get|1
+2022-01-22 21:15:38 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:15:38 INFO  Servlet:144 - action->downloadDocx
+2022-01-22 21:15:38 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:15:38 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:38 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:38 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:15:38 INFO  DAOService:48 - get|1
+2022-01-22 21:15:38 INFO  DAOTariff:62 - get|1
+2022-01-22 21:15:38 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:18 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:18 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:18 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:18 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:18 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:18 INFO  DAOService:48 - get|1
+2022-01-22 21:17:18 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:18 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:19 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:19 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:19 INFO  DAOService:48 - get|1
+2022-01-22 21:17:19 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:19 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:19 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:19 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:19 INFO  DAOService:48 - get|1
+2022-01-22 21:17:19 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:19 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:19 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:19 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:19 INFO  DAOService:48 - get|1
+2022-01-22 21:17:19 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:19 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:19 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:19 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:19 INFO  DAOService:48 - get|1
+2022-01-22 21:17:19 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:19 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:19 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:19 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:19 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  DAOService:48 - get|1
+2022-01-22 21:17:20 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:20 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:20 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:20 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  DAOService:48 - get|1
+2022-01-22 21:17:20 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:20 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:20 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:20 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  DAOService:48 - get|1
+2022-01-22 21:17:20 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:20 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:20 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:20 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  DAOService:48 - get|1
+2022-01-22 21:17:20 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:20 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:20 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:20 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  DAOService:48 - get|1
+2022-01-22 21:17:20 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:20 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:20 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:20 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:20 INFO  DAOService:48 - get|1
+2022-01-22 21:17:20 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:20 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:21 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:21 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:21 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:21 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:21 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:21 INFO  DAOService:48 - get|1
+2022-01-22 21:17:21 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:21 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:21 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:21 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:21 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:21 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:21 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:21 INFO  DAOService:48 - get|1
+2022-01-22 21:17:21 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:21 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:21 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:21 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:21 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:21 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:21 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:21 INFO  DAOService:48 - get|1
+2022-01-22 21:17:21 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:21 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:21 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:21 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:21 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:21 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:21 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:21 INFO  DAOService:48 - get|1
+2022-01-22 21:17:21 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:21 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:21 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:21 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:21 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:21 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:21 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:21 INFO  DAOService:48 - get|1
+2022-01-22 21:17:21 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:21 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:24 INFO  Servlet:37 - Init Servlet
+2022-01-22 21:17:24 WARN  AuthFilter:24 - User isn`t logged
+2022-01-22 21:17:24 INFO  Servlet:52 - action->viewLogin
+2022-01-22 21:17:24 INFO  Servlet:52 - action->viewLogin
+2022-01-22 21:17:27 INFO  Servlet:84 - action->login
+2022-01-22 21:17:27 INFO  Servlet:148 - action->default
+2022-01-22 21:17:27 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:17:27 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:17:27 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:27 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:17:27 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:27 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:17:27 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:27 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:27 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:27 INFO  DAOService:48 - get|1
+2022-01-22 21:17:27 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:27 INFO  DAOUser:70 - get|2
+2022-01-22 21:17:27 INFO  Servlet:96 - action->viewHome
+2022-01-22 21:17:27 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:17:27 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:27 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:27 INFO  DAOUser:70 - get|1
+2022-01-22 21:17:27 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:27 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:27 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:27 INFO  DAOService:48 - get|1
+2022-01-22 21:17:27 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:27 INFO  DAOUser:70 - get|2
+2022-01-22 21:17:27 INFO  DAOUser:97 - End getALL
+2022-01-22 21:17:27 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:27 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:27 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:27 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:27 INFO  DAOService:48 - get|1
+2022-01-22 21:17:27 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:27 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:28 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:17:28 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:28 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:28 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:28 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:28 INFO  DAOService:48 - get|1
+2022-01-22 21:17:28 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:28 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:17:29 INFO  Servlet:144 - action->downloadDocx
+2022-01-22 21:17:29 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:17:29 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:29 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:29 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:17:29 INFO  DAOService:48 - get|1
+2022-01-22 21:17:29 INFO  DAOTariff:62 - get|1
+2022-01-22 21:17:29 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:19:44 INFO  Servlet:37 - Init Servlet
+2022-01-22 21:19:44 WARN  AuthFilter:24 - User isn`t logged
+2022-01-22 21:19:44 INFO  Servlet:52 - action->viewLogin
+2022-01-22 21:19:44 INFO  Servlet:52 - action->viewLogin
+2022-01-22 21:19:46 INFO  Servlet:84 - action->login
+2022-01-22 21:19:46 INFO  Servlet:148 - action->default
+2022-01-22 21:19:46 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:19:46 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:19:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:47 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:19:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:47 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:19:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:47 INFO  DAOService:48 - get|1
+2022-01-22 21:19:47 INFO  DAOTariff:62 - get|1
+2022-01-22 21:19:47 INFO  DAOUser:70 - get|2
+2022-01-22 21:19:47 INFO  Servlet:96 - action->viewHome
+2022-01-22 21:19:47 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:19:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:47 INFO  DAOUser:70 - get|1
+2022-01-22 21:19:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:47 INFO  DAOService:48 - get|1
+2022-01-22 21:19:47 INFO  DAOTariff:62 - get|1
+2022-01-22 21:19:47 INFO  DAOUser:70 - get|2
+2022-01-22 21:19:47 INFO  DAOUser:97 - End getALL
+2022-01-22 21:19:47 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:19:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:47 INFO  DAOService:48 - get|1
+2022-01-22 21:19:47 INFO  DAOTariff:62 - get|1
+2022-01-22 21:19:47 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:19:47 INFO  Servlet:108 - action->viewUserTariffsList
+2022-01-22 21:19:48 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:19:48 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:19:48 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:48 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:48 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:48 INFO  DAOService:48 - get|1
+2022-01-22 21:19:48 INFO  DAOTariff:62 - get|1
+2022-01-22 21:19:48 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:19:49 INFO  Servlet:144 - action->downloadDocx
+2022-01-22 21:19:49 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:19:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:49 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:19:49 INFO  DAOService:48 - get|1
+2022-01-22 21:19:49 INFO  DAOTariff:62 - get|1
+2022-01-22 21:19:49 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:22:51 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:22:51 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:22:51 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:51 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:51 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:51 INFO  DAOService:48 - get|1
+2022-01-22 21:22:51 INFO  DAOTariff:62 - get|1
+2022-01-22 21:22:51 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:22:52 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:22:52 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:22:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:52 INFO  DAOService:48 - get|1
+2022-01-22 21:22:52 INFO  DAOTariff:62 - get|1
+2022-01-22 21:22:52 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:22:52 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:22:52 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:22:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:52 INFO  DAOService:48 - get|1
+2022-01-22 21:22:52 INFO  DAOTariff:62 - get|1
+2022-01-22 21:22:52 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:22:52 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:22:52 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:22:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:52 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:52 INFO  DAOService:48 - get|1
+2022-01-22 21:22:52 INFO  DAOTariff:62 - get|1
+2022-01-22 21:22:52 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:22:55 INFO  Servlet:37 - Init Servlet
+2022-01-22 21:22:55 WARN  AuthFilter:24 - User isn`t logged
+2022-01-22 21:22:55 INFO  Servlet:52 - action->viewLogin
+2022-01-22 21:22:58 INFO  Servlet:84 - action->login
+2022-01-22 21:22:58 INFO  Servlet:148 - action->default
+2022-01-22 21:22:59 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:22:59 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 INFO  DAOService:48 - get|1
+2022-01-22 21:22:59 INFO  DAOTariff:62 - get|1
+2022-01-22 21:22:59 INFO  DAOUser:70 - get|2
+2022-01-22 21:22:59 INFO  Servlet:96 - action->viewHome
+2022-01-22 21:22:59 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 INFO  DAOUser:70 - get|1
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 INFO  DAOService:48 - get|1
+2022-01-22 21:22:59 INFO  DAOTariff:62 - get|1
+2022-01-22 21:22:59 INFO  DAOUser:70 - get|2
+2022-01-22 21:22:59 INFO  DAOUser:97 - End getALL
+2022-01-22 21:22:59 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 INFO  DAOService:48 - get|1
+2022-01-22 21:22:59 INFO  DAOTariff:62 - get|1
+2022-01-22 21:22:59 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:22:59 INFO  Servlet:112 - action->viewTariffsList
+2022-01-22 21:22:59 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:22:59 INFO  DAOService:48 - get|1
+2022-01-22 21:22:59 INFO  DAOTariff:62 - get|1
+2022-01-22 21:22:59 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:23:00 INFO  Servlet:144 - action->downloadDocx
+2022-01-22 21:23:00 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:23:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:23:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:23:00 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:23:00 INFO  DAOService:48 - get|1
+2022-01-22 21:23:00 INFO  DAOTariff:62 - get|1
+2022-01-22 21:23:00 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:26:42 INFO  Servlet:38 - Init Servlet
+2022-01-22 21:26:42 WARN  AuthFilter:24 - User isn`t logged
+2022-01-22 21:26:42 INFO  Servlet:53 - action->viewLogin
+2022-01-22 21:26:45 INFO  Servlet:85 - action->login
+2022-01-22 21:26:45 INFO  Servlet:149 - action->default
+2022-01-22 21:26:45 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:26:45 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:26:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:45 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:26:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:45 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:26:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:45 INFO  DAOService:48 - get|1
+2022-01-22 21:26:45 INFO  DAOTariff:62 - get|1
+2022-01-22 21:26:45 INFO  DAOUser:70 - get|2
+2022-01-22 21:26:45 INFO  Servlet:97 - action->viewHome
+2022-01-22 21:26:45 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:26:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:45 INFO  DAOUser:70 - get|1
+2022-01-22 21:26:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:45 INFO  DAOService:48 - get|1
+2022-01-22 21:26:45 INFO  DAOTariff:62 - get|1
+2022-01-22 21:26:45 INFO  DAOUser:70 - get|2
+2022-01-22 21:26:45 INFO  DAOUser:97 - End getALL
+2022-01-22 21:26:45 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:26:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:45 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:45 INFO  DAOService:48 - get|1
+2022-01-22 21:26:45 INFO  DAOTariff:62 - get|1
+2022-01-22 21:26:45 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:26:46 INFO  Servlet:113 - action->viewTariffsList
+2022-01-22 21:26:46 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:26:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:46 INFO  DAOService:48 - get|1
+2022-01-22 21:26:46 INFO  DAOTariff:62 - get|1
+2022-01-22 21:26:46 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:26:46 INFO  Servlet:145 - action->downloadDocx
+2022-01-22 21:26:46 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:26:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:46 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:47 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:26:47 INFO  DAOService:48 - get|1
+2022-01-22 21:26:47 INFO  DAOTariff:62 - get|1
+2022-01-22 21:26:47 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:27:34 INFO  Servlet:141 - action->changeLanguage
+2022-01-22 21:27:34 INFO  Servlet:113 - action->viewTariffsList
+2022-01-22 21:27:34 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:27:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:34 INFO  DAOService:48 - get|1
+2022-01-22 21:27:34 INFO  DAOTariff:62 - get|1
+2022-01-22 21:27:34 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:27:39 INFO  Servlet:113 - action->viewTariffsList
+2022-01-22 21:27:39 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:27:39 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:39 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:39 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:39 INFO  DAOService:48 - get|1
+2022-01-22 21:27:39 INFO  DAOTariff:62 - get|1
+2022-01-22 21:27:39 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:27:40 INFO  Servlet:109 - action->viewUserTariffsList
+2022-01-22 21:27:41 INFO  Servlet:113 - action->viewTariffsList
+2022-01-22 21:27:41 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:27:41 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:41 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:41 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:41 INFO  DAOService:48 - get|1
+2022-01-22 21:27:41 INFO  DAOTariff:62 - get|1
+2022-01-22 21:27:41 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:27:42 INFO  Servlet:97 - action->viewHome
+2022-01-22 21:27:42 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:27:42 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:42 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:42 INFO  DAOUser:70 - get|1
+2022-01-22 21:27:42 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:42 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:42 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:42 INFO  DAOService:48 - get|1
+2022-01-22 21:27:42 INFO  DAOTariff:62 - get|1
+2022-01-22 21:27:42 INFO  DAOUser:70 - get|2
+2022-01-22 21:27:42 INFO  DAOUser:97 - End getALL
+2022-01-22 21:27:42 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:27:42 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:42 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:42 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:27:42 INFO  DAOService:48 - get|1
+2022-01-22 21:27:42 INFO  DAOTariff:62 - get|1
+2022-01-22 21:27:42 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:27:44 INFO  Servlet:81 - action->viewUserBalance
+2022-01-22 21:27:46 INFO  Servlet:89 - action->viewLoginOut
+2022-01-22 21:27:49 INFO  Servlet:149 - action->default
+2022-01-22 21:27:49 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:27:49 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:28:27 INFO  Servlet:89 - action->viewLoginOut
+2022-01-22 21:28:27 INFO  Servlet:89 - action->viewLoginOut
+2022-01-22 21:28:27 INFO  Servlet:89 - action->viewLoginOut
+2022-01-22 21:28:27 INFO  Servlet:89 - action->viewLoginOut
+2022-01-22 21:28:28 INFO  Servlet:89 - action->viewLoginOut
+2022-01-22 21:28:28 INFO  Servlet:89 - action->viewLoginOut
+2022-01-22 21:28:28 INFO  Servlet:89 - action->viewLoginOut
+2022-01-22 21:28:28 INFO  Servlet:89 - action->viewLoginOut
+2022-01-22 21:28:28 INFO  Servlet:89 - action->viewLoginOut
+2022-01-22 21:28:28 INFO  Servlet:89 - action->viewLoginOut
+2022-01-22 21:28:29 INFO  Servlet:89 - action->viewLoginOut
+2022-01-22 21:28:29 INFO  Servlet:89 - action->viewLoginOut
+2022-01-22 21:28:31 INFO  Servlet:38 - Init Servlet
+2022-01-22 21:28:31 WARN  AuthFilter:24 - User isn`t logged
+2022-01-22 21:28:31 INFO  Servlet:53 - action->viewLogin
+2022-01-22 21:28:32 INFO  Servlet:53 - action->viewLogin
+2022-01-22 21:28:34 INFO  Servlet:85 - action->login
+2022-01-22 21:28:34 INFO  Servlet:149 - action->default
+2022-01-22 21:28:34 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:28:34 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:28:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:28:34 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:28:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:28:34 ERROR DAOUser:223 - loggingUser|romandubil07@gmail.com|1
+2022-01-22 21:28:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:28:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:28:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:28:34 INFO  DAOService:48 - get|1
+2022-01-22 21:28:34 INFO  DAOTariff:62 - get|1
+2022-01-22 21:28:34 INFO  DAOUser:70 - get|2
+2022-01-22 21:28:34 INFO  Servlet:97 - action->viewHome
+2022-01-22 21:28:34 INFO  DAOUser:86 - Start getALL
+2022-01-22 21:28:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:28:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:28:34 INFO  DAOUser:70 - get|1
+2022-01-22 21:28:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:28:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:28:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:28:34 INFO  DAOService:48 - get|1
+2022-01-22 21:28:34 INFO  DAOTariff:62 - get|1
+2022-01-22 21:28:34 INFO  DAOUser:70 - get|2
+2022-01-22 21:28:34 INFO  DAOUser:97 - End getALL
+2022-01-22 21:28:34 INFO  DAOTariff:77 - Start getAll
+2022-01-22 21:28:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:28:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:28:34 INFO  Database:30 - Connect with database MySQL
+2022-01-22 21:28:34 INFO  DAOService:48 - get|1
+2022-01-22 21:28:34 INFO  DAOTariff:62 - get|1
+2022-01-22 21:28:34 INFO  DAOTariff:86 - End getAll
+2022-01-22 21:28:34 INFO  Servlet:89 - action->viewLoginOut
+2022-01-22 21:28:35 INFO  Servlet:141 - action->changeLanguage
+2022-01-22 21:28:35 INFO  Servlet:89 - action->viewLoginOut
+2022-01-22 21:28:37 INFO  Servlet:149 - action->default
+2022-01-22 21:28:37 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:28:37 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:28:38 INFO  Servlet:137 - action->logOut
+2022-01-22 21:28:38 INFO  DAOService:18 - Print today`s date
+2022-01-22 21:28:38 INFO  DAOService:18 - Print today`s date

@@ -11,19 +11,21 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 import java.util.*;
-/**
- * A class that implement DAO-pattern for interaction with database(MySQL)
- * @see com.finalproject.internetpro.model.Service
- * @see com.finalproject.internetpro.database.Database
- */
+
 public class DAOUser implements DAO<User> {
     static final Logger logger = Logger.getLogger(DAOUser.class);
 
-    /**
-     * Selected User by id
-     * @param id User`s id
-     * @return returning User witch could be null
-     */
+    private DAOUser instance;
+
+    public DAOUser getInstance(){
+        if(instance == null)
+            instance = new DAOUser();
+        return instance;
+    }
+
+    public DAOUser() {
+    }
+
     @Override
     public Optional<User> get(long id){
 
@@ -74,10 +76,7 @@ public class DAOUser implements DAO<User> {
         return Optional.ofNullable(user);
     }
 
-    /**
-     * Selecting All Users from database
-     * @return returning List of Users from database
-     */
+
     @Override
     public List<User> getAll(){
         List<User> users = null;
@@ -101,10 +100,7 @@ public class DAOUser implements DAO<User> {
         return users;
     }
 
-    /**
-     * Inserting into database entered User
-     * @param user User
-     */
+
     @Override
     public void save(User user){
         try {
@@ -129,10 +125,7 @@ public class DAOUser implements DAO<User> {
         }
     }
 
-    /**
-     * Updating in database entered User
-     * @param user User
-     */
+
     @Override
     public void update(User user){
         try {
@@ -172,10 +165,7 @@ public class DAOUser implements DAO<User> {
         }
     }
 
-    /**
-     * Deleting in database the User by id
-     * @param id User`s id
-     */
+
     @Override
     public void delete(int id){
         try {
@@ -199,12 +189,7 @@ public class DAOUser implements DAO<User> {
         }
     }
 
-    /**
-     * If User exist and all entered data are correct - return id
-     * @param email User`s email
-     * @param password User`s password
-     * @return returning User`s id if all enter data are correct
-     */
+
     public Integer loggingUser(String email,String password) {
         try {
         String sql = "SELECT id from Users where email = ? and password = ?";
@@ -229,13 +214,6 @@ public class DAOUser implements DAO<User> {
     }
 
 
-
-    /**
-     * Checking does the tariff is connected to the User
-     * @param idUser User`s id
-     * @param idTariff Tariff`s id
-     * @return returning boolean does the tariff is connected to the User
-     */
     public boolean checkTariff(int idUser, int idTariff)
     {
         boolean chT = false;
@@ -259,11 +237,7 @@ public class DAOUser implements DAO<User> {
         return chT;
     }
 
-    /**
-     * Connecting a tariff from User account
-     * @param idUser User`s id
-     * @param idTariff Tariff`s id
-     */
+
     public void deleteTariffConnection(int idUser,int idTariff)
     {
         try {
@@ -282,11 +256,7 @@ public class DAOUser implements DAO<User> {
         }
     }
 
-    /**
-     * Connecting a tariff to User account
-     * @param idUser User`s id
-     * @param idTariff Tariff`s id
-     */
+
     public void connectTariffConnection(int idUser,int idTariff)
     {
         try {
@@ -309,11 +279,7 @@ public class DAOUser implements DAO<User> {
         }
     }
 
-    /**
-     * Set User`s block status
-     * @param id User`s id
-     * @param block User`s block status
-     */
+
     public void blockStatusUser(int id, boolean block){
         try {
             String sql ="update users set blocked = ? where users.id = ?";

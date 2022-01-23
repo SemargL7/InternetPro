@@ -12,19 +12,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * A class that implement DAO pattern for interaction with database(MySQL)
- * @see com.finalproject.internetpro.model.Service
- * @see com.finalproject.internetpro.database.Database
- */
 public class DAOService implements DAO<Service> {
     static final Logger logger = Logger.getLogger(DAOService.class);
 
-    /**
-     * Selected Tariff by id
-     * @param id Tariff`s id
-     * @return returning Service witch could be null
-     */
+    private DAOService instance;
+
+    public DAOService getInstance(){
+        if(instance == null)
+            instance = new DAOService();
+        return instance;
+    }
+
+    public DAOService() {
+    }
+
     @Override
     public Optional<Service> get(long id){
         Service service = null;
@@ -53,10 +54,6 @@ public class DAOService implements DAO<Service> {
         return Optional.ofNullable(service);
     }
 
-    /**
-     * Selecting All Services from database
-     * @return returning List of Services from the database
-     */
     @Override
     public List<Service> getAll(){
         List<Service> services = null;
@@ -81,10 +78,6 @@ public class DAOService implements DAO<Service> {
         return services;
     }
 
-    /**
-     * Inserting the service in the database
-     * @param service Service
-     */
     @Override
     public void save(Service service){
         try {
@@ -103,10 +96,6 @@ public class DAOService implements DAO<Service> {
         }
     }
 
-    /**
-     * Updating the service in the database
-     * @param service Service
-     */
     @Override
     public void update(Service service){
         try {
@@ -125,10 +114,6 @@ public class DAOService implements DAO<Service> {
         }
     }
 
-    /**
-     * Deleting the Service by id in the database
-     * @param id Service`s id
-     */
     @Override
     public void delete(int id){
         try {
