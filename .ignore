@@ -1,2 +1,2 @@
-target
-/src/main/resources/log/*
+.target
+.src/main/resources/log/*
