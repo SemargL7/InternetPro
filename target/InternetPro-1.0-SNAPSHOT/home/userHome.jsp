@@ -75,11 +75,14 @@
         table td{
             border: 1px solid #e3e3e3;
             padding: 4px 8px;
+            color: #1A374D;
         }
 
-        table tr:nth-child(odd) td{
-            background-color: #e7edf0;
+        .active{
+            visibility: hidden;
+            text-indent: -9999px;
         }
+
     </style>
 </head>
 <body>
@@ -97,16 +100,71 @@
 </nav>
 
 <div class="mainBody">
-    User
+    <form action="/home/saveProfile" method="post">
+        <table style="with: 80%">
+            <tr>
+                <td id="status_HTML">Status</td>
+                <td class="info">Manager</td>
+                <td class="changeInfo">Manager</td>
+            </tr>
+            <tr>
+                <td id="name_HTML">Name</td>
+                <td class="info">${user.name}</td>
+                <td class="changeInfo"><input type="text" name="user_name" value="${user.name}" required/></td>
+            </tr>
+            <tr>
+                <td id="surname_HTML">Surname</td>
+                <td class="info">${user.surname}</td>
+                <td class="changeInfo"><input type="text" name="user_surname" value="${user.surname}" required/></td>
+            </tr>
+            <tr>
+                <td id="email_HTML">Email</td>
+                <td class="info">${user.email}</td>
+                <td class="changeInfo"><input type="email" name="user_email" value="${user.email}" required/></td>
+            </tr>
+            <tr>
+                <td id="password_HTML">Password</td>
+                <td class="info">${user.password}</td>
+                <td class="changeInfo"><input type="text" name="user_password" value="${user.password}" required/></td>
+            </tr>
+            <tr>
+                <td id="action_HTML">Action</td>
+                <td class="info"> <span onclick="clickOnChangeBut()" >⚙</span></td>
+                <td class="changeInfo"><input id="submit_HTML" type="submit" value="⇨" /></td>
+            </tr>
+        </table>
+    </form>
 </div>
 </body>
+</body>
 <script type="text/javascript">
+
+    for (const x of document.getElementsByClassName("changeInfo")) {
+        x.classList.add("active")
+    }
+    for (const x of document.getElementsByClassName("info")) {
+        x.classList.remove("active")
+    }
+    function clickOnChangeBut() {
+        for (const x of document.getElementsByClassName("changeInfo")) {
+            x.classList.remove("active")
+        }
+        for (const x of document.getElementsByClassName("info")) {
+            x.classList.add("active")
+        }
+    }
+
+
+
+
     let lang=["home_HTML","loginOut_HTML",
 
         "balance_HTML",
 
         "userTariffsList_HTML",
-        "tariffsList_HTML"
+        "tariffsList_HTML",
+
+        "status_HTML","name_HTML","surname_HTML","email_HTML","password_HTML","save_HTML"
 
         ];
     let langEng =["Home","Login-Out",
@@ -114,7 +172,9 @@
         "Balance:${userBalance}",
 
         "Connected Tariffs",
-        "All tariffs"
+        "All tariffs",
+
+        "Status","Name","Surname","Email","Password","Save"
 
         ];
     let langUa =["Додому","Вийти",
@@ -122,7 +182,9 @@
         "Рахунок:${userBalance}",
 
         "Підключені тарифи",
-        "Всі тарифи"
+        "Всі тарифи",
+
+        "Статус","Ім'я","Фамілія","Почта","Пароль","Зберегти"
 
         ];
     let language = parseInt('${(language).intValue()}');

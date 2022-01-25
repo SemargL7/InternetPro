@@ -76,10 +76,12 @@
         table td{
             border: 1px solid #e3e3e3;
             padding: 4px 8px;
+            color: #1A374D;
         }
 
-        table tr:nth-child(odd) td{
-            background-color: #e7edf0;
+        .active{
+            visibility: hidden;
+            text-indent: -9999px;
         }
     </style>
 </head>
@@ -97,49 +99,77 @@
 </nav>
 
 <div class="mainBody">
-Manager
+    <form action="/home/saveProfile" method="post">
+        <table style="with: 80%">
+            <tr>
+                <td id="status_HTML">Status</td>
+                <td class="info">Manager</td>
+                <td class="changeInfo">Manager</td>
+            </tr>
+            <tr>
+                <td id="name_HTML">Name</td>
+                <td class="info">${user.name}</td>
+                <td class="changeInfo"><input type="text" name="user_name" value="${user.name}" required/></td>
+            </tr>
+            <tr>
+                <td id="surname_HTML">Surname</td>
+                <td class="info">${user.surname}</td>
+                <td class="changeInfo"><input type="text" name="user_surname" value="${user.surname}" required/></td>
+            </tr>
+            <tr>
+                <td id="email_HTML">Email</td>
+                <td class="info">${user.email}</td>
+                <td class="changeInfo"><input type="email" name="user_email" value="${user.email}" required/></td>
+            </tr>
+            <tr>
+                <td id="password_HTML">Password</td>
+                <td class="info">${user.password}</td>
+                <td class="changeInfo"><input type="text" name="user_password" value="${user.password}" required/></td>
+            </tr>
+            <tr>
+                <td id="action_HTML">Action</td>
+                <td class="info"> <span onclick="clickOnChangeBut()" >⚙</span></td>
+                <td class="changeInfo"><input id="submit_HTML" type="submit" value="⇨" /></td>
+            </tr>
+        </table>
+    </form>
 </div>
 </body>
 <script type="text/javascript">
+
+
+    for (const x of document.getElementsByClassName("changeInfo")) {
+        x.classList.add("active")
+    }
+    for (const x of document.getElementsByClassName("info")) {
+        x.classList.remove("active")
+    }
+    function clickOnChangeBut() {
+        for (const x of document.getElementsByClassName("changeInfo")) {
+            x.classList.remove("active")
+        }
+        for (const x of document.getElementsByClassName("info")) {
+            x.classList.add("active")
+        }
+    }
+
+
+
     let lang=["home_HTML","loginOut_HTML",
 
         "usersList_HTML","tariffsList_HTML",
 
-        "id_HTML","name_HTML","surname_HTML",
-        "dateBirth_HTML","email_HTML","balance_HTML",
-        "blocked_HTML","specialAccess_HTML","action_HTML",
-        "block_unblock_HTML",
-
-        "addTariff_HTML",
-
-        "id2_HTML","service_HTML","cost_HTML","daysOfTariff_HTML",
-        "description_HTML","action2_HTML","change_HTML","delete_HTML"];
+        "status_HTML","name_HTML","surname_HTML","email_HTML","password_HTML","save_HTML"];
     let langEng =["Home","Login-Out",
 
         "Users","Tariffs",
 
-        "ID","Name","Surname",
-        "Date Of Birth","Email","Balance",
-        "Blocked","Special Access","Action",
-        "Block/Unblock",
-
-        "Add Tariff",
-
-        "ID","Service","Cost","Days of Tariff",
-        "Description","Action","Change","Delete"];
+        "Status","Name","Surname","Email","Password","Save"];
     let langUa =["Додому","Вийти",
 
         "Користувачі","Тарифи",
 
-        "Номер","Ім'я","Фамілія",
-        "Дата народження","Почта","Рахунок",
-        "Заблокований","Спец. доступ","Дія",
-        "Заблок./Розблок.",
-
-        "Додати тариф",
-
-        "Номер","Сервіс","Ціна","К-ть днів дії",
-        "Опис","Дія","Змінити","Видалити"];
+        "Статус","Ім'я","Фамілія","Почта","Пароль","Зберегти"];
     let language = parseInt('${(language).intValue()}');
 
     if(language == 2)

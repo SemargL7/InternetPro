@@ -10,7 +10,6 @@
             color: #B1D0E0;
             background-color: #1A374D;
         }
-
         nav{
             width: 100%;
             margin: -10px auto;

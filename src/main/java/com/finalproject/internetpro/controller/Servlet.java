@@ -145,6 +145,10 @@ public class Servlet extends HttpServlet {
                     logger.info("action->downloadDocx");
                     downloadDocx(request, response);
                 }
+                case "/home/saveProfile"->{
+                    logger.info("action->saveProfile");
+                    saveProfile(request, response);
+                }
                 default -> {
                     logger.info("action->default");
                     response.sendRedirect("/");
@@ -162,12 +166,8 @@ public class Servlet extends HttpServlet {
         String url = "";
         if (logUser.isSpecialAccess()) url = "home/managerHome.jsp";
         else url = "home/userHome.jsp";
-        List<User> listUser = daoUser.getAll();
-        request.getSession().setAttribute("listUser", listUser);
-        List<Tariff> listTariff = daoTariff.getAll();
-        request.getSession().setAttribute("listTariff", listTariff);
-        List<Tariff> userTariff = logUser.getTariffs();
-        request.getSession().setAttribute("userTariff", userTariff);
+
+        request.getSession().setAttribute("user",request.getServletContext().getAttribute("logUser"));
         double userBalance = logUser.getBalance();
         request.getSession().setAttribute("userBalance", userBalance);
         request.getSession().setAttribute("language", language);
@@ -536,6 +536,17 @@ public class Servlet extends HttpServlet {
         out.close();
 
         response.sendRedirect("/home/tariffsList");
+    }
+
+    private void saveProfile(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, Exception {
+        logUser.setName(request.getParameter("user_name"));
+        logUser.setSurname(request.getParameter("user_surname"));
+        logUser.setEmail(request.getParameter("user_email"));
+        logUser.setPassword(request.getParameter("user_password"));
+        request.getServletContext().setAttribute("logUser",logUser);
+        daoUser.update(logUser);
+        response.sendRedirect("/home");
     }
 
 }

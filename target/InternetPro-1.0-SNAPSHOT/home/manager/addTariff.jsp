@@ -129,7 +129,7 @@
                 </tr>
                 <tr>
                     <td id="cost_HTML">Cost</td>
-                    <td><input type="number" name="cost" required/></td>
+                    <td><input type="number" name="cost" min="0" required/></td>
                 </tr>
                 <tr>
                     <td id="days_HTML">Days</td>

@@ -99,7 +99,6 @@
         .meme.active{
             opacity: 0.0;
             transform: scale(0.9);
-
         }
         .alert {
             padding: 20px;
