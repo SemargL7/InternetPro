@@ -61,9 +61,9 @@
             color: #142a3b;
         }
 
-
         table{
             border-collapse: collapse;
+            background: white;
         }
         table th{
             text-align: left;
@@ -82,7 +82,6 @@
             visibility: hidden;
             text-indent: -9999px;
         }
-
     </style>
 </head>
 <body>
@@ -104,8 +103,8 @@
         <table style="with: 80%">
             <tr>
                 <td id="status_HTML">Status</td>
-                <td class="info">Manager</td>
-                <td class="changeInfo">Manager</td>
+                <td class="info">User</td>
+                <td class="changeInfo">User</td>
             </tr>
             <tr>
                 <td id="name_HTML">Name</td>

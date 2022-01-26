@@ -20,7 +20,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-
+/**
+ * Servlet class for Internet provider
+ * Servlet standardized API for creating dynamic content to a web server
+ * @see DAOUser
+ * @see DAOTariff
+ * @see DAOService
+ * @see User
+ * @see Tariff
+ * @see Service
+ */
 @WebServlet("/")
 public class Servlet extends HttpServlet {
     static final Logger logger = Logger.getLogger(Servlet.class);
@@ -30,6 +39,8 @@ public class Servlet extends HttpServlet {
     private DAOService daoService;
     private User logUser;
     private Integer language;//1-ENG. 2-UA
+    private boolean regWarning;
+    private boolean logWarning;
 
     public void init() {
         daoUser = new DAOUser();
@@ -37,15 +48,20 @@ public class Servlet extends HttpServlet {
         daoService = new DAOService();
         logger.info("Init Servlet");
         language = 1;
+        regWarning = false;
+        logWarning = false;
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException {
         doGet(request, response);
     }
 
+    /**
+     * This method is the main method, which contains the very logic of the servlet
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
+            throws ServletException {
         String action = request.getServletPath();
         try {
             switch (action) {
@@ -159,8 +175,18 @@ public class Servlet extends HttpServlet {
         }
     }
 
-    public void destroy() {}
+    /**
+     * If the servlet object is not used for a long time - destroy
+     */
+    public void destroy() {
+        super.destroy();
+    }
 
+    /**
+     * Function is choosing witch jsp page will be open.
+     * If user is manager -> managerHome
+     * If user is user -> userHome
+     */
     private void viewHome(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         String url = "";
@@ -175,13 +201,18 @@ public class Servlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    /**
+     * Function is viewing a balance page
+     */
     private void viewUserBalance(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         request.getSession().setAttribute("language", language);
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/user/balance.jsp");
         dispatcher.forward(request, response);
     }
-
+    /**
+     * Function is viewing a Tariff add page
+     */
     private void viewTariffAdd(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         List<Service> listService = daoService.getAll();
@@ -190,66 +221,84 @@ public class Servlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/manager/addTariff.jsp");
         dispatcher.forward(request, response);
     }
-
+    /**
+     * Function is viewing a Tariff change page
+     */
     private void viewTariffChange(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Tariff existingTariff = daoTariff.get(id).get();
+        Tariff existingTariff = daoTariff.get(id).orElseThrow();
         request.getSession().setAttribute("language", language);
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/manager/changeTariff.jsp");
         request.getSession().setAttribute("tariff", existingTariff);
         dispatcher.forward(request, response);
     }
-
+    /**
+     * Function is viewing a login page
+     */
     private void viewLogin(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         request.getSession().setAttribute("language", language);
-        request.getSession().setAttribute("logWarning", request.getServletContext().getAttribute("logWarning"));
-        request.getServletContext().setAttribute("logWarning", false);
+        request.getSession().setAttribute("logWarning", logWarning);
+        logWarning = false;
         RequestDispatcher dispatcher = request.getRequestDispatcher("login/log.jsp");
         dispatcher.forward(request, response);
     }
-
+    /**
+     * Function is viewing a login-out page
+     */
     private void viewLoginOut(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         request.getSession().setAttribute("language", language);
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/logOut.jsp");
         dispatcher.forward(request, response);
     }
-
+    /**
+     * Function is viewing a register page
+     */
     private void viewRegister(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         request.getSession().setAttribute("language", language);
-        request.getSession().setAttribute("regWarning", request.getServletContext().getAttribute("regWarning"));
-        request.getServletContext().setAttribute("regWarning", false);
+        request.getSession().setAttribute("regWarning", regWarning);
+        regWarning = false;
         RequestDispatcher dispatcher = request.getRequestDispatcher("register/register.jsp");
         dispatcher.forward(request, response);
     }
+    /**
+     * Function is viewing a deposit page
+     */
     private void viewDepositBalance(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         request.getSession().setAttribute("language", language);
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/user/balance.jsp");
         dispatcher.forward(request, response);
     }
-
+    /**
+     * Function is do logging.
+     * Using requests for getting email and password for logging
+     */
     private void login(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, Exception{
+            throws IOException{
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String url = "";
         if (email!=null && password !=null && daoUser.loggingUser(email,password) != null) {
-            logUser = daoUser.get(daoUser.loggingUser(email,password)).get();
+            logUser = daoUser.get(daoUser.loggingUser(email,password)).orElseThrow();
             request.getServletContext().setAttribute("logUser", logUser);
             url = "/home";
         } else {
-            request.getServletContext().setAttribute("logWarning", true);
+            logWarning = true;
             url = "/login";
         }
         response.sendRedirect(url);
     }
 
+    /**
+     * Function is registering a new User.
+     * if email which was entered is already into database -> redirected again to register page and give warning
+     */
     private void register(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, ServletException {
+            throws IOException {
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
         String email = request.getParameter("email");
@@ -272,48 +321,59 @@ public class Servlet extends HttpServlet {
 
             response.sendRedirect("/login");
         }else{
-            request.getServletContext().setAttribute("regWarning", true);
+            regWarning = true;
             response.sendRedirect("/register");
         }
 
     }
 
+    /**
+     * Function is switching block status of User which was got by id
+     */
     private void blockSwitcher(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, Exception {
+            throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        daoUser.blockStatusUser(id,!daoUser.get(id).get().isBlocked());
+        daoUser.blockStatusUser(id,!daoUser.get(id).orElseThrow().isBlocked());
         response.sendRedirect("/home/usersList");
     }
 
+    /**
+     * Function is connecting a tariff to User`s tariff-list and write off funds from the balance sheet
+     */
     private void connectTariff(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, Exception {
+            throws IOException {
         int idTariff = Integer.parseInt(request.getParameter("id"));
         daoUser.connectTariffConnection(logUser.getId(),idTariff);
         daoUser.updateAllUsersBalances();
-        logUser = daoUser.get(logUser.getId()).get();
-        request.getServletContext().setAttribute("logUser", logUser);
+        logUser = daoUser.get(logUser.getId()).orElseThrow();
         response.sendRedirect("/home/tariffsList");
     }
-
+    /**
+     * Function is disconnecting a tariff from User tariff-list
+     */
     private void disconnectTariff(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, Exception {
         int idTariff = Integer.parseInt(request.getParameter("id"));
         daoUser.deleteTariffConnection(logUser.getId(),idTariff);
         daoUser.updateAllUsersBalances();
-        logUser = daoUser.get(logUser.getId()).get();
-        request.getServletContext().setAttribute("logUser", logUser);
+        logUser = daoUser.get(logUser.getId()).orElseThrow();
         response.sendRedirect("/home/userTariffsList");
     }
 
+    /**
+     * Function is deleting the Tariff which was got by id
+     */
     private void deleteTariff(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, Exception {
+            throws IOException {
         int idTariff = Integer.parseInt(request.getParameter("id"));
         daoTariff.delete(idTariff);
         response.sendRedirect("/home/managerTariffsList");
     }
-
+    /**
+     * Function is updating the Tariff which was got by id
+     */
     private void updateTariff(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, Exception {
+            throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Tariff tariff = daoTariff.get(id).orElse(new Tariff());
         tariff.setCost(Double.parseDouble(request.getParameter("cost")));
@@ -323,11 +383,13 @@ public class Servlet extends HttpServlet {
         daoTariff.update(tariff);
         response.sendRedirect("/home/managerTariffsList");
     }
-
+    /**
+     * Function is inserting a new Tariff
+     */
     private void addTariff(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, Exception {
+            throws IOException {
         Tariff tariff = new Tariff();
-        tariff.setService(daoService.get(Long.parseLong(request.getParameter("serviceId"))).get());
+        tariff.setService(daoService.get(Long.parseLong(request.getParameter("serviceId"))).orElseThrow());
         tariff.setCost(Double.parseDouble(request.getParameter("cost")));
         tariff.setDaysOfTariff(Integer.parseInt(request.getParameter("daysOfTariff")));
         tariff.putDescription(1,request.getParameter("descriptionENG"));
@@ -336,8 +398,11 @@ public class Servlet extends HttpServlet {
         response.sendRedirect("/home/managerTariffsList");
     }
 
+    /**
+     * Function is depositing money to User`s account-balance
+     */
     private void depositBalance(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, Exception {
+            throws IOException {
         String res = request.getParameter("balance");
         double depMoney = 0.0;
         if(res.length() > 0 && Double.parseDouble(res) >= 0)
@@ -345,20 +410,24 @@ public class Servlet extends HttpServlet {
         logUser.setBalance(logUser.getBalance()+depMoney);
         daoUser.update(logUser);
         daoUser.updateAllUsersBalances();
-        logUser = daoUser.get(logUser.getId()).get();
-        request.getServletContext().setAttribute("logUser", logUser);
+        logUser = daoUser.get(logUser.getId()).orElseThrow();
         response.sendRedirect("/home");
     }
 
+    /**
+     * Function is log-outing from account by setting logUser to NULL
+     */
     private void logOut(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, Exception {
+            throws IOException {
         logUser = null;
-        request.getServletContext().setAttribute("logUser", logUser);
         response.sendRedirect("/");
     }
 
+    /**
+     * Function is changing web language on all pages
+     */
     private void changeLanguage(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, Exception {
+            throws IOException {
         if(language == 2)language = 1;
         else language = 2;
         List<String> link = Arrays
@@ -373,9 +442,11 @@ public class Servlet extends HttpServlet {
         response.sendRedirect(page);
     }
 
-
+    /**
+     * Function is viewing page with all users
+     */
     private void viewUsersList(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, Exception {
+            throws IOException, ServletException {
         Object o = request.getParameter("page");
         int page;
         if(o == null)page = 1;
@@ -397,8 +468,11 @@ public class Servlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    /**
+     * Function is viewing page with all tariffs
+     */
     private void viewManagerTariffsList(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, Exception {
+            throws IOException, ServletException {
         Object o = request.getParameter("page");
         int page;
         if(o == null)page = 1;
@@ -421,8 +495,11 @@ public class Servlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    /**
+     * Function is viewing the page with all User`s connected tariffs
+     */
     private void viewUserTariffsList(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, Exception {
+            throws IOException, ServletException {
 
         Object o = request.getParameter("page");
         int page;
@@ -449,11 +526,11 @@ public class Servlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    /**
+     * Function is viewing all tariffs which User can to connect
+     */
     private void viewTariffsList(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, Exception {
-
-
-
+            throws IOException, ServletException {
         Object o = request.getParameter("page");
         int page;
         if(o == null)page = 1;
@@ -471,20 +548,21 @@ public class Servlet extends HttpServlet {
 
         request.getSession().setAttribute("paginationMax", listTariff.size()/ELEMENTS_PAGINATION_PAGE);
         double userBalance = logUser.getBalance();
-
         request.getSession().setAttribute("language", language);
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/user/tariffsList.jsp");
         dispatcher.forward(request, response);
     }
 
+    /**
+     * Function is send txt file with all tariffs to the server and next to user to download
+     */
     private void downloadDocx(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, Exception {
+            throws IOException {
 
         List<Tariff> tariffList = daoTariff.getAll();
         String fileName = "tariffs.txt";
 
         String str ="";
-        //tariffList.sort((o1, o2) -> o1.getService().getServiceName().compareToIgnoreCase(o2.getService().getServiceName()));
         tariffList.sort(new Comparator<Tariff>() {
             @Override
             public int compare(Tariff o1, Tariff o2) {
@@ -494,13 +572,13 @@ public class Servlet extends HttpServlet {
                     return o1.getService().getServiceName().compareToIgnoreCase(o2.getService().getServiceName());
             }
         });
-        for (int i = 0; i < tariffList.size(); i++) {
-            str += ("\nID:"+String.valueOf(tariffList.get(i).getId()));
-            str+=("\nService:"+String.valueOf(tariffList.get(i).getService().getServiceName()));
-            str+=("\nCost:"+String.valueOf(tariffList.get(i).getCost()));
-            str+=("\nDescription ENG:"+String.valueOf(tariffList.get(i).getDescription().get(1)));
-            str+=("\nDescription UA:"+String.valueOf(tariffList.get(i).getDescription().get(2)));
-            str+=("\n\n");
+        for (Tariff tariff : tariffList) {
+            str += ("\nID:" + String.valueOf(tariff.getId()));
+            str += ("\nService:" + String.valueOf(tariff.getService().getServiceName()));
+            str += ("\nCost:" + String.valueOf(tariff.getCost()));
+            str += ("\nDescription ENG:" + String.valueOf(tariff.getDescription().get(1)));
+            str += ("\nDescription UA:" + String.valueOf(tariff.getDescription().get(2)));
+            str += ("\n\n");
         }
         try {
             OutputStreamWriter myObj =
@@ -538,13 +616,15 @@ public class Servlet extends HttpServlet {
         response.sendRedirect("/home/tariffsList");
     }
 
+    /**
+     * Function is changing and updating(database) info about User account
+     */
     private void saveProfile(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, Exception {
+            throws IOException {
         logUser.setName(request.getParameter("user_name"));
         logUser.setSurname(request.getParameter("user_surname"));
         logUser.setEmail(request.getParameter("user_email"));
         logUser.setPassword(request.getParameter("user_password"));
-        request.getServletContext().setAttribute("logUser",logUser);
         daoUser.update(logUser);
         response.sendRedirect("/home");
     }

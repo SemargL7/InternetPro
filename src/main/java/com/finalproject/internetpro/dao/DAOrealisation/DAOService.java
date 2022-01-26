@@ -12,6 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
+/**
+ * DAO class for Service
+ * The Data Access Object (DAO) pattern is a structural pattern that allows us
+ * to isolate the application/business layer from the persistence layer
+ * (usually a relational database but could be any other persistence mechanism) using an abstract API.
+ * @see Service
+ */
 public class DAOService implements DAO<Service> {
     static final Logger logger = Logger.getLogger(DAOService.class);
 
@@ -26,6 +34,11 @@ public class DAOService implements DAO<Service> {
     public DAOService() {
     }
 
+    /**
+     * Function is returning Service by id
+     * @param id Service`s id
+     * @return Optional of Service which we find
+     */
     @Override
     public Optional<Service> get(long id){
         Service service = null;
@@ -54,6 +67,10 @@ public class DAOService implements DAO<Service> {
         return Optional.ofNullable(service);
     }
 
+    /**
+     * Function is returning list of all Services
+     * @return list of all Services
+     */
     @Override
     public List<Service> getAll(){
         List<Service> services = null;
@@ -78,6 +95,10 @@ public class DAOService implements DAO<Service> {
         return services;
     }
 
+    /**
+     * Function is inserting a new Service into database
+     * @param service Service which we want to insert
+     */
     @Override
     public void save(Service service){
         try {
@@ -96,6 +117,10 @@ public class DAOService implements DAO<Service> {
         }
     }
 
+    /**
+     * Function is setting new data into the Service
+     * @param service Service with new data
+     */
     @Override
     public void update(Service service){
         try {
@@ -114,6 +139,10 @@ public class DAOService implements DAO<Service> {
         }
     }
 
+    /**
+     * Function is deleting the Service
+     * @param id Service`s id
+     */
     @Override
     public void delete(int id){
         try {

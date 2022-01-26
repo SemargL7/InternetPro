@@ -12,6 +12,13 @@ import java.text.SimpleDateFormat;
 
 import java.util.*;
 
+/**
+ * DAO class for User
+ * The Data Access Object (DAO) pattern is a structural pattern that allows us
+ * to isolate the application/business layer from the persistence layer
+ * (usually a relational database but could be any other persistence mechanism) using an abstract API.
+ * @see User
+ */
 public class DAOUser implements DAO<User> {
     static final Logger logger = Logger.getLogger(DAOUser.class);
 
@@ -25,7 +32,11 @@ public class DAOUser implements DAO<User> {
 
     public DAOUser() {
     }
-
+    /**
+     * Function is returning User by id
+     * @param id User`s id
+     * @return Optional of User which we find
+     */
     @Override
     public Optional<User> get(long id){
 
@@ -76,7 +87,10 @@ public class DAOUser implements DAO<User> {
         return Optional.ofNullable(user);
     }
 
-
+    /**
+     * Function is returning list of all Users
+     * @return list of all Users
+     */
     @Override
     public List<User> getAll(){
         List<User> users = null;
@@ -100,7 +114,10 @@ public class DAOUser implements DAO<User> {
         return users;
     }
 
-
+    /**
+     * Function is inserting a new User into database
+     * @param user User which we want to insert
+     */
     @Override
     public void save(User user){
         try {
@@ -125,7 +142,10 @@ public class DAOUser implements DAO<User> {
         }
     }
 
-
+    /**
+     * Function is setting new data into the User
+     * @param user User with new data
+     */
     @Override
     public void update(User user){
         try {
@@ -165,7 +185,10 @@ public class DAOUser implements DAO<User> {
         }
     }
 
-
+    /**
+     * Function is deleting the User
+     * @param id User`s id
+     */
     @Override
     public void delete(int id){
         try {
@@ -189,7 +212,12 @@ public class DAOUser implements DAO<User> {
         }
     }
 
-
+    /**
+     * Function is finding User`s id which email and password is same as inputted
+     * @param email User`s email
+     * @param password User`s password
+     * @return res/null if your is in database function returning id of User
+     */
     public Integer loggingUser(String email,String password) {
         try {
         String sql = "SELECT id from Users where email = ? and password = ?";
@@ -213,7 +241,12 @@ public class DAOUser implements DAO<User> {
         return null;
     }
 
-
+    /**
+     *Function is checking does User is already have tariff connection
+     * @param idUser User`s id
+     * @param idTariff Tariff`s id
+     * @return boolean`s value. If User is already have tariff connection - true, else - false
+     */
     public boolean checkTariff(int idUser, int idTariff)
     {
         boolean chT = false;
@@ -237,7 +270,11 @@ public class DAOUser implements DAO<User> {
         return chT;
     }
 
-
+    /**
+     * Function is disconnecting tariff
+     * @param idUser User`s id which will disable the tariff
+     * @param idTariff Tariff`s id which will be disabled
+     */
     public void deleteTariffConnection(int idUser,int idTariff)
     {
         try {
@@ -256,7 +293,11 @@ public class DAOUser implements DAO<User> {
         }
     }
 
-
+    /**
+     * Function is connecting tariff
+     * @param idUser User`s id which will be able the tariff
+     * @param idTariff Tariff`s id which will be able for user
+     */
     public void connectTariffConnection(int idUser,int idTariff)
     {
         try {
@@ -279,7 +320,11 @@ public class DAOUser implements DAO<User> {
         }
     }
 
-
+    /**
+     * Function is setting User`s status(block/unblock)
+     * @param id User`s id
+     * @param block status(block - true, unblock - false)
+     */
     public void blockStatusUser(int id, boolean block){
         try {
             String sql ="update users set blocked = ? where users.id = ?";
@@ -297,6 +342,10 @@ public class DAOUser implements DAO<User> {
         }
     }
 
+    /**
+     * Function is updating all user`s balances, if user`s tariffs ended, User will be paid auto.
+     * if user`s balance is lower cost of tariff - user will be blocked
+     */
     public void updateAllUsersBalances(){
         try {
             String sql ="update internetprovider.Users " +
@@ -332,6 +381,12 @@ public class DAOUser implements DAO<User> {
             logger.error("blockStatusUser|ERROR:"+e);
         }
     }
+
+    /**
+     * Function is checking does email is free
+     * @param email Email
+     * @return TRUE/False, if mail is free - true, else - false
+     */
     public boolean mailFree(String email){
         try {
             String sql = "SELECT id from Users where email = ?";

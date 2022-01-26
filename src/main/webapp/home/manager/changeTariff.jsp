@@ -113,19 +113,19 @@
                 <input type="hidden" name="id" value="<c:out value='${tariff.id}' />" />
                 <tr>
                     <td id="cost_HTML">Cost</td>
-                    <td><input type="number" name="cost" min="0" required/></td>
+                    <td><input type="number" name="cost" min="0" value="${tariff.cost}" required/></td>
                 </tr>
                 <tr>
                     <td id="days_HTML">Days</td>
-                    <td><input type="number" name="daysOfTariff" required/></td>
+                    <td><input type="number" name="daysOfTariff" value="${tariff.daysOfTariff}" required/></td>
                 </tr>
                 <tr>
                     <td id="descriptionENG_HTML">Description ENG</td>
-                    <td><input type="text" name="descriptionENG" required/></td>
+                    <td><input type="text" name="descriptionENG" value="${tariff.description[(1).intValue()]}" required/></td>
                 </tr>
                 <tr>
                     <td id="descriptionUA_HTML">Description UA</td>
-                    <td><input type="text" name="descriptionUA" required/></td>
+                    <td><input type="text" name="descriptionUA" value="${tariff.description[(2).intValue()]}" required/></td>
                 </tr>
             </table>
             <input id="submit_HTML" type="submit" value="⇨" />

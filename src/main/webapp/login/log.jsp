@@ -122,7 +122,6 @@
     </ul>
 </nav>
 
-<img id="meme"class="meme" srcset="https://memepedia.ru/wp-content/uploads/2018/07/x3qyh3anr0o.jpg">
 
 <c:if test = "${logWarning == true}">
     <div class="alert">
@@ -151,21 +150,6 @@
 </div>
 </body>
 <script type="text/javascript">
-
-    var audio = new Audio();
-    audio.src = "http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3";
-
-
-    document.getElementById("meme").classList.add("active");
-    function hoverOnOutBut() {
-        document.getElementById("meme").classList.remove("active");
-        audio.play();
-    }
-    function hoverOffOutBut() {
-        document.getElementById("meme").classList.add("active");
-    }
-
-
     let lang=["home_HTML","login_HTML","register_HTML","login2_HTML","email_HTML","password_HTML","submit_HTML"];
     let langEng =["Home","Login","Register","Login","Email","Password","Submit"];
     let langUa =["Дім","Вхід","Реєстрація","Вхід","Почта","Пароль","Подати"];

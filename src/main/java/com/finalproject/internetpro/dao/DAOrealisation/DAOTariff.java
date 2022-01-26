@@ -2,6 +2,7 @@ package com.finalproject.internetpro.dao.DAOrealisation;
 
 import com.finalproject.internetpro.dao.DAO;
 import com.finalproject.internetpro.database.Database;
+import com.finalproject.internetpro.model.Service;
 import com.finalproject.internetpro.model.Tariff;
 import org.apache.log4j.Logger;
 
@@ -10,7 +11,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.*;
 
-
+/**
+ * DAO class for Tariff
+ * The Data Access Object (DAO) pattern is a structural pattern that allows us
+ * to isolate the application/business layer from the persistence layer
+ * (usually a relational database but could be any other persistence mechanism) using an abstract API.
+ * @see Tariff
+ */
 public class DAOTariff implements DAO<Tariff> {
     static final Logger logger = Logger.getLogger(DAOTariff.class);
 
@@ -24,7 +31,11 @@ public class DAOTariff implements DAO<Tariff> {
 
     public DAOTariff() {
     }
-
+    /**
+     * Function is returning Tariff by id
+     * @param id Tariff`s id
+     * @return Optional of Tariff which we find
+     */
     @Override
     public Optional<Tariff> get(long id){
         Tariff tariff = null;
@@ -67,7 +78,10 @@ public class DAOTariff implements DAO<Tariff> {
         }
         return Optional.ofNullable(tariff);
     }
-
+    /**
+     * Function is returning list of all Tariffs
+     * @return list of all Tariffs
+     */
     @Override
     public List<Tariff> getAll(){
         List<Tariff> tariffs = null;
@@ -87,7 +101,10 @@ public class DAOTariff implements DAO<Tariff> {
         }
         return tariffs;
     }
-
+    /**
+     * Function is inserting a new Tariff into database
+     * @param tariff Tariff which we want to insert
+     */
     @Override
     public void save(Tariff tariff){
         try {
@@ -129,7 +146,10 @@ public class DAOTariff implements DAO<Tariff> {
             logger.error("save|ERROR:"+e);
         }
     }
-
+    /**
+     * Function is setting new data into the Tariff
+     * @param tariff Tariff with new data
+     */
     @Override
     public void update(Tariff tariff){
         try {
@@ -166,7 +186,10 @@ public class DAOTariff implements DAO<Tariff> {
         }
 
     }
-
+    /**
+     * Function is deleting the Tariff
+     * @param id Tariff`s id
+     */
     @Override
     public void delete(int id){
         try {
