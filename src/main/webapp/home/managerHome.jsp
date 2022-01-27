@@ -154,7 +154,7 @@
                 </tr>
                 <tr>
                     <td id="action_HTML">Action</td>
-                    <td class="info"> <input style="width: 18px" id="change_HTML" onclick="clickOnChangeBut()" value="⚙" /></td>
+                    <td class="info"> <input style="width: 24px" id="change_HTML" onclick="clickOnChangeBut()" type="button" value="⚙" /></td>
                     <td class="changeInfo"><input id="submit_HTML" type="submit" value="⇨" /></td>
                 </tr>
             </table>

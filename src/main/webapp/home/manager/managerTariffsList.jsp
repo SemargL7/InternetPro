@@ -63,7 +63,7 @@
             width: 980px;
             padding-top: 50px;
             margin: 0 auto;
-            text-align: center;
+            text-align: left;
             color: #142a3b;
         }
         #submit_HTML{
@@ -74,9 +74,6 @@
             width: 50px;
             transition: transform .1s;
             float: right;
-            position: fixed;
-            left:0;
-            top:60px;
         }
         #submit_HTML:hover{
             transform: scale(1.1);
@@ -90,8 +87,6 @@
         table{
             background-color: rgba(154, 154, 154, 0.34);
             border-collapse: collapse;
-
-
         }
         table th{
             width: 100px;
@@ -132,11 +127,13 @@
     </ul>
 </nav>
 
-<form action="/home/addTariff" method="post">
-    <input id="submit_HTML" type="submit" value="✚" />
-</form>
+
 <div class="mainBody">
+
     <div class="form">
+        <form action="/home/addTariff" method="post">
+            <input id="submit_HTML" title="Add Tariff" type="submit" value="✚" />
+        </form>
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -169,7 +166,11 @@
                     <td style="width: 380px;max-width: 370px;">
                         <c:out value="${tariff.description[(language).intValue()]}" />
                     </td>
-                    <td style="font-size: large;"><a id="change_HTML" href="/home/changeTariff?id=<c:out value='${tariff.id}' />">⚙</a> &nbsp;&nbsp;&nbsp;&nbsp; <a id="delete_HTML" href="/home/deleteTariff?id=<c:out value='${tariff.id}' />">🗑</a></td>
+                    <td style="font-size: large;">
+                        <a id="change_HTML" title="Change" href="/home/changeTariff?id=<c:out value='${tariff.id}' />">⚙</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a id="delete_HTML" title="Delete" href="/home/deleteTariff?id=<c:out value='${tariff.id}' />">🗑</a>
+                    </td>
                 </tr>
             </c:forEach>
             <!-- } -->

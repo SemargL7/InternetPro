@@ -107,9 +107,6 @@
             width: 50px;
             transition: transform .1s;
             float: right;
-            position: fixed;
-            left:0;
-            top:60px;
         }
         #submit_HTML:hover{
             transform: scale(1.1);
@@ -131,11 +128,13 @@
     </ul>
 </nav>
 
-<form action="/home/downloadDocx" method="post">
-    <input id="submit_HTML" type="submit" value="﹀" />
-</form>
+
 
 <div class="mainBody">
+    <div class="form">
+    <form action="/home/downloadDocx" method="post">
+        <input id="submit_HTML" title="Download txt format" type="submit" value="﹀" />
+    </form>
     <table class="table table-bordered2">
         <thead>
         <tr>
@@ -185,6 +184,7 @@
 
         </c:forEach>
     </ul>
+    </div>
 </div>
 
 </body>

@@ -18,20 +18,21 @@ import java.util.Optional;
  * The Data Access Object (DAO) pattern is a structural pattern that allows us
  * to isolate the application/business layer from the persistence layer
  * (usually a relational database but could be any other persistence mechanism) using an abstract API.
+ * Using Singleton pattern
  * @see Service
  */
 public class DAOService implements DAO<Service> {
     static final Logger logger = Logger.getLogger(DAOService.class);
 
-    private DAOService instance;
+    private static DAOService instance;
 
-    public DAOService getInstance(){
+    public static DAOService getInstance(){
         if(instance == null)
             instance = new DAOService();
         return instance;
     }
 
-    public DAOService() {
+    private DAOService() {
     }
 
     /**
@@ -98,9 +99,10 @@ public class DAOService implements DAO<Service> {
     /**
      * Function is inserting a new Service into database
      * @param service Service which we want to insert
+     * @return
      */
     @Override
-    public void save(Service service){
+    public boolean save(Service service){
         try {
             String sql = "INSERT INTO Services VALUES (?, ?)";
             Connection con = Database.getConnection();
@@ -112,8 +114,10 @@ public class DAOService implements DAO<Service> {
             posted.executeUpdate();
 
             logger.info("save|"+service);
+            return true;
         }catch (Exception e){
             logger.error("save|ERROR:"+e);
+            return false;
         }
     }
 
@@ -122,7 +126,7 @@ public class DAOService implements DAO<Service> {
      * @param service Service with new data
      */
     @Override
-    public void update(Service service){
+    public boolean update(Service service){
         try {
             String sql = "UPDATE Services SET name = ? WHERE Services.id = ?";
             Connection con = Database.getConnection();
@@ -134,17 +138,20 @@ public class DAOService implements DAO<Service> {
             posted.executeUpdate();
 
             logger.info("update|"+service);
+            return true;
         }catch (Exception e){
             logger.error("update|ERROR:"+e);
+            return false;
         }
     }
 
     /**
      * Function is deleting the Service
      * @param id Service`s id
+     * @return
      */
     @Override
-    public void delete(int id){
+    public boolean delete(int id){
         try {
             String sql1 = "SELECT id FROM Tariff where idService = ?";
             String sql2 = "DELETE FROM Services where Services.id = ?";
@@ -157,14 +164,16 @@ public class DAOService implements DAO<Service> {
 
             ResultSet result = statement.executeQuery();
             while (result.next()) {
-                new DAOTariff().delete(result.getInt(1));
+                DAOTariff.getInstance().delete(result.getInt(1));
             }
 
             posted.executeUpdate();
 
             logger.info("delete|"+id);
+            return true;
         }catch (Exception e){
             logger.error("delete|ERROR:"+e);
+            return false;
         }
     }
 

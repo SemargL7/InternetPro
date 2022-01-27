@@ -9,9 +9,9 @@ public interface DAO<T> {
 
     List<T> getAll() throws Exception;
 
-    void save(T t) throws Exception;
+    boolean save(T t) throws Exception;
 
-    void update(T t) throws Exception;
+    boolean update(T t) throws Exception;
 
-    void delete(int id) throws Exception;
+    boolean delete(int id) throws Exception;
 }

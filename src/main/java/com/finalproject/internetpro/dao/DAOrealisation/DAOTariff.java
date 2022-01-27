@@ -2,7 +2,6 @@ package com.finalproject.internetpro.dao.DAOrealisation;
 
 import com.finalproject.internetpro.dao.DAO;
 import com.finalproject.internetpro.database.Database;
-import com.finalproject.internetpro.model.Service;
 import com.finalproject.internetpro.model.Tariff;
 import org.apache.log4j.Logger;
 
@@ -16,20 +15,21 @@ import java.util.*;
  * The Data Access Object (DAO) pattern is a structural pattern that allows us
  * to isolate the application/business layer from the persistence layer
  * (usually a relational database but could be any other persistence mechanism) using an abstract API.
+ * Using Singleton pattern
  * @see Tariff
  */
 public class DAOTariff implements DAO<Tariff> {
     static final Logger logger = Logger.getLogger(DAOTariff.class);
 
-    private DAOTariff instance;
+    private static DAOTariff instance;
 
-    public DAOTariff getInstance(){
+    public static DAOTariff getInstance(){
         if(instance == null)
             instance = new DAOTariff();
         return instance;
     }
 
-    public DAOTariff() {
+    private DAOTariff() {
     }
     /**
      * Function is returning Tariff by id
@@ -52,7 +52,7 @@ public class DAOTariff implements DAO<Tariff> {
                 tariff.setId(result.getInt(1));
                 tariff.setCost(result.getDouble(3));
                 tariff.setDaysOfTariff(result.getInt(4));
-                DAOService daoService = new DAOService();
+                DAOService daoService = DAOService.getInstance();
                 tariff.setService(daoService.get(result.getInt(2)).get());
             }
 
@@ -104,9 +104,10 @@ public class DAOTariff implements DAO<Tariff> {
     /**
      * Function is inserting a new Tariff into database
      * @param tariff Tariff which we want to insert
+     * @return
      */
     @Override
-    public void save(Tariff tariff){
+    public boolean save(Tariff tariff){
         try {
             Connection con = Database.getConnection();
 
@@ -142,8 +143,10 @@ public class DAOTariff implements DAO<Tariff> {
                 posted3.executeUpdate();
             }
             logger.info("save|"+tariff);
+            return true;
         }catch (Exception e){
             logger.error("save|ERROR:"+e);
+            return false;
         }
     }
     /**
@@ -151,7 +154,7 @@ public class DAOTariff implements DAO<Tariff> {
      * @param tariff Tariff with new data
      */
     @Override
-    public void update(Tariff tariff){
+    public boolean update(Tariff tariff){
         try {
             String sql = "update tariff set " +
                     "idService = ?, " +
@@ -181,17 +184,20 @@ public class DAOTariff implements DAO<Tariff> {
                 posted2.executeUpdate();
             }
             logger.info("update|"+tariff);
+            return true;
         }catch (Exception e){
             logger.error("update|ERROR:"+e);
+            return false;
         }
 
     }
     /**
      * Function is deleting the Tariff
      * @param id Tariff`s id
+     * @return
      */
     @Override
-    public void delete(int id){
+    public boolean delete(int id){
         try {
             Connection con = Database.getConnection();
             String sql = "DELETE from description where description.idTariff = ?";
@@ -218,8 +224,10 @@ public class DAOTariff implements DAO<Tariff> {
             posted3.executeUpdate();
 
             logger.info("delete|"+id);
+            return true;
         }catch (Exception e){
             logger.error("delete|ERROR:"+e);
+            return false;
         }
     }
 }

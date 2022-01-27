@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Insert title here</title>
+    <title>Login</title>
     <style type="text/css">
         body {
             color: #B1D0E0;

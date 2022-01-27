@@ -119,6 +119,9 @@
             padding: 4px 8px;
             width: 177px;
         }
+        option{
+            background-color: rgba(0, 0, 0, 0.25);
+        }
     </style>
 </head>
 <body>

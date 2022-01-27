@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Insert title here</title>
+    <title>Register</title>
     <style type="text/css">
         body {
             color: #B1D0E0;

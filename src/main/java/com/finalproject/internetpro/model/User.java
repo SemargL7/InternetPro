@@ -39,6 +39,19 @@ public class User {
     public void setSpecialAccess(boolean specialAccess) {this.specialAccess = specialAccess;}
     public List<Tariff> getTariffs() {return tariffs;}
     public void setTariffs(List<Tariff> tariffs) {this.tariffs = tariffs;}
+    public void addTariff(Tariff tariff){
+        if(tariffs == null){
+            tariffs = new ArrayList<>();
+        }
+        if (!tariffs.contains(tariff)) {
+            tariffs.add(tariff);
+        }
+    }
+    public void removeTariff(Tariff tariff){
+        if(tariffs != null){
+            tariffs.remove(tariff);
+        }
+    }
 
     public User() {
     }

@@ -17,20 +17,21 @@ import java.util.*;
  * The Data Access Object (DAO) pattern is a structural pattern that allows us
  * to isolate the application/business layer from the persistence layer
  * (usually a relational database but could be any other persistence mechanism) using an abstract API.
+ * Using Singleton pattern
  * @see User
  */
 public class DAOUser implements DAO<User> {
     static final Logger logger = Logger.getLogger(DAOUser.class);
 
-    private DAOUser instance;
+    private static DAOUser instance;
 
-    public DAOUser getInstance(){
+    public static DAOUser getInstance(){
         if(instance == null)
             instance = new DAOUser();
         return instance;
     }
 
-    public DAOUser() {
+    private DAOUser() {
     }
     /**
      * Function is returning User by id
@@ -70,7 +71,7 @@ public class DAOUser implements DAO<User> {
                 user.setSpecialAccess(result.getBoolean(9));
             }
             while (result2.next()) {
-                Tariff tariff = new DAOTariff().get(result2.getInt(1)).get();
+                Tariff tariff = DAOTariff.getInstance().get(result2.getInt(1)).get();
                 if (tariff != null)
                     tariffs.add(tariff);
             }
@@ -117,9 +118,10 @@ public class DAOUser implements DAO<User> {
     /**
      * Function is inserting a new User into database
      * @param user User which we want to insert
+     * @return
      */
     @Override
-    public void save(User user){
+    public boolean save(User user){
         try {
             String sql = "INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             Connection con = Database.getConnection();
@@ -137,8 +139,10 @@ public class DAOUser implements DAO<User> {
 
             posted.executeUpdate();
             logger.info("save|"+user);
+            return true;
         }catch (Exception e){
             logger.error("save|"+e);
+            return false;
         }
     }
 
@@ -147,7 +151,7 @@ public class DAOUser implements DAO<User> {
      * @param user User with new data
      */
     @Override
-    public void update(User user){
+    public boolean update(User user){
         try {
         String sql ="update users " +
                 "set name = ?, " +
@@ -173,24 +177,22 @@ public class DAOUser implements DAO<User> {
         posted.setBoolean(8,user.isSpecialAccess());
         posted.setLong(9,user.getId());
 
-        List<Tariff> tariffs = user.getTariffs();
-        for(Tariff tariff : tariffs)
-            if(!checkTariff(user.getId(),tariff.getId()))
-                connectTariffConnection(user.getId(),tariff.getId());
-
         posted.executeUpdate();
         logger.info("update|"+user);
+        return true;
         }catch (Exception e) {
             logger.error("update|ERROR:"+e);
+            return false;
         }
     }
 
     /**
      * Function is deleting the User
      * @param id User`s id
+     * @return
      */
     @Override
-    public void delete(int id){
+    public boolean delete(int id){
         try {
             String sql = "DELETE from TariffConnected where idUser = ?";
             String sql2 = "DELETE from users WHERE id = ?";
@@ -207,8 +209,10 @@ public class DAOUser implements DAO<User> {
             posted2.executeUpdate();
 
             logger.info("delete|"+id);
+            return true;
         } catch(Exception e ) {
             logger.error("delete|ERROR:"+e);
+            return false;
         }
     }
 
@@ -237,8 +241,8 @@ public class DAOUser implements DAO<User> {
         return res;
         }catch (Exception e){
             logger.error("loggingUser|ERROR:"+e);
+            return null;
         }
-        return null;
     }
 
     /**
@@ -325,7 +329,7 @@ public class DAOUser implements DAO<User> {
      * @param id User`s id
      * @param block status(block - true, unblock - false)
      */
-    public void blockStatusUser(int id, boolean block){
+    public boolean blockStatusUser(int id, boolean block){
         try {
             String sql ="update users set blocked = ? where users.id = ?";
             Connection con = Database.getConnection();
@@ -337,8 +341,10 @@ public class DAOUser implements DAO<User> {
             posted.executeUpdate();
 
             logger.info("blockStatusUser|"+id+"|"+block);
+            return true;
         }catch (Exception e) {
             logger.error("blockStatusUser|ERROR:"+e);
+            return false;
         }
     }
 
@@ -346,7 +352,7 @@ public class DAOUser implements DAO<User> {
      * Function is updating all user`s balances, if user`s tariffs ended, User will be paid auto.
      * if user`s balance is lower cost of tariff - user will be blocked
      */
-    public void updateAllUsersBalances(){
+    public boolean updateAllUsersBalances(){
         try {
             String sql ="update internetprovider.Users " +
                     "inner join  internetprovider.TariffConnected on TariffConnected.idUser = Users.id " +
@@ -377,8 +383,10 @@ public class DAOUser implements DAO<User> {
             });
 
             logger.info("updateAllBalances");
+            return true;
         }catch (Exception e) {
             logger.error("blockStatusUser|ERROR:"+e);
+            return false;
         }
     }
 
@@ -405,7 +413,7 @@ public class DAOUser implements DAO<User> {
             return (res == null);
         }catch (Exception e){
             logger.error("mailFree|ERROR:"+e);
+            return false;
         }
-        return false;
     }
 }
