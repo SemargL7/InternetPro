@@ -14,7 +14,8 @@
     <style type="text/css">
         body {
             color: #B1D0E0;
-            background-color: #1A374D;
+            background: url("https://www.teahub.io/photos/full/164-1647689_wallpaper-montreal-canada-night-city-dark-city-wallpaper..jpg");
+            background-size: cover;
         }
 
         nav{
@@ -27,7 +28,6 @@
             display: block;
             height: 50px;
             width: 100%;
-            background-color: #6998AB;
             position: absolute;
             left:0;
             z-index: -1;
@@ -45,6 +45,7 @@
             float:left;
         }
         ul li a{
+            border-radius: 10% 30% 50% 70%;
             color: #fff;
             display: block;
             height: 50px;
@@ -52,9 +53,11 @@
             text-transform: uppercase;
             text-decoration: none;
             line-height: 50px;
+            transition: transform .1s;
         }
         ul li a:hover {
-            background: #406882;
+            background-color: rgba(122, 110, 110, 0.26);
+            transform: scale(1.1);
         }
         .mainBody{
             width: 980px;
@@ -66,15 +69,18 @@
         #submit_HTML{
             font-size: large;
             color: #fff;
-            left:0;
-            top:60px;
-            background-color: #3a6070;
+            background-color: rgba(0, 0, 0, 0);
+            border: rgba(0,0,0,0);
+            width: 50px;
+            transition: transform .1s;
             float: right;
             position: fixed;
+            left:0;
+            top:60px;
         }
         #submit_HTML:hover{
-            color: #ffffff;
-            background-color: #29444f;
+            transform: scale(1.1);
+            background-color: rgba(122, 110, 110, 0.26);
         }
 
         .table-bordered{
@@ -82,44 +88,34 @@
         }
 
         table{
-            color: #142a3b;
+            background-color: rgba(154, 154, 154, 0.34);
             border-collapse: collapse;
-            background: white;
-            box-shadow: 12px 12px 2px 1px rgba(58, 95, 111, .2);
+
+
         }
         table th{
-            text-align: left;
-            background-color: #3a6070;
+            width: 100px;
+            text-align: center;
             color:#FFF;
             padding: 4px 30px 4px 8px;
+            border: 1px solid rgba(98, 98, 98, 0.65);
 
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100px;
         }
 
         table td{
-            border: 1px solid #e3e3e3;
+            width: 100px;
+            border: 1px solid rgba(98, 98, 98, 0.65);
             padding: 4px 8px;
-        }
-        table tr:nth-child(odd) td{
-            background-color: #e7edf0;
-        }
+            color: white;
 
-
-        #pagination{
-            display: block;
-            padding: 0;
-            list-style-type: none;
-        }
-        #pagination li{
-            margin-right: 5px;
-            padding: 10px;
-            border: 1px solid black;
-            width: 40px;
-            height: 40px;
-        }
-        #pagination li:hover{
-            cursor:pointer;
-            color: red;
-            border: 1px solid red;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 90px;
         }
     </style>
 </head>
@@ -140,56 +136,55 @@
     <input id="submit_HTML" type="submit" value="✚" />
 </form>
 <div class="mainBody">
-
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th id="id_HTML">ID</th>
-            <th id="service_HTML">Service</th>
-            <th id="cost_HTML">Cost</th>
-            <th id="daysOfTariff_HTML">Days of Tariff</th>
-            <th id="description_HTML">Description</th>
-            <th id="action_HTML">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!--   for (Todo todo: todos) {  -->
-        <%--@elvariable id="listUser" type="java.util.List"--%>
-        <c:forEach var="tariff" items="${listTariff}">
-
+    <div class="form">
+        <table class="table table-bordered">
+            <thead>
             <tr>
-                <td>
-                    <c:out value="${tariff.id}" />
-                </td>
-                <td>
-                    <c:out value="${tariff.service.getServiceName()}" />
-                </td>
-                <td>
-                    <c:out value="${tariff.cost}" />
-                </td>
-                <td style="width: 20%">
-                    <c:out value="${tariff.daysOfTariff}" />
-                </td>
-                <td style="width: 80%">
-                    <c:out value="${tariff.description[(language).intValue()]}" />
-                </td>
-                <td><a id="change_HTML" href="/home/changeTariff?id=<c:out value='${tariff.id}' />">Change</a> &nbsp;&nbsp;&nbsp;&nbsp; <a id="delete_HTML" href="/home/deleteTariff?id=<c:out value='${tariff.id}' />">Delete</a></td>
+                <th id="id_HTML">ID</th>
+                <th id="service_HTML">Service</th>
+                <th id="cost_HTML">Cost</th>
+                <th id="daysOfTariff_HTML">Days of Tariff</th>
+                <th id="description_HTML" style="width: 380px;max-width: 370px;">Description</th>
+                <th id="action_HTML">Action</th>
             </tr>
-        </c:forEach>
-        <!-- } -->
-        </tbody>
-    </table>
-    <ul id="pagination">
-        <c:forEach begin="1" end="${paginationMax+1}" varStatus="loop">
-            <c:if test="${loop.index == loop.begin || loop.index == loop.end || (loop.index >= page-3 && loop.index <= page+3)}">
-                <li>
-                    <a href="/home/managerTariffsList?page=<c:out value='${loop.index}' />">${loop.index}<br/></a>
-                </li>
-            </c:if>
+            </thead>
+            <tbody>
+            <!--   for (Todo todo: todos) {  -->
+            <%--@elvariable id="listUser" type="java.util.List"--%>
+            <c:forEach var="tariff" items="${listTariff}">
 
-
-        </c:forEach>
-    </ul>
+                <tr>
+                    <td>
+                        <c:out value="${tariff.id}" />
+                    </td>
+                    <td>
+                        <c:out value="${tariff.service.getServiceName()}" />
+                    </td>
+                    <td>
+                        <c:out value="${tariff.cost}" />
+                    </td>
+                    <td >
+                        <c:out value="${tariff.daysOfTariff}" />
+                    </td>
+                    <td style="width: 380px;max-width: 370px;">
+                        <c:out value="${tariff.description[(language).intValue()]}" />
+                    </td>
+                    <td style="font-size: large;"><a id="change_HTML" href="/home/changeTariff?id=<c:out value='${tariff.id}' />">⚙</a> &nbsp;&nbsp;&nbsp;&nbsp; <a id="delete_HTML" href="/home/deleteTariff?id=<c:out value='${tariff.id}' />">🗑</a></td>
+                </tr>
+            </c:forEach>
+            <!-- } -->
+            </tbody>
+        </table>
+        <ul id="pagination">
+            <c:forEach begin="1" end="${paginationMax+1}" varStatus="loop">
+                <c:if test="${loop.index == loop.begin || loop.index == loop.end || (loop.index >= page-3 && loop.index <= page+3)}">
+                    <li>
+                        <a href="/home/managerTariffsList?page=<c:out value='${loop.index}' />">${loop.index}<br/></a>
+                    </li>
+                </c:if>
+            </c:forEach>
+        </ul>
+    </div>
 </div>
 
 </body>

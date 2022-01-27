@@ -7,7 +7,8 @@
     <style type="text/css">
         body {
             color: #B1D0E0;
-            background-color: #1A374D;
+            background: url("https://www.teahub.io/photos/full/164-1647689_wallpaper-montreal-canada-night-city-dark-city-wallpaper..jpg");
+            background-size: cover;
         }
 
         nav{
@@ -20,7 +21,6 @@
             display: block;
             height: 50px;
             width: 100%;
-            background-color: #6998AB;
             position: absolute;
             left:0;
             z-index: -1;
@@ -38,6 +38,7 @@
             float:left;
         }
         ul li a{
+            border-radius: 10% 30% 50% 70%;
             color: #fff;
             display: block;
             height: 50px;
@@ -45,13 +46,15 @@
             text-transform: uppercase;
             text-decoration: none;
             line-height: 50px;
+            transition: transform .1s;
         }
         ul li a:hover {
-            background: #406882;
+            background-color: rgba(122, 110, 110, 0.26);
+            transform: scale(1.1);
         }
 
         .mainBody{
-            padding-top: 50px;
+            padding-top: 15%;
             margin: auto;
             color: #142a3b;
         }
@@ -69,22 +72,26 @@
             text-transform: uppercase;
             text-decoration: none;
             line-height: 50px;
-            background-color: #3a6070;
+            transition: transform .1s;
+        }
+        .ui-button:hover{
+            transform: scale(1.1);
+            background-color: rgba(122, 110, 110, 0.26);
         }
         .logout{
+            color: white;
             width: 150px;
             height: 150px;
             margin: auto;
-            border: 3px solid #6202f3;
+            border: 3px solid rgba(0, 0, 0, 0);
             padding: 10px;
-            background-color: #B1D0E0;
             border-radius: 5px 20px 5px;
+            transition: transform .5s;
+        }
+        .logout:hover{
+            transform: scale(1.05);
         }
 
-        .logout a:hover{
-            color: #ffffff;
-            background-color: #29444f;
-        }
         .meme{
             width: 256px;
             height: 144px;

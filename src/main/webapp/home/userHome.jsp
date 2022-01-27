@@ -13,7 +13,8 @@
     <style type="text/css">
         body {
             color: #B1D0E0;
-            background-color: #1A374D;
+            background: url("https://www.teahub.io/photos/full/164-1647689_wallpaper-montreal-canada-night-city-dark-city-wallpaper..jpg");
+            background-size: cover;
         }
 
         nav{
@@ -26,7 +27,6 @@
             display: block;
             height: 50px;
             width: 100%;
-            background-color: #6998AB;
             position: absolute;
             left:0;
             z-index: -1;
@@ -44,6 +44,7 @@
             float:left;
         }
         ul li a{
+            border-radius: 10% 30% 50% 70%;
             color: #fff;
             display: block;
             height: 50px;
@@ -51,31 +52,55 @@
             text-transform: uppercase;
             text-decoration: none;
             line-height: 50px;
+            transition: transform .1s;
         }
         ul li a:hover {
-            background: #406882;
+            background-color: rgba(122, 110, 110, 0.26);
+            transform: scale(1.1);
         }
         .mainBody{
             padding-top: 50px;
             margin: 0;
-            color: #142a3b;
+            color: #ffffff;
+        }
+
+        .profileForm{
+            text-align: center;
+            color: white;
+            background-color: rgba(154, 154, 154, 0.34);
+            width: 290px;
+            height: 180px;
+            margin: auto;
+            padding: 10px;
+            border-radius: 5px 20px 5px;
         }
 
         table{
             border-collapse: collapse;
-            background: white;
         }
         table th{
-            text-align: left;
-            background-color: #3a6070;
+            text-align: center;
+            background-color: #FFF;
             color:#FFF;
             padding: 4px 30px 4px 8px;
+
         }
 
         table td{
-            border: 1px solid #e3e3e3;
+            width: 100px;
+            border: 1px solid rgba(0, 0, 0, 0);
             padding: 4px 8px;
-            color: #1A374D;
+            color: white;
+        }
+        table td input{
+            border-radius: 2%;
+            border: 1px solid rgba(255, 255, 255, 0.41);
+            background-color: rgba(255, 255, 255, 0.29);
+            color: white;
+            transition: transform .1s;
+        }
+        table td input:hover{
+            transform: scale(1.1);
         }
 
         .active{
@@ -99,40 +124,42 @@
 </nav>
 
 <div class="mainBody">
-    <form action="/home/saveProfile" method="post">
-        <table style="with: 80%">
-            <tr>
-                <td id="status_HTML">Status</td>
-                <td class="info">User</td>
-                <td class="changeInfo">User</td>
-            </tr>
-            <tr>
-                <td id="name_HTML">Name</td>
-                <td class="info">${user.name}</td>
-                <td class="changeInfo"><input type="text" name="user_name" value="${user.name}" required/></td>
-            </tr>
-            <tr>
-                <td id="surname_HTML">Surname</td>
-                <td class="info">${user.surname}</td>
-                <td class="changeInfo"><input type="text" name="user_surname" value="${user.surname}" required/></td>
-            </tr>
-            <tr>
-                <td id="email_HTML">Email</td>
-                <td class="info">${user.email}</td>
-                <td class="changeInfo"><input type="email" name="user_email" value="${user.email}" required/></td>
-            </tr>
-            <tr>
-                <td id="password_HTML">Password</td>
-                <td class="info">${user.password}</td>
-                <td class="changeInfo"><input type="text" name="user_password" value="${user.password}" required/></td>
-            </tr>
-            <tr>
-                <td id="action_HTML">Action</td>
-                <td class="info"> <span onclick="clickOnChangeBut()" >⚙</span></td>
-                <td class="changeInfo"><input id="submit_HTML" type="submit" value="⇨" /></td>
-            </tr>
-        </table>
-    </form>
+    <div class="profileForm">
+        <form action="/home/saveProfile" method="post">
+            <table style="with: 80%">
+                <tr>
+                    <td id="status_HTML">Status</td>
+                    <td class="info">Manager</td>
+                    <td class="changeInfo">Manager</td>
+                </tr>
+                <tr>
+                    <td id="name_HTML">Name</td>
+                    <td class="info">${user.name}</td>
+                    <td class="changeInfo"><input type="text" name="user_name" value="${user.name}" required/></td>
+                </tr>
+                <tr>
+                    <td id="surname_HTML">Surname</td>
+                    <td class="info">${user.surname}</td>
+                    <td class="changeInfo"><input type="text" name="user_surname" value="${user.surname}" required/></td>
+                </tr>
+                <tr>
+                    <td id="email_HTML">Email</td>
+                    <td class="info">${user.email}</td>
+                    <td class="changeInfo"><input type="email" name="user_email" value="${user.email}" required/></td>
+                </tr>
+                <tr>
+                    <td id="password_HTML">Password</td>
+                    <td class="info">${user.password}</td>
+                    <td class="changeInfo"><input type="text" name="user_password" value="${user.password}" required/></td>
+                </tr>
+                <tr>
+                    <td id="action_HTML">Action</td>
+                    <td class="info"> <input style="width: 18px" id="change_HTML" onclick="clickOnChangeBut()" value="⚙" /></td>
+                    <td class="changeInfo"><input id="submit_HTML" type="submit" value="⇨" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </div>
 </body>
 </body>

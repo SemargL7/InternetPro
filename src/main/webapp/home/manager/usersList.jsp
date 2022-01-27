@@ -14,7 +14,8 @@
     <style type="text/css">
         body {
             color: #B1D0E0;
-            background-color: #1A374D;
+            background: url("https://www.teahub.io/photos/full/164-1647689_wallpaper-montreal-canada-night-city-dark-city-wallpaper..jpg");
+            background-size: cover;
         }
 
         nav{
@@ -27,7 +28,6 @@
             display: block;
             height: 50px;
             width: 100%;
-            background-color: #6998AB;
             position: absolute;
             left:0;
             z-index: -1;
@@ -45,6 +45,7 @@
             float:left;
         }
         ul li a{
+            border-radius: 10% 30% 50% 70%;
             color: #fff;
             display: block;
             height: 50px;
@@ -52,9 +53,11 @@
             text-transform: uppercase;
             text-decoration: none;
             line-height: 50px;
+            transition: transform .1s;
         }
         ul li a:hover {
-            background: #406882;
+            background-color: rgba(122, 110, 110, 0.26);
+            transform: scale(1.1);
         }
         .mainBody{
             width: 980px;
@@ -63,51 +66,53 @@
             text-align: center;
             color: #142a3b;
         }
+        #submit_HTML{
+            font-size: large;
+            color: #fff;
+            left:0;
+            top:60px;
+            background-color: #3a6070;
+            float: right;
+            position: fixed;
+        }
+        #submit_HTML:hover{
+            color: #ffffff;
+            background-color: #29444f;
+        }
 
         .table-bordered{
             display: block;
         }
 
         table{
-            color: #142a3b;
+            background-color: rgba(154, 154, 154, 0.34);
             border-collapse: collapse;
-            background: white;
-            box-shadow: 12px 12px 2px 1px rgba(58, 95, 111, .2);
+
+
         }
         table th{
-            text-align: left;
-            background-color: #3a6070;
+            width: 100px;
+            text-align: center;
             color:#FFF;
             padding: 4px 30px 4px 8px;
+            border: 1px solid rgba(98, 98, 98, 0.65);
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100px;
         }
 
         table td{
-            border: 1px solid #e3e3e3;
+            width: 100px;
+            border: 1px solid rgba(98, 98, 98, 0.65);
             padding: 4px 8px;
-            background-color:#FFF;
-        }
+            color: white;
 
-        table tr:nth-child(odd) td{
-            background-color: #e7edf0;
-        }
-
-
-        #pagination{
-            display: block;
-            padding: 0;
-            list-style-type: none;
-        }
-        #pagination li{
-            margin-right: 5px;
-            padding: 10px;
-            border: 1px solid black;
-            width: 40px;
-            height: 40px;
-        }
-        #pagination li:hover{
-            cursor:pointer;
-            color: red;
-            border: 1px solid red;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 90px;
         }
     </style>
 </head>
@@ -176,7 +181,16 @@
                 <td>
                     <c:out value="${user.specialAccess}" />
                 </td>
-                <td><a id="block_unblock_HTML" href="/home/blockSwitcher?id=<c:out value='${user.id}' />">Block/Unblock</a>
+                <td style="font-size: large;"><a href="/home/blockSwitcher?id=<c:out value='${user.id}' />">
+                    <c:choose>
+                        <c:when test="${user.blocked == true}">
+                            ◉
+                        </c:when>
+                        <c:otherwise>
+                            〇
+                        </c:otherwise>
+                    </c:choose>
+                </a>
             </tr>
         </c:forEach>
         <!-- } -->
@@ -205,7 +219,7 @@
         "id_HTML","name_HTML","surname_HTML",
         "dateBirth_HTML","email_HTML","balance_HTML",
         "blocked_HTML","specialAccess_HTML","action_HTML",
-        "block_unblock_HTML",
+
 
         "addTariff_HTML",
 
@@ -218,7 +232,7 @@
         "ID","Name","Surname",
         "Date Of Birth","Email","Balance",
         "Blocked","Special Access","Action",
-        "Block/Unblock",
+
 
         "Add Tariff",
 
@@ -231,7 +245,7 @@
         "Номер","Ім'я","Фамілія",
         "Дата народження","Почта","Рахунок",
         "Заблокований","Спец. доступ","Дія",
-        "Заблок./Розблок.",
+
 
         "Додати тариф",
 

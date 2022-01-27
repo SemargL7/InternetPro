@@ -14,7 +14,8 @@
     <style type="text/css">
         body {
             color: #B1D0E0;
-            background-color: #1A374D;
+            background: url("https://www.teahub.io/photos/full/164-1647689_wallpaper-montreal-canada-night-city-dark-city-wallpaper..jpg");
+            background-size: cover;
         }
 
         nav{
@@ -27,7 +28,6 @@
             display: block;
             height: 50px;
             width: 100%;
-            background-color: #6998AB;
             position: absolute;
             left:0;
             z-index: -1;
@@ -45,6 +45,7 @@
             float:left;
         }
         ul li a{
+            border-radius: 10% 30% 50% 70%;
             color: #fff;
             display: block;
             height: 50px;
@@ -52,9 +53,11 @@
             text-transform: uppercase;
             text-decoration: none;
             line-height: 50px;
+            transition: transform .1s;
         }
         ul li a:hover {
-            background: #406882;
+            background-color: rgba(122, 110, 110, 0.26);
+            transform: scale(1.1);
         }
         .mainBody{
             width: 980px;
@@ -66,44 +69,36 @@
 
 
         table{
-            color: #142a3b;
+            background-color: rgba(154, 154, 154, 0.34);
             border-collapse: collapse;
-            background: white;
-            box-shadow: 12px 12px 2px 1px rgba(58, 95, 111, .2);
+
+
         }
         table th{
-            text-align: left;
-            background-color: #3a6070;
+            width: 100px;
+            text-align: center;
             color:#FFF;
             padding: 4px 30px 4px 8px;
+            border: 1px solid rgba(98, 98, 98, 0.65);
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100px;
         }
 
         table td{
-            border: 1px solid #e3e3e3;
+            width: 100px;
+            border: 1px solid rgba(98, 98, 98, 0.65);
             padding: 4px 8px;
+            color: white;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 90px;
         }
 
-        table tr:nth-child(odd) td{
-            background-color: #e7edf0;
-        }
-        #disc_HTML{width: 100%}
-        #pagination{
-            display: block;
-            padding: 0;
-            list-style-type: none;
-        }
-        #pagination li{
-            margin-right: 5px;
-            padding: 10px;
-            border: 1px solid black;
-            width: 40px;
-            height: 40px;
-        }
-        #pagination li:hover{
-            cursor:pointer;
-            color: red;
-            border: 1px solid red;
-        }
     </style>
 </head>
 <body>
@@ -129,7 +124,7 @@
             <th id="service_HTML">Service</th>
             <th id="cost_HTML">Cost</th>
             <th id="daysOfTariff_HTML">Days of Tariff</th>
-            <th id="description_HTML">Description</th>
+            <th id="description_HTML" style="width: 380px;max-width: 370px;">Description</th>
             <th id="action_HTML">Action</th>
         </tr>
         </thead>
@@ -151,10 +146,10 @@
                 <td>
                     <c:out value="${tariff.daysOfTariff}" />
                 </td>
-                <td id="disc_HTML">
+                <td style="width: 380px;max-width: 370px;">
                     <c:out value="${tariff.description[(language).intValue()]}" />
                 </td>
-                <td><a id="disconnect_HTML" href="/home/disconnectTariff?id=<c:out value='${tariff.id}' />">Disconnect</a>
+                <td style="font-size: large;"><a title="Disconnect" href="/home/disconnectTariff?id=<c:out value='${tariff.id}' />">⇍</a>
             </tr>
         </c:forEach>
         <!-- } -->
@@ -181,7 +176,7 @@
         "balance_HTML",
 
         "id_HTML","service_HTML","cost_HTML","daysOfTariff_HTML",
-        "description_HTML","action_HTML","disconnect_HTML"];
+        "description_HTML","action_HTML"];
     let langEng =["Home","Login-Out",
 
         "Connected tariffs","Tariffs",
@@ -189,7 +184,7 @@
         "Balance:${userBalance}",
 
         "ID","Service","Cost","Days of Tariff",
-        "Description","Action","Disconnect"];
+        "Description","Action"];
     let langUa =["Додому","Вийти",
 
         "Під'єднанні тарифи","Тарифи",
@@ -197,7 +192,7 @@
         "Рахунок:${userBalance}",
 
         "Номер","Сервіс","Ціна","К-ть днів дії",
-        "Опис","Дія","Роз'єднати"];
+        "Опис","Дія"];
     let language = parseInt('${(language).intValue()}');
 
     if(language == 2)

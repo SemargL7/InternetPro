@@ -7,7 +7,8 @@
     <style type="text/css">
         body {
             color: #B1D0E0;
-            background-color: #1A374D;
+            background: url("https://www.teahub.io/photos/full/164-1647689_wallpaper-montreal-canada-night-city-dark-city-wallpaper..jpg");
+            background-size: cover;
         }
 
         nav{
@@ -20,7 +21,6 @@
             display: block;
             height: 50px;
             width: 100%;
-            background-color: #6998AB;
             position: absolute;
             left:0;
             z-index: -1;
@@ -32,12 +32,14 @@
             margin: 0;
             padding: 0;
             list-style: none;
+
         }
         ul li
         {
             float:left;
         }
         ul li a{
+            border-radius: 10% 30% 50% 70%;
             color: #fff;
             display: block;
             height: 50px;
@@ -45,60 +47,65 @@
             text-transform: uppercase;
             text-decoration: none;
             line-height: 50px;
+            transition: transform .1s;
         }
         ul li a:hover {
-            background: #406882;
+            background-color: rgba(122, 110, 110, 0.26);
+            transform: scale(1.1);
         }
         .mainBody{
-            padding-top: 50px;
-            margin: 0;
+            padding-top: 15%;
+            margin: 0 auto;
             color: #142a3b;
         }
+
         #submit_HTML{
             font-size: large;
             color: #fff;
-            background-color: #3a6070;
-            width: 100px;
+            background-color: rgba(0, 0, 0, 0);
+            border: rgba(0,0,0,0);
+            width: 50px;
+            transition: transform .1s;
+        }
+        #submit_HTML:hover{
+            transform: scale(1.1);
+            background-color: rgba(122, 110, 110, 0.26);
         }
 
         table{
             border-collapse: collapse;
         }
         table th{
-            text-align: left;
-            background-color: #3a6070;
+            text-align: center;
+            background-color: #FFF;
             color:#FFF;
             padding: 4px 30px 4px 8px;
         }
-
         table td{
-            border: 1px solid #e3e3e3;
+            width: 100px;
+            border: 1px solid rgba(0, 0, 0, 0);
             padding: 4px 8px;
+        }
+        table td input{
+            border-radius: 2%;
+            border: 1px solid rgba(255, 255, 255, 0.41);
+            background-color: rgba(255, 255, 255, 0.29);
+            color: white;
         }
 
 
         .loginForm{
+            text-align: center;
+            color: white;
             width: 290px;
             height: 180px;
             margin: auto;
-            border: 3px solid #6202f3;
+            transition: transform .5s;
             padding: 10px;
-            background-color: #B1D0E0;
             border-radius: 5px 20px 5px;
         }
-
-        .meme{
-            width: 100%;
-            height: 50%;
-            background-size:cover;
-            display: block;
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-        }
-        .meme.active{
-            opacity: 0.0;
-            transform: scale(0.9);
+        .loginForm:hover{
+            transform: scale(1.05);
         }
         .alert {
             padding: 20px;
@@ -114,10 +121,10 @@
 <nav>
     <ul>
         <li><a id="home_HTML" href="/home">Home</a></li>
-        <li><a id="login_HTML" href="/login">Login</a></li>
-        <li><a id="register_HTML" href="/register">Register</a></li>
     </ul>
     <ul class="right-nav">
+        <li><a id="login_HTML" href="/login">Login</a></li>
+        <li><a id="register_HTML" href="/register">Register</a></li>
         <li><a id="changeLanguage_HTML" href="/changeLanguage">ENG/UA</a></li>
     </ul>
 </nav>
@@ -155,7 +162,7 @@
     let langUa =["Дім","Вхід","Реєстрація","Вхід","Почта","Пароль","Подати"];
     let language = parseInt('${(language).intValue()}');
 
-    if(language == 2)
+    if(language === 2)
         for(i = 0; i <lang.length;i++) {
             document.getElementById(lang[i]).textContent = langUa[i];
         }

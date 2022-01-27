@@ -9,11 +9,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Change tariff</title>
+    <title>Add tariff</title>
     <style type="text/css">
         body {
             color: #B1D0E0;
-            background-color: #1A374D;
+            background: url("https://www.teahub.io/photos/full/164-1647689_wallpaper-montreal-canada-night-city-dark-city-wallpaper..jpg");
+            background-size: cover;
         }
 
         nav{
@@ -26,7 +27,6 @@
             display: block;
             height: 50px;
             width: 100%;
-            background-color: #6998AB;
             position: absolute;
             left:0;
             z-index: -1;
@@ -44,6 +44,7 @@
             float:left;
         }
         ul li a{
+            border-radius: 10% 30% 50% 70%;
             color: #fff;
             display: block;
             height: 50px;
@@ -51,9 +52,11 @@
             text-transform: uppercase;
             text-decoration: none;
             line-height: 50px;
+            transition: transform .1s;
         }
         ul li a:hover {
-            background: #406882;
+            background-color: rgba(122, 110, 110, 0.26);
+            transform: scale(1.1);
         }
         .mainBody{
             padding-top: 50px;
@@ -63,36 +66,53 @@
         #submit_HTML{
             font-size: large;
             color: #fff;
-            background-color: #3a6070;
-            width: 100px;
+            background-color: rgba(0, 0, 0, 0);
+            border: rgba(0,0,0,0);
+            width: 50px;
+            transition: transform .1s;
+        }
+        #submit_HTML:hover{
+            transform: scale(1.1);
+            background-color: rgba(122, 110, 110, 0.26);
         }
 
         table{
-            color: #142a3b;
             border-collapse: collapse;
-            background: white;
         }
         table th{
-            text-align: left;
-            background-color: #3a6070;
+            text-align: center;
+            background-color: #FFF;
             color:#FFF;
             padding: 4px 30px 4px 8px;
-
         }
-
         table td{
-            border: 1px solid #e3e3e3;
+            width: 100px;
+            border: 1px solid rgba(0, 0, 0, 0);
             padding: 4px 8px;
+            color: white;
+            text-align: center;
         }
-
+        table td input{
+            border-radius: 2%;
+            border: 1px solid rgba(255, 255, 255, 0.41);
+            background-color: rgba(255, 255, 255, 0.29);
+            color: white;
+        }
+        table td select{
+            border-radius: 2%;
+            border: 1px solid rgba(255, 255, 255, 0.41);
+            background-color: rgba(255, 255, 255, 0.29);
+            color: white;
+        }
 
         .addTariffForm{
+            color: white;
+            text-align: center;
             width: 290px;
             height: 180px;
             margin: auto;
-            border: 3px solid #6202f3;
+            border: 3px solid rgba(0, 0, 0, 0);
             padding: 10px;
-            background-color: #B1D0E0;
         }
         #serviceSelect_HTML{
             border: 1px solid;
@@ -115,6 +135,7 @@
 </nav>
 <div class="mainBody">
     <div class="addTariffForm">
+        <h1 id="addTariff_HTML">Add Tariff</h1>
         <form action="/home/addedTariff" method="post">
             <table style="with: 80%">
                 <tr>
@@ -150,9 +171,9 @@
 </div>
 </body>
 <script type="text/javascript">
-    let lang=       ["home_HTML","usersList_HTML","tariffsList_HTML","loginOut_HTML","service_HTML","cost_HTML","days_HTML","descriptionENG_HTML","descriptionUA_HTML"];
-    let langEng =   ["Home","Users","Tariffs","Login-out","Service","Cost","Days","Description ENG","Description UA"];
-    let langUa =    ["Додому","Користувачі","Тарифи","Вийти","Сервіс","Ціна","Днів","Опис Англ.","Опис Укр."];
+    let lang=       ["home_HTML","usersList_HTML","tariffsList_HTML","loginOut_HTML","service_HTML","cost_HTML","days_HTML","descriptionENG_HTML","descriptionUA_HTML","addTariff_HTML"];
+    let langEng =   ["Home","Users","Tariffs","Login-out","Service","Cost","Days","Description ENG","Description UA","Add Tariff"];
+    let langUa =    ["Додому","Користувачі","Тарифи","Вийти","Сервіс","Ціна","Днів","Опис Англ.","Опис Укр.","Додати тариф"];
     let language = parseInt('${(language).intValue()}');
 
     if(language == 2)
