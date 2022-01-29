@@ -134,23 +134,23 @@
                 </tr>
                 <tr>
                     <td id="name_HTML">Name</td>
-                    <td class="info">${user.name}</td>
-                    <td class="changeInfo"><input type="text" name="user_name" value="${user.name}" required/></td>
+                    <td class="info">${logUser.name}</td>
+                    <td class="changeInfo"><input type="text" name="user_name" value="${logUser.name}" required/></td>
                 </tr>
                 <tr>
                     <td id="surname_HTML">Surname</td>
-                    <td class="info">${user.surname}</td>
-                    <td class="changeInfo"><input type="text" name="user_surname" value="${user.surname}" required/></td>
+                    <td class="info">${logUser.surname}</td>
+                    <td class="changeInfo"><input type="text" name="user_surname" value="${logUser.surname}" required/></td>
                 </tr>
                 <tr>
                     <td id="email_HTML">Email</td>
-                    <td class="info">${user.email}</td>
-                    <td class="changeInfo"><input type="email" name="user_email" value="${user.email}" required/></td>
+                    <td class="info">${logUser.email}</td>
+                    <td class="changeInfo"><input type="email" name="user_email" value="${logUser.email}" required/></td>
                 </tr>
                 <tr>
                     <td id="password_HTML">Password</td>
-                    <td class="info">${user.password}</td>
-                    <td class="changeInfo"><input type="text" name="user_password" value="${user.password}" required/></td>
+                    <td class="info">${logUser.password}</td>
+                    <td class="changeInfo"><input type="text" name="user_password" value="${logUser.password}" required/></td>
                 </tr>
                 <tr>
                     <td id="action_HTML">Action</td>

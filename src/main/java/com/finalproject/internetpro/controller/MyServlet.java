@@ -1,8 +1,6 @@
 package com.finalproject.internetpro.controller;
 
-import com.finalproject.internetpro.dao.DAOrealisation.DAOService;
-import com.finalproject.internetpro.dao.DAOrealisation.DAOTariff;
-import com.finalproject.internetpro.dao.DAOrealisation.DAOUser;
+
 import com.finalproject.internetpro.model.Service;
 import com.finalproject.internetpro.model.Tariff;
 import com.finalproject.internetpro.model.User;
@@ -26,9 +24,9 @@ import javax.servlet.annotation.*;
  * Servlet class for Internet provider
  * Servlet standardized API for creating dynamic content to a web server
  * Using Front-Controller pattern
- * @see DAOUser
- * @see DAOTariff
- * @see DAOService
+ * @see ServiceUserImpl
+ * @see ServiceServiceImpl
+ * @see ServiceTariffImpl
  * @see User
  * @see Tariff
  * @see Service
@@ -36,23 +34,14 @@ import javax.servlet.annotation.*;
  */
 @WebServlet("/")
 public class MyServlet extends HttpServlet {
-    static final Logger logger = Logger.getLogger(MyServlet.class);
-    static final Integer ELEMENTS_PAGINATION_PAGE = 5;
+    private static final Logger logger = Logger.getLogger(MyServlet.class);
+    private static final Integer ELEMENTS_PAGINATION_PAGE = 5;
 
-    private final ServiceUserImpl serviceUser = new ServiceUserImpl();
-    private final ServiceTariffImpl serviceTariff = new ServiceTariffImpl();
-    private final ServiceServiceImpl serviceService = new ServiceServiceImpl();
-
-    private User logUser;
-
-    private Integer language;//1-ENG. 2-UA
-    private boolean regWarning;
-    private boolean logWarning;
+    private static final ServiceUserImpl serviceUser = new ServiceUserImpl();
+    private static final ServiceTariffImpl serviceTariff = new ServiceTariffImpl();
+    private static final ServiceServiceImpl serviceService = new ServiceServiceImpl();
 
     public void init() {
-        language = 1;
-        regWarning = false;
-        logWarning = false;
         logger.info("Init Servlet");
     }
 
@@ -155,7 +144,7 @@ public class MyServlet extends HttpServlet {
                 }
                 case "/home/logOut" -> {
                     logger.info("action->logOut");
-                    logOut(response);
+                    logOut(request,response);
                 }
                 case "/changeLanguage" -> {
                     logger.info("action->changeLanguage");
@@ -194,15 +183,13 @@ public class MyServlet extends HttpServlet {
     private void viewHome(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         String url = "";
+
+        User logUser = (User) request.getSession().getAttribute("logUser");
+
         if (logUser.isSpecialAccess()) url = "home/managerHome.jsp";
         else url = "home/userHome.jsp";
 
-        request.getSession().setAttribute("user",request.getServletContext().getAttribute("logUser"));
-        double userBalance = logUser.getBalance();
-        request.getSession().setAttribute("userBalance", userBalance);
-        request.getSession().setAttribute("language", language);
-        RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-        dispatcher.forward(request, response);
+        request.getRequestDispatcher(url).forward(request, response);
     }
 
     /**
@@ -210,9 +197,7 @@ public class MyServlet extends HttpServlet {
      */
     private void viewUserBalance(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        request.getSession().setAttribute("language", language);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("../home/user/balance.jsp");
-        dispatcher.forward(request, response);
+        request.getRequestDispatcher("../home/user/balance.jsp").forward(request, response);
     }
     /**
      * Function is viewing a Tariff add page
@@ -221,9 +206,7 @@ public class MyServlet extends HttpServlet {
             throws IOException, ServletException {
         List<Service> listService = serviceService.getAll();
         request.getSession().setAttribute("listService", listService);
-        request.getSession().setAttribute("language", language);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("../home/manager/addTariff.jsp");
-        dispatcher.forward(request, response);
+        request.getRequestDispatcher("../home/manager/addTariff.jsp").forward(request, response);
     }
     /**
      * Function is viewing a Tariff change page
@@ -235,10 +218,8 @@ public class MyServlet extends HttpServlet {
         Optional<Tariff> selectedTariff = serviceTariff.get(id);
         if(selectedTariff.isPresent()){
             Tariff existingTariff = selectedTariff.get();
-            request.getSession().setAttribute("language", language);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("../home/manager/changeTariff.jsp");
             request.getSession().setAttribute("tariff", existingTariff);
-            dispatcher.forward(request, response);
+            request.getRequestDispatcher("../home/manager/changeTariff.jsp").forward(request, response);
         }else
             response.sendRedirect("/home/managerTariffsList");
     }
@@ -247,38 +228,29 @@ public class MyServlet extends HttpServlet {
      */
     private void viewLogin(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        request.getSession().setAttribute("language", language);
-        request.getSession().setAttribute("logWarning", logWarning);
-        logWarning = false;
-        RequestDispatcher dispatcher = request.getRequestDispatcher("login/log.jsp");
-        dispatcher.forward(request, response);
+        request.getRequestDispatcher("login/log.jsp").forward(request, response);
+        request.getSession().setAttribute("logWarning",false);
     }
     /**
      * Function is viewing a login-out page
      */
     private void viewLoginOut(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        request.getSession().setAttribute("language", language);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("../home/logOut.jsp");
-        dispatcher.forward(request, response);
+        request.getRequestDispatcher("../home/logOut.jsp").forward(request, response);
     }
     /**
      * Function is viewing a register page
      */
     private void viewRegister(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        request.getSession().setAttribute("language", language);
-        request.getSession().setAttribute("regWarning", regWarning);
-        regWarning = false;
-        RequestDispatcher dispatcher = request.getRequestDispatcher("register/register.jsp");
-        dispatcher.forward(request, response);
+        request.getRequestDispatcher("register/register.jsp").forward(request, response);
+        request.getSession().setAttribute("regWarning",false);
     }
     /**
      * Function is viewing a deposit page
      */
     private void viewDepositBalance(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        request.getSession().setAttribute("language", language);
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/user/balance.jsp");
         dispatcher.forward(request, response);
     }
@@ -292,17 +264,13 @@ public class MyServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        if(!email.isEmpty() && !password.isEmpty()){
+        Optional<User> user = serviceUser.loggingUser(email,password);
 
-            Optional<User> user = serviceUser.loggingUser(email,password);
-
-            if(user.isPresent()) {
-                logUser = user.get();
-                request.getServletContext().setAttribute("logUser", logUser);
-                url = "/home";
-            }
+        if(!email.isEmpty() && !password.isEmpty() && user.isPresent()){
+            request.getSession().setAttribute("logUser", user.get());
+            url = "/home";
         } else {
-            logWarning = true;
+            request.getSession().setAttribute("logWarning",true);
             url = "/login";
         }
         response.sendRedirect(url);
@@ -336,7 +304,7 @@ public class MyServlet extends HttpServlet {
         if(serviceUser.register(user))
             url = "/login";
         else{
-            regWarning = true;
+            request.getSession().setAttribute("regWarning",true);
             url = "/register";
         }
         response.sendRedirect(url);
@@ -359,12 +327,14 @@ public class MyServlet extends HttpServlet {
     private void connectTariff(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         int idTariff = Integer.parseInt(request.getParameter("id"));
+        User logUser = (User) request.getSession().getAttribute("logUser");
 
         Optional<Tariff> selectedTariff = serviceTariff.get(idTariff);
         if(selectedTariff.isPresent()){
             logUser.addTariff(selectedTariff.get());
             serviceUser.update(logUser);
             serviceUser.updateAllUsersBalances();
+            request.getSession().setAttribute("logUser",logUser);
         }
 
         response.sendRedirect("/home/tariffsList");
@@ -375,12 +345,14 @@ public class MyServlet extends HttpServlet {
     private void disconnectTariff(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         int idTariff = Integer.parseInt(request.getParameter("id"));
+        User logUser = (User) request.getSession().getAttribute("logUser");
 
         Optional<Tariff> selectedTariff = serviceTariff.get(idTariff);
         if(selectedTariff.isPresent()){
             logUser.removeTariff(selectedTariff.get());
             serviceUser.update(logUser);
             serviceUser.updateAllUsersBalances();
+            request.getSession().setAttribute("logUser",logUser);
         }
 
         response.sendRedirect("/home/tariffsList");
@@ -438,11 +410,13 @@ public class MyServlet extends HttpServlet {
     private void depositBalance(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         String res = request.getParameter("balance");
+        User logUser = (User) request.getSession().getAttribute("logUser");
         try{
             double depMoney = Double.parseDouble(res);
             if (depMoney >= 0) {
                 logUser.setBalance(logUser.getBalance() + depMoney);
                 serviceUser.update(logUser);
+                request.getSession().setAttribute("logUser",logUser);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -454,9 +428,9 @@ public class MyServlet extends HttpServlet {
     /**
      * Function is log-outing from account by setting logUser to NULL
      */
-    private void logOut(HttpServletResponse response)
+    private void logOut(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        logUser = null;
+        request.getSession().setAttribute("logUser",null);
         response.sendRedirect("/");
     }
 
@@ -465,8 +439,10 @@ public class MyServlet extends HttpServlet {
      */
     private void changeLanguage(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
+        Integer language = (Integer) request.getSession().getAttribute("language");
         if(language == 2)language = 1;
         else language = 2;
+        request.getSession().setAttribute("language",language);
         //Returning to prev page
         String page = "";
         List<String> link = Arrays
@@ -501,7 +477,7 @@ public class MyServlet extends HttpServlet {
         request.getSession().setAttribute("listUser", listUser);
 
         request.getSession().setAttribute("paginationMax", listUser.size()/5);
-        request.getSession().setAttribute("language", language);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/manager/usersList.jsp");
         dispatcher.forward(request, response);
     }
@@ -528,7 +504,7 @@ public class MyServlet extends HttpServlet {
 
         request.getSession().setAttribute("paginationMax", listTariff.size()/5);
 
-        request.getSession().setAttribute("language", language);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/manager/managerTariffsList.jsp");
         dispatcher.forward(request, response);
     }
@@ -545,6 +521,7 @@ public class MyServlet extends HttpServlet {
         else page = Integer.parseInt(String.valueOf(o));
         request.getSession().setAttribute("page", page);
 
+        User logUser = (User) request.getSession().getAttribute("logUser");
 
         List<Tariff> userTariff = logUser.getTariffs();
         int start = (page-1)*5;
@@ -556,10 +533,6 @@ public class MyServlet extends HttpServlet {
 
         request.getSession().setAttribute("paginationMax", userTariff.size()/5);
 
-        double userBalance = logUser.getBalance();
-        request.getSession().setAttribute("userBalance", userBalance);
-
-        request.getSession().setAttribute("language", language);
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/user/userTariffsList.jsp");
         dispatcher.forward(request, response);
     }
@@ -585,7 +558,7 @@ public class MyServlet extends HttpServlet {
         request.getSession().setAttribute("listTariff", listTariff);
 
         request.getSession().setAttribute("paginationMax", listTariff.size()/ELEMENTS_PAGINATION_PAGE);
-        request.getSession().setAttribute("language", language);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/user/tariffsList.jsp");
         dispatcher.forward(request, response);
     }
@@ -648,7 +621,6 @@ public class MyServlet extends HttpServlet {
 
         response.sendRedirect("/home/tariffsList");
     }
-
     /**
      * Function is changing and updating(database) info about User account
      */
@@ -658,12 +630,18 @@ public class MyServlet extends HttpServlet {
         String surname = request.getParameter("user_surname");
         String email = request.getParameter("user_email");
         String password = request.getParameter("user_password");
+
+        User logUser = (User) request.getSession().getAttribute("logUser");
+
+        System.out.println(logUser);
+        System.out.println(name + " " + surname + " " + email + " " + password);
         if(!name.isEmpty() && !surname.isEmpty() && !email.isEmpty() && !password.isEmpty()){
             logUser.setName(name);
             logUser.setSurname(surname);
             logUser.setEmail(email);
             logUser.setPassword(password);
             serviceUser.update(logUser);
+            request.getSession().setAttribute("logUser",logUser);
         }
         response.sendRedirect("/home");
     }

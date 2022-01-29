@@ -119,7 +119,7 @@
         <li><a id="tariffsList_HTML" href="/home/tariffsList">All Tariffs</a></li>
     </ul>
     <ul class="right-nav">
-        <li><a id="balance_HTML" href="/home/balance">Balance:${userBalance}</a></li>
+        <li><a id="balance_HTML" href="/home/balance">Balance:${logUser.balance}</a></li>
         <li><a id="loginOut_HTML" href="/home/loginOut">Login-out</a></li>
         <li><a id="changeLanguage_HTML" href="/changeLanguage">ENG/UA</a></li>
     </ul>
@@ -139,9 +139,9 @@
 </div>
 </body>
 <script type="text/javascript">
-    let lang=["home_HTML","loginOut_HTML","depositMoney_HTML","submit_HTML"];
-    let langEng =["Home","Login-out","Deposit money","Submit"];
-    let langUa =["Додому","Вийти","Сума поповнення","Подати"];
+    let lang=["home_HTML","loginOut_HTML","depositMoney_HTML","submit_HTML","balance_HTML"];
+    let langEng =["Home","Login-out","Deposit money","Submit","Balance:${logUser.balance}"];
+    let langUa =["Додому","Вийти","Сума поповнення","Подати","Рахунок:${logUser.balance}"];
     let language = parseInt('${(language).intValue()}');
 
     if(language == 2)

@@ -109,7 +109,7 @@
         <li><a id="tariffsList_HTML" href="/home/tariffsList">All Tariffs</a></li>
     </ul>
     <ul class="right-nav">
-        <li><a id="balance_HTML" href="/home/balance">Balance:${userBalance}</a></li>
+        <li><a id="balance_HTML" href="/home/balance">Balance:${logUser.balance}</a></li>
         <li><a id="loginOut_HTML" href="/home/loginOut">Login-out</a></li>
         <li><a id="changeLanguage_HTML" href="/changeLanguage">ENG/UA</a></li>
     </ul>
@@ -181,7 +181,7 @@
 
         "Connected tariffs","Tariffs",
 
-        "Balance:${userBalance}",
+        "Balance:${logUser.balance}",
 
         "ID","Service","Cost","Days of Tariff",
         "Description","Action"];
@@ -189,7 +189,7 @@
 
         "Під'єднанні тарифи","Тарифи",
 
-        "Рахунок:${userBalance}",
+        "Рахунок:${logUser.balance}",
 
         "Номер","Сервіс","Ціна","К-ть днів дії",
         "Опис","Дія"];

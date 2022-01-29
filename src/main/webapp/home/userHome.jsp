@@ -117,7 +117,7 @@
         <li><a id="tariffsList_HTML" href="/home/tariffsList">All Tariffs</a></li>
     </ul>
     <ul class="right-nav">
-        <li><a id="balance_HTML" href="/home/balance">Balance:${userBalance}</a></li>
+        <li><a id="balance_HTML" href="/home/balance">Balance:${logUser.balance}</a></li>
         <li><a id="loginOut_HTML" href="/home/loginOut">Login-out</a></li>
         <li><a id="changeLanguage_HTML" href="/changeLanguage">ENG/UA</a></li>
     </ul>
@@ -134,23 +134,23 @@
                 </tr>
                 <tr>
                     <td id="name_HTML">Name</td>
-                    <td class="info">${user.name}</td>
-                    <td class="changeInfo"><input type="text" name="user_name" value="${user.name}" required/></td>
+                    <td class="info">${logUser.name}</td>
+                    <td class="changeInfo"><input type="text" name="user_name" value="${logUser.name}" required/></td>
                 </tr>
                 <tr>
                     <td id="surname_HTML">Surname</td>
-                    <td class="info">${user.surname}</td>
-                    <td class="changeInfo"><input type="text" name="user_surname" value="${user.surname}" required/></td>
+                    <td class="info">${logUser.surname}</td>
+                    <td class="changeInfo"><input type="text" name="user_surname" value="${logUser.surname}" required/></td>
                 </tr>
                 <tr>
                     <td id="email_HTML">Email</td>
-                    <td class="info">${user.email}</td>
-                    <td class="changeInfo"><input type="email" name="user_email" value="${user.email}" required/></td>
+                    <td class="info">${logUser.email}</td>
+                    <td class="changeInfo"><input type="email" name="user_email" value="${logUser.email}" required/></td>
                 </tr>
                 <tr>
                     <td id="password_HTML">Password</td>
-                    <td class="info">${user.password}</td>
-                    <td class="changeInfo"><input type="text" name="user_password" value="${user.password}" required/></td>
+                    <td class="info">${logUser.password}</td>
+                    <td class="changeInfo"><input type="text" name="user_password" value="${logUser.password}" required/></td>
                 </tr>
                 <tr>
                     <td id="action_HTML">Action</td>
@@ -195,7 +195,7 @@
         ];
     let langEng =["Home","Login-Out",
 
-        "Balance:${userBalance}",
+        "Balance:${logUser.balance}",
 
         "Connected Tariffs",
         "All tariffs",
@@ -205,7 +205,7 @@
         ];
     let langUa =["Додому","Вийти",
 
-        "Рахунок:${userBalance}",
+        "Рахунок:${logUser.balance}",
 
         "Підключені тарифи",
         "Всі тарифи",

@@ -49,6 +49,7 @@ public class ServiceUserImpl implements ServiceUser {
             oldUser.get().getTariffs().stream()
                     .filter(x -> !user.getTariffs().contains(x))
                     .forEach(x -> daoUser.deleteTariffConnection(user.getId(), x.getId()));
+            daoUser.update(user);
             return true;
         }
         return false;

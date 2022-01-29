@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class PageAccessFilter implements Filter {
@@ -19,7 +20,9 @@ public class PageAccessFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-        User user = (User) servletRequest.getServletContext().getAttribute("logUser");
+
+        User user = (User)request.getSession().getAttribute("logUser");
+
         String uri = request.getRequestURI();
         System.out.println(uri);
         if(user != null && user.isSpecialAccess())
