@@ -33,8 +33,7 @@ public class ServiceUserImpl implements ServiceUser {
     @Override
     public boolean register(User user) {
         if(daoUser.mailFree(user.getEmail())){
-            daoUser.save(user);
-            return true;
+            return daoUser.save(user);
         }
         return false;
     }

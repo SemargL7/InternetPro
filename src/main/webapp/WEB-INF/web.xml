@@ -3,6 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <listener>
+        <description>sessionAttributeListener</description>
+        <listener-class>com.finalproject.internetpro.listener.MyHttpSessionAttributeListener</listener-class>
+    </listener>
+
     <filter>
         <filter-name>utfFilter</filter-name>
         <filter-class>com.finalproject.internetpro.filter.ServletFilter</filter-class>
