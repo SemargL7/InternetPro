@@ -10,14 +10,6 @@ import java.sql.Date;
 public class TestServices {
     @Test
     public void testUserService(){
-//        Optional<User> get(int id);
-//        List<User> getAll();
-//        Optional<User> loggingUser(String email, String password);
-//        boolean register(User user);
-//        boolean update(User user);
-//        boolean blockStatusUser(int id, boolean block);
-//        boolean delete(int id);
-//        boolean updateAllUsersBalances();
         ServiceUserImpl serviceUser = new ServiceUserImpl();
         Assertions.assertFalse(serviceUser.register(new User()));
         Assertions.assertFalse(serviceUser.update(new User()));

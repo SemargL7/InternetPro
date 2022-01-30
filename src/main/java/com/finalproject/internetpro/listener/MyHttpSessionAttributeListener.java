@@ -6,6 +6,10 @@ import org.apache.log4j.Logger;
 import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 
+/**
+ * Implements HttpSessionAttributeListener interface and help log all changes in sessions
+ * @see Logger
+ */
 public class MyHttpSessionAttributeListener  implements HttpSessionAttributeListener {
     private static final Logger logger = Logger.getLogger(MyServlet.class);
     public MyHttpSessionAttributeListener() {}

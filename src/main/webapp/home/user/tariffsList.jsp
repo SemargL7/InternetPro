@@ -99,7 +99,7 @@
             max-width: 90px;
         }
 
-        #submit_HTML{
+        .submit_HTML{
             font-size: large;
             color: #fff;
             background-color: rgba(0, 0, 0, 0);
@@ -108,7 +108,7 @@
             transition: transform .1s;
             float: right;
         }
-        #submit_HTML:hover{
+        .submit_HTML:hover{
             transform: scale(1.1);
             background-color: rgba(122, 110, 110, 0.26);
         }
@@ -132,9 +132,15 @@
 
 <div class="mainBody">
     <div class="form">
-    <form action="/home/downloadDocx" method="post">
-        <input id="submit_HTML" title="Download txt format" type="submit" value="﹀" />
-    </form>
+        <form action="/home/downloadDocx" method="post">
+            <input class="submit_HTML" title="Download txt format" type="submit" value="﹀" />
+        </form>
+        <form action="/home/changeSortParAZ" method="post">
+            <input class="submit_HTML"  type="submit" value="AZ" />
+        </form>
+        <form action="/home/changeSortParCost" method="post">
+            <input class="submit_HTML"  type="submit" value="Cost" />
+        </form>
     <table class="table table-bordered2">
         <thead>
         <tr>

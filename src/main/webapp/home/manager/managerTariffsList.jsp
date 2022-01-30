@@ -63,30 +63,16 @@
             width: 980px;
             padding-top: 50px;
             margin: 0 auto;
-            text-align: left;
+            text-align: center;
             color: #142a3b;
         }
-        #submit_HTML{
-            font-size: large;
-            color: #fff;
-            background-color: rgba(0, 0, 0, 0);
-            border: rgba(0,0,0,0);
-            width: 50px;
-            transition: transform .1s;
-            float: right;
-        }
-        #submit_HTML:hover{
-            transform: scale(1.1);
-            background-color: rgba(122, 110, 110, 0.26);
-        }
 
-        .table-bordered{
-            display: block;
-        }
 
         table{
             background-color: rgba(154, 154, 154, 0.34);
             border-collapse: collapse;
+
+
         }
         table th{
             width: 100px;
@@ -112,6 +98,20 @@
             text-overflow: ellipsis;
             max-width: 90px;
         }
+
+        .submit_HTML{
+            font-size: large;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0);
+            border: rgba(0,0,0,0);
+            width: 50px;
+            transition: transform .1s;
+            float: right;
+        }
+        .submit_HTML:hover{
+            transform: scale(1.1);
+            background-color: rgba(122, 110, 110, 0.26);
+        }
     </style>
 </head>
 <body>
@@ -132,8 +132,15 @@
 
     <div class="form">
         <form action="/home/addTariff" method="post">
-            <input id="submit_HTML" title="Add Tariff" type="submit" value="✚" />
+            <input class="submit_HTML" title="Add Tariff" type="submit" value="✚" />
         </form>
+        <form action="/home/changeSortParAZ" method="post">
+            <input class="submit_HTML"  type="submit" value="AZ" />
+        </form>
+        <form action="/home/changeSortParCost" method="post">
+            <input class="submit_HTML"  type="submit" value="Cost" />
+        </form>
+
         <table class="table table-bordered">
             <thead>
             <tr>

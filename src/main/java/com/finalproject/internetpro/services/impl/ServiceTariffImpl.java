@@ -7,6 +7,12 @@ import com.finalproject.internetpro.services.ServiceTariff;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Service layer pattern
+ * Service for Tariff
+ * @see DAOTariff
+ * @see Tariff
+ */
 public class ServiceTariffImpl implements ServiceTariff {
 
     private final DAOTariff daoTariff = DAOTariff.getInstance();

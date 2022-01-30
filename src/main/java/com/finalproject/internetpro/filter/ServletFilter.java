@@ -22,6 +22,15 @@ public class ServletFilter implements Filter {
         if(lang == null)
             request.getSession().setAttribute("language",1);
 
+        Boolean AZ = (Boolean) request.getSession().getAttribute("AZ");
+        if(AZ == null)
+            AZ = true;
+        request.getSession().setAttribute("AZ",AZ);
+        Boolean cost  = (Boolean) request.getSession().getAttribute("cost");
+        if(cost == null)
+            cost = true;
+        request.getSession().setAttribute("cost",cost);
+
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         chain.doFilter(request,response);

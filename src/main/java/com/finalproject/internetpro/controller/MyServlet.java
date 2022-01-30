@@ -13,6 +13,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.sql.Date;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import javax.servlet.RequestDispatcher;
@@ -152,11 +153,19 @@ public class MyServlet extends HttpServlet {
                 }
                 case "/home/downloadDocx" ->{
                     logger.info("action->downloadDocx");
-                    downloadDocx(response);
+                    downloadDocx(request, response);
                 }
                 case "/home/saveProfile"->{
                     logger.info("action->saveProfile");
                     saveProfile(request, response);
+                }
+                case "/home/changeSortParAZ"->{
+                    logger.info("action->changeSortParAZ");
+                    changeSortParAZ(request, response);
+                }
+                case "/home/changeSortParCost"->{
+                    logger.info("action->changeSortParCost");
+                    changeSortParCost(request, response);
                 }
                 default -> {
                     logger.info("action->default");
@@ -500,6 +509,11 @@ public class MyServlet extends HttpServlet {
         start = Math.min(listTariff.size(), start);
         end = Math.min(listTariff.size(), end);
         listTariff = listTariff.subList(start,end);
+
+        listSort(listTariff,
+                (Boolean) request.getSession().getAttribute("AZ"),
+                (Boolean) request.getSession().getAttribute("cost"));
+
         request.getSession().setAttribute("listTariff", listTariff);
 
         request.getSession().setAttribute("paginationMax", listTariff.size()/5);
@@ -529,6 +543,11 @@ public class MyServlet extends HttpServlet {
         start = Math.min(userTariff.size(), start);
         end = Math.min(userTariff.size(), end);
         userTariff = userTariff.subList(start,end);
+
+        listSort(userTariff,
+                (Boolean) request.getSession().getAttribute("AZ"),
+                (Boolean) request.getSession().getAttribute("cost"));
+
         request.getSession().setAttribute("userTariff", userTariff);
 
         request.getSession().setAttribute("paginationMax", userTariff.size()/5);
@@ -555,6 +574,11 @@ public class MyServlet extends HttpServlet {
         start = Math.min(listTariff.size(), start);
         end = Math.min(listTariff.size(), end);
         listTariff = listTariff.subList(start,end);
+
+        listSort(listTariff,
+                (Boolean) request.getSession().getAttribute("AZ"),
+                (Boolean) request.getSession().getAttribute("cost"));
+
         request.getSession().setAttribute("listTariff", listTariff);
 
         request.getSession().setAttribute("paginationMax", listTariff.size()/ELEMENTS_PAGINATION_PAGE);
@@ -566,19 +590,17 @@ public class MyServlet extends HttpServlet {
     /**
      * Function is send txt file with all tariffs to the server and next to user to download
      */
-    private void downloadDocx(HttpServletResponse response)
+    private void downloadDocx(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
         List<Tariff> tariffList = serviceTariff.getAll();
         String fileName = "tariffs.txt";
 
         String str ="";
-        tariffList.sort((o1, o2) -> {
-            if(o1.getService().getServiceName().equalsIgnoreCase(o2.getService().getServiceName()))
-                return (int) (o1.getCost() - o2.getCost());
-            else
-                return o1.getService().getServiceName().compareToIgnoreCase(o2.getService().getServiceName());
-        });
+        listSort(tariffList,
+                (Boolean) request.getSession().getAttribute("AZ"),
+                (Boolean) request.getSession().getAttribute("cost"));
+
         for (Tariff tariff : tariffList) {
             str += ("\nID:" + (tariff.getId()));
             str += ("\nService:" + (tariff.getService().getServiceName()));
@@ -644,6 +666,67 @@ public class MyServlet extends HttpServlet {
             request.getSession().setAttribute("logUser",logUser);
         }
         response.sendRedirect("/home");
+    }
+
+    private void changeSortParAZ(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        Boolean AZ = (Boolean) request.getSession().getAttribute("AZ");
+        request.getSession().setAttribute("AZ",!AZ);
+
+        //Returning to prev page
+        String page = "";
+        List<String> link = Arrays
+                .stream(request.getHeader("referer").split("/"))
+                .toList();
+        for (int i = link.size() - 1; i >= 0; i--) {
+            if(link.get(i).contains(request.getServerName()))
+                break;
+            page = "/" + link.get(i) + page;
+        }
+        response.sendRedirect(page);
+    }
+
+    private void changeSortParCost(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        Boolean cost = (Boolean) request.getSession().getAttribute("cost");
+        request.getSession().setAttribute("cost",!cost);
+
+        //Returning to prev page
+        String page = "";
+        List<String> link = Arrays
+                .stream(request.getHeader("referer").split("/"))
+                .toList();
+        for (int i = link.size() - 1; i >= 0; i--) {
+            if(link.get(i).contains(request.getServerName()))
+                break;
+            page = "/" + link.get(i) + page;
+        }
+        response.sendRedirect(page);
+    }
+
+    private void listSort(List<Tariff> list, boolean AZ, boolean cost){
+        list.sort(new Comparator<Tariff>() {
+            @Override
+            public int compare(Tariff o1, Tariff o2) {
+                if (AZ && cost) {
+                    if (o1.getService().getServiceName().equalsIgnoreCase(o2.getService().getServiceName()))
+                        return (int) (o1.getCost() - o2.getCost());
+                    return o1.getService().getServiceName().compareToIgnoreCase(o2.getService().getServiceName());
+                } else if (AZ) {
+                    if (o1.getService().getServiceName().equalsIgnoreCase(o2.getService().getServiceName()))
+                        return (int) (o2.getCost() - o1.getCost());
+                    return o1.getService().getServiceName().compareToIgnoreCase(o2.getService().getServiceName());
+                } else if (cost) {
+                    if (o1.getService().getServiceName().equalsIgnoreCase(o2.getService().getServiceName()))
+                        return (int) (o1.getCost() - o2.getCost());
+                    return o2.getService().getServiceName().compareToIgnoreCase(o1.getService().getServiceName());
+                } else {
+                    if (o1.getService().getServiceName().equalsIgnoreCase(o2.getService().getServiceName()))
+                        return (int) (o2.getCost() - o1.getCost());
+                    return o2.getService().getServiceName().compareToIgnoreCase(o1.getService().getServiceName());
+                }
+            }
+        });
     }
 
 }

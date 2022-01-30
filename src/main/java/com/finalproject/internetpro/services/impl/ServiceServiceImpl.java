@@ -6,7 +6,12 @@ import com.finalproject.internetpro.services.ServiceService;
 
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * Service layer pattern
+ * Service for Service
+ * @see DAOService
+ * @see Service
+ */
 public class ServiceServiceImpl implements ServiceService {
 
     private final DAOService daoService = DAOService.getInstance();
