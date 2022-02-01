@@ -1,15 +1,17 @@
 package com.finalproject.internetpro.filter;
 
-import com.finalproject.internetpro.dao.DAOrealisation.DAOService;
 import com.finalproject.internetpro.model.User;
 import org.apache.log4j.Logger;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Filter class that mapped for all URLs where is containing "/home/*".
+ * Giving accesses for all home pages if user is logged
+ */
 public class AuthFilter implements Filter {
     static final Logger logger = Logger.getLogger(AuthFilter.class);
     @Override

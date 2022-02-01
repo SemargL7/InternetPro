@@ -4,6 +4,7 @@ import com.finalproject.internetpro.dao.DAO;
 import com.finalproject.internetpro.database.Database;
 import com.finalproject.internetpro.model.Tariff;
 import com.finalproject.internetpro.model.User;
+import com.finalproject.internetpro.model.UserAccess;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -68,7 +69,7 @@ public class DAOUser implements DAO<User> {
                 user.setPassword(result.getString(6));
                 user.setBalance(result.getDouble(7));
                 user.setBlocked(result.getBoolean(8));
-                user.setSpecialAccess(result.getBoolean(9));
+                user.setUserAccess(result.getString(9).equals("MANAGER")? UserAccess.MANAGER:UserAccess.USER);
             }
             while (result2.next()) {
                 Tariff tariff = DAOTariff.getInstance().get(result2.getInt(1)).get();
@@ -135,7 +136,7 @@ public class DAOUser implements DAO<User> {
             posted.setString(6, user.getPassword());
             posted.setDouble(7, user.getBalance());
             posted.setBoolean(8, user.isBlocked());
-            posted.setBoolean(9, user.isSpecialAccess());
+            posted.setString(9, user.getUserAccess().toString());
 
             posted.executeUpdate();
             logger.info("save|"+user);
@@ -174,7 +175,7 @@ public class DAOUser implements DAO<User> {
         posted.setString(5,user.getPassword());
         posted.setDouble(6,user.getBalance());
         posted.setBoolean(7,user.isBlocked());
-        posted.setBoolean(8,user.isSpecialAccess());
+        posted.setString(8, user.getUserAccess().toString());
         posted.setLong(9,user.getId());
 
         posted.executeUpdate();

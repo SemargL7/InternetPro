@@ -36873,3 +36873,688 @@
 2022-01-30 19:42:42 INFO  DAOService:18 - Print today`s date
 2022-01-30 19:42:42 INFO  DAOService:18 - Print today`s date
 2022-01-30 19:42:47 INFO  MyServlet:27 - Attribute has been removed|Attribute Name ::listTariff|Attribute Value ::[Tariff{id=4, service=Service{id=2, serviceName='Telephone'}, cost=50.0, daysOfTariff=50, description={1=Do Something, 2=׀מבטעü שמסü}}, Tariff{id=5, service=Service{id=2, serviceName='Telephone'}, cost=15000.0, daysOfTariff=10, description={1=Do Something, 2=1}}, Tariff{id=3, service=Service{id=1, serviceName='Internet'}, cost=100.0, daysOfTariff=30, description={1=Do Somethinggfsgfsgsgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgdfgdfggdgdgfgdgf, 2=׀מבטעü שמסü}}, Tariff{id=1, service=Service{id=1, serviceName='Internet'}, cost=3000.0, daysOfTariff=300, description={1=Do Something, 2=׀־בטעü שכמס}}]
+2022-02-01 01:13:37 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::language|Attribute Value ::1
+2022-02-01 01:13:38 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:13:38 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:13:38 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::language|Attribute Value ::1
+2022-02-01 01:13:38 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:13:38 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:13:38 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::language|Attribute Value ::1
+2022-02-01 01:13:38 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:13:38 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:13:38 INFO  MyServlet:46 - Init Servlet
+2022-02-01 01:13:38 INFO  MyServlet:171 - action->default
+2022-02-01 01:13:38 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:13:38 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:13:40 INFO  MyServlet:63 - action->viewLogin
+2022-02-01 01:13:40 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::logWarning|Attribute Value ::false
+2022-02-01 01:13:44 INFO  MyServlet:171 - action->default
+2022-02-01 01:13:44 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:13:44 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:13:45 INFO  MyServlet:95 - action->login
+2022-02-01 01:13:45 INFO  Database:30 - Connect with database MySQL
+2022-02-01 01:13:45 ERROR DAOUser:240 - loggingUser|romandubil03@gmail.com|1
+2022-02-01 01:13:45 INFO  Database:30 - Connect with database MySQL
+2022-02-01 01:13:45 INFO  DAOUser:84 - get|1
+2022-02-01 01:13:45 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::logUser|Attribute Value ::User{id=1, name='Ro', surname='Dub1', email='romandubil03@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, specialAccess=true, tariffs=[]}
+2022-02-01 01:13:45 INFO  MyServlet:107 - action->viewHome
+2022-02-01 01:13:46 INFO  MyServlet:171 - action->default
+2022-02-01 01:13:46 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:13:46 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:13:47 INFO  MyServlet:115 - action->viewManagerTariffsList
+2022-02-01 01:13:47 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::page|Attribute Value ::1
+2022-02-01 01:13:47 INFO  DAOTariff:89 - Start getAll
+2022-02-01 01:13:47 INFO  Database:30 - Connect with database MySQL
+2022-02-01 01:13:47 INFO  Database:30 - Connect with database MySQL
+2022-02-01 01:13:47 INFO  Database:30 - Connect with database MySQL
+2022-02-01 01:13:47 INFO  DAOService:63 - get|1
+2022-02-01 01:13:47 INFO  DAOTariff:75 - get|1
+2022-02-01 01:13:47 INFO  Database:30 - Connect with database MySQL
+2022-02-01 01:13:47 INFO  Database:30 - Connect with database MySQL
+2022-02-01 01:13:47 INFO  DAOService:63 - get|1
+2022-02-01 01:13:47 INFO  DAOTariff:75 - get|3
+2022-02-01 01:13:47 INFO  Database:30 - Connect with database MySQL
+2022-02-01 01:13:47 INFO  Database:30 - Connect with database MySQL
+2022-02-01 01:13:47 INFO  DAOService:63 - get|2
+2022-02-01 01:13:47 INFO  DAOTariff:75 - get|4
+2022-02-01 01:13:47 INFO  Database:30 - Connect with database MySQL
+2022-02-01 01:13:47 INFO  Database:30 - Connect with database MySQL
+2022-02-01 01:13:47 INFO  DAOService:63 - get|2
+2022-02-01 01:13:47 INFO  DAOTariff:75 - get|5
+2022-02-01 01:13:47 INFO  DAOTariff:98 - End getAll
+2022-02-01 01:13:47 INFO  MyServlet:171 - action->default
+2022-02-01 01:13:47 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:13:47 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:13:47 INFO  MyServlet:171 - action->default
+2022-02-01 01:13:47 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:13:47 INFO  DAOService:18 - Print today`s date
+2022-02-01 01:14:38 INFO  MyServlet:27 - Attribute has been removed|Attribute Name ::logUser|Attribute Value ::User{id=1, name='Ro', surname='Dub1', email='romandubil03@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, specialAccess=true, tariffs=[]}
+2022-02-01 13:57:44 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::language|Attribute Value ::1
+2022-02-01 13:57:44 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:57:44 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:57:44 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:57:44 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:57:44 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::language|Attribute Value ::1
+2022-02-01 13:57:44 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:57:44 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:57:44 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:57:44 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:57:45 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::language|Attribute Value ::1
+2022-02-01 13:57:45 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:57:45 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:57:45 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:57:45 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:57:45 INFO  MyServlet:46 - Init Servlet
+2022-02-01 13:57:45 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:57:45 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:57:45 INFO  MyServlet:171 - action->default
+2022-02-01 13:57:45 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:57:45 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:57:45 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:57:45 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:57:46 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:57:46 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:57:46 INFO  MyServlet:63 - action->viewLogin
+2022-02-01 13:57:46 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::logWarning|Attribute Value ::false
+2022-02-01 13:57:46 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:57:46 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:57:46 INFO  MyServlet:171 - action->default
+2022-02-01 13:57:46 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:57:46 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:57:46 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:57:46 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:57:48 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:57:48 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:57:48 INFO  MyServlet:67 - action->viewRegister
+2022-02-01 13:57:48 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::regWarning|Attribute Value ::false
+2022-02-01 13:57:48 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:57:48 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:57:48 INFO  MyServlet:171 - action->default
+2022-02-01 13:57:48 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:57:48 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:57:48 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:57:48 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:58:05 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:58:05 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:58:05 INFO  MyServlet:103 - action->register
+2022-02-01 13:58:06 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:58:06 ERROR DAOUser:412 - mailFree|romandubil03@gmail.co
+2022-02-01 13:58:06 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:58:06 INFO  DAOUser:141 - save|User{id=0, name='Roman', surname='Dubil', email='romandubil03@gmail.co', password='1', balance=0.0, dateOfBirth=2022-01-30, blocked=true, specialAccess=false, tariffs=null}
+2022-02-01 13:58:06 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:58:06 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:58:06 INFO  MyServlet:63 - action->viewLogin
+2022-02-01 13:58:06 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::logWarning|Attribute Value ::false
+2022-02-01 13:58:06 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:58:06 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:58:06 INFO  MyServlet:171 - action->default
+2022-02-01 13:58:06 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:58:06 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:58:06 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:58:06 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:58:59 INFO  MyServlet:46 - Init Servlet
+2022-02-01 13:58:59 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::language|Attribute Value ::1
+2022-02-01 13:58:59 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:58:59 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:58:59 WARN  AuthFilter:30 - User isn`t logged
+2022-02-01 13:58:59 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:58:59 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:58:59 INFO  MyServlet:63 - action->viewLogin
+2022-02-01 13:58:59 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::logWarning|Attribute Value ::false
+2022-02-01 13:58:59 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:58:59 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:58:59 INFO  MyServlet:171 - action->default
+2022-02-01 13:58:59 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:58:59 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:58:59 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:58:59 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:02 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:02 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:02 INFO  MyServlet:95 - action->login
+2022-02-01 13:59:02 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:02 ERROR DAOUser:240 - loggingUser|romandubil03@gmail.com|1
+2022-02-01 13:59:02 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:02 INFO  DAOUser:84 - get|1
+2022-02-01 13:59:02 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::logUser|Attribute Value ::User{id=1, name='Ro', surname='Dub1', email='romandubil03@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, specialAccess=true, tariffs=[]}
+2022-02-01 13:59:02 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:02 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:02 INFO  MyServlet:107 - action->viewHome
+2022-02-01 13:59:02 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:02 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:02 INFO  MyServlet:171 - action->default
+2022-02-01 13:59:02 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:02 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:02 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:02 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:05 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:05 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:05 INFO  MyServlet:115 - action->viewManagerTariffsList
+2022-02-01 13:59:05 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::page|Attribute Value ::1
+2022-02-01 13:59:05 INFO  DAOTariff:89 - Start getAll
+2022-02-01 13:59:05 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:05 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:05 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:05 INFO  DAOService:63 - get|1
+2022-02-01 13:59:05 INFO  DAOTariff:75 - get|1
+2022-02-01 13:59:05 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:05 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:05 INFO  DAOService:63 - get|1
+2022-02-01 13:59:05 INFO  DAOTariff:75 - get|3
+2022-02-01 13:59:05 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:05 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:05 INFO  DAOService:63 - get|2
+2022-02-01 13:59:05 INFO  DAOTariff:75 - get|4
+2022-02-01 13:59:05 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:05 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:05 INFO  DAOService:63 - get|2
+2022-02-01 13:59:05 INFO  DAOTariff:75 - get|5
+2022-02-01 13:59:05 INFO  DAOTariff:98 - End getAll
+2022-02-01 13:59:05 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::listTariff|Attribute Value ::[Tariff{id=3, service=Service{id=1, serviceName='Internet'}, cost=100.0, daysOfTariff=30, description={1=Do Somethinggfsgfsgsgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgdfgdfggdgdgfgdgf, 2=׀מבטעü שמסü}}, Tariff{id=1, service=Service{id=1, serviceName='Internet'}, cost=3000.0, daysOfTariff=300, description={1=Do Something, 2=׀־בטעü שכמס}}, Tariff{id=4, service=Service{id=2, serviceName='Telephone'}, cost=50.0, daysOfTariff=50, description={1=Do Something, 2=׀מבטעü שמסü}}, Tariff{id=5, service=Service{id=2, serviceName='Telephone'}, cost=15000.0, daysOfTariff=10, description={1=Do Something, 2=1}}]
+2022-02-01 13:59:05 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::paginationMax|Attribute Value ::0
+2022-02-01 13:59:06 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:06 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:06 INFO  MyServlet:171 - action->default
+2022-02-01 13:59:06 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:06 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:06 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:06 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:08 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:08 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:08 INFO  MyServlet:107 - action->viewHome
+2022-02-01 13:59:08 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:08 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:08 INFO  MyServlet:171 - action->default
+2022-02-01 13:59:08 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:08 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:08 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:08 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:17 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:17 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:17 INFO  MyServlet:171 - action->default
+2022-02-01 13:59:17 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:17 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:17 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:17 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:34 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:34 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:34 INFO  MyServlet:167 - action->changeSortParCost
+2022-02-01 13:59:34 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:34 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:34 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::false
+2022-02-01 13:59:34 INFO  MyServlet:115 - action->viewManagerTariffsList
+2022-02-01 13:59:34 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::page|Attribute Value ::1
+2022-02-01 13:59:34 INFO  DAOTariff:89 - Start getAll
+2022-02-01 13:59:34 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:34 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:34 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:34 INFO  DAOService:63 - get|1
+2022-02-01 13:59:34 INFO  DAOTariff:75 - get|1
+2022-02-01 13:59:34 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:34 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:34 INFO  DAOService:63 - get|1
+2022-02-01 13:59:34 INFO  DAOTariff:75 - get|3
+2022-02-01 13:59:34 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:34 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:34 INFO  DAOService:63 - get|2
+2022-02-01 13:59:34 INFO  DAOTariff:75 - get|4
+2022-02-01 13:59:34 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:34 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:34 INFO  DAOService:63 - get|2
+2022-02-01 13:59:34 INFO  DAOTariff:75 - get|5
+2022-02-01 13:59:34 INFO  DAOTariff:98 - End getAll
+2022-02-01 13:59:34 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::listTariff|Attribute Value ::[Tariff{id=3, service=Service{id=1, serviceName='Internet'}, cost=100.0, daysOfTariff=30, description={1=Do Somethinggfsgfsgsgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgdfgdfggdgdgfgdgf, 2=׀מבטעü שמסü}}, Tariff{id=1, service=Service{id=1, serviceName='Internet'}, cost=3000.0, daysOfTariff=300, description={1=Do Something, 2=׀־בטעü שכמס}}, Tariff{id=4, service=Service{id=2, serviceName='Telephone'}, cost=50.0, daysOfTariff=50, description={1=Do Something, 2=׀מבטעü שמסü}}, Tariff{id=5, service=Service{id=2, serviceName='Telephone'}, cost=15000.0, daysOfTariff=10, description={1=Do Something, 2=1}}]
+2022-02-01 13:59:34 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::paginationMax|Attribute Value ::0
+2022-02-01 13:59:35 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:35 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::false
+2022-02-01 13:59:35 INFO  MyServlet:171 - action->default
+2022-02-01 13:59:35 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:35 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::false
+2022-02-01 13:59:35 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:35 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:35 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:35 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::false
+2022-02-01 13:59:35 INFO  MyServlet:167 - action->changeSortParCost
+2022-02-01 13:59:35 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::false
+2022-02-01 13:59:35 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:35 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:35 INFO  MyServlet:115 - action->viewManagerTariffsList
+2022-02-01 13:59:35 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::page|Attribute Value ::1
+2022-02-01 13:59:35 INFO  DAOTariff:89 - Start getAll
+2022-02-01 13:59:35 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:35 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:35 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:35 INFO  DAOService:63 - get|1
+2022-02-01 13:59:35 INFO  DAOTariff:75 - get|1
+2022-02-01 13:59:35 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:35 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:35 INFO  DAOService:63 - get|1
+2022-02-01 13:59:35 INFO  DAOTariff:75 - get|3
+2022-02-01 13:59:35 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:36 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:36 INFO  DAOService:63 - get|2
+2022-02-01 13:59:36 INFO  DAOTariff:75 - get|4
+2022-02-01 13:59:36 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:36 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:36 INFO  DAOService:63 - get|2
+2022-02-01 13:59:36 INFO  DAOTariff:75 - get|5
+2022-02-01 13:59:36 INFO  DAOTariff:98 - End getAll
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::listTariff|Attribute Value ::[Tariff{id=1, service=Service{id=1, serviceName='Internet'}, cost=3000.0, daysOfTariff=300, description={1=Do Something, 2=׀־בטעü שכמס}}, Tariff{id=3, service=Service{id=1, serviceName='Internet'}, cost=100.0, daysOfTariff=30, description={1=Do Somethinggfsgfsgsgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgdfgdfggdgdgfgdgf, 2=׀מבטעü שמסü}}, Tariff{id=5, service=Service{id=2, serviceName='Telephone'}, cost=15000.0, daysOfTariff=10, description={1=Do Something, 2=1}}, Tariff{id=4, service=Service{id=2, serviceName='Telephone'}, cost=50.0, daysOfTariff=50, description={1=Do Something, 2=׀מבטעü שמסü}}]
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::paginationMax|Attribute Value ::0
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:36 INFO  MyServlet:171 - action->default
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:36 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:36 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:36 INFO  MyServlet:163 - action->changeSortParAZ
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::false
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:36 INFO  MyServlet:115 - action->viewManagerTariffsList
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::page|Attribute Value ::1
+2022-02-01 13:59:36 INFO  DAOTariff:89 - Start getAll
+2022-02-01 13:59:36 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:36 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:36 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:36 INFO  DAOService:63 - get|1
+2022-02-01 13:59:36 INFO  DAOTariff:75 - get|1
+2022-02-01 13:59:36 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:36 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:36 INFO  DAOService:63 - get|1
+2022-02-01 13:59:36 INFO  DAOTariff:75 - get|3
+2022-02-01 13:59:36 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:36 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:36 INFO  DAOService:63 - get|2
+2022-02-01 13:59:36 INFO  DAOTariff:75 - get|4
+2022-02-01 13:59:36 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:36 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:36 INFO  DAOService:63 - get|2
+2022-02-01 13:59:36 INFO  DAOTariff:75 - get|5
+2022-02-01 13:59:36 INFO  DAOTariff:98 - End getAll
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::listTariff|Attribute Value ::[Tariff{id=3, service=Service{id=1, serviceName='Internet'}, cost=100.0, daysOfTariff=30, description={1=Do Somethinggfsgfsgsgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgdfgdfggdgdgfgdgf, 2=׀מבטעü שמסü}}, Tariff{id=1, service=Service{id=1, serviceName='Internet'}, cost=3000.0, daysOfTariff=300, description={1=Do Something, 2=׀־בטעü שכמס}}, Tariff{id=4, service=Service{id=2, serviceName='Telephone'}, cost=50.0, daysOfTariff=50, description={1=Do Something, 2=׀מבטעü שמסü}}, Tariff{id=5, service=Service{id=2, serviceName='Telephone'}, cost=15000.0, daysOfTariff=10, description={1=Do Something, 2=1}}]
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::paginationMax|Attribute Value ::0
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::false
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:36 INFO  MyServlet:171 - action->default
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::false
+2022-02-01 13:59:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:36 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:36 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:37 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::false
+2022-02-01 13:59:37 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:37 INFO  MyServlet:163 - action->changeSortParAZ
+2022-02-01 13:59:37 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::false
+2022-02-01 13:59:37 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:37 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:37 INFO  MyServlet:115 - action->viewManagerTariffsList
+2022-02-01 13:59:37 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::page|Attribute Value ::1
+2022-02-01 13:59:37 INFO  DAOTariff:89 - Start getAll
+2022-02-01 13:59:37 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:37 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:37 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:37 INFO  DAOService:63 - get|1
+2022-02-01 13:59:37 INFO  DAOTariff:75 - get|1
+2022-02-01 13:59:37 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:37 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:37 INFO  DAOService:63 - get|1
+2022-02-01 13:59:37 INFO  DAOTariff:75 - get|3
+2022-02-01 13:59:37 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:37 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:37 INFO  DAOService:63 - get|2
+2022-02-01 13:59:37 INFO  DAOTariff:75 - get|4
+2022-02-01 13:59:37 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:37 INFO  Database:30 - Connect with database MySQL
+2022-02-01 13:59:37 INFO  DAOService:63 - get|2
+2022-02-01 13:59:37 INFO  DAOTariff:75 - get|5
+2022-02-01 13:59:37 INFO  DAOTariff:98 - End getAll
+2022-02-01 13:59:37 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::listTariff|Attribute Value ::[Tariff{id=4, service=Service{id=2, serviceName='Telephone'}, cost=50.0, daysOfTariff=50, description={1=Do Something, 2=׀מבטעü שמסü}}, Tariff{id=5, service=Service{id=2, serviceName='Telephone'}, cost=15000.0, daysOfTariff=10, description={1=Do Something, 2=1}}, Tariff{id=3, service=Service{id=1, serviceName='Internet'}, cost=100.0, daysOfTariff=30, description={1=Do Somethinggfsgfsgsgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgdfgdfggdgdgfgdgf, 2=׀מבטעü שמסü}}, Tariff{id=1, service=Service{id=1, serviceName='Internet'}, cost=3000.0, daysOfTariff=300, description={1=Do Something, 2=׀־בטעü שכמס}}]
+2022-02-01 13:59:37 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::paginationMax|Attribute Value ::0
+2022-02-01 13:59:37 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:37 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:37 INFO  MyServlet:171 - action->default
+2022-02-01 13:59:37 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:37 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:37 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:37 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:46 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:46 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:46 INFO  MyServlet:99 - action->viewLoginOut
+2022-02-01 13:59:47 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:47 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:47 INFO  MyServlet:171 - action->default
+2022-02-01 13:59:47 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:47 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:47 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:47 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:48 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:48 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:48 INFO  MyServlet:171 - action->default
+2022-02-01 13:59:48 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:48 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:48 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:48 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:49 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:49 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:49 INFO  MyServlet:151 - action->changeLanguage
+2022-02-01 13:59:49 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::language|Attribute Value ::1
+2022-02-01 13:59:49 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:49 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:49 INFO  MyServlet:99 - action->viewLoginOut
+2022-02-01 13:59:49 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:49 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:49 INFO  MyServlet:171 - action->default
+2022-02-01 13:59:49 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:49 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:49 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:49 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:51 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:51 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:51 INFO  MyServlet:171 - action->default
+2022-02-01 13:59:51 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:51 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:51 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:51 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:54 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:54 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:54 INFO  MyServlet:147 - action->logOut
+2022-02-01 13:59:54 INFO  MyServlet:27 - Attribute has been removed|Attribute Name ::logUser|Attribute Value ::User{id=1, name='Ro', surname='Dub1', email='romandubil03@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, specialAccess=true, tariffs=[]}
+2022-02-01 13:59:54 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:54 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:54 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:54 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:54 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:54 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:54 INFO  MyServlet:171 - action->default
+2022-02-01 13:59:54 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 13:59:54 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 13:59:54 INFO  DAOService:18 - Print today`s date
+2022-02-01 13:59:54 INFO  DAOService:18 - Print today`s date
+2022-02-01 14:02:10 INFO  MyServlet:27 - Attribute has been removed|Attribute Name ::listTariff|Attribute Value ::[Tariff{id=3, service=Service{id=1, serviceName='Internet'}, cost=100.0, daysOfTariff=30, description={1=Do Somethinggfsgfsgsgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgfffffffffffffffffffffffffsd gfgdgfgdgsggfd ggdfgfdgfdgfdgdgdfgfdgdfgfdgdfgdgdfgdfggdgdgfgdgf, 2=׀מבטעü שמסü}}, Tariff{id=1, service=Service{id=1, serviceName='Internet'}, cost=3000.0, daysOfTariff=300, description={1=Do Something, 2=׀־בטעü שכמס}}, Tariff{id=4, service=Service{id=2, serviceName='Telephone'}, cost=50.0, daysOfTariff=50, description={1=Do Something, 2=׀מבטעü שמסü}}, Tariff{id=5, service=Service{id=2, serviceName='Telephone'}, cost=15000.0, daysOfTariff=10, description={1=Do Something, 2=1}}]
+2022-02-01 14:02:17 INFO  MyServlet:46 - Init Servlet
+2022-02-01 14:02:17 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::language|Attribute Value ::1
+2022-02-01 14:02:17 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:02:17 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:02:17 INFO  MyServlet:63 - action->viewLogin
+2022-02-01 14:02:17 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::logWarning|Attribute Value ::false
+2022-02-01 14:02:17 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:02:17 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:02:17 INFO  MyServlet:171 - action->default
+2022-02-01 14:02:17 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:02:17 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:02:17 INFO  DAOService:18 - Print today`s date
+2022-02-01 14:02:17 INFO  DAOService:18 - Print today`s date
+2022-02-01 14:02:21 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:02:21 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:02:21 INFO  MyServlet:95 - action->login
+2022-02-01 14:02:21 INFO  Database:30 - Connect with database MySQL
+2022-02-01 14:02:21 ERROR DAOUser:240 - loggingUser|romandubil03@gmail.com|1
+2022-02-01 14:02:21 INFO  Database:30 - Connect with database MySQL
+2022-02-01 14:02:21 INFO  DAOUser:84 - get|1
+2022-02-01 14:02:21 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::logUser|Attribute Value ::User{id=1, name='Ro', surname='Dub1', email='romandubil03@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, specialAccess=true, tariffs=[]}
+2022-02-01 14:02:21 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:02:21 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:02:21 INFO  MyServlet:107 - action->viewHome
+2022-02-01 14:02:21 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:02:21 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:02:21 INFO  MyServlet:171 - action->default
+2022-02-01 14:02:21 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:02:21 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:02:21 INFO  DAOService:18 - Print today`s date
+2022-02-01 14:02:21 INFO  DAOService:18 - Print today`s date
+2022-02-01 14:03:28 INFO  MyServlet:27 - Attribute has been removed|Attribute Name ::logUser|Attribute Value ::User{id=1, name='Ro', surname='Dub1', email='romandubil03@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, specialAccess=true, tariffs=[]}
+2022-02-01 14:03:30 INFO  MyServlet:46 - Init Servlet
+2022-02-01 14:03:30 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::language|Attribute Value ::1
+2022-02-01 14:03:30 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:03:30 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:03:30 WARN  AuthFilter:30 - User isn`t logged
+2022-02-01 14:03:30 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:03:30 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:03:30 INFO  MyServlet:63 - action->viewLogin
+2022-02-01 14:03:31 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::logWarning|Attribute Value ::false
+2022-02-01 14:03:31 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:03:31 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:03:31 INFO  MyServlet:63 - action->viewLogin
+2022-02-01 14:03:31 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::logWarning|Attribute Value ::false
+2022-02-01 14:03:31 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:03:31 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:03:31 INFO  MyServlet:63 - action->viewLogin
+2022-02-01 14:03:31 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::logWarning|Attribute Value ::false
+2022-02-01 14:03:31 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:03:31 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:03:31 INFO  MyServlet:63 - action->viewLogin
+2022-02-01 14:03:31 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::logWarning|Attribute Value ::false
+2022-02-01 14:03:33 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:03:33 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:03:33 INFO  MyServlet:95 - action->login
+2022-02-01 14:03:33 INFO  Database:30 - Connect with database MySQL
+2022-02-01 14:03:33 ERROR DAOUser:240 - loggingUser|romandubil03@gmail.com|1
+2022-02-01 14:03:33 INFO  Database:30 - Connect with database MySQL
+2022-02-01 14:03:33 INFO  DAOUser:84 - get|1
+2022-02-01 14:03:33 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::logUser|Attribute Value ::User{id=1, name='Ro', surname='Dub1', email='romandubil03@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, specialAccess=true, tariffs=[]}
+2022-02-01 14:03:33 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:03:33 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:03:33 INFO  MyServlet:107 - action->viewHome
+2022-02-01 14:03:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:03:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:03:36 INFO  MyServlet:159 - action->saveProfile
+2022-02-01 14:03:36 INFO  Database:30 - Connect with database MySQL
+2022-02-01 14:03:36 INFO  DAOUser:84 - get|1
+2022-02-01 14:03:36 INFO  Database:30 - Connect with database MySQL
+2022-02-01 14:03:36 INFO  DAOUser:181 - update|User{id=1, name='Roman', surname='Dubil', email='romandubil03@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, specialAccess=true, tariffs=[]}
+2022-02-01 14:03:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::logUser|Attribute Value ::User{id=1, name='Roman', surname='Dubil', email='romandubil03@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, specialAccess=true, tariffs=[]}
+2022-02-01 14:03:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:03:36 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:03:36 INFO  MyServlet:107 - action->viewHome
+2022-02-01 14:03:43 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:03:43 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:03:43 INFO  MyServlet:159 - action->saveProfile
+2022-02-01 14:03:43 INFO  Database:30 - Connect with database MySQL
+2022-02-01 14:03:43 INFO  DAOUser:84 - get|1
+2022-02-01 14:03:43 INFO  Database:30 - Connect with database MySQL
+2022-02-01 14:03:43 INFO  DAOUser:181 - update|User{id=1, name='Roman', surname='Dubil', email='romandubil03@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, specialAccess=true, tariffs=[]}
+2022-02-01 14:03:43 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::logUser|Attribute Value ::User{id=1, name='Roman', surname='Dubil', email='romandubil03@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, specialAccess=true, tariffs=[]}
+2022-02-01 14:03:43 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:03:43 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:03:43 INFO  MyServlet:107 - action->viewHome
+2022-02-01 14:04:08 INFO  MyServlet:27 - Attribute has been removed|Attribute Name ::logUser|Attribute Value ::User{id=1, name='Roman', surname='Dubil', email='romandubil03@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, specialAccess=true, tariffs=[]}
+2022-02-01 14:04:16 INFO  MyServlet:46 - Init Servlet
+2022-02-01 14:04:16 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::language|Attribute Value ::1
+2022-02-01 14:04:16 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:04:16 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:04:16 WARN  AuthFilter:30 - User isn`t logged
+2022-02-01 14:04:16 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 14:04:16 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 14:04:16 INFO  MyServlet:63 - action->viewLogin
+2022-02-01 14:04:16 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::logWarning|Attribute Value ::false
+2022-02-01 15:02:43 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::language|Attribute Value ::1
+2022-02-01 15:02:43 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:02:43 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:02:44 INFO  DAOService:18 - Print today`s date
+2022-02-01 15:02:44 INFO  DAOService:18 - Print today`s date
+2022-02-01 15:02:44 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::language|Attribute Value ::1
+2022-02-01 15:02:44 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:02:44 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:02:44 INFO  DAOService:18 - Print today`s date
+2022-02-01 15:02:44 INFO  DAOService:18 - Print today`s date
+2022-02-01 15:02:44 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::language|Attribute Value ::1
+2022-02-01 15:02:44 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:02:44 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:02:44 INFO  DAOService:18 - Print today`s date
+2022-02-01 15:02:44 INFO  DAOService:18 - Print today`s date
+2022-02-01 15:02:45 INFO  MyServlet:47 - Init Servlet
+2022-02-01 15:02:45 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:02:45 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:02:45 INFO  MyServlet:64 - action->viewLogin
+2022-02-01 15:02:45 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::logWarning|Attribute Value ::false
+2022-02-01 15:02:48 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:02:48 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:02:48 INFO  MyServlet:96 - action->login
+2022-02-01 15:02:48 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:02:48 ERROR DAOUser:241 - loggingUser|romandubil03@gmail.com|1
+2022-02-01 15:02:48 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:02:48 INFO  DAOUser:85 - get|1
+2022-02-01 15:02:48 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::logUser|Attribute Value ::User{id=1, name='Roman', surname='Dubil', email='romandubil03@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, access=MANAGER, tariffs=[]}
+2022-02-01 15:02:48 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:02:48 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:02:48 INFO  MyServlet:108 - action->viewHome
+2022-02-01 15:02:55 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:02:55 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:02:55 INFO  MyServlet:116 - action->viewManagerTariffsList
+2022-02-01 15:02:55 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::page|Attribute Value ::1
+2022-02-01 15:02:55 INFO  DAOTariff:89 - Start getAll
+2022-02-01 15:02:55 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:02:55 INFO  DAOTariff:98 - End getAll
+2022-02-01 15:02:55 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::listTariff|Attribute Value ::[]
+2022-02-01 15:02:55 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::paginationMax|Attribute Value ::0
+2022-02-01 15:03:00 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:00 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:00 INFO  MyServlet:72 - action->viewTariffAdd
+2022-02-01 15:03:00 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:00 ERROR DAOService:92 - getAll
+2022-02-01 15:03:00 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::listService|Attribute Value ::[Service{id=1, serviceName='Internet'}, Service{id=2, serviceName='Telephone'}, Service{id=3, serviceName='Cable TV'}, Service{id=4, serviceName='IP-TV'}]
+2022-02-01 15:03:10 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:10 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:10 INFO  MyServlet:76 - action->addTariff
+2022-02-01 15:03:10 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:10 INFO  DAOService:63 - get|1
+2022-02-01 15:03:10 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:10 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:10 INFO  DAOTariff:145 - save|Tariff{id=1, service=Service{id=1, serviceName='Internet'}, cost=1000.0, daysOfTariff=31, description={1=Do Something, 2=׀מבטעü שמסü}}
+2022-02-01 15:03:10 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:10 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:10 INFO  MyServlet:116 - action->viewManagerTariffsList
+2022-02-01 15:03:10 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::page|Attribute Value ::1
+2022-02-01 15:03:10 INFO  DAOTariff:89 - Start getAll
+2022-02-01 15:03:10 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:10 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:10 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:10 INFO  DAOService:63 - get|1
+2022-02-01 15:03:10 INFO  DAOTariff:75 - get|1
+2022-02-01 15:03:10 INFO  DAOTariff:98 - End getAll
+2022-02-01 15:03:10 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::listTariff|Attribute Value ::[]
+2022-02-01 15:03:10 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::paginationMax|Attribute Value ::0
+2022-02-01 15:03:12 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:12 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:12 INFO  MyServlet:152 - action->changeLanguage
+2022-02-01 15:03:12 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::language|Attribute Value ::1
+2022-02-01 15:03:12 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:12 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:12 INFO  MyServlet:116 - action->viewManagerTariffsList
+2022-02-01 15:03:12 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::page|Attribute Value ::1
+2022-02-01 15:03:12 INFO  DAOTariff:89 - Start getAll
+2022-02-01 15:03:12 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:12 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:12 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:12 INFO  DAOService:63 - get|1
+2022-02-01 15:03:12 INFO  DAOTariff:75 - get|1
+2022-02-01 15:03:12 INFO  DAOTariff:98 - End getAll
+2022-02-01 15:03:12 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::listTariff|Attribute Value ::[Tariff{id=1, service=Service{id=1, serviceName='Internet'}, cost=1000.0, daysOfTariff=31, description={1=Do Something, 2=׀מבטעü שמסü}}]
+2022-02-01 15:03:12 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::paginationMax|Attribute Value ::0
+2022-02-01 15:03:13 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:13 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:13 INFO  MyServlet:152 - action->changeLanguage
+2022-02-01 15:03:13 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::language|Attribute Value ::2
+2022-02-01 15:03:13 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:13 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:13 INFO  MyServlet:116 - action->viewManagerTariffsList
+2022-02-01 15:03:13 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::page|Attribute Value ::1
+2022-02-01 15:03:13 INFO  DAOTariff:89 - Start getAll
+2022-02-01 15:03:13 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:13 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:13 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:13 INFO  DAOService:63 - get|1
+2022-02-01 15:03:13 INFO  DAOTariff:75 - get|1
+2022-02-01 15:03:13 INFO  DAOTariff:98 - End getAll
+2022-02-01 15:03:13 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::listTariff|Attribute Value ::[Tariff{id=1, service=Service{id=1, serviceName='Internet'}, cost=1000.0, daysOfTariff=31, description={1=Do Something, 2=׀מבטעü שמסü}}]
+2022-02-01 15:03:13 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::paginationMax|Attribute Value ::0
+2022-02-01 15:03:14 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:14 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:14 INFO  MyServlet:100 - action->viewLoginOut
+2022-02-01 15:03:15 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:15 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:15 INFO  MyServlet:172 - action->default
+2022-02-01 15:03:15 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:15 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:15 INFO  DAOService:18 - Print today`s date
+2022-02-01 15:03:15 INFO  DAOService:18 - Print today`s date
+2022-02-01 15:03:15 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:15 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:15 INFO  MyServlet:148 - action->logOut
+2022-02-01 15:03:15 INFO  MyServlet:27 - Attribute has been removed|Attribute Name ::logUser|Attribute Value ::User{id=1, name='Roman', surname='Dubil', email='romandubil03@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, access=MANAGER, tariffs=[]}
+2022-02-01 15:03:15 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:15 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:15 INFO  DAOService:18 - Print today`s date
+2022-02-01 15:03:15 INFO  DAOService:18 - Print today`s date
+2022-02-01 15:03:16 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:16 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:16 INFO  MyServlet:68 - action->viewRegister
+2022-02-01 15:03:16 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::regWarning|Attribute Value ::false
+2022-02-01 15:03:38 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:38 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:38 INFO  MyServlet:104 - action->register
+2022-02-01 15:03:38 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:38 ERROR DAOUser:413 - mailFree|romandubil07@gmail.com
+2022-02-01 15:03:38 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:38 INFO  DAOUser:142 - save|User{id=0, name='Roman', surname='Dubil', email='romandubil07@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, access=USER, tariffs=null}
+2022-02-01 15:03:38 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:38 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:38 INFO  MyServlet:64 - action->viewLogin
+2022-02-01 15:03:38 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::logWarning|Attribute Value ::false
+2022-02-01 15:03:42 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:42 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:42 INFO  MyServlet:96 - action->login
+2022-02-01 15:03:42 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:42 ERROR DAOUser:241 - loggingUser|romandubil07@gmail.com|1
+2022-02-01 15:03:42 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:42 INFO  DAOUser:85 - get|2
+2022-02-01 15:03:42 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::logUser|Attribute Value ::User{id=2, name='Roman', surname='Dubil', email='romandubil07@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, access=USER, tariffs=[]}
+2022-02-01 15:03:42 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:42 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:42 INFO  MyServlet:108 - action->viewHome
+2022-02-01 15:03:52 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:52 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:52 INFO  MyServlet:124 - action->viewTariffsList
+2022-02-01 15:03:52 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::page|Attribute Value ::1
+2022-02-01 15:03:52 INFO  DAOTariff:89 - Start getAll
+2022-02-01 15:03:52 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:52 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:52 INFO  Database:30 - Connect with database MySQL
+2022-02-01 15:03:52 INFO  DAOService:63 - get|1
+2022-02-01 15:03:52 INFO  DAOTariff:75 - get|1
+2022-02-01 15:03:52 INFO  DAOTariff:98 - End getAll
+2022-02-01 15:03:52 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::listTariff|Attribute Value ::[Tariff{id=1, service=Service{id=1, serviceName='Internet'}, cost=1000.0, daysOfTariff=31, description={1=Do Something, 2=׀מבטעü שמסü}}]
+2022-02-01 15:03:52 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::paginationMax|Attribute Value ::0
+2022-02-01 15:03:55 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:55 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:55 INFO  MyServlet:120 - action->viewUserTariffsList
+2022-02-01 15:03:55 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::page|Attribute Value ::1
+2022-02-01 15:03:55 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::userTariff|Attribute Value ::[]
+2022-02-01 15:03:55 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::paginationMax|Attribute Value ::0
+2022-02-01 15:03:56 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:03:56 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:03:56 INFO  MyServlet:108 - action->viewHome
+2022-02-01 15:04:12 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:04:12 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:04:12 INFO  MyServlet:152 - action->changeLanguage
+2022-02-01 15:04:12 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::language|Attribute Value ::1
+2022-02-01 15:04:12 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:04:12 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:04:12 INFO  MyServlet:108 - action->viewHome
+2022-02-01 15:04:14 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:04:14 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:04:14 INFO  MyServlet:92 - action->viewUserBalance
+2022-02-01 15:04:14 INFO  MyServlet:27 - Attribute has been removed|Attribute Name ::userTariff|Attribute Value ::[]
+2022-02-01 15:04:14 INFO  MyServlet:27 - Attribute has been removed|Attribute Name ::logUser|Attribute Value ::User{id=2, name='Roman', surname='Dubil', email='romandubil07@gmail.com', password='1', balance=0.0, dateOfBirth=2003-07-13, blocked=true, access=USER, tariffs=[]}
+2022-02-01 15:04:14 INFO  MyServlet:27 - Attribute has been removed|Attribute Name ::listTariff|Attribute Value ::[Tariff{id=1, service=Service{id=1, serviceName='Internet'}, cost=1000.0, daysOfTariff=31, description={1=Do Something, 2=׀מבטעü שמסü}}]
+2022-02-01 15:04:33 INFO  MyServlet:47 - Init Servlet
+2022-02-01 15:04:33 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::language|Attribute Value ::1
+2022-02-01 15:04:33 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:04:33 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:04:33 WARN  AuthFilter:30 - User isn`t logged
+2022-02-01 15:04:33 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::AZ|Attribute Value ::true
+2022-02-01 15:04:33 INFO  MyServlet:33 - Attribute has been replaced|Attribute Name ::cost|Attribute Value ::true
+2022-02-01 15:04:33 INFO  MyServlet:64 - action->viewLogin
+2022-02-01 15:04:33 INFO  MyServlet:21 - Attribute has been added|Attribute Name ::logWarning|Attribute Value ::false

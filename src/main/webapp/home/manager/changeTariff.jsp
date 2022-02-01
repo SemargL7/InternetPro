@@ -133,7 +133,7 @@
                 </tr>
                 <tr>
                     <td id="days_HTML">Days</td>
-                    <td><input type="number" name="daysOfTariff" value="${tariff.daysOfTariff}" required/></td>
+                    <td><input type="number" name="daysOfTariff" min="0" value="${tariff.daysOfTariff}" required/></td>
                 </tr>
                 <tr>
                     <td id="descriptionENG_HTML">Description ENG</td>

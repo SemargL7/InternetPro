@@ -3,9 +3,13 @@ package com.finalproject.internetpro.filter;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Filter class that mapped for all URLs.
+ * Setting request and response to UTF8 format.
+ * Setting to start state of parameters: language - ENG, AZ - A-Z, cost - ^(from highest to lowest) if they are nulls
+ */
 public class ServletFilter implements Filter {
 
     @Override

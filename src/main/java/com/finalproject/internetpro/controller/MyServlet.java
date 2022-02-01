@@ -4,6 +4,7 @@ package com.finalproject.internetpro.controller;
 import com.finalproject.internetpro.model.Service;
 import com.finalproject.internetpro.model.Tariff;
 import com.finalproject.internetpro.model.User;
+import com.finalproject.internetpro.model.UserAccess;
 import com.finalproject.internetpro.services.impl.ServiceServiceImpl;
 import com.finalproject.internetpro.services.impl.ServiceTariffImpl;
 import com.finalproject.internetpro.services.impl.ServiceUserImpl;
@@ -195,7 +196,7 @@ public class MyServlet extends HttpServlet {
 
         User logUser = (User) request.getSession().getAttribute("logUser");
 
-        if (logUser.isSpecialAccess()) url = "home/managerHome.jsp";
+        if (logUser.getUserAccess() == UserAccess.MANAGER) url = "home/managerHome.jsp";
         else url = "home/userHome.jsp";
 
         request.getRequestDispatcher(url).forward(request, response);
@@ -308,7 +309,7 @@ public class MyServlet extends HttpServlet {
             user.setDateOfBirth(Date.valueOf(dateOfBirth));
             user.setBalance(0);
             user.setBlocked(true);
-            user.setSpecialAccess(false);
+            user.setUserAccess(UserAccess.USER);
         }
         if(serviceUser.register(user))
             url = "/login";
@@ -668,6 +669,10 @@ public class MyServlet extends HttpServlet {
         response.sendRedirect("/home");
     }
 
+    /**
+     * Function is changing sorting logic.
+     * Sort alphabetically
+     */
     private void changeSortParAZ(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         Boolean AZ = (Boolean) request.getSession().getAttribute("AZ");
@@ -685,7 +690,10 @@ public class MyServlet extends HttpServlet {
         }
         response.sendRedirect(page);
     }
-
+    /**
+     * Function is changing sorting logic.
+     * Sort by price
+     */
     private void changeSortParCost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         Boolean cost = (Boolean) request.getSession().getAttribute("cost");
@@ -704,6 +712,12 @@ public class MyServlet extends HttpServlet {
         response.sendRedirect(page);
     }
 
+    /**
+     * Function is sorting list by Alphabets and cost
+     * @param list list which will be sorted
+     * @param AZ sorting from A to Z or Z-A
+     * @param cost sorting by cost > or <
+     */
     private void listSort(List<Tariff> list, boolean AZ, boolean cost){
         list.sort(new Comparator<Tariff>() {
             @Override

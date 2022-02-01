@@ -15,7 +15,8 @@ public class User {
     protected double balance;
     protected Date dateOfBirth;
     protected boolean blocked;
-    protected boolean specialAccess;
+    //protected boolean specialAccess;
+    protected UserAccess access;
     protected List<Tariff> tariffs;
 
 
@@ -35,8 +36,12 @@ public class User {
     public void setDateOfBirth(Date dateOfBirth) {this.dateOfBirth = dateOfBirth;}
     public boolean isBlocked() {return blocked;}
     public void setBlocked(boolean blocked) {this.blocked = blocked;}
-    public boolean isSpecialAccess() {return specialAccess;}
-    public void setSpecialAccess(boolean specialAccess) {this.specialAccess = specialAccess;}
+    public UserAccess getUserAccess() {
+        return access;
+    }
+    public void setUserAccess(UserAccess access) {
+        this.access = access;
+    }
     public List<Tariff> getTariffs() {return tariffs;}
     public void setTariffs(List<Tariff> tariffs) {this.tariffs = tariffs;}
     public void addTariff(Tariff tariff){
@@ -55,7 +60,7 @@ public class User {
 
     public User() {
     }
-    public User(int id, String name, String surname, String email, String password, double balance, Date dateOfBirth, boolean blocked, boolean specialAccess) {
+    public User(int id, String name, String surname, String email, String password, double balance, Date dateOfBirth, boolean blocked, UserAccess access) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -64,8 +69,43 @@ public class User {
         this.balance = balance;
         this.dateOfBirth = dateOfBirth;
         this.blocked = blocked;
-        this.specialAccess = specialAccess;
+        this.access = access;
         tariffs = new ArrayList<>();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (id != user.id) return false;
+        if (Double.compare(user.balance, balance) != 0) return false;
+        if (blocked != user.blocked) return false;
+        if (name != null ? !name.equals(user.name) : user.name != null) return false;
+        if (surname != null ? !surname.equals(user.surname) : user.surname != null) return false;
+        if (email != null ? !email.equals(user.email) : user.email != null) return false;
+        if (password != null ? !password.equals(user.password) : user.password != null) return false;
+        if (dateOfBirth != null ? !dateOfBirth.equals(user.dateOfBirth) : user.dateOfBirth != null) return false;
+        return access == user.access;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (surname != null ? surname.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        temp = Double.doubleToLongBits(balance);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (dateOfBirth != null ? dateOfBirth.hashCode() : 0);
+        result = 31 * result + (blocked ? 1 : 0);
+        result = 31 * result + (access != null ? access.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -79,41 +119,8 @@ public class User {
                 ", balance=" + balance +
                 ", dateOfBirth=" + dateOfBirth +
                 ", blocked=" + blocked +
-                ", specialAccess=" + specialAccess +
+                ", access=" + access +
                 ", tariffs=" + tariffs +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-        if (Double.compare(user.balance, balance) != 0) return false;
-        if (blocked != user.blocked) return false;
-        if (specialAccess != user.specialAccess) return false;
-        if (name != null ? !name.equals(user.name) : user.name != null) return false;
-        if (surname != null ? !surname.equals(user.surname) : user.surname != null) return false;
-        if (email != null ? !email.equals(user.email) : user.email != null) return false;
-        if (password != null ? !password.equals(user.password) : user.password != null) return false;
-        return dateOfBirth != null ? dateOfBirth.equals(user.dateOfBirth) : user.dateOfBirth == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result;
-        long temp;
-        result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (surname != null ? surname.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        temp = Double.doubleToLongBits(balance);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (dateOfBirth != null ? dateOfBirth.hashCode() : 0);
-        result = 31 * result + (blocked ? 1 : 0);
-        result = 31 * result + (specialAccess ? 1 : 0);
-        return result;
     }
 }

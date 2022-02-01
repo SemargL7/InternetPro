@@ -141,15 +141,15 @@
                 <table style="with: 80%">
                 <tr>
                     <td id="name_HTML">Name</td>
-                    <td><input type="text" name="name" required/></td>
+                    <td><input type="text" name="name" pattern="[A-Za-z]{1,32}" required/></td>
                 </tr>
                 <tr>
                     <td id="surname_HTML">Surname</td>
-                    <td><input type="text" name="surname" required/></td>
+                    <td><input type="text" name="surname" pattern="[A-Za-z]{1,32}" required/></td>
                 </tr>
                 <tr>
                     <td id="email_HTML">Email</td>
-                    <td><input type="email" name="email" required/></td>
+                    <td><input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/></td>
                 </tr>
                 <tr>
                     <td id="password_HTML">Password</td>

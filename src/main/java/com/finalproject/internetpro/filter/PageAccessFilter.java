@@ -1,14 +1,20 @@
 package com.finalproject.internetpro.filter;
 
 import com.finalproject.internetpro.model.User;
+import com.finalproject.internetpro.model.UserAccess;
 import org.apache.log4j.Logger;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+
+
+/**
+ * Filter class that mapped for all URLs where is containing "/home/*".
+ * Giving accesses for some page from looking at User status(User/Manager)
+ */
 public class PageAccessFilter implements Filter {
     static final Logger logger = Logger.getLogger(PageAccessFilter.class);
     @Override
@@ -25,7 +31,7 @@ public class PageAccessFilter implements Filter {
 
         String uri = request.getRequestURI();
         System.out.println(uri);
-        if(user != null && user.isSpecialAccess())
+        if(user != null && user.getUserAccess() == UserAccess.MANAGER)
         {
             if(uri.equals("/home/balance") || uri.equals("/home/tariffsList") || uri.equals("/home/userTariffsList") ||
                     uri.contains("/home/connectTariff") || uri.contains("/home/disconnectTariff") ||

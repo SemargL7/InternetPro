@@ -5,6 +5,7 @@ import com.finalproject.internetpro.database.Database;
 import com.finalproject.internetpro.model.Service;
 import com.finalproject.internetpro.model.Tariff;
 import com.finalproject.internetpro.model.User;
+import com.finalproject.internetpro.model.UserAccess;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -198,36 +199,36 @@ public class TestDao {
 
     {
         userList.add(new User(100, "Test1", "SurTest1", "Test1@gmail.com",
-                "1", 3000, Date.valueOf("2001-10-10"), true, false));
+                "1", 3000, Date.valueOf("2001-10-10"), true, UserAccess.USER));
         userList.add(new User(101, "Test2", "SurTest2", "Test2@gmail.com",
-                "2", 3000, Date.valueOf("2001-10-10"), true, false));
+                "2", 3000, Date.valueOf("2001-10-10"), true, UserAccess.USER));
         userList.add(new User(102, "Test3", "SurTest3", "Test3@gmail.com",
-                "3", 3000, Date.valueOf("2001-10-10"), true, false));
+                "3", 3000, Date.valueOf("2001-10-10"), true, UserAccess.USER));
         userList.add(new User(103, "Test4", "SurTest4", "Test4@gmail.com",
-                "4", 3000, Date.valueOf("2001-10-10"), true, false));
+                "4", 3000, Date.valueOf("2001-10-10"), true, UserAccess.USER));
         userList.add(new User(104, "Test5", "SurTest5", "Test5@gmail.com",
-                "5", 3000, Date.valueOf("2001-10-10"), true, false));
+                "5", 3000, Date.valueOf("2001-10-10"), true, UserAccess.USER));
     }
 
     private final List<User> newUserList = new ArrayList<>();
 
     {
         newUserList.add(new User(100, "Test1RE", "SurTest1RE", "Test1RE@gmail.com",
-                "1", 0, Date.valueOf("2001-10-10"), true, false));
+                "1", 0, Date.valueOf("2001-10-10"), true, UserAccess.USER));
         newUserList.add(new User(101, "Test2RE", "SurTest2RE", "Test2RE@gmail.com",
-                "2", 3700, Date.valueOf("2001-10-10"), true, false));
+                "2", 3700, Date.valueOf("2001-10-10"), true, UserAccess.USER));
         newUserList.add(new User(102, "Test3RE", "SurTest3RE", "Test3RE@gmail.com",
-                "3", 3500, Date.valueOf("2001-10-10"), true, false));
+                "3", 3500, Date.valueOf("2001-10-10"), true, UserAccess.USER));
         newUserList.add(new User(103, "Test4RE", "SurTest4RE", "Test4RE@gmail.com",
-                "4", 4000, Date.valueOf("2001-10-10"), true, false));
+                "4", 4000, Date.valueOf("2001-10-10"), true, UserAccess.USER));
         newUserList.add(new User(104, "Test5RE", "SurTest5RE", "Test5RE@gmail.com",
-                "5", 300, Date.valueOf("2001-10-10"), true, false));
+                "5", 300, Date.valueOf("2001-10-10"), true, UserAccess.USER));
     }
 
     private final List<User> nullUserList = new ArrayList<>();
     {
         nullUserList.add(new User(0, "Test0", "SurTest0", "Test0@gmail.com",
-                "0", 0, Date.valueOf("2001-10-10"), true, false));
+                "0", 0, Date.valueOf("2001-10-10"), true, UserAccess.USER));
         nullUserList.add(null);
         nullUserList.add(null);
     }

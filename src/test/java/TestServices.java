@@ -1,5 +1,6 @@
 import com.finalproject.internetpro.database.Database;
 import com.finalproject.internetpro.model.User;
+import com.finalproject.internetpro.model.UserAccess;
 import com.finalproject.internetpro.services.impl.ServiceUserImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -23,7 +24,7 @@ public class TestServices {
         testUser.setBalance(100);
         testUser.setDateOfBirth(Date.valueOf("2001-01-01"));
         testUser.setBlocked(true);
-        testUser.setSpecialAccess(false);
+        testUser.setUserAccess(UserAccess.USER);
         System.out.println(testUser);
 
         Assertions.assertTrue(serviceUser.register(testUser));
