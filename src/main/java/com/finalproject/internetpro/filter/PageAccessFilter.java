@@ -40,6 +40,11 @@ public class PageAccessFilter implements Filter {
                 response.sendRedirect("/home");
                 return;
             }
+            else if(uri.equals("/login") || uri.equals("/register")) {
+                logger.warn("You are already logged");
+                response.sendRedirect("/home");
+                return;
+            }
         }
         else if(user != null)
         {
@@ -48,6 +53,11 @@ public class PageAccessFilter implements Filter {
                     uri.contains("/home/deleteTariff") ||  uri.contains("/home/blockSwitcher") ||
                     uri.contains("/home/updateTariff") ||  uri.contains("/home/addedTariff")){
                 logger.warn("Have not an access to this page");
+                response.sendRedirect("/home");
+                return;
+            }
+            else if(uri.equals("/login") || uri.equals("/register")) {
+                logger.warn("You are already logged");
                 response.sendRedirect("/home");
                 return;
             }

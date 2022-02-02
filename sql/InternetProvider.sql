@@ -37,7 +37,7 @@ create table Users(
                       `password` nchar(225) not null,
                       balance double not null default 0,
                       blocked boolean not null default true,
-                      specialAccess boolean not null default false
+                      access enum('MANAGER','USER') not null default 'USER'
 );
 
 create table TariffConnected(
@@ -57,4 +57,4 @@ insert into Services (name) value ('IP-TV');
 insert into `language` (`language`) value ('eng');
 insert into `language` (`language`) value ('ua');
 
-insert into Users (name,surname,dateBirth,email,password,specialAccess) value('Roman','Dubil','2003-07-13','romandubil03@gmail.com','1',true);
+insert into Users (name,surname,dateBirth,email,password,access) value('Roman','Dubil','2003-07-13','romandubil03@gmail.com','1','MANAGER');

@@ -24,6 +24,35 @@ import java.util.*;
 public class DAOUser implements DAO<User> {
     static final Logger logger = Logger.getLogger(DAOUser.class);
 
+    private static final String SQL_GET_USER_BY_ID = "SELECT * FROM Users WHERE id = ?";
+    private static final String SQL_GET_USER_CONNECTIONS = "SELECT tariff.id FROM tariffconnected INNER JOIN tariff ON tariff.id = tariffconnected.idTariff WHERE tariffconnected.idUser = ?";
+    private static final String SQL_GET_ALL_USER_ID = "SELECT id from Users";
+    private static final String SQL_INSERT_USER = "INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String SQL_UPDATE_USER ="update users set name = ?, surname = ?, dateBirth = ?, email = ?, password = ?, balance = ?, blocked = ?, access = ? where users.id = ?";
+    private static final String SQL_DELETE_USER_CONNECTIONS = "DELETE from TariffConnected where idUser = ?";
+    private static final String SQL_DELETE_USER = "DELETE from users WHERE id = ?";
+    private static final String SQL_GET_USER_ID_BY_EMAIL_AND_PASSWORD = "SELECT id from Users where email = ? and password = ?";
+    private static final String SQL_DELETE_USER_CONNECTION = "DELETE from TariffConnected where idUser = ? and idTariff = ?";
+    private static final String SQL_INSERT_USER_CONNECTION = "INSERT INTO TariffConnected value(?,?,?)";
+    private static final String SQL_SET_USER_BLOCK_STATUS ="update users set blocked = ? where users.id = ?";
+    private static final String SQL_SELECT_USER_ID_BY_EMAIL = "SELECT id from Users where email = ?";
+    private static final String SQL_UPDATE_ALL_USER_BALANCES_AND_BLOCK_STATUS ="update internetprovider.Users " +
+            "inner join  internetprovider.TariffConnected on TariffConnected.idUser = Users.id " +
+            "inner join  internetprovider.Tariff on Tariff.id = TariffConnected.idTariff " +
+            "set Users.blocked = case " +
+            "when (Users.balance < Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then true " +
+            "when (Users.balance >= Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then false " +
+            "else false end, " +
+            "Users.balance = case " +
+            "when (Users.balance < Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then balance " +
+            "when (Users.balance >= Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then balance - cost " +
+            "else balance end, " +
+            "TariffConnected.dateOfLastConnection = case " +
+            "when (Users.balance < Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then dateOfLastConnection " +
+            "when (Users.balance >= Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then now() " +
+            "else dateOfLastConnection end where Users.id = ?;";
+
+
     private static DAOUser instance;
 
     public static DAOUser getInstance(){
@@ -44,14 +73,9 @@ public class DAOUser implements DAO<User> {
 
         User user = null;
         try {
-            String sql = "SELECT * from Users where id = ?";
-            String sql2 = "SELECT tariff.id " +
-                    "FROM tariffconnected " +
-                    "inner join tariff on tariff.id = tariffconnected.idTariff " +
-                    "where tariffconnected.idUser = ?";
-            Connection con = Database.getConnection();
-            PreparedStatement statement = con.prepareStatement(sql);
-            PreparedStatement statement2 = con.prepareStatement(sql2);
+
+            PreparedStatement statement = Database.getConnection().prepareStatement(SQL_GET_USER_BY_ID);
+            PreparedStatement statement2 = Database.getConnection().prepareStatement(SQL_GET_USER_CONNECTIONS);
 
             statement.setLong(1, id);
             statement2.setLong(1, id);
@@ -72,9 +96,8 @@ public class DAOUser implements DAO<User> {
                 user.setUserAccess(result.getString(9).equals("MANAGER")? UserAccess.MANAGER:UserAccess.USER);
             }
             while (result2.next()) {
-                Tariff tariff = DAOTariff.getInstance().get(result2.getInt(1)).get();
-                if (tariff != null)
-                    tariffs.add(tariff);
+                Optional<Tariff> tariff = DAOTariff.getInstance().get(result2.getInt(1));
+                tariff.ifPresent(tariffs::add);
             }
 
             user.setTariffs(tariffs);
@@ -96,12 +119,8 @@ public class DAOUser implements DAO<User> {
     @Override
     public List<User> getAll(){
         List<User> users = null;
-        try {
-            String sql = "SELECT id from Users";
+        try(PreparedStatement statement = Database.getConnection().prepareStatement(SQL_GET_ALL_USER_ID)) {
             logger.info("Start getALL");
-
-            Connection con = Database.getConnection();
-            PreparedStatement statement = con.prepareStatement(sql);
 
             ResultSet result = statement.executeQuery();
             DAOUser daoUser = new DAOUser();
@@ -119,14 +138,11 @@ public class DAOUser implements DAO<User> {
     /**
      * Function is inserting a new User into database
      * @param user User which we want to insert
-     * @return
+     * @return boolean, if insert is successful - true, and else - false
      */
     @Override
     public boolean save(User user){
-        try {
-            String sql = "INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            Connection con = Database.getConnection();
-            PreparedStatement posted = con.prepareStatement(sql);
+        try(PreparedStatement posted = Database.getConnection().prepareStatement(SQL_INSERT_USER)) {
 
             posted.setLong(1, user.getId());
             posted.setString(2, user.getName());
@@ -150,23 +166,11 @@ public class DAOUser implements DAO<User> {
     /**
      * Function is setting new data into the User
      * @param user User with new data
+     * @return boolean, if user is successful saved - true, and else - false
      */
     @Override
     public boolean update(User user){
-        try {
-        String sql ="update users " +
-                "set name = ?, " +
-                "surname = ?, " +
-                "dateBirth = ?, " +
-                "email = ?, " +
-                "password = ?, " +
-                "balance = ?, " +
-                "blocked = ?, " +
-                "specialAccess = ? " +
-                "where users.id = ?";
-
-        Connection con = Database.getConnection();
-        PreparedStatement posted = con.prepareStatement(sql);
+        try(PreparedStatement posted = Database.getConnection().prepareStatement(SQL_UPDATE_USER)) {
 
         posted.setString(1,user.getName());
         posted.setString(2,user.getSurname());
@@ -190,18 +194,13 @@ public class DAOUser implements DAO<User> {
     /**
      * Function is deleting the User
      * @param id User`s id
-     * @return
+     * @return boolean, if delete is successful - true, and else - false
      */
     @Override
     public boolean delete(int id){
         try {
-            String sql = "DELETE from TariffConnected where idUser = ?";
-            String sql2 = "DELETE from users WHERE id = ?";
-
-            Connection con = Database.getConnection();
-
-            PreparedStatement posted = con.prepareStatement(sql);
-            PreparedStatement posted2 = con.prepareStatement(sql2);
+            PreparedStatement posted = Database.getConnection().prepareStatement(SQL_DELETE_USER_CONNECTIONS);
+            PreparedStatement posted2 = Database.getConnection().prepareStatement(SQL_DELETE_USER);
 
             posted.setLong(1, id);
             posted2.setLong(1, id);
@@ -224,10 +223,7 @@ public class DAOUser implements DAO<User> {
      * @return res/null if your is in database function returning id of User
      */
     public Integer loggingUser(String email,String password) {
-        try {
-        String sql = "SELECT id from Users where email = ? and password = ?";
-        Connection con = Database.getConnection();
-        PreparedStatement statement = con.prepareStatement(sql);
+        try (PreparedStatement statement = Database.getConnection().prepareStatement(SQL_GET_USER_ID_BY_EMAIL_AND_PASSWORD)) {
 
         statement.setString(1,email);
         statement.setString(2,password);
@@ -247,45 +243,13 @@ public class DAOUser implements DAO<User> {
     }
 
     /**
-     *Function is checking does User is already have tariff connection
-     * @param idUser User`s id
-     * @param idTariff Tariff`s id
-     * @return boolean`s value. If User is already have tariff connection - true, else - false
-     */
-    public boolean checkTariff(int idUser, int idTariff)
-    {
-        boolean chT = false;
-        try {
-            String sql = "SELECT * from TariffConnected where idUser = ? and idTariff = ?";
-            Connection con = Database.getConnection();
-            PreparedStatement statement = con.prepareStatement(sql);
-
-            statement.setInt(1,idUser);
-            statement.setInt(2,idTariff);
-
-            ResultSet result = statement.executeQuery();
-            chT = result.next();
-
-            logger.info("checkTariff|"+idUser+"|"+idTariff);
-
-            return chT;
-        }catch (Exception e){
-            logger.error("checkTariff|ERROR:"+e);
-        }
-        return chT;
-    }
-
-    /**
      * Function is disconnecting tariff
      * @param idUser User`s id which will disable the tariff
      * @param idTariff Tariff`s id which will be disabled
      */
     public void deleteTariffConnection(int idUser,int idTariff)
     {
-        try {
-            String sql = "DELETE from TariffConnected where idUser = ? and idTariff = ?";
-            Connection con = Database.getConnection();
-            PreparedStatement posted = con.prepareStatement(sql);
+        try(PreparedStatement posted = Database.getConnection().prepareStatement(SQL_DELETE_USER_CONNECTION)) {
 
             posted.setLong(1, idUser);
             posted.setLong(2, idTariff);
@@ -305,10 +269,7 @@ public class DAOUser implements DAO<User> {
      */
     public void connectTariffConnection(int idUser,int idTariff)
     {
-        try {
-            String sql = "INSERT INTO TariffConnected value(?,?,?)";
-            Connection con = Database.getConnection();
-            PreparedStatement posted = con.prepareStatement(sql);
+        try(PreparedStatement posted = Database.getConnection().prepareStatement(SQL_INSERT_USER_CONNECTION)){
 
             SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
             Date date = new Date(System.currentTimeMillis());
@@ -331,10 +292,7 @@ public class DAOUser implements DAO<User> {
      * @param block status(block - true, unblock - false)
      */
     public boolean blockStatusUser(int id, boolean block){
-        try {
-            String sql ="update users set blocked = ? where users.id = ?";
-            Connection con = Database.getConnection();
-            PreparedStatement posted = con.prepareStatement(sql);
+        try(PreparedStatement posted = Database.getConnection().prepareStatement(SQL_SET_USER_BLOCK_STATUS)) {
 
             posted.setBoolean(1,block);
             posted.setLong(2,id);
@@ -354,24 +312,7 @@ public class DAOUser implements DAO<User> {
      * if user`s balance is lower cost of tariff - user will be blocked
      */
     public boolean updateAllUsersBalances(){
-        try {
-            String sql ="update internetprovider.Users " +
-                    "inner join  internetprovider.TariffConnected on TariffConnected.idUser = Users.id " +
-                    "inner join  internetprovider.Tariff on Tariff.id = TariffConnected.idTariff " +
-                    "set Users.blocked = case " +
-                        "when (Users.balance < Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then true " +
-                        "when (Users.balance >= Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then false " +
-                        "else false end, " +
-                    "Users.balance = case " +
-                        "when (Users.balance < Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then balance " +
-                        "when (Users.balance >= Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then balance - cost " +
-                        "else balance end, " +
-                    "TariffConnected.dateOfLastConnection = case " +
-                        "when (Users.balance < Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then dateOfLastConnection " +
-                        "when (Users.balance >= Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then now() " +
-                        "else dateOfLastConnection end where Users.id = ?;";
-            Connection con = Database.getConnection();
-            PreparedStatement posted = con.prepareStatement(sql);
+        try(PreparedStatement posted = Database.getConnection().prepareStatement(SQL_UPDATE_ALL_USER_BALANCES_AND_BLOCK_STATUS)) {
 
             List<User> userList = getAll();
             userList.forEach(x->{
@@ -397,10 +338,7 @@ public class DAOUser implements DAO<User> {
      * @return TRUE/False, if mail is free - true, else - false
      */
     public boolean mailFree(String email){
-        try {
-            String sql = "SELECT id from Users where email = ?";
-            Connection con = Database.getConnection();
-            PreparedStatement statement = con.prepareStatement(sql);
+        try(PreparedStatement statement = Database.getConnection().prepareStatement(SQL_SELECT_USER_ID_BY_EMAIL)) {
 
             statement.setString(1,email);
 

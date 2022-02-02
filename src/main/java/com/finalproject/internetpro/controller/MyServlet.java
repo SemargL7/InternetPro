@@ -38,10 +38,21 @@ import javax.servlet.annotation.*;
 public class MyServlet extends HttpServlet {
     private static final Logger logger = Logger.getLogger(MyServlet.class);
     private static final Integer ELEMENTS_PAGINATION_PAGE = 5;
+    private static final String COOKIE_EMAIL_NAME = "uMail";
+    private static final String COOKIE_PASSWORD_NAME = "uPassword";
+    private static final String LOG_USER = "logUser";
+    private static final String LOG_WARNING = "logWarning";
+    private static final String REG_WARNING = "regWarning";
+    private static final String LANGUAGE = "language";
+    private static final String PAGINATION = "paginationMax";
+    private static final String PAGINATION_PAGE = "page";
+    private static final String SORTING_BY_COST = "cost";
+
 
     private static final ServiceUserImpl serviceUser = new ServiceUserImpl();
     private static final ServiceTariffImpl serviceTariff = new ServiceTariffImpl();
     private static final ServiceServiceImpl serviceService = new ServiceServiceImpl();
+
 
     public void init() {
         logger.info("Init Servlet");
@@ -168,9 +179,13 @@ public class MyServlet extends HttpServlet {
                     logger.info("action->changeSortParCost");
                     changeSortParCost(request, response);
                 }
-                default -> {
-                    logger.info("action->default");
+                case "/" -> {
+                    logger.info("action->/");
                     response.sendRedirect("/");
+                }
+                default -> {
+                    logger.info("action->404");
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
             }
         } catch (Exception ex) {
@@ -192,9 +207,9 @@ public class MyServlet extends HttpServlet {
      */
     private void viewHome(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        String url = "";
+        String url;
 
-        User logUser = (User) request.getSession().getAttribute("logUser");
+        User logUser = (User) request.getSession().getAttribute(LOG_USER);
 
         if (logUser.getUserAccess() == UserAccess.MANAGER) url = "home/managerHome.jsp";
         else url = "home/userHome.jsp";
@@ -215,7 +230,7 @@ public class MyServlet extends HttpServlet {
     private void viewTariffAdd(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         List<Service> listService = serviceService.getAll();
-        request.getSession().setAttribute("listService", listService);
+        request.setAttribute("listService", listService);
         request.getRequestDispatcher("../home/manager/addTariff.jsp").forward(request, response);
     }
     /**
@@ -228,7 +243,7 @@ public class MyServlet extends HttpServlet {
         Optional<Tariff> selectedTariff = serviceTariff.get(id);
         if(selectedTariff.isPresent()){
             Tariff existingTariff = selectedTariff.get();
-            request.getSession().setAttribute("tariff", existingTariff);
+            request.setAttribute("tariff", existingTariff);
             request.getRequestDispatcher("../home/manager/changeTariff.jsp").forward(request, response);
         }else
             response.sendRedirect("/home/managerTariffsList");
@@ -238,8 +253,15 @@ public class MyServlet extends HttpServlet {
      */
     private void viewLogin(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        request.getRequestDispatcher("login/log.jsp").forward(request, response);
-        request.getSession().setAttribute("logWarning",false);
+        Optional<String> email = readCookie(COOKIE_EMAIL_NAME,request);
+        Optional<String> password = readCookie(COOKIE_PASSWORD_NAME,request);
+        if(email.isPresent() && password.isPresent()){
+            response.sendRedirect("/login/log");
+        }
+        else {
+            request.getRequestDispatcher("login/log.jsp").forward(request, response);
+            request.getSession().setAttribute(LOG_WARNING, false);
+        }
     }
     /**
      * Function is viewing a login-out page
@@ -254,7 +276,7 @@ public class MyServlet extends HttpServlet {
     private void viewRegister(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         request.getRequestDispatcher("register/register.jsp").forward(request, response);
-        request.getSession().setAttribute("regWarning",false);
+        request.getSession().setAttribute(REG_WARNING,false);
     }
     /**
      * Function is viewing a deposit page
@@ -270,17 +292,43 @@ public class MyServlet extends HttpServlet {
      */
     private void login(HttpServletRequest request, HttpServletResponse response)
             throws IOException{
-        String url = "";
+        String url;
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+
+
+        Cookie cookieUEmail = new Cookie(COOKIE_EMAIL_NAME,email);
+        Cookie cookieUPassword = new Cookie(COOKIE_PASSWORD_NAME,password);
+
+        Optional<String> readCookieEmail = readCookie(COOKIE_EMAIL_NAME,request);
+        Optional<String> readCookiePassword = readCookie(COOKIE_PASSWORD_NAME,request);
+
+        if(readCookieEmail.isPresent() && readCookiePassword.isPresent()){
+            email = readCookieEmail.get();
+            password = readCookiePassword.get();
+        }
 
         Optional<User> user = serviceUser.loggingUser(email,password);
 
         if(!email.isEmpty() && !password.isEmpty() && user.isPresent()){
-            request.getSession().setAttribute("logUser", user.get());
+            request.getSession().setAttribute(LOG_USER, user.get());
+
+            cookieUEmail.setMaxAge(60 * 60 * 24 * 365);
+            cookieUPassword.setMaxAge(60 * 60 * 24 * 365);
+            response.addCookie(cookieUEmail);
+            response.addCookie(cookieUPassword);
+
             url = "/home";
         } else {
-            request.getSession().setAttribute("logWarning",true);
+            request.getSession().setAttribute(LOG_WARNING,true);
+
+            cookieUEmail.setValue(null);
+            cookieUPassword.setValue(null);
+            cookieUEmail.setMaxAge(0);
+            cookieUPassword.setMaxAge(0);
+            response.addCookie(cookieUEmail);
+            response.addCookie(cookieUPassword);
+
             url = "/login";
         }
         response.sendRedirect(url);
@@ -292,7 +340,7 @@ public class MyServlet extends HttpServlet {
      */
     private void register(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        String url ="";
+        String url;
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
         String email = request.getParameter("email");
@@ -314,7 +362,7 @@ public class MyServlet extends HttpServlet {
         if(serviceUser.register(user))
             url = "/login";
         else{
-            request.getSession().setAttribute("regWarning",true);
+            request.getSession().setAttribute(REG_WARNING,true);
             url = "/register";
         }
         response.sendRedirect(url);
@@ -337,14 +385,14 @@ public class MyServlet extends HttpServlet {
     private void connectTariff(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         int idTariff = Integer.parseInt(request.getParameter("id"));
-        User logUser = (User) request.getSession().getAttribute("logUser");
+        User logUser = (User) request.getSession().getAttribute(LOG_USER);
 
         Optional<Tariff> selectedTariff = serviceTariff.get(idTariff);
         if(selectedTariff.isPresent()){
             logUser.addTariff(selectedTariff.get());
             serviceUser.update(logUser);
             serviceUser.updateAllUsersBalances();
-            request.getSession().setAttribute("logUser",logUser);
+            request.getSession().setAttribute(LOG_USER,logUser);
         }
 
         response.sendRedirect("/home/tariffsList");
@@ -355,14 +403,14 @@ public class MyServlet extends HttpServlet {
     private void disconnectTariff(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         int idTariff = Integer.parseInt(request.getParameter("id"));
-        User logUser = (User) request.getSession().getAttribute("logUser");
+        User logUser = (User) request.getSession().getAttribute(LOG_USER);
 
         Optional<Tariff> selectedTariff = serviceTariff.get(idTariff);
         if(selectedTariff.isPresent()){
             logUser.removeTariff(selectedTariff.get());
             serviceUser.update(logUser);
             serviceUser.updateAllUsersBalances();
-            request.getSession().setAttribute("logUser",logUser);
+            request.getSession().setAttribute(LOG_USER,logUser);
         }
 
         response.sendRedirect("/home/tariffsList");
@@ -404,12 +452,17 @@ public class MyServlet extends HttpServlet {
             throws IOException {
 
         Tariff tariff = new Tariff();
-        tariff.setService(serviceService.get(Long.parseLong(request.getParameter("serviceId"))).get());
-        tariff.setCost(Double.parseDouble(request.getParameter("cost")));
-        tariff.setDaysOfTariff(Integer.parseInt(request.getParameter("daysOfTariff")));
-        tariff.putDescription(1,request.getParameter("descriptionENG"));
-        tariff.putDescription(2,request.getParameter("descriptionUA"));
-        serviceTariff.save(tariff);
+
+        Optional<Service> service = serviceService.get(Long.parseLong(request.getParameter("serviceId")));
+
+        if(service.isPresent()) {
+            tariff.setService(service.get());
+            tariff.setCost(Double.parseDouble(request.getParameter("cost")));
+            tariff.setDaysOfTariff(Integer.parseInt(request.getParameter("daysOfTariff")));
+            tariff.putDescription(1, request.getParameter("descriptionENG"));
+            tariff.putDescription(2, request.getParameter("descriptionUA"));
+            serviceTariff.save(tariff);
+        }
 
         response.sendRedirect("/home/managerTariffsList");
     }
@@ -420,13 +473,13 @@ public class MyServlet extends HttpServlet {
     private void depositBalance(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         String res = request.getParameter("balance");
-        User logUser = (User) request.getSession().getAttribute("logUser");
+        User logUser = (User) request.getSession().getAttribute(LOG_USER);
         try{
             double depMoney = Double.parseDouble(res);
             if (depMoney >= 0) {
                 logUser.setBalance(logUser.getBalance() + depMoney);
                 serviceUser.update(logUser);
-                request.getSession().setAttribute("logUser",logUser);
+                request.getSession().setAttribute(LOG_USER,logUser);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -440,8 +493,16 @@ public class MyServlet extends HttpServlet {
      */
     private void logOut(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        request.getSession().setAttribute("logUser",null);
-        response.sendRedirect("/");
+        request.getSession().setAttribute(LOG_USER,null);
+
+        Cookie cookieUEmail = new Cookie(COOKIE_EMAIL_NAME,null);
+        Cookie cookieUPassword = new Cookie(COOKIE_PASSWORD_NAME,null);
+        cookieUEmail.setMaxAge(0);
+        cookieUPassword.setMaxAge(0);
+        response.addCookie(cookieUEmail);
+        response.addCookie(cookieUPassword);
+
+        response.sendRedirect("/login");
     }
 
     /**
@@ -449,10 +510,10 @@ public class MyServlet extends HttpServlet {
      */
     private void changeLanguage(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        Integer language = (Integer) request.getSession().getAttribute("language");
+        Integer language = (Integer) request.getSession().getAttribute(LANGUAGE);
         if(language == 2)language = 1;
         else language = 2;
-        request.getSession().setAttribute("language",language);
+        request.getSession().setAttribute(LANGUAGE,language);
         //Returning to prev page
         String page = "";
         List<String> link = Arrays
@@ -471,11 +532,11 @@ public class MyServlet extends HttpServlet {
      */
     private void viewUsersList(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        Object o = request.getParameter("page");
+        Object o = request.getParameter(PAGINATION_PAGE);
         int page;
         if(o == null)page = 1;
         else page = Integer.parseInt(String.valueOf(o));
-        request.getSession().setAttribute("page", page);
+        request.setAttribute(PAGINATION_PAGE, page);
 
 
         List<User> listUser = serviceUser.getAll();
@@ -486,7 +547,7 @@ public class MyServlet extends HttpServlet {
         listUser = listUser.subList(start,end);
         request.getSession().setAttribute("listUser", listUser);
 
-        request.getSession().setAttribute("paginationMax", listUser.size()/5);
+        request.getSession().setAttribute(PAGINATION, listUser.size()/5);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/manager/usersList.jsp");
         dispatcher.forward(request, response);
@@ -497,11 +558,11 @@ public class MyServlet extends HttpServlet {
      */
     private void viewManagerTariffsList(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        Object o = request.getParameter("page");
+        Object o = request.getParameter(PAGINATION_PAGE);
         int page;
         if(o == null)page = 1;
         else page = Integer.parseInt(String.valueOf(o));
-        request.getSession().setAttribute("page", page);
+        request.setAttribute(PAGINATION_PAGE, page);
 
 
         List<Tariff> listTariff = serviceTariff.getAll();
@@ -513,11 +574,11 @@ public class MyServlet extends HttpServlet {
 
         listSort(listTariff,
                 (Boolean) request.getSession().getAttribute("AZ"),
-                (Boolean) request.getSession().getAttribute("cost"));
+                (Boolean) request.getSession().getAttribute(SORTING_BY_COST));
 
         request.getSession().setAttribute("listTariff", listTariff);
 
-        request.getSession().setAttribute("paginationMax", listTariff.size()/5);
+        request.getSession().setAttribute(PAGINATION, listTariff.size()/5);
 
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/manager/managerTariffsList.jsp");
@@ -530,13 +591,13 @@ public class MyServlet extends HttpServlet {
     private void viewUserTariffsList(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
-        Object o = request.getParameter("page");
+        Object o = request.getParameter(PAGINATION_PAGE);
         int page;
         if(o == null)page = 1;
         else page = Integer.parseInt(String.valueOf(o));
-        request.getSession().setAttribute("page", page);
+        request.setAttribute(PAGINATION_PAGE, page);
 
-        User logUser = (User) request.getSession().getAttribute("logUser");
+        User logUser = (User) request.getSession().getAttribute(LOG_USER);
 
         List<Tariff> userTariff = logUser.getTariffs();
         int start = (page-1)*5;
@@ -547,11 +608,11 @@ public class MyServlet extends HttpServlet {
 
         listSort(userTariff,
                 (Boolean) request.getSession().getAttribute("AZ"),
-                (Boolean) request.getSession().getAttribute("cost"));
+                (Boolean) request.getSession().getAttribute(SORTING_BY_COST));
 
         request.getSession().setAttribute("userTariff", userTariff);
 
-        request.getSession().setAttribute("paginationMax", userTariff.size()/5);
+        request.getSession().setAttribute(PAGINATION, userTariff.size()/5);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/user/userTariffsList.jsp");
         dispatcher.forward(request, response);
@@ -562,11 +623,11 @@ public class MyServlet extends HttpServlet {
      */
     private void viewTariffsList(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        Object o = request.getParameter("page");
+        Object o = request.getParameter(PAGINATION_PAGE);
         int page;
         if(o == null)page = 1;
         else page = Integer.parseInt(String.valueOf(o));
-        request.getSession().setAttribute("page", page);
+        request.setAttribute(PAGINATION_PAGE, page);
 
 
         List<Tariff> listTariff = serviceTariff.getAll();
@@ -578,11 +639,11 @@ public class MyServlet extends HttpServlet {
 
         listSort(listTariff,
                 (Boolean) request.getSession().getAttribute("AZ"),
-                (Boolean) request.getSession().getAttribute("cost"));
+                (Boolean) request.getSession().getAttribute(SORTING_BY_COST));
 
         request.getSession().setAttribute("listTariff", listTariff);
 
-        request.getSession().setAttribute("paginationMax", listTariff.size()/ELEMENTS_PAGINATION_PAGE);
+        request.getSession().setAttribute(PAGINATION, listTariff.size()/ELEMENTS_PAGINATION_PAGE);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/user/tariffsList.jsp");
         dispatcher.forward(request, response);
@@ -600,7 +661,7 @@ public class MyServlet extends HttpServlet {
         String str ="";
         listSort(tariffList,
                 (Boolean) request.getSession().getAttribute("AZ"),
-                (Boolean) request.getSession().getAttribute("cost"));
+                (Boolean) request.getSession().getAttribute(SORTING_BY_COST));
 
         for (Tariff tariff : tariffList) {
             str += ("\nID:" + (tariff.getId()));
@@ -654,7 +715,7 @@ public class MyServlet extends HttpServlet {
         String email = request.getParameter("user_email");
         String password = request.getParameter("user_password");
 
-        User logUser = (User) request.getSession().getAttribute("logUser");
+        User logUser = (User) request.getSession().getAttribute(LOG_USER);
 
         System.out.println(logUser);
         System.out.println(name + " " + surname + " " + email + " " + password);
@@ -663,8 +724,19 @@ public class MyServlet extends HttpServlet {
             logUser.setSurname(surname);
             logUser.setEmail(email);
             logUser.setPassword(password);
-            serviceUser.update(logUser);
-            request.getSession().setAttribute("logUser",logUser);
+            //if updating is successful -> apply changes
+            if(serviceUser.update(logUser)) {
+
+                Cookie cookieUEmail = new Cookie(COOKIE_EMAIL_NAME, email);
+                Cookie cookieUPassword = new Cookie(COOKIE_PASSWORD_NAME, password);
+
+                cookieUEmail.setMaxAge(60 * 60 * 24 * 365);
+                cookieUPassword.setMaxAge(60 * 60 * 24 * 365);
+                response.addCookie(cookieUEmail);
+                response.addCookie(cookieUPassword);
+
+                request.getSession().setAttribute(LOG_USER, logUser);
+            }
         }
         response.sendRedirect("/home");
     }
@@ -696,8 +768,8 @@ public class MyServlet extends HttpServlet {
      */
     private void changeSortParCost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        Boolean cost = (Boolean) request.getSession().getAttribute("cost");
-        request.getSession().setAttribute("cost",!cost);
+        Boolean cost = (Boolean) request.getSession().getAttribute(SORTING_BY_COST);
+        request.getSession().setAttribute(SORTING_BY_COST,!cost);
 
         //Returning to prev page
         String page = "";
@@ -742,5 +814,14 @@ public class MyServlet extends HttpServlet {
             }
         });
     }
-
+    /**
+     * Function is reading a cookies and return value
+     * @param key cookie`s name
+     */
+    public Optional<String> readCookie(String key,HttpServletRequest request) {
+        return Arrays.stream(request.getCookies())
+                .filter(c -> key.equals(c.getName()))
+                .map(Cookie::getValue)
+                .findAny();
+    }
 }

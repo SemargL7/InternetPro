@@ -5,7 +5,6 @@ import com.finalproject.internetpro.database.Database;
 import com.finalproject.internetpro.model.Service;
 import org.apache.log4j.Logger;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -22,7 +21,15 @@ import java.util.Optional;
  * @see Service
  */
 public class DAOService implements DAO<Service> {
-    static final Logger logger = Logger.getLogger(DAOService.class);
+    private static final Logger logger = Logger.getLogger(DAOService.class);
+
+    private static final String SQL_GET_SERVICE_BY_ID = "SELECT * from Services where id = ?";
+    private static final String SQL_GET_ALL_SERVICES = "SELECT * from Services";
+    private static final String SQL_INSERT_SERVICE = "INSERT INTO Services VALUES (?, ?)";
+    private static final String SQL_UPDATE_SERVICE = "UPDATE Services SET name = ? WHERE Services.id = ?";
+    private static final String SQL_GET_SERVICE_TARIFFS = "SELECT id FROM Tariff where idService = ?";
+    private static final String SQL_DELETE_SERVICE = "DELETE FROM Services where Services.id = ?";
+
 
     private static DAOService instance;
 
@@ -43,10 +50,7 @@ public class DAOService implements DAO<Service> {
     @Override
     public Optional<Service> get(long id){
         Service service = null;
-        try {
-            String sql = "SELECT * from Services where id = ?";
-            Connection con = Database.getConnection();
-            PreparedStatement statement = con.prepareStatement(sql);
+        try(PreparedStatement statement = Database.getConnection().prepareStatement(SQL_GET_SERVICE_BY_ID)) {
 
             statement.setLong(1, id);
 
@@ -75,10 +79,7 @@ public class DAOService implements DAO<Service> {
     @Override
     public List<Service> getAll(){
         List<Service> services = null;
-        try {
-            String sql = "SELECT * from Services";
-            Connection con = Database.getConnection();
-            PreparedStatement statement = con.prepareStatement(sql);
+        try(PreparedStatement statement = Database.getConnection().prepareStatement(SQL_GET_ALL_SERVICES)) {
 
             ResultSet result = statement.executeQuery();
             services = new ArrayList<>();
@@ -99,14 +100,11 @@ public class DAOService implements DAO<Service> {
     /**
      * Function is inserting a new Service into database
      * @param service Service which we want to insert
-     * @return
+     * @return boolean, if service is successful saved - true, and else - false
      */
     @Override
     public boolean save(Service service){
-        try {
-            String sql = "INSERT INTO Services VALUES (?, ?)";
-            Connection con = Database.getConnection();
-            PreparedStatement posted = con.prepareStatement(sql);
+        try(PreparedStatement posted = Database.getConnection().prepareStatement(SQL_INSERT_SERVICE)) {
 
             posted.setInt(1,service.getId());
             posted.setString(2, service.getServiceName());
@@ -124,13 +122,11 @@ public class DAOService implements DAO<Service> {
     /**
      * Function is setting new data into the Service
      * @param service Service with new data
+     * @return boolean, if service is successful updated - true, and else - false
      */
     @Override
     public boolean update(Service service){
-        try {
-            String sql = "UPDATE Services SET name = ? WHERE Services.id = ?";
-            Connection con = Database.getConnection();
-            PreparedStatement posted = con.prepareStatement(sql);
+        try(PreparedStatement posted = Database.getConnection().prepareStatement(SQL_UPDATE_SERVICE)) {
 
             posted.setString(1, service.getServiceName());
             posted.setLong(2,service.getId());
@@ -146,18 +142,15 @@ public class DAOService implements DAO<Service> {
     }
 
     /**
-     * Function is deleting the Service
+     * Function is deleting the Service and all Tariffs with this Service
      * @param id Service`s id
-     * @return
+     * @return boolean, if service is successfully deleted - true, and else - false
      */
     @Override
     public boolean delete(int id){
         try {
-            String sql1 = "SELECT id FROM Tariff where idService = ?";
-            String sql2 = "DELETE FROM Services where Services.id = ?";
-            Connection con = Database.getConnection();
-            PreparedStatement statement = con.prepareStatement(sql1);
-            PreparedStatement posted = con.prepareStatement(sql2);
+            PreparedStatement statement = Database.getConnection().prepareStatement(SQL_GET_SERVICE_TARIFFS);
+            PreparedStatement posted = Database.getConnection().prepareStatement(SQL_DELETE_SERVICE);
 
             statement.setLong(1, id);
             posted.setInt(1, id);

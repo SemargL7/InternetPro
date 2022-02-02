@@ -5,7 +5,6 @@ import com.finalproject.internetpro.database.Database;
 import com.finalproject.internetpro.model.Tariff;
 import org.apache.log4j.Logger;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.*;
@@ -19,7 +18,21 @@ import java.util.*;
  * @see Tariff
  */
 public class DAOTariff implements DAO<Tariff> {
-    static final Logger logger = Logger.getLogger(DAOTariff.class);
+    private static final Logger logger = Logger.getLogger(DAOTariff.class);
+
+    private static final String SQL_GET_TARIFF_BY_ID = "SELECT id, idService, cost, daysOfTariff FROM Tariff  WHERE id = ?";
+    private static final String SQL_GET_TARIFF_DESCRIPTION = "SELECT idLanguage, description.description_text FROM description WHERE idTariff = ?";
+    private static final String SQL_GET_ALL_TARIFF_ID = "SELECT id FROM Tariff";
+    private static final String SQL_INSERT_TARIFF = "INSERT INTO tariff VALUES (?, ?, ?, ?)";
+    private static final String SQL_GET_LAST_TARIFF_ID = "SELECT * FROM tariff ORDER BY id DESC LIMIT 1";
+    private static final String SQL_INSERT_TARIFF_DESCRIPTION = "INSERT INTO description VALUES (?,?,?)";
+    private static final String SQL_UPDATE_TARIFF = "UPDATE tariff SET idService = ?, cost = ?, daysOfTariff = ? WHERE tariff.id = ?";
+    private static final String SQL_UPDATE_TARIFF_DESCRIPTION = "UPDATE description SET description_text = ? WHERE idTariff = ? AND idLanguage = ?";
+    private static final String SQL_DELETE_TARIFF_DESCRIPTION = "DELETE FROM description WHERE description.idTariff = ?";
+    private static final String SQL_DELETE_TARIFF_CONNECTIONS = "DELETE FROM tariffconnected WHERE tariffconnected.idTariff = ?";
+    private static final String SQL_DELETE_TARIFF = "DELETE FROM Tariff WHERE id = ?";
+
+
 
     private static DAOTariff instance;
 
@@ -40,9 +53,9 @@ public class DAOTariff implements DAO<Tariff> {
     public Optional<Tariff> get(long id){
         Tariff tariff = null;
         try {
-            String sql = "SELECT id, idService, cost, daysOfTariff from Tariff  where id = ?";
-            Connection con = Database.getConnection();
-            PreparedStatement statement = con.prepareStatement(sql);
+            PreparedStatement statement = Database.getConnection().prepareStatement(SQL_GET_TARIFF_BY_ID);
+            PreparedStatement statement2 = Database.getConnection().prepareStatement(SQL_GET_TARIFF_DESCRIPTION);
+
             statement.setLong(1, id);
             ResultSet result = statement.executeQuery();
 
@@ -56,10 +69,7 @@ public class DAOTariff implements DAO<Tariff> {
                 tariff.setService(daoService.get(result.getInt(2)).get());
             }
 
-            String sql2 = "select idLanguage, description.description_text " +
-                    "from description " +
-                    "where idTariff = ?";
-            PreparedStatement statement2 = con.prepareStatement(sql2);
+            //Selecting description for this tariff
             statement2.setLong(1, id);
             ResultSet result2 = statement2.executeQuery();
 
@@ -78,6 +88,7 @@ public class DAOTariff implements DAO<Tariff> {
         }
         return Optional.ofNullable(tariff);
     }
+
     /**
      * Function is returning list of all Tariffs
      * @return list of all Tariffs
@@ -85,16 +96,15 @@ public class DAOTariff implements DAO<Tariff> {
     @Override
     public List<Tariff> getAll(){
         List<Tariff> tariffs = null;
-        try {
+        try (PreparedStatement statement = Database.getConnection().prepareStatement(SQL_GET_ALL_TARIFF_ID)){
             logger.info("Start getAll");
-            String sql = "SELECT id from Tariff";
-            Connection con = Database.getConnection();
-            PreparedStatement statement = con.prepareStatement(sql);
+
             ResultSet result = statement.executeQuery();
             DAOTariff daoTariff = new DAOTariff();
             tariffs = new LinkedList<>();
             while (result.next())
                 tariffs.add(daoTariff.get(result.getInt(1)).get());
+
             logger.info("End getAll");
         }catch (Exception e){
             logger.error("getAll|ERROR:"+e);
@@ -104,43 +114,36 @@ public class DAOTariff implements DAO<Tariff> {
     /**
      * Function is inserting a new Tariff into database
      * @param tariff Tariff which we want to insert
-     * @return
+     * @return boolean, if insert is successful - true, and else - false
      */
     @Override
     public boolean save(Tariff tariff){
         try {
-            Connection con = Database.getConnection();
-
-            String sql = "INSERT INTO tariff VALUES (?, ?, ?, ?)";
-            PreparedStatement posted = con.prepareStatement(sql);
+            PreparedStatement posted = Database.getConnection().prepareStatement(SQL_INSERT_TARIFF);
+            PreparedStatement posted2 = Database.getConnection().prepareStatement(SQL_INSERT_TARIFF_DESCRIPTION);
+            PreparedStatement statement = Database.getConnection().prepareStatement(SQL_GET_LAST_TARIFF_ID);
 
             posted.setLong(1, tariff.getId());
             posted.setInt(2, tariff.getService().getId());
             posted.setDouble(3, tariff.getCost());
             posted.setInt(4, tariff.getDaysOfTariff());
 
-
             posted.executeUpdate();
 
-            String sql2 = "select *from tariff ORDER BY id DESC LIMIT 1";
-            Connection con2 = Database.getConnection();
-            PreparedStatement statement2 = con.prepareStatement(sql2);
-            ResultSet result = statement2.executeQuery();
-
+            //Getting tariff`s id
+            ResultSet result = statement.executeQuery();
             while (result.next()) {
                 tariff.setId(result.getInt(1));
             }
 
-
+            //Inserting description for tariff
             for (int i = 1; i <= tariff.getDescription().size(); i++) {
-                String sql3 = "INSERT INTO description VALUES (?,?,?)";
-                PreparedStatement posted3 = con.prepareStatement(sql3);
 
-                posted3.setInt(1, i);
-                posted3.setInt(2, tariff.getId());
-                posted3.setString(3, tariff.getDescription().get(i));
+                posted2.setInt(1, i);
+                posted2.setInt(2, tariff.getId());
+                posted2.setString(3, tariff.getDescription().get(i));
 
-                posted3.executeUpdate();
+                posted2.executeUpdate();
             }
             logger.info("save|"+tariff);
             return true;
@@ -152,17 +155,13 @@ public class DAOTariff implements DAO<Tariff> {
     /**
      * Function is setting new data into the Tariff
      * @param tariff Tariff with new data
+     * @return boolean, if update is successful - true, and else - false
      */
     @Override
     public boolean update(Tariff tariff){
         try {
-            String sql = "update tariff set " +
-                    "idService = ?, " +
-                    "cost = ?, " +
-                    "daysOfTariff = ? " +
-                    "where tariff.id = ?";
-            Connection con = Database.getConnection();
-            PreparedStatement posted = con.prepareStatement(sql);
+            PreparedStatement posted = Database.getConnection().prepareStatement(SQL_UPDATE_TARIFF);
+            PreparedStatement posted2 = Database.getConnection().prepareStatement(SQL_UPDATE_TARIFF_DESCRIPTION);
 
             posted.setInt(1, tariff.getService().getId());
             posted.setDouble(2, tariff.getCost());
@@ -171,18 +170,15 @@ public class DAOTariff implements DAO<Tariff> {
 
             posted.executeUpdate();
 
+            //updating tariff`s description
             for (int i = 1; i <= tariff.getDescription().size(); i++) {
-                String sql2 = "update description " +
-                        "set description_text = ? " +
-                        "where idTariff = ? and idLanguage = ?";
-                PreparedStatement posted2 = con.prepareStatement(sql2);
-
                 posted2.setString(1, tariff.getDescription().get(i));
                 posted2.setInt(2, tariff.getId());
                 posted2.setInt(3, i);
 
                 posted2.executeUpdate();
             }
+
             logger.info("update|"+tariff);
             return true;
         }catch (Exception e){
@@ -194,33 +190,22 @@ public class DAOTariff implements DAO<Tariff> {
     /**
      * Function is deleting the Tariff
      * @param id Tariff`s id
-     * @return
+     * @return boolean, if delete is successful - true, and else - false
      */
     @Override
     public boolean delete(int id){
         try {
-            Connection con = Database.getConnection();
-            String sql = "DELETE from description where description.idTariff = ?";
-            PreparedStatement posted = con.prepareStatement(sql);
+            PreparedStatement posted = Database.getConnection().prepareStatement(SQL_DELETE_TARIFF_DESCRIPTION);
+            PreparedStatement posted2 = Database.getConnection().prepareStatement(SQL_DELETE_TARIFF_CONNECTIONS);
+            PreparedStatement posted3 = Database.getConnection().prepareStatement(SQL_DELETE_TARIFF);
 
             posted.setLong(1, id);
-
             posted.executeUpdate();
 
-            String sql2 = "DELETE from tariffconnected where tariffconnected.idTariff = ?";
-            PreparedStatement posted2 = con.prepareStatement(sql2);
-
             posted2.setLong(1, id);
-
             posted2.executeUpdate();
 
-
-            String sql3 = "DELETE from Tariff where id = ?";
-
-            PreparedStatement posted3 = con.prepareStatement(sql3);
-
             posted3.setLong(1, id);
-
             posted3.executeUpdate();
 
             logger.info("delete|"+id);

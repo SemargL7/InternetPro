@@ -144,7 +144,7 @@
             <table style="with: 80%">
                 <tr>
                     <td id="email_HTML">Email</td>
-                    <td><input type="email" name="email" required/></td>
+                    <td><input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/></td>
                 </tr>
                 <tr>
                     <td id="password_HTML">Password</td>

@@ -32,10 +32,12 @@
     </filter>
     <filter-mapping>
         <filter-name>pageAccessFilter</filter-name>
-        <url-pattern>/home/*</url-pattern>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
     <error-page>
-        <location>/error404.html</location>
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
     </error-page>
+
 </web-app>

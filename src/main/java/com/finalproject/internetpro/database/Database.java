@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  * A class that creating Database Connection
@@ -18,22 +19,15 @@ public class Database {
     /**
      * @return returning database connection
      */
-    public static Connection getConnection(){
-        try{
-            String driver = "com.mysql.cj.jdbc.Driver";
-            String url = "jdbc:mysql://127.0.0.1:3306/internetprovider";
-            String username = "root";
-            String password = "Elias130720031567";
-            Class.forName(driver);
+    public static Connection getConnection() throws ClassNotFoundException, SQLException {
+        String driver = "com.mysql.cj.jdbc.Driver";
+        String url = "jdbc:mysql://127.0.0.1:3306/internetprovider";
+        String username = "root";
+        String password = "Elias130720031567";
+        Class.forName(driver);
 
-            Connection conn = DriverManager.getConnection(url,username,password);
-            logger.info("Connect with database MySQL");
-            return conn;
-        } catch(Exception e){
-            System.out.println(e);
-            logger.error("Connection error:"+e);
-        }
-
-        return null;
+        Connection conn = DriverManager.getConnection(url,username,password);
+        logger.info("Connect with database MySQL");
+        return conn;
     }
 }
