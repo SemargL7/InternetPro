@@ -10,6 +10,9 @@
 <html>
 <head>
     <title>User</title>
+    <link rel = "icon" href =
+            "https://img.icons8.com/fluency-systems-filled/48/000000/create-icon.png"
+          type = "image/x-icon">
     <style type="text/css">
         body {
             color: #B1D0E0;
@@ -69,7 +72,7 @@
             color: white;
             background-color: rgba(154, 154, 154, 0.34);
             width: 290px;
-            height: 180px;
+            height: 220px;
             margin: auto;
             padding: 10px;
             border-radius: 5px 20px 5px;
@@ -133,6 +136,11 @@
                     <td class="changeInfo">User</td>
                 </tr>
                 <tr>
+                    <td id="blocked_HTML">Blocked</td>
+                    <td class="info">${logUser.blocked}</td>
+                    <td class="changeInfo">${logUser.blocked}</td>
+                </tr>
+                <tr>
                     <td id="name_HTML">Name</td>
                     <td class="info">${logUser.name}</td>
                     <td class="changeInfo"><input type="text" name="user_name" pattern="[A-Za-z]{1,32}" value="${logUser.name}" required/></td>
@@ -190,7 +198,7 @@
         "userTariffsList_HTML",
         "tariffsList_HTML",
 
-        "status_HTML","name_HTML","surname_HTML","email_HTML","password_HTML","save_HTML"
+        "status_HTML","name_HTML","surname_HTML","email_HTML","password_HTML","blocked_HTML","action_HTML"
 
         ];
     let langEng =["Home","Login-Out",
@@ -200,7 +208,7 @@
         "Connected Tariffs",
         "All tariffs",
 
-        "Status","Name","Surname","Email","Password","Save"
+        "Status","Name","Surname","Email","Password","Blocked","Action"
 
         ];
     let langUa =["Додому","Вийти",
@@ -210,7 +218,7 @@
         "Підключені тарифи",
         "Всі тарифи",
 
-        "Статус","Ім'я","Фамілія","Почта","Пароль","Зберегти"
+        "Статус","Ім'я","Фамілія","Почта","Пароль","Заблокований","Дія"
 
         ];
     let language = parseInt('${(language).intValue()}');

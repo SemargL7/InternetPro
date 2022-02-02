@@ -10,6 +10,9 @@
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;900&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/4b9ba14b0f.js" crossorigin="anonymous"></script>
+  <link rel = "icon" href =
+          "https://img.icons8.com/fluency-systems-filled/48/000000/create-icon.png"
+        type = "image/x-icon">
   <style>
     body {
       background: url("https://www.teahub.io/photos/full/164-1647689_wallpaper-montreal-canada-night-city-dark-city-wallpaper..jpg");

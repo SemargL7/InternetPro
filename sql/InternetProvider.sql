@@ -57,4 +57,4 @@ insert into Services (name) value ('IP-TV');
 insert into `language` (`language`) value ('eng');
 insert into `language` (`language`) value ('ua');
 
-insert into Users (name,surname,dateBirth,email,password,access) value('Roman','Dubil','2003-07-13','romandubil03@gmail.com','1','MANAGER');
+insert into Users (name,surname,dateBirth,email,password,access) value('Roman','Dubil','2003-07-13','romandubil03@gmail.com','0','MANAGER');

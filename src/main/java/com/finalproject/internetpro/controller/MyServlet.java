@@ -38,8 +38,8 @@ import javax.servlet.annotation.*;
 public class MyServlet extends HttpServlet {
     private static final Logger logger = Logger.getLogger(MyServlet.class);
     private static final Integer ELEMENTS_PAGINATION_PAGE = 5;
-    private static final String COOKIE_EMAIL_NAME = "uMail";
-    private static final String COOKIE_PASSWORD_NAME = "uPassword";
+    private static final String COOKIE_EMAIL_NAME = "u_mail";
+    private static final String COOKIE_PASSWORD_NAME = "u_password";
     private static final String LOG_USER = "logUser";
     private static final String LOG_WARNING = "logWarning";
     private static final String REG_WARNING = "regWarning";
@@ -253,9 +253,10 @@ public class MyServlet extends HttpServlet {
      */
     private void viewLogin(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        Optional<String> email = readCookie(COOKIE_EMAIL_NAME,request);
-        Optional<String> password = readCookie(COOKIE_PASSWORD_NAME,request);
-        if(email.isPresent() && password.isPresent()){
+        Optional<Cookie> email = readCookie(COOKIE_EMAIL_NAME,request);
+        Optional<Cookie> password = readCookie(COOKIE_PASSWORD_NAME,request);
+        if(email.isPresent() && password.isPresent() && !email.get().getValue().isBlank() && !password.get().getValue().isBlank()){
+            System.out.println(email.get().getName() +"" + email.get().getValue());
             response.sendRedirect("/login/log");
         }
         else {
@@ -300,21 +301,21 @@ public class MyServlet extends HttpServlet {
         Cookie cookieUEmail = new Cookie(COOKIE_EMAIL_NAME,email);
         Cookie cookieUPassword = new Cookie(COOKIE_PASSWORD_NAME,password);
 
-        Optional<String> readCookieEmail = readCookie(COOKIE_EMAIL_NAME,request);
-        Optional<String> readCookiePassword = readCookie(COOKIE_PASSWORD_NAME,request);
+        Optional<Cookie> readCookieEmail = readCookie(COOKIE_EMAIL_NAME,request);
+        Optional<Cookie> readCookiePassword = readCookie(COOKIE_PASSWORD_NAME,request);
 
-        if(readCookieEmail.isPresent() && readCookiePassword.isPresent()){
-            email = readCookieEmail.get();
-            password = readCookiePassword.get();
+        if(readCookieEmail.isPresent() && readCookiePassword.isPresent() && !readCookieEmail.get().getValue().isBlank() && !readCookiePassword.get().getValue().isBlank()){
+            email = readCookieEmail.get().getValue();
+            password = readCookiePassword.get().getValue();
         }
 
         Optional<User> user = serviceUser.loggingUser(email,password);
 
-        if(!email.isEmpty() && !password.isEmpty() && user.isPresent()){
+        if(!email.isBlank() && !password.isBlank() && user.isPresent()){
             request.getSession().setAttribute(LOG_USER, user.get());
 
-            cookieUEmail.setMaxAge(60 * 60 * 24 * 365);
-            cookieUPassword.setMaxAge(60 * 60 * 24 * 365);
+            cookieUEmail.setMaxAge(60 * 60 * 24 * 10);
+            cookieUPassword.setMaxAge(60 * 60 * 24 * 10);
             response.addCookie(cookieUEmail);
             response.addCookie(cookieUPassword);
 
@@ -322,12 +323,9 @@ public class MyServlet extends HttpServlet {
         } else {
             request.getSession().setAttribute(LOG_WARNING,true);
 
-            cookieUEmail.setValue(null);
-            cookieUPassword.setValue(null);
-            cookieUEmail.setMaxAge(0);
-            cookieUPassword.setMaxAge(0);
-            response.addCookie(cookieUEmail);
-            response.addCookie(cookieUPassword);
+            removeCookie(COOKIE_EMAIL_NAME,response);
+            removeCookie(COOKIE_PASSWORD_NAME,response);
+
 
             url = "/login";
         }
@@ -387,14 +385,15 @@ public class MyServlet extends HttpServlet {
         int idTariff = Integer.parseInt(request.getParameter("id"));
         User logUser = (User) request.getSession().getAttribute(LOG_USER);
 
-        Optional<Tariff> selectedTariff = serviceTariff.get(idTariff);
-        if(selectedTariff.isPresent()){
-            logUser.addTariff(selectedTariff.get());
-            serviceUser.update(logUser);
-            serviceUser.updateAllUsersBalances();
-            request.getSession().setAttribute(LOG_USER,logUser);
+        if(!logUser.isBlocked()) {
+            Optional<Tariff> selectedTariff = serviceTariff.get(idTariff);
+            if (selectedTariff.isPresent()) {
+                logUser.addTariff(selectedTariff.get());
+                serviceUser.update(logUser);
+                serviceUser.updateAllUsersBalances();
+                request.getSession().setAttribute(LOG_USER, logUser);
+            }
         }
-
         response.sendRedirect("/home/tariffsList");
     }
     /**
@@ -404,7 +403,6 @@ public class MyServlet extends HttpServlet {
             throws IOException {
         int idTariff = Integer.parseInt(request.getParameter("id"));
         User logUser = (User) request.getSession().getAttribute(LOG_USER);
-
         Optional<Tariff> selectedTariff = serviceTariff.get(idTariff);
         if(selectedTariff.isPresent()){
             logUser.removeTariff(selectedTariff.get());
@@ -493,14 +491,11 @@ public class MyServlet extends HttpServlet {
      */
     private void logOut(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
+
         request.getSession().setAttribute(LOG_USER,null);
 
-        Cookie cookieUEmail = new Cookie(COOKIE_EMAIL_NAME,null);
-        Cookie cookieUPassword = new Cookie(COOKIE_PASSWORD_NAME,null);
-        cookieUEmail.setMaxAge(0);
-        cookieUPassword.setMaxAge(0);
-        response.addCookie(cookieUEmail);
-        response.addCookie(cookieUPassword);
+        removeCookie(COOKIE_EMAIL_NAME,response);
+        removeCookie(COOKIE_PASSWORD_NAME,response);
 
         response.sendRedirect("/login");
     }
@@ -730,8 +725,8 @@ public class MyServlet extends HttpServlet {
                 Cookie cookieUEmail = new Cookie(COOKIE_EMAIL_NAME, email);
                 Cookie cookieUPassword = new Cookie(COOKIE_PASSWORD_NAME, password);
 
-                cookieUEmail.setMaxAge(60 * 60 * 24 * 365);
-                cookieUPassword.setMaxAge(60 * 60 * 24 * 365);
+                cookieUEmail.setMaxAge(60 * 60 * 24 * 10);
+                cookieUPassword.setMaxAge(60 * 60 * 24 * 10);
                 response.addCookie(cookieUEmail);
                 response.addCookie(cookieUPassword);
 
@@ -817,11 +812,23 @@ public class MyServlet extends HttpServlet {
     /**
      * Function is reading a cookies and return value
      * @param key cookie`s name
+     * @return cookie
      */
-    public Optional<String> readCookie(String key,HttpServletRequest request) {
+    public Optional<Cookie> readCookie(String key, HttpServletRequest request) {
         return Arrays.stream(request.getCookies())
                 .filter(c -> key.equals(c.getName()))
-                .map(Cookie::getValue)
                 .findAny();
+    }
+
+    /**
+     * Function is deleting cookies
+     * @param key cookie`s name
+     */
+    public void removeCookie(String key,HttpServletResponse response) {
+        response.setContentType("text/html");
+        Cookie cookie = new Cookie(key,"");
+        cookie.setMaxAge(0);
+        cookie.setPath("/login");
+        response.addCookie(cookie);
     }
 }

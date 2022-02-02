@@ -234,7 +234,7 @@ public class DAOUser implements DAO<User> {
         while (result.next())
             res = result.getInt(1);
 
-        logger.error("loggingUser|"+email+"|"+password);
+        logger.info("loggingUser|"+email+"|"+password);
         return res;
         }catch (Exception e){
             logger.error("loggingUser|ERROR:"+e);

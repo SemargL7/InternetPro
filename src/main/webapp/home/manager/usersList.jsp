@@ -11,6 +11,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Manager</title>
+    <link rel = "icon" href =
+            "https://img.icons8.com/fluency-systems-filled/48/000000/create-icon.png"
+          type = "image/x-icon">
     <style type="text/css">
         body {
             color: #B1D0E0;
@@ -179,7 +182,7 @@
                     <c:out value="${user.blocked}" />
                 </td>
                 <td>
-                    <c:out value="${user.specialAccess}" />
+                    <c:out value="${user.getUserAccess().toString()}" />
                 </td>
                 <td style="font-size: large;"><a href="/home/blockSwitcher?id=<c:out value='${user.id}' />">
                     <c:choose>

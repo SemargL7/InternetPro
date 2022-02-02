@@ -9,6 +9,9 @@
 <html>
 <head>
     <title>Balance</title>
+    <link rel = "icon" href =
+            "https://img.icons8.com/fluency-systems-filled/48/000000/create-icon.png"
+          type = "image/x-icon">
     <style type="text/css">
         body {
             color: #B1D0E0;

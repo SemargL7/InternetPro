@@ -2,6 +2,7 @@ package com.finalproject.internetpro.services.impl;
 
 import com.finalproject.internetpro.dao.DAOrealisation.DAOUser;
 import com.finalproject.internetpro.model.User;
+import com.finalproject.internetpro.model.UserAccess;
 import com.finalproject.internetpro.services.ServiceUser;
 
 import java.util.List;
@@ -93,7 +94,11 @@ public class ServiceUserImpl implements ServiceUser {
      */
     @Override
     public boolean blockStatusUser(int id, boolean block){
-        return daoUser.blockStatusUser(id,block);
+        Optional<User> user = daoUser.get(id);
+        if(user.isPresent() && user.get().getUserAccess() == UserAccess.USER ){
+            return daoUser.blockStatusUser(id,block);
+        }
+        return false;
     }
 
     /**
