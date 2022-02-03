@@ -40,16 +40,16 @@ public class DAOUser implements DAO<User> {
             "inner join  internetprovider.TariffConnected on TariffConnected.idUser = Users.id " +
             "inner join  internetprovider.Tariff on Tariff.id = TariffConnected.idTariff " +
             "set Users.blocked = case " +
-            "when (Users.balance < Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then true " +
-            "when (Users.balance >= Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then false " +
+            "when (Users.balance < Tariff.cost and DATEDIFF(now(), dateOfLastConnection) > Tariff.daysOfTariff) then true " +
+            "when (Users.balance >= Tariff.cost and DATEDIFF(now(), dateOfLastConnection) > Tariff.daysOfTariff) then false " +
             "else false end, " +
             "Users.balance = case " +
-            "when (Users.balance < Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then balance " +
-            "when (Users.balance >= Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then balance - cost " +
+            "when (Users.balance < Tariff.cost and DATEDIFF(now(), dateOfLastConnection) > Tariff.daysOfTariff) then balance " +
+            "when (Users.balance >= Tariff.cost and DATEDIFF(now(), dateOfLastConnection) > Tariff.daysOfTariff) then balance - cost " +
             "else balance end, " +
             "TariffConnected.dateOfLastConnection = case " +
-            "when (Users.balance < Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then dateOfLastConnection " +
-            "when (Users.balance >= Tariff.cost and now() - dateOfLastConnection > Tariff.daysOfTariff) then now() " +
+            "when (Users.balance < Tariff.cost and DATEDIFF(now(), dateOfLastConnection) > Tariff.daysOfTariff) then dateOfLastConnection " +
+            "when (Users.balance >= Tariff.cost and DATEDIFF(now(), dateOfLastConnection) > Tariff.daysOfTariff) then now() " +
             "else dateOfLastConnection end where Users.id = ?;";
 
 

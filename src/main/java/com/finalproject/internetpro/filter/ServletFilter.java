@@ -1,9 +1,13 @@
 package com.finalproject.internetpro.filter;
 
+import com.finalproject.internetpro.model.User;
+import com.finalproject.internetpro.services.impl.ServiceUserImpl;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Optional;
 
 /**
  * Filter class that mapped for all URLs.
@@ -34,6 +38,12 @@ public class ServletFilter implements Filter {
         if(cost == null)
             cost = true;
         request.getSession().setAttribute("cost",cost);
+
+        User logUser = (User) request.getSession().getAttribute("logUser");
+        if(logUser != null) {
+            logUser = new ServiceUserImpl().get(logUser.getId()).orElse(logUser);
+            request.getSession().setAttribute("logUser", logUser);
+        }
 
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");

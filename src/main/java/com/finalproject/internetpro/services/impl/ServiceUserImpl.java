@@ -1,6 +1,7 @@
 package com.finalproject.internetpro.services.impl;
 
 import com.finalproject.internetpro.dao.DAOrealisation.DAOUser;
+import com.finalproject.internetpro.model.Tariff;
 import com.finalproject.internetpro.model.User;
 import com.finalproject.internetpro.model.UserAccess;
 import com.finalproject.internetpro.services.ServiceUser;
@@ -76,10 +77,16 @@ public class ServiceUserImpl implements ServiceUser {
         if(oldUser.isPresent()) {
             user.getTariffs().stream()
                     .filter(x -> !oldUser.get().getTariffs().contains(x))
-                    .forEach(x -> daoUser.connectTariffConnection(user.getId(), x.getId()));
+                    .forEach(x ->{
+                        if(user.setBalance(user.getBalance() - x.getCost())){
+                            daoUser.connectTariffConnection(user.getId(), x.getId());
+                            user.setBlocked(false);
+                        }
+                    });
             oldUser.get().getTariffs().stream()
                     .filter(x -> !user.getTariffs().contains(x))
                     .forEach(x -> daoUser.deleteTariffConnection(user.getId(), x.getId()));
+
             daoUser.update(user);
             return true;
         }

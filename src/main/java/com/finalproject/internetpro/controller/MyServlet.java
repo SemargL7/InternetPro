@@ -354,7 +354,7 @@ public class MyServlet extends HttpServlet {
             user.setPassword(password);
             user.setDateOfBirth(Date.valueOf(dateOfBirth));
             user.setBalance(0);
-            user.setBlocked(true);
+            user.setBlocked(false);
             user.setUserAccess(UserAccess.USER);
         }
         if(serviceUser.register(user))
@@ -389,11 +389,16 @@ public class MyServlet extends HttpServlet {
             Optional<Tariff> selectedTariff = serviceTariff.get(idTariff);
             if (selectedTariff.isPresent()) {
                 logUser.addTariff(selectedTariff.get());
+
                 serviceUser.update(logUser);
-                serviceUser.updateAllUsersBalances();
+                logUser = serviceUser.get(logUser.getId()).orElse(logUser);
                 request.getSession().setAttribute(LOG_USER, logUser);
             }
+
         }
+
+        serviceUser.updateAllUsersBalances();
+
         response.sendRedirect("/home/tariffsList");
     }
     /**

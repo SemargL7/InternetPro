@@ -31,7 +31,11 @@ public class User {
     public String getPassword() {return password;}
     public void setPassword(String password) {this.password = password;}
     public double getBalance() {return balance;}
-    public void setBalance(double balance) {this.balance = balance;}
+    public boolean setBalance(double balance) {
+        if(balance >= 0) {
+            this.balance = balance;return true;
+        }return false;
+    }
     public Date getDateOfBirth() {return dateOfBirth;}
     public void setDateOfBirth(Date dateOfBirth) {this.dateOfBirth = dateOfBirth;}
     public boolean isBlocked() {return blocked;}
