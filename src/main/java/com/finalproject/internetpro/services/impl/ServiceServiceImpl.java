@@ -3,6 +3,7 @@ package com.finalproject.internetpro.services.impl;
 import com.finalproject.internetpro.dao.DAOrealisation.DAOService;
 import com.finalproject.internetpro.model.Service;
 import com.finalproject.internetpro.services.ServiceService;
+import org.apache.log4j.Logger;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,30 +15,37 @@ import java.util.Optional;
  */
 public class ServiceServiceImpl implements ServiceService {
 
+    private static final Logger logger = Logger.getLogger(ServiceServiceImpl.class);
+
     private final DAOService daoService = DAOService.getInstance();
 
     @Override
     public Optional<Service> get(long id) {
+        logger.info("ServiceServiceImpl | get" + id);
         return daoService.get(id);
     }
 
     @Override
     public List<Service> getAll() {
+        logger.info("ServiceServiceImpl | getALL");
         return daoService.getAll();
     }
 
     @Override
     public boolean save(Service service) {
+        logger.info("ServiceServiceImpl | save" + service);
         return daoService.save(service);
     }
 
     @Override
     public boolean update(Service service) {
+        logger.info("ServiceServiceImpl | update " + service);
         return daoService.update(service);
     }
 
     @Override
     public boolean delete(int id) {
+        logger.info("ServiceServiceImpl | delete " + id);
         return daoService.delete(id);
     }
 }

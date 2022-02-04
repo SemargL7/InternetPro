@@ -165,7 +165,7 @@ public class MyServlet extends HttpServlet {
                 }
                 case "/home/downloadDocx" ->{
                     logger.info("action->downloadDocx");
-                    downloadDocx(request, response);
+                    downloadTariffList(request, response);
                 }
                 case "/home/saveProfile"->{
                     logger.info("action->saveProfile");
@@ -249,14 +249,14 @@ public class MyServlet extends HttpServlet {
             response.sendRedirect("/home/managerTariffsList");
     }
     /**
-     * Function is viewing a login page
+     * Function is viewing a login page or if cookies is found - redirect to log form
      */
     private void viewLogin(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         Optional<Cookie> email = readCookie(COOKIE_EMAIL_NAME,request);
         Optional<Cookie> password = readCookie(COOKIE_PASSWORD_NAME,request);
         if(email.isPresent() && password.isPresent() && !email.get().getValue().isBlank() && !password.get().getValue().isBlank()){
-            System.out.println(email.get().getName() +"" + email.get().getValue());
+            logger.info("viewLogin | Find cookies");
             response.sendRedirect("/login/log");
         }
         else {
@@ -305,6 +305,7 @@ public class MyServlet extends HttpServlet {
         Optional<Cookie> readCookiePassword = readCookie(COOKIE_PASSWORD_NAME,request);
 
         if(readCookieEmail.isPresent() && readCookiePassword.isPresent() && !readCookieEmail.get().getValue().isBlank() && !readCookiePassword.get().getValue().isBlank()){
+            logger.info("login | Using cookies for logging");
             email = readCookieEmail.get().getValue();
             password = readCookiePassword.get().getValue();
         }
@@ -321,11 +322,11 @@ public class MyServlet extends HttpServlet {
 
             url = "/home";
         } else {
+            logger.warn("login | Incorrect email or password");
             request.getSession().setAttribute(LOG_WARNING,true);
 
             removeCookie(COOKIE_EMAIL_NAME,response);
             removeCookie(COOKIE_PASSWORD_NAME,response);
-
 
             url = "/login";
         }
@@ -357,9 +358,11 @@ public class MyServlet extends HttpServlet {
             user.setBlocked(false);
             user.setUserAccess(UserAccess.USER);
         }
-        if(serviceUser.register(user))
+        if(serviceUser.register(user)){
+            logger.info("register | successfully registered");
             url = "/login";
-        else{
+        }else{
+            logger.warn("register | incorrect data");
             request.getSession().setAttribute(REG_WARNING,true);
             url = "/register";
         }
@@ -373,7 +376,12 @@ public class MyServlet extends HttpServlet {
             throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Optional<User> selectedUser = serviceUser.get(id);
-        selectedUser.ifPresent(user -> serviceUser.blockStatusUser(user.getId(), !user.isBlocked()));
+        selectedUser.ifPresent(user -> {
+            if(serviceUser.blockStatusUser(user.getId(), !user.isBlocked()))
+                logger.info("blockSwitcher | Successfully change block status");
+            else
+                logger.warn("blockSwitcher | UNSuccessfully change block status");
+        });
         response.sendRedirect("/home/usersList");
     }
 
@@ -390,12 +398,17 @@ public class MyServlet extends HttpServlet {
             if (selectedTariff.isPresent()) {
                 logUser.addTariff(selectedTariff.get());
 
-                serviceUser.update(logUser);
-                logUser = serviceUser.get(logUser.getId()).orElse(logUser);
-                request.getSession().setAttribute(LOG_USER, logUser);
+                if(serviceUser.update(logUser)){
+                    logUser = serviceUser.get(logUser.getId()).orElse(logUser);
+                    request.getSession().setAttribute(LOG_USER, logUser);
+                    logger.info("connectTariff | tariff is successfully connected to user: id" + logUser.getId());
+                }
             }
-
+            else
+                logger.warn("connectTariff | tariff isn`t found");
         }
+        else
+            logger.warn("connectTariff | User is blocked");
 
         serviceUser.updateAllUsersBalances();
 
@@ -409,13 +422,16 @@ public class MyServlet extends HttpServlet {
         int idTariff = Integer.parseInt(request.getParameter("id"));
         User logUser = (User) request.getSession().getAttribute(LOG_USER);
         Optional<Tariff> selectedTariff = serviceTariff.get(idTariff);
-        if(selectedTariff.isPresent()){
+        if(selectedTariff.isPresent()) {
             logUser.removeTariff(selectedTariff.get());
-            serviceUser.update(logUser);
-            serviceUser.updateAllUsersBalances();
-            request.getSession().setAttribute(LOG_USER,logUser);
+            if (serviceUser.update(logUser)) {
+                serviceUser.updateAllUsersBalances();
+                request.getSession().setAttribute(LOG_USER, logUser);
+                logger.info("disconnectTariff | Tariff is successfully disconnected");
+            }
         }
-
+        else
+            logger.warn("disconnectTariff | Tariff isn`t found");
         response.sendRedirect("/home/tariffsList");
     }
 
@@ -425,7 +441,10 @@ public class MyServlet extends HttpServlet {
     private void deleteTariff(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         int idTariff = Integer.parseInt(request.getParameter("id"));
-        serviceTariff.delete(idTariff);
+        if(serviceTariff.delete(idTariff))
+            logger.info("deleteTariff | Tariff is Successfully deleted");
+        else
+            logger.warn("deleteTariff | Tariff is UNSuccessfully deleted");
         response.sendRedirect("/home/managerTariffsList");
     }
     /**
@@ -443,8 +462,12 @@ public class MyServlet extends HttpServlet {
             tariff.setDaysOfTariff(Integer.parseInt(request.getParameter("daysOfTariff")));
             tariff.putDescription(1,request.getParameter("descriptionENG"));
             tariff.putDescription(2,request.getParameter("descriptionUA"));
-            serviceTariff.update(tariff);
-        }
+            if(serviceTariff.update(tariff))
+                logger.info("updateTariff | Tariff is Successfully updated");
+            else
+                logger.warn("updateTariff | Tariff is UNSuccessfully updated");
+        }else
+            logger.warn("updateTariff | Tariff isn`t found");
 
         response.sendRedirect("/home/managerTariffsList");
     }
@@ -464,8 +487,13 @@ public class MyServlet extends HttpServlet {
             tariff.setDaysOfTariff(Integer.parseInt(request.getParameter("daysOfTariff")));
             tariff.putDescription(1, request.getParameter("descriptionENG"));
             tariff.putDescription(2, request.getParameter("descriptionUA"));
-            serviceTariff.save(tariff);
+            if(serviceTariff.save(tariff))
+                logger.info("addTariff | Tariff is Successfully added");
+            else
+                logger.warn("addTariff | Tariff is UNSuccessfully added");
         }
+        else
+            logger.warn("addTariff | Service isn`t found");
 
         response.sendRedirect("/home/managerTariffsList");
     }
@@ -481,11 +509,17 @@ public class MyServlet extends HttpServlet {
             double depMoney = Double.parseDouble(res);
             if (depMoney >= 0) {
                 logUser.setBalance(logUser.getBalance() + depMoney);
-                serviceUser.update(logUser);
-                request.getSession().setAttribute(LOG_USER,logUser);
+                if(serviceUser.update(logUser)) {
+                    logger.info("depositBalance | Balance is Successfully deposited");
+                    request.getSession().setAttribute(LOG_USER, logUser);
+                }
+                else
+                    logger.warn("depositBalance | Balance is UNSuccessfully deposited");
             }
+            else
+                logger.warn("depositBalance | Number is lowest then 0");
         }catch (Exception e){
-            e.printStackTrace();
+            logger.error("depositBalance | ERROR: " + e.getMessage());
         }
         serviceUser.updateAllUsersBalances();
         response.sendRedirect("/home");
@@ -502,6 +536,7 @@ public class MyServlet extends HttpServlet {
         removeCookie(COOKIE_EMAIL_NAME,response);
         removeCookie(COOKIE_PASSWORD_NAME,response);
 
+        logger.info("logOut | User is login-outed");
         response.sendRedirect("/login");
     }
 
@@ -524,6 +559,7 @@ public class MyServlet extends HttpServlet {
                 break;
             page = "/" + link.get(i) + page;
         }
+        logger.info("changeLanguage | Return to prev page");
         response.sendRedirect(page);
     }
 
@@ -566,15 +602,18 @@ public class MyServlet extends HttpServlet {
 
 
         List<Tariff> listTariff = serviceTariff.getAll();
+
+        listSort(listTariff,
+                (Boolean) request.getSession().getAttribute("AZ"),
+                (Boolean) request.getSession().getAttribute(SORTING_BY_COST));
+
         int start = (page-1)*5;
         int end = start+5;
         start = Math.min(listTariff.size(), start);
         end = Math.min(listTariff.size(), end);
         listTariff = listTariff.subList(start,end);
 
-        listSort(listTariff,
-                (Boolean) request.getSession().getAttribute("AZ"),
-                (Boolean) request.getSession().getAttribute(SORTING_BY_COST));
+
 
         request.getSession().setAttribute("listTariff", listTariff);
 
@@ -600,15 +639,18 @@ public class MyServlet extends HttpServlet {
         User logUser = (User) request.getSession().getAttribute(LOG_USER);
 
         List<Tariff> userTariff = logUser.getTariffs();
+
+        listSort(userTariff,
+                (Boolean) request.getSession().getAttribute("AZ"),
+                (Boolean) request.getSession().getAttribute(SORTING_BY_COST));
+
         int start = (page-1)*5;
         int end = start+5;
         start = Math.min(userTariff.size(), start);
         end = Math.min(userTariff.size(), end);
         userTariff = userTariff.subList(start,end);
 
-        listSort(userTariff,
-                (Boolean) request.getSession().getAttribute("AZ"),
-                (Boolean) request.getSession().getAttribute(SORTING_BY_COST));
+
 
         request.getSession().setAttribute("userTariff", userTariff);
 
@@ -631,15 +673,18 @@ public class MyServlet extends HttpServlet {
 
 
         List<Tariff> listTariff = serviceTariff.getAll();
+
+        listSort(listTariff,
+                (Boolean) request.getSession().getAttribute("AZ"),
+                (Boolean) request.getSession().getAttribute(SORTING_BY_COST));
+
         int start = (page-1)*ELEMENTS_PAGINATION_PAGE;
         int end = start+ELEMENTS_PAGINATION_PAGE;
         start = Math.min(listTariff.size(), start);
         end = Math.min(listTariff.size(), end);
         listTariff = listTariff.subList(start,end);
 
-        listSort(listTariff,
-                (Boolean) request.getSession().getAttribute("AZ"),
-                (Boolean) request.getSession().getAttribute(SORTING_BY_COST));
+
 
         request.getSession().setAttribute("listTariff", listTariff);
 
@@ -652,7 +697,7 @@ public class MyServlet extends HttpServlet {
     /**
      * Function is send txt file with all tariffs to the server and next to user to download
      */
-    private void downloadDocx(HttpServletRequest request, HttpServletResponse response)
+    private void downloadTariffList(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
         List<Tariff> tariffList = serviceTariff.getAll();
@@ -677,31 +722,14 @@ public class MyServlet extends HttpServlet {
 
             myObj.write(str);
             myObj.close();
+            logger.info("download | file is created");
         } catch (IOException e) {
-            logger.error("An error occurred.");
-            e.printStackTrace();
+            logger.error("download | ERROR: " + e.getMessage());
         }
 
+        sendFile(request,response,fileName);
 
-        PrintWriter out = new PrintWriter(new OutputStreamWriter(
-                response.getOutputStream(), StandardCharsets.UTF_8), true);
-
-        response.setContentType("APPLICATION/OCTET-STREAM");
-        response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\"");
-
-        FileInputStream fis = new FileInputStream(fileName);
-        InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
-        BufferedReader reader = new BufferedReader(isr);
-
-        int i;
-        while( (i = reader.read()) != -1 )
-        {
-            out.write(i);
-        }
-        fis.close();
-        isr.close();
-        reader.close();
-        out.close();
+        logger.info("download | file is sent");
 
         response.sendRedirect("/home/tariffsList");
     }
@@ -734,10 +762,14 @@ public class MyServlet extends HttpServlet {
                 cookieUPassword.setMaxAge(60 * 60 * 24 * 10);
                 response.addCookie(cookieUEmail);
                 response.addCookie(cookieUPassword);
-
+                logger.info("saveProfile | User`s profile is Successfully saved");
                 request.getSession().setAttribute(LOG_USER, logUser);
             }
+            else
+                logger.warn("saveProfile | User`s profile is UNSuccessfully saved");
         }
+        else
+            logger.warn("saveProfile | Incorrect date inputted");
         response.sendRedirect("/home");
     }
 
@@ -820,6 +852,7 @@ public class MyServlet extends HttpServlet {
      * @return cookie
      */
     public Optional<Cookie> readCookie(String key, HttpServletRequest request) {
+        logger.info("Cookies are reading");
         return Arrays.stream(request.getCookies())
                 .filter(c -> key.equals(c.getName()))
                 .findAny();
@@ -835,5 +868,32 @@ public class MyServlet extends HttpServlet {
         cookie.setMaxAge(0);
         cookie.setPath("/login");
         response.addCookie(cookie);
+        logger.info("Cookies are deleted");
+    }
+
+    /**
+     * Function is sending file to client
+     * @param fileName file`s name
+     */
+    private void sendFile(HttpServletRequest request, HttpServletResponse response, String fileName) throws IOException {
+        PrintWriter out = new PrintWriter(new OutputStreamWriter(
+                response.getOutputStream(), StandardCharsets.UTF_8), true);
+
+        response.setContentType("APPLICATION/OCTET-STREAM");
+        response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\"");
+
+        FileInputStream fis = new FileInputStream(fileName);
+        InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
+        BufferedReader reader = new BufferedReader(isr);
+
+        int i;
+        while( (i = reader.read()) != -1 )
+        {
+            out.write(i);
+        }
+        fis.close();
+        isr.close();
+        reader.close();
+        out.close();
     }
 }

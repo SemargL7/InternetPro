@@ -2,6 +2,7 @@ package com.finalproject.internetpro.filter;
 
 import com.finalproject.internetpro.model.User;
 import com.finalproject.internetpro.services.impl.ServiceUserImpl;
+import org.apache.log4j.Logger;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +16,7 @@ import java.util.Optional;
  * Setting to start state of parameters: language - ENG, AZ - A-Z, cost - ^(from highest to lowest) if they are nulls
  */
 public class ServletFilter implements Filter {
-
+    static final Logger logger = Logger.getLogger(ServletFilter.class);
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         Filter.super.init(filterConfig);
@@ -23,6 +24,7 @@ public class ServletFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
+        logger.info("ServletFilter | Filtering");
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 

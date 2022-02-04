@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSessionBindingEvent;
  * @see Logger
  */
 public class MyHttpSessionAttributeListener  implements HttpSessionAttributeListener {
-    private static final Logger logger = Logger.getLogger(MyServlet.class);
+    private static final Logger logger = Logger.getLogger(MyHttpSessionAttributeListener.class);
     public MyHttpSessionAttributeListener() {}
 
     @Override

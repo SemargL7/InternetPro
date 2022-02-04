@@ -1,10 +1,10 @@
 package com.finalproject.internetpro.services.impl;
 
 import com.finalproject.internetpro.dao.DAOrealisation.DAOUser;
-import com.finalproject.internetpro.model.Tariff;
 import com.finalproject.internetpro.model.User;
 import com.finalproject.internetpro.model.UserAccess;
 import com.finalproject.internetpro.services.ServiceUser;
+import org.apache.log4j.Logger;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +17,8 @@ import java.util.Optional;
  */
 public class ServiceUserImpl implements ServiceUser {
 
+    private static final Logger logger = Logger.getLogger(ServiceUserImpl.class);
+
     private final DAOUser daoUser = DAOUser.getInstance();
 
     /**
@@ -26,6 +28,7 @@ public class ServiceUserImpl implements ServiceUser {
      */
     @Override
     public Optional<User> get(int id) {
+        logger.info("ServiceUserImpl | get " + id);
         return daoUser.get(id);
     }
 
@@ -35,6 +38,7 @@ public class ServiceUserImpl implements ServiceUser {
      */
     @Override
     public List<User> getAll() {
+        logger.info("ServiceUserImpl | getAll");
         return daoUser.getAll();
     }
 
@@ -46,6 +50,7 @@ public class ServiceUserImpl implements ServiceUser {
      */
     @Override
     public Optional<User> loggingUser(String email, String password){
+        logger.info("ServiceUserImpl | loggingUser " + email + " " + password);
         Integer id = daoUser.loggingUser(email,password);
         if(id != null){
             return daoUser.get(id);
@@ -60,6 +65,7 @@ public class ServiceUserImpl implements ServiceUser {
      */
     @Override
     public boolean register(User user) {
+        logger.info("ServiceUserImpl | register " + user);
         if(daoUser.mailFree(user.getEmail())){
             return daoUser.save(user);
         }
@@ -73,6 +79,7 @@ public class ServiceUserImpl implements ServiceUser {
      */
     @Override
     public boolean update(User user){
+        logger.info("ServiceUserImpl | update " + user);
         Optional<User> oldUser = daoUser.get(user.getId());
         if(oldUser.isPresent()) {
             user.getTariffs().stream()
@@ -101,6 +108,7 @@ public class ServiceUserImpl implements ServiceUser {
      */
     @Override
     public boolean blockStatusUser(int id, boolean block){
+        logger.info("ServiceUserImpl | blockStatusUser " + id + " " + block);
         Optional<User> user = daoUser.get(id);
         if(user.isPresent() && user.get().getUserAccess() == UserAccess.USER ){
             return daoUser.blockStatusUser(id,block);
@@ -115,6 +123,7 @@ public class ServiceUserImpl implements ServiceUser {
      */
     @Override
     public boolean delete(int id) {
+        logger.info("ServiceUserImpl | delete " + id);
         return daoUser.delete(id);
     }
 
@@ -124,6 +133,7 @@ public class ServiceUserImpl implements ServiceUser {
      */
     @Override
     public boolean updateAllUsersBalances() {
+        logger.info("ServiceUserImpl | updateAllUsersBalances");
         return daoUser.updateAllUsersBalances();
     }
 }

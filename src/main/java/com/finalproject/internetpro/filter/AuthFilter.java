@@ -13,7 +13,7 @@ import java.io.IOException;
  * Giving accesses for all home pages if user is logged
  */
 public class AuthFilter implements Filter {
-    static final Logger logger = Logger.getLogger(AuthFilter.class);
+    private static final Logger logger = Logger.getLogger(AuthFilter.class);
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         Filter.super.init(filterConfig);
@@ -21,6 +21,7 @@ public class AuthFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        logger.info("AuthFilter | Filtering");
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
