@@ -1,236 +1,218 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: roman
-  Date: 29.12.2021
-  Time: 23:22
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <meta charset="UTF-8">
     <title>User</title>
     <link rel = "icon" href =
             "https://img.icons8.com/fluency-systems-filled/48/000000/create-icon.png"
           type = "image/x-icon">
     <style type="text/css">
-        body {
-            color: #B1D0E0;
-            background: url("https://www.teahub.io/photos/full/164-1647689_wallpaper-montreal-canada-night-city-dark-city-wallpaper..jpg");
-            background-size: cover;
+        body{
+            overflow-x: hidden;
+            background-color: #30475E;
+            opacity: 1;
+            background: linear-gradient(135deg, #F0545455 25%, transparent 25%) -25px 0/ 50px 50px, linear-gradient(225deg, #F05454 25%, transparent 25%) -25px 0/ 50px 50px, linear-gradient(315deg, #F0545455 25%, transparent 25%) 0px 0/ 50px 50px, linear-gradient(45deg, #F05454 25%, #30475E 25%) 0px 0/ 50px 50px;
         }
-
-        nav{
-            width: 100%;
-            margin: -10px auto;
-            float: left;
+        main .container-fluid{
+            background-color: rgba(40, 44, 52, 0.95);
         }
-        nav:before {
-            content: '';
-            display: block;
-            height: 50px;
-            width: 100%;
-            position: absolute;
-            left:0;
-            z-index: -1;
-        }
-        .right-nav{
-            float: right;
-        }
-        ul{
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        ul li
-        {
-            float:left;
-        }
-        ul li a{
-            border-radius: 10% 30% 50% 70%;
-            color: #fff;
-            display: block;
-            height: 50px;
-            padding: 0 30px;
-            text-transform: uppercase;
+        .links a{
             text-decoration: none;
-            line-height: 50px;
-            transition: transform .1s;
-        }
-        ul li a:hover {
-            background-color: rgba(122, 110, 110, 0.26);
-            transform: scale(1.1);
-        }
-        .mainBody{
-            width: 980px;
-            padding-top: 50px;
-            margin: 0 auto;
-            text-align: center;
-            color: #142a3b;
-        }
-
-
-        table{
-            background-color: rgba(154, 154, 154, 0.34);
-            border-collapse: collapse;
-
-
-        }
-        table th{
-            width: 100px;
-            text-align: center;
-            color:#FFF;
-            padding: 4px 30px 4px 8px;
-            border: 1px solid rgba(98, 98, 98, 0.65);
-
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 100px;
-        }
-
-        table td{
-            width: 100px;
-            border: 1px solid rgba(98, 98, 98, 0.65);
-            padding: 4px 8px;
-            color: white;
-
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 90px;
-        }
-
-        .submit_HTML{
-            font-size: large;
-            color: #fff;
-            background-color: rgba(0, 0, 0, 0);
-            border: rgba(0,0,0,0);
-            width: 50px;
-            transition: transform .1s;
-            float: right;
-        }
-        .submit_HTML:hover{
-            transform: scale(1.1);
-            background-color: rgba(122, 110, 110, 0.26);
+            padding-right: 1%;
         }
     </style>
 </head>
-<body>
-<nav>
-    <ul>
-        <li><a id="home_HTML" href="/home">Home</a></li>
-        <li><a id="userTariffsList_HTML" href="/home/userTariffsList">Connected Tariffs</a></li>
-        <li><a id="tariffsList_HTML" href="/home/tariffsList">All Tariffs</a></li>
-    </ul>
-    <ul class="right-nav">
-        <li><a id="balance_HTML" href="/home/balance">Balance:${logUser.balance}</a></li>
-        <li><a id="loginOut_HTML" href="/home/loginOut">Login-out</a></li>
-        <li><a id="changeLanguage_HTML" href="/changeLanguage">ENG/UA</a></li>
-    </ul>
-</nav>
+<body class="d-flex flex-column min-vh-100">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="/">InternetPRO</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <c:choose>
+                        <c:when test="${logUser.getUserAccess().toString().equals(\"MANAGER\")}">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="users-nav-link" aria-current="page" href="/home/usersList">Users</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" id="manager-tariffs-nav-link" aria-current="page" href="/home/managerTariffsList">Tariffs</a>
+                            </li>
+                        </c:when>
+                        <c:when test="${logUser.getUserAccess().toString().equals(\"USER\")}">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="user-connected-tariff-nav-list" aria-current="page" href="/home/userTariffsList">My Tariffs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" id="user-tariff-nav-link" aria-current="page" href="/home/tariffsList">Tariffs</a>
+                            </li>
+                        </c:when>
+                    </c:choose>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <c:choose>
+                        <c:when test="${logUser == null}">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="login-nav-link" aria-current="page" href="/login">Sign In</a>
+                            </li>
+                        </c:when>
+                        <c:when test="${logUser != null}">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                            ${logUser.name}
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item" id="acc-nav-link" href="/home">Account</a></li>
+                                        <c:if test="${logUser.getUserAccess().toString() == \"USER\"}">
+                                            <li><a class="dropdown-item" id="balance-nav-link" href="/home/balance">Balance:${logUser.balance}</a></li>
+                                        </c:if>
+                                        <li><a class="dropdown-item" id="login-out-nav-list" href="/home/logOut">Sign Out</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </c:when>
+                    </c:choose>
+                    <li class="nav-item">
+                        <a class="nav-link active" id="lang-nav-link" aria-current="page" href="/changeLanguage" onmouseup="changeLanguage((language === 2)?1:2)">Eng/Ua</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="mt-1">
+    <div class="container-fluid w-75 p-3">
+        <div class="d-flex flex-row-reverse">
+            <form action="/home/downloadDocx" method="post">
+                <input class="btn btn-dark ms-1" title="Download txt format" type="submit" value="﹀" />
+            </form>
+            <form action="/home/changeSortParAZ" method="post">
+                <input class="btn btn-dark ms-1"  type="submit" value="AZ" />
+            </form>
+            <form action="/home/changeSortParCost" method="post">
+                <input class="btn btn-dark ms-1"  type="submit" value="Cost" />
+            </form>
+        </div>
 
 
-
-<div class="mainBody">
-    <div class="form">
-        <form action="/home/downloadDocx" method="post">
-            <input class="submit_HTML" title="Download txt format" type="submit" value="﹀" />
-        </form>
-        <form action="/home/changeSortParAZ" method="post">
-            <input class="submit_HTML"  type="submit" value="AZ" />
-        </form>
-        <form action="/home/changeSortParCost" method="post">
-            <input class="submit_HTML"  type="submit" value="Cost" />
-        </form>
-    <table class="table table-bordered2">
-        <thead>
-        <tr>
-            <th id="id_HTML">ID</th>
-            <th id="service_HTML">Service</th>
-            <th id="cost_HTML">Cost</th>
-            <th id="daysOfTariff_HTML">Days of Tariff</th>
-            <th id="description_HTML" style="width: 380px;max-width: 370px;">Description</th>
-            <th id="action_HTML">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!--   for (Todo todo: todos) {  -->
-        <%--@elvariable id="listUser" type="java.util.List"--%>
-        <c:forEach var="tariff" items="${listTariff}">
+        <table class="table table-light">
+            <thead class="table-dark">
             <tr>
-                <td>
-                    <c:out value="${tariff.id}" />
-                </td>
-                <td>
-                    <c:out value="${tariff.service.getServiceName()}" />
-                </td>
-                <td>
-                    <c:out value="${tariff.cost}" />
-                </td>
-                <td>
-                    <c:out value="${tariff.daysOfTariff}" />
-                </td>
-                <td style="width: 380px;max-width: 370px;">
-                    <c:out value="${tariff.description[(language).intValue()]}" />
-                </td>
-                <td style="font-size: large;"><a title="Connect" href="/home/connectTariff?id=<c:out value='${tariff.id}' />">⇆</a>
+                <th scope="col">#</th>
+                <th id="thService" scope="col">Service</th>
+                <th id="thCost" scope="col">Cost</th>
+                <th id="thDays" scope="col">Days of Tariff</th>
+                <th id="thDesc" scope="col">Description</th>
+                <th id="thAction" scope="col">Action</th>
+
             </tr>
-        </c:forEach>
-        <!-- } -->
-        </tbody>
+            </thead>
+            <tbody>
+            <c:forEach var="tariff" items="${listTariff}">
+                <tr>
+                    <td>
+                        <c:out value="${tariff.id}" />
+                    </td>
+                    <td>
+                        <c:out value="${tariff.service.getServiceName()}" />
+                    </td>
+                    <td>
+                        <c:out value="${tariff.cost}" />
+                    </td>
+                    <td>
+                        <c:out value="${tariff.daysOfTariff}" />
+                    </td>
+                    <td style="width: 380px;max-width: 370px;">
+                        <c:out value="${tariff.description[(language).intValue()]}" />
+                    </td>
+                    <td style="font-size: large;"><a class="btn btn-outline-dark" title="Connect" href="/home/connectTariff?id=<c:out value='${tariff.id}' />">⇆</a>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
 
-    </table>
-    <ul id="pagination">
-        <c:forEach begin="1" end="${paginationMax+1}" varStatus="loop">
-            <c:if test="${loop.index == loop.begin || loop.index == loop.end || (loop.index >= page-3 && loop.index <= page+3)}">
-                <li>
-                    <a href="/home/tariffsList?page=<c:out value='${loop.index}' />">${loop.index}<br/></a>
+        <nav>
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="/home/tariffsList?page=<c:out value='${page>1?page-1:page}' />" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
                 </li>
-            </c:if>
 
+                <c:forEach begin="1" end="${paginationMax+1}" varStatus="loop">
+                    <c:if test="${loop.index == loop.begin || loop.index == loop.end || (loop.index >= page-3 && loop.index <= page+3)}">
+                        <li class="page-item">
+                            <a class="page-link" href="/home/tariffsList?page=<c:out value='${loop.index}' />">${loop.index}<br/></a>
+                        </li>
+                    </c:if>
+                </c:forEach>
 
-        </c:forEach>
-    </ul>
+                <li class="page-item">
+                    <a class="page-link" href="/home/tariffsList?page=<c:out value='${paginationMax+1 >= page+1? page+1:page}' />" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
-</div>
+</main>
 
-</body>
+<footer class="bg-dark text-center text-lg-start text-light mt-auto">
+    <div class="container p-2">
+        <div class="row">
+            <div class="links">
+                <h5>project made by <small>Roman Dubil</small></h5>
+                <a href="https://github.com/SemargL7">GitHub</a>
+                <a href="https://t.me/DRRua">Telegram</a>
+                <a href="#">Phone:+380984041302</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2021
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 <script type="text/javascript">
-    let lang=["home_HTML","loginOut_HTML",
-
-        "userTariffsList_HTML","tariffsList_HTML",
-
-        "balance_HTML",
-
-        "id_HTML","service_HTML","cost_HTML","daysOfTariff_HTML",
-        "description_HTML","action_HTML"];
-    let langEng =["Home","Login-Out",
-
-        "Connected tariffs","Tariffs",
-
-        "Balance:${logUser.balance}",
-
-        "ID","Service","Cost","Days of Tariff",
-        "Description","Action"];
-    let langUa =["Додому","Вийти",
-
-        "Під'єднанні тарифи","Тарифи",
-
-        "Рахунок:${logUser.balance}",
-
-        "Номер","Сервіс","Ціна","К-ть днів дії",
-        "Опис","Дія"];
+    let lang=["users-nav-link","manager-tariffs-nav-link","user-connected-tariff-nav-list","user-tariff-nav-link","login-nav-link","acc-nav-link","balance-nav-link","login-out-nav-list","lang-nav-link",
+        "thService","thCost","thDays","thDesc","thAction"
+    ];
+    let langEng =["Users","Tariffs","My Tariffs","Tariffs","Sign In","Account","Balance:${logUser.balance}","Sign Out","Eng/Ua",
+        "Service","Cost","Days of Tariff","Description","Action"
+    ];
+    let langUa =["Користувачі", "Тарифи", "Мої тарифи", "Тарифи", "Вхід", "Обліковий запис", "Баланс:${logUser.balance}", "Вийти", "Укр/Анл",
+        "Послуга", "Вартість", "Дні тарифу", "Опис", "Дія"
+    ];
     let language = parseInt('${(language).intValue()}');
-
-    if(language == 2)
-        for(i = 0; i <lang.length;i++) {
-            document.getElementById(lang[i]).textContent = langUa[i];
+    function changeLanguage(id_lang){
+        if(id_lang === 2) {
+            for (i = 0; i < lang.length; i++) {
+                var el = document.getElementById(lang[i]);
+                if (el) el.textContent = langUa[i];
+            }
         }
-    else
-        for(i = 0; i <lang.length;i++) {
-            document.getElementById(lang[i]).textContent = langEng[i];
+        else {
+            for (i = 0; i < lang.length; i++) {
+                var el = document.getElementById(lang[i]);
+                if (el) el.textContent = langEng[i];
+            }
         }
+    }
+    changeLanguage(language);
 </script>
+</body>
 </html>

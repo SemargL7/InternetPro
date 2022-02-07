@@ -5,6 +5,7 @@ import com.finalproject.internetpro.database.Database;
 import com.finalproject.internetpro.model.Tariff;
 import org.apache.log4j.Logger;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.*;
@@ -53,8 +54,9 @@ public class DAOTariff implements DAO<Tariff> {
     public Optional<Tariff> get(long id){
         Tariff tariff = null;
         try {
-            PreparedStatement statement = Database.getConnection().prepareStatement(SQL_GET_TARIFF_BY_ID);
-            PreparedStatement statement2 = Database.getConnection().prepareStatement(SQL_GET_TARIFF_DESCRIPTION);
+            Connection con = Database.getConnection();
+            PreparedStatement statement = con.prepareStatement(SQL_GET_TARIFF_BY_ID);
+            PreparedStatement statement2 = con.prepareStatement(SQL_GET_TARIFF_DESCRIPTION);
 
             statement.setLong(1, id);
             ResultSet result = statement.executeQuery();
@@ -82,6 +84,13 @@ public class DAOTariff implements DAO<Tariff> {
                 tariff.setDescription(disc);
             if(tariff.getId()==0)
                 tariff = null;
+
+            result.close();
+            result2.close();
+            statement.close();
+            statement2.close();
+            con.close();
+
             logger.info("get|"+id);
         }catch (Exception e){
             logger.error("get|ERROR:"+e);
@@ -96,14 +105,19 @@ public class DAOTariff implements DAO<Tariff> {
     @Override
     public List<Tariff> getAll(){
         List<Tariff> tariffs = null;
-        try (PreparedStatement statement = Database.getConnection().prepareStatement(SQL_GET_ALL_TARIFF_ID)){
+        try {
             logger.info("Start getAll");
-
+            Connection con = Database.getConnection();
+            PreparedStatement statement = con.prepareStatement(SQL_GET_ALL_TARIFF_ID);
             ResultSet result = statement.executeQuery();
             DAOTariff daoTariff = new DAOTariff();
             tariffs = new LinkedList<>();
             while (result.next())
                 tariffs.add(daoTariff.get(result.getInt(1)).get());
+
+            result.close();
+            statement.close();
+            con.close();
 
             logger.info("End getAll");
         }catch (Exception e){
@@ -119,9 +133,10 @@ public class DAOTariff implements DAO<Tariff> {
     @Override
     public boolean save(Tariff tariff){
         try {
-            PreparedStatement posted = Database.getConnection().prepareStatement(SQL_INSERT_TARIFF);
-            PreparedStatement posted2 = Database.getConnection().prepareStatement(SQL_INSERT_TARIFF_DESCRIPTION);
-            PreparedStatement statement = Database.getConnection().prepareStatement(SQL_GET_LAST_TARIFF_ID);
+            Connection con = Database.getConnection();
+            PreparedStatement posted = con.prepareStatement(SQL_INSERT_TARIFF);
+            PreparedStatement posted2 = con.prepareStatement(SQL_INSERT_TARIFF_DESCRIPTION);
+            PreparedStatement statement = con.prepareStatement(SQL_GET_LAST_TARIFF_ID);
 
             posted.setLong(1, tariff.getId());
             posted.setInt(2, tariff.getService().getId());
@@ -145,6 +160,13 @@ public class DAOTariff implements DAO<Tariff> {
 
                 posted2.executeUpdate();
             }
+
+            result.close();
+            posted.close();
+            posted2.close();
+            statement.close();
+            con.close();
+
             logger.info("save|"+tariff);
             return true;
         }catch (Exception e){
@@ -160,8 +182,9 @@ public class DAOTariff implements DAO<Tariff> {
     @Override
     public boolean update(Tariff tariff){
         try {
-            PreparedStatement posted = Database.getConnection().prepareStatement(SQL_UPDATE_TARIFF);
-            PreparedStatement posted2 = Database.getConnection().prepareStatement(SQL_UPDATE_TARIFF_DESCRIPTION);
+            Connection con = Database.getConnection();
+            PreparedStatement posted = con.prepareStatement(SQL_UPDATE_TARIFF);
+            PreparedStatement posted2 = con.prepareStatement(SQL_UPDATE_TARIFF_DESCRIPTION);
 
             posted.setInt(1, tariff.getService().getId());
             posted.setDouble(2, tariff.getCost());
@@ -179,6 +202,10 @@ public class DAOTariff implements DAO<Tariff> {
                 posted2.executeUpdate();
             }
 
+            posted.close();
+            posted2.close();
+            con.close();
+
             logger.info("update|"+tariff);
             return true;
         }catch (Exception e){
@@ -195,9 +222,10 @@ public class DAOTariff implements DAO<Tariff> {
     @Override
     public boolean delete(int id){
         try {
-            PreparedStatement posted = Database.getConnection().prepareStatement(SQL_DELETE_TARIFF_DESCRIPTION);
-            PreparedStatement posted2 = Database.getConnection().prepareStatement(SQL_DELETE_TARIFF_CONNECTIONS);
-            PreparedStatement posted3 = Database.getConnection().prepareStatement(SQL_DELETE_TARIFF);
+            Connection con = Database.getConnection();
+            PreparedStatement posted = con.prepareStatement(SQL_DELETE_TARIFF_DESCRIPTION);
+            PreparedStatement posted2 = con.prepareStatement(SQL_DELETE_TARIFF_CONNECTIONS);
+            PreparedStatement posted3 = con.prepareStatement(SQL_DELETE_TARIFF);
 
             posted.setLong(1, id);
             posted.executeUpdate();
@@ -207,6 +235,11 @@ public class DAOTariff implements DAO<Tariff> {
 
             posted3.setLong(1, id);
             posted3.executeUpdate();
+
+            posted.close();
+            posted2.close();
+            posted3.close();
+            con.close();
 
             logger.info("delete|"+id);
             return true;

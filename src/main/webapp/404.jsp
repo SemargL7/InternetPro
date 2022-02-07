@@ -14,9 +14,11 @@
           "https://img.icons8.com/fluency-systems-filled/48/000000/create-icon.png"
         type = "image/x-icon">
   <style>
-    body {
-      background: url("https://www.teahub.io/photos/full/164-1647689_wallpaper-montreal-canada-night-city-dark-city-wallpaper..jpg");
-      background-size: cover;
+    body{
+      overflow-x: hidden;
+      background-color: #30475E;
+      opacity: 1;
+      background: linear-gradient(135deg, #F0545455 25%, transparent 25%) -25px 0/ 50px 50px, linear-gradient(225deg, #F05454 25%, transparent 25%) -25px 0/ 50px 50px, linear-gradient(315deg, #F0545455 25%, transparent 25%) 0px 0/ 50px 50px, linear-gradient(45deg, #F05454 25%, #30475E 25%) 0px 0/ 50px 50px;
     }
 
     .mainbox {

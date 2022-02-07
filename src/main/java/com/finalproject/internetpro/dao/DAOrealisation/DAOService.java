@@ -5,6 +5,7 @@ import com.finalproject.internetpro.database.Database;
 import com.finalproject.internetpro.model.Service;
 import org.apache.log4j.Logger;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -50,8 +51,9 @@ public class DAOService implements DAO<Service> {
     @Override
     public Optional<Service> get(long id){
         Service service = null;
-        try(PreparedStatement statement = Database.getConnection().prepareStatement(SQL_GET_SERVICE_BY_ID)) {
-
+        try {
+            Connection con = Database.getConnection();
+            PreparedStatement statement = con.prepareStatement(SQL_GET_SERVICE_BY_ID);
             statement.setLong(1, id);
 
             ResultSet result = statement.executeQuery();
@@ -63,6 +65,10 @@ public class DAOService implements DAO<Service> {
 
             if(service.getId()==0 && service.getServiceName()==null)
                 service=null;
+
+            result.close();
+            statement.close();
+            con.close();
 
             logger.info("get|"+id);
         }catch (Exception e)
@@ -79,8 +85,9 @@ public class DAOService implements DAO<Service> {
     @Override
     public List<Service> getAll(){
         List<Service> services = null;
-        try(PreparedStatement statement = Database.getConnection().prepareStatement(SQL_GET_ALL_SERVICES)) {
-
+        try {
+            Connection con = Database.getConnection();
+            PreparedStatement statement = con.prepareStatement(SQL_GET_ALL_SERVICES);
             ResultSet result = statement.executeQuery();
             services = new ArrayList<>();
             while (result.next())
@@ -90,6 +97,11 @@ public class DAOService implements DAO<Service> {
                 service.setServiceName(result.getString(2));
                 services.add(service);
             }
+
+            result.close();
+            statement.close();
+            con.close();
+
             logger.error("getAll");
         }catch (Exception e){
             logger.error("getAll|ERROR:"+e);
@@ -104,12 +116,16 @@ public class DAOService implements DAO<Service> {
      */
     @Override
     public boolean save(Service service){
-        try(PreparedStatement posted = Database.getConnection().prepareStatement(SQL_INSERT_SERVICE)) {
-
+        try {
+            Connection con = Database.getConnection();
+            PreparedStatement posted = con.prepareStatement(SQL_INSERT_SERVICE);
             posted.setInt(1,service.getId());
             posted.setString(2, service.getServiceName());
 
             posted.executeUpdate();
+
+            posted.close();
+            con.close();
 
             logger.info("save|"+service);
             return true;
@@ -126,12 +142,16 @@ public class DAOService implements DAO<Service> {
      */
     @Override
     public boolean update(Service service){
-        try(PreparedStatement posted = Database.getConnection().prepareStatement(SQL_UPDATE_SERVICE)) {
-
+        try {
+            Connection con = Database.getConnection();
+            PreparedStatement posted = con.prepareStatement(SQL_UPDATE_SERVICE);
             posted.setString(1, service.getServiceName());
             posted.setLong(2,service.getId());
 
             posted.executeUpdate();
+
+            posted.close();
+            con.close();
 
             logger.info("update|"+service);
             return true;
@@ -149,8 +169,9 @@ public class DAOService implements DAO<Service> {
     @Override
     public boolean delete(int id){
         try {
-            PreparedStatement statement = Database.getConnection().prepareStatement(SQL_GET_SERVICE_TARIFFS);
-            PreparedStatement posted = Database.getConnection().prepareStatement(SQL_DELETE_SERVICE);
+            Connection con = Database.getConnection();
+            PreparedStatement statement = con.prepareStatement(SQL_GET_SERVICE_TARIFFS);
+            PreparedStatement posted = con.prepareStatement(SQL_DELETE_SERVICE);
 
             statement.setLong(1, id);
             posted.setInt(1, id);
@@ -161,6 +182,11 @@ public class DAOService implements DAO<Service> {
             }
 
             posted.executeUpdate();
+
+            result.close();
+            statement.close();
+            posted.close();
+            con.close();
 
             logger.info("delete|"+id);
             return true;

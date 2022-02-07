@@ -20,5 +20,5 @@ public interface ServiceUser {
 
     boolean delete(int id);
 
-    boolean updateAllUsersBalances();
+    boolean updateStatus(int id);
 }

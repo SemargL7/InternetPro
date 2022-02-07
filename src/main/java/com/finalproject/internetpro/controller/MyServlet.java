@@ -56,6 +56,19 @@ public class MyServlet extends HttpServlet {
 
     public void init() {
         logger.info("Init Servlet");
+        new Thread(() -> {
+            while (true) {
+                try {
+                    logger.info("Updating all users`s status");
+                    serviceUser.getAll().forEach(x->serviceUser.updateStatus(x.getId()));
+                    logger.info("Updating all users`s status was finished");
+                    Thread.sleep(1000 * 60 * 60 * 24);
+                } catch (InterruptedException e) {
+                    logger.error(e.getCause() + " " + e.getMessage());
+                    break;
+                }
+            }
+        }).start();
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -106,10 +119,6 @@ public class MyServlet extends HttpServlet {
                 case "/login/log" -> {
                     logger.info("action->login");
                     login(request, response);
-                }
-                case "/home/loginOut" -> {
-                    logger.info("action->viewLoginOut");
-                    viewLoginOut(request, response);
                 }
                 case "/register/reg" -> {
                     logger.info("action->register");
@@ -207,14 +216,7 @@ public class MyServlet extends HttpServlet {
      */
     private void viewHome(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        String url;
-
-        User logUser = (User) request.getSession().getAttribute(LOG_USER);
-
-        if (logUser.getUserAccess() == UserAccess.MANAGER) url = "home/managerHome.jsp";
-        else url = "home/userHome.jsp";
-
-        request.getRequestDispatcher(url).forward(request, response);
+        request.getRequestDispatcher("home/home.jsp").forward(request, response);
     }
 
     /**
@@ -265,13 +267,6 @@ public class MyServlet extends HttpServlet {
         }
     }
     /**
-     * Function is viewing a login-out page
-     */
-    private void viewLoginOut(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
-        request.getRequestDispatcher("../home/logOut.jsp").forward(request, response);
-    }
-    /**
      * Function is viewing a register page
      */
     private void viewRegister(HttpServletRequest request, HttpServletResponse response)
@@ -317,16 +312,20 @@ public class MyServlet extends HttpServlet {
 
             cookieUEmail.setMaxAge(60 * 60 * 24 * 10);
             cookieUPassword.setMaxAge(60 * 60 * 24 * 10);
+
+            cookieUEmail.setPath("/login");
+            cookieUPassword.setPath("/login");
+
             response.addCookie(cookieUEmail);
             response.addCookie(cookieUPassword);
 
-            url = "/home";
+            url = "/";
         } else {
             logger.warn("login | Incorrect email or password");
             request.getSession().setAttribute(LOG_WARNING,true);
 
-            removeCookie(COOKIE_EMAIL_NAME,response);
-            removeCookie(COOKIE_PASSWORD_NAME,response);
+            removeCookie(COOKIE_EMAIL_NAME,"/login",response);
+            removeCookie(COOKIE_PASSWORD_NAME,"/login",response);
 
             url = "/login";
         }
@@ -410,7 +409,7 @@ public class MyServlet extends HttpServlet {
         else
             logger.warn("connectTariff | User is blocked");
 
-        serviceUser.updateAllUsersBalances();
+        serviceUser.updateStatus(logUser.getId());
 
         response.sendRedirect("/home/tariffsList");
     }
@@ -425,7 +424,7 @@ public class MyServlet extends HttpServlet {
         if(selectedTariff.isPresent()) {
             logUser.removeTariff(selectedTariff.get());
             if (serviceUser.update(logUser)) {
-                serviceUser.updateAllUsersBalances();
+                serviceUser.updateStatus(logUser.getId());
                 request.getSession().setAttribute(LOG_USER, logUser);
                 logger.info("disconnectTariff | Tariff is successfully disconnected");
             }
@@ -521,7 +520,7 @@ public class MyServlet extends HttpServlet {
         }catch (Exception e){
             logger.error("depositBalance | ERROR: " + e.getMessage());
         }
-        serviceUser.updateAllUsersBalances();
+        serviceUser.updateStatus(logUser.getId());
         response.sendRedirect("/home");
     }
 
@@ -533,8 +532,8 @@ public class MyServlet extends HttpServlet {
 
         request.getSession().setAttribute(LOG_USER,null);
 
-        removeCookie(COOKIE_EMAIL_NAME,response);
-        removeCookie(COOKIE_PASSWORD_NAME,response);
+        removeCookie(COOKIE_EMAIL_NAME,"/login",response);
+        removeCookie(COOKIE_PASSWORD_NAME,"/login",response);
 
         logger.info("logOut | User is login-outed");
         response.sendRedirect("/login");
@@ -559,6 +558,7 @@ public class MyServlet extends HttpServlet {
                 break;
             page = "/" + link.get(i) + page;
         }
+        page = page.isEmpty()?"/":page;
         logger.info("changeLanguage | Return to prev page");
         response.sendRedirect(page);
     }
@@ -583,7 +583,7 @@ public class MyServlet extends HttpServlet {
         listUser = listUser.subList(start,end);
         request.getSession().setAttribute("listUser", listUser);
 
-        request.getSession().setAttribute(PAGINATION, listUser.size()/5);
+        request.getSession().setAttribute(PAGINATION, Math.ceil((double)listUser.size()/ELEMENTS_PAGINATION_PAGE));
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/manager/usersList.jsp");
         dispatcher.forward(request, response);
@@ -617,7 +617,7 @@ public class MyServlet extends HttpServlet {
 
         request.getSession().setAttribute("listTariff", listTariff);
 
-        request.getSession().setAttribute(PAGINATION, listTariff.size()/5);
+        request.getSession().setAttribute(PAGINATION, Math.ceil((double)listTariff.size()/ELEMENTS_PAGINATION_PAGE));
 
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/manager/managerTariffsList.jsp");
@@ -654,7 +654,7 @@ public class MyServlet extends HttpServlet {
 
         request.getSession().setAttribute("userTariff", userTariff);
 
-        request.getSession().setAttribute(PAGINATION, userTariff.size()/5);
+        request.getSession().setAttribute(PAGINATION, Math.ceil((double)userTariff.size()/ELEMENTS_PAGINATION_PAGE));
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/user/userTariffsList.jsp");
         dispatcher.forward(request, response);
@@ -688,7 +688,7 @@ public class MyServlet extends HttpServlet {
 
         request.getSession().setAttribute("listTariff", listTariff);
 
-        request.getSession().setAttribute(PAGINATION, listTariff.size()/ELEMENTS_PAGINATION_PAGE);
+        request.getSession().setAttribute(PAGINATION, Math.ceil((double)listTariff.size()/ELEMENTS_PAGINATION_PAGE));
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("../home/user/tariffsList.jsp");
         dispatcher.forward(request, response);
@@ -760,6 +760,10 @@ public class MyServlet extends HttpServlet {
 
                 cookieUEmail.setMaxAge(60 * 60 * 24 * 10);
                 cookieUPassword.setMaxAge(60 * 60 * 24 * 10);
+
+                cookieUEmail.setPath("/login");
+                cookieUPassword.setPath("/login");
+
                 response.addCookie(cookieUEmail);
                 response.addCookie(cookieUPassword);
                 logger.info("saveProfile | User`s profile is Successfully saved");
@@ -862,11 +866,11 @@ public class MyServlet extends HttpServlet {
      * Function is deleting cookies
      * @param key cookie`s name
      */
-    public void removeCookie(String key,HttpServletResponse response) {
+    public void removeCookie(String key,String path,HttpServletResponse response) {
         response.setContentType("text/html");
         Cookie cookie = new Cookie(key,"");
         cookie.setMaxAge(0);
-        cookie.setPath("/login");
+        cookie.setPath(path);
         response.addCookie(cookie);
         logger.info("Cookies are deleted");
     }

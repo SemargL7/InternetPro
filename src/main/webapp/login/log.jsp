@@ -3,175 +3,174 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Sign-In</title>
     <link rel = "icon" href =
             "https://img.icons8.com/fluency-systems-filled/48/000000/create-icon.png"
           type = "image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <style type="text/css">
-        body {
-            color: #B1D0E0;
-            background: url("https://www.teahub.io/photos/full/164-1647689_wallpaper-montreal-canada-night-city-dark-city-wallpaper..jpg");
-            background-size: cover;
+        body{
+            overflow-x: hidden;
+            background-color: #30475E;
+            opacity: 1;
+            background: linear-gradient(135deg, #F0545455 25%, transparent 25%) -25px 0/ 50px 50px, linear-gradient(225deg, #F05454 25%, transparent 25%) -25px 0/ 50px 50px, linear-gradient(315deg, #F0545455 25%, transparent 25%) 0px 0/ 50px 50px, linear-gradient(45deg, #F05454 25%, #30475E 25%) 0px 0/ 50px 50px;
         }
-
-        nav{
-            width: 100%;
-            margin: -10px auto;
-            float: left;
-        }
-        nav:before {
-            content: '';
-            display: block;
-            height: 50px;
-            width: 100%;
-            position: absolute;
-            left:0;
-            z-index: -1;
-        }
-        .right-nav{
-            float: right;
-        }
-        ul{
-            margin: 0;
-            padding: 0;
-            list-style: none;
-
-        }
-        ul li
-        {
-            float:left;
-        }
-        ul li a{
-            border-radius: 10% 30% 50% 70%;
-            color: #fff;
-            display: block;
-            height: 50px;
-            padding: 0 30px;
-            text-transform: uppercase;
+        .links a{
             text-decoration: none;
-            line-height: 50px;
-            transition: transform .1s;
-        }
-        ul li a:hover {
-            background-color: rgba(122, 110, 110, 0.26);
-            transform: scale(1.1);
-        }
-        .mainBody{
-            padding-top: 15%;
-            margin: 0 auto;
-            color: #142a3b;
-        }
-
-        #submit_HTML{
-            font-size: large;
-            color: #fff;
-            background-color: rgba(0, 0, 0, 0);
-            border: rgba(0,0,0,0);
-            width: 50px;
-            transition: transform .1s;
-        }
-        #submit_HTML:hover{
-            transform: scale(1.1);
-            background-color: rgba(122, 110, 110, 0.26);
-        }
-
-        table{
-            border-collapse: collapse;
-        }
-        table th{
-            text-align: center;
-            background-color: #FFF;
-            color:#FFF;
-            padding: 4px 30px 4px 8px;
-        }
-        table td{
-            width: 100px;
-            border: 1px solid rgba(0, 0, 0, 0);
-            padding: 4px 8px;
-        }
-        table td input{
-            border-radius: 2%;
-            border: 1px solid rgba(255, 255, 255, 0.41);
-            background-color: rgba(255, 255, 255, 0.29);
-            color: white;
-        }
-
-
-        .loginForm{
-            text-align: center;
-            color: white;
-            width: 290px;
-            height: 180px;
-            margin: auto;
-            transition: transform .5s;
-            padding: 10px;
-            border-radius: 5px 20px 5px;
-        }
-        .loginForm:hover{
-            transform: scale(1.05);
-        }
-        .alert {
-            padding: 20px;
-            background-color: #f44336;
-            color: white;
-            width: 300px;
-            position: fixed;
-            bottom: 10px;
+            padding-right: 1%;
         }
     </style>
 </head>
-<body>
-<nav>
-    <ul>
-        <li><a id="home_HTML" href="/home">Home</a></li>
-    </ul>
-    <ul class="right-nav">
-        <li><a id="login_HTML" href="/login">Login</a></li>
-        <li><a id="register_HTML" href="/register">Register</a></li>
-        <li><a id="changeLanguage_HTML" href="/changeLanguage">ENG/UA</a></li>
-    </ul>
-</nav>
+<body class="d-flex flex-column min-vh-100">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="/">InternetPRO</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <c:choose>
+                        <c:when test="${logUser.getUserAccess().toString().equals(\"MANAGER\")}">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="users-nav-link" aria-current="page" href="/home/usersList">Users</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" id="manager-tariffs-nav-link" aria-current="page" href="/home/managerTariffsList">Tariffs</a>
+                            </li>
+                        </c:when>
+                        <c:when test="${logUser.getUserAccess().toString().equals(\"USER\")}">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="user-connected-tariff-nav-list" aria-current="page" href="/home/userTariffsList">My Tariffs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" id="user-tariff-nav-link" aria-current="page" href="/home/tariffsList">Tariffs</a>
+                            </li>
+                        </c:when>
+                    </c:choose>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <c:choose>
+                        <c:when test="${logUser == null}">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="login-nav-link" aria-current="page" href="/login">Sign In</a>
+                            </li>
+                        </c:when>
+                        <c:when test="${logUser != null}">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                            ${logUser.name}
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item" id="acc-nav-link" href="/home">Account</a></li>
+                                        <c:if test="${logUser.getUserAccess().toString() == \"USER\"}">
+                                            <li><a class="dropdown-item" id="balance-nav-link" href="/home/balance">Balance:${logUser.balance}</a></li>
+                                        </c:if>
+                                        <li><a class="dropdown-item" id="login-out-nav-list" href="/home/logOut">Sign Out</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </c:when>
+                    </c:choose>
+                    <li class="nav-item">
+                        <a class="nav-link active" id="lang-nav-link" aria-current="page" href="/changeLanguage" onmouseup="changeLanguage((language === 2)?1:2)">Eng/Ua</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 
 
 <c:if test = "${logWarning == true}">
-    <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        Wrong email or password
+    <div class="alert alert-warning alert-dismissible">
+        <a href="/login" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Warning!</strong> Wrong email or password.
     </div>
 </c:if>
 
-<div class="mainBody">
-    <div class="loginForm">
-        <h1 id="login2_HTML">Login</h1>
-        <form action="/login/log" method="post">
-            <table style="with: 80%">
-                <tr>
-                    <td id="email_HTML">Email</td>
-                    <td><input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/></td>
-                </tr>
-                <tr>
-                    <td id="password_HTML">Password</td>
-                    <td><input type="password" name="password" required/></td>
-                </tr>
-            </table>
-            <input id="submit_HTML" type="submit" onmouseup="hoverOnOutBut()" value="⇨" />
+<main class="mt-1">
+    <div class="container-fluid w-75 p-3 text-light d-flex justify-content-center">
+        <form class="p-3 bg-dark rounded" action="/login/log" method="post">
+            <h1 id="signInLogo">Sign In</h1>
+            <div class="form-group">
+                <label id="signInInputEmailLabel" for="signInInputEmail">Email address</label>
+                <input type="email" class="form-control" id="signInInputEmail" aria-describedby="emailHelp" placeholder="Enter email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+            </div>
+            <div class="form-group">
+                <label id="signInInputPasswordLabel" for="signInInputPassword">Password</label>
+                <input type="password" class="form-control" id="signInInputPassword" placeholder="Password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary mt-1" id="signInSubmitBtn">Submit</button>
+            <small id="signInOr">or</small> <a id="signInSignUpBtn" href="/register">Sign Up</a>
         </form>
     </div>
-</div>
-</body>
-<script type="text/javascript">
-    let lang=["home_HTML","login_HTML","register_HTML","login2_HTML","email_HTML","password_HTML","submit_HTML"];
-    let langEng =["Home","Login","Register","Login","Email","Password","Submit"];
-    let langUa =["Дім","Вхід","Реєстрація","Вхід","Почта","Пароль","Подати"];
-    let language = parseInt('${(language).intValue()}');
+</main>
 
-    if(language === 2)
-        for(i = 0; i <lang.length;i++) {
-            document.getElementById(lang[i]).textContent = langUa[i];
-        }
-    else
-        for(i = 0; i <lang.length;i++) {
-            document.getElementById(lang[i]).textContent = langEng[i];
-        }
+<footer class="bg-dark text-center text-lg-start text-light mt-auto">
+    <div class="container p-2">
+        <div class="row">
+            <div class="links">
+                <h5>project made by <small>Roman Dubil</small></h5>
+                <a href="https://github.com/SemargL7">GitHub</a>
+                <a href="https://t.me/DRRua">Telegram</a>
+                <a href="#">Phone:+380984041302</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2021
+    </div>
+</footer>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous">
 </script>
+
+<script type="text/javascript">
+    let lang=["users-nav-link","manager-tariffs-nav-link","user-connected-tariff-nav-list","user-tariff-nav-link","login-nav-link","acc-nav-link","balance-nav-link","login-out-nav-list","lang-nav-link",
+
+        "signInLogo","signInInputEmailLabel","signInInputPasswordLabel","signInSubmitBtn","signInOr","signInSignUpBtn"
+    ];
+    let langEng =["Users","Tariffs","My Tariffs","Tariffs","Sign In","Account","Balance:${logUser.balance}","Sign Out","Eng/Ua",
+
+        "Sign In","Email","Password","Submit","or","Sign Up"
+    ];
+    let langUa =["Користувачі", "Тарифи", "Мої тарифи", "Тарифи", "Вхід", "Обліковий запис", "Баланс:${logUser.balance}", "Вийти", "Укр/Анл",
+
+        "Вхід", "Електронна пошта", "Пароль", "Увійти", "або", "Зареєструватися"
+    ];
+    let language = parseInt('${(language).intValue()}');
+    function changeLanguage(id_lang){
+        if(id_lang === 2) {
+            for (i = 0; i < lang.length; i++) {
+                var el = document.getElementById(lang[i]);
+                if (el) el.textContent = langUa[i];
+            }
+        }
+        else {
+            for (i = 0; i < lang.length; i++) {
+                var el = document.getElementById(lang[i]);
+                if (el) el.textContent = langEng[i];
+            }
+        }
+    }
+    changeLanguage(language);
+</script>
+
+</body>
 </html>

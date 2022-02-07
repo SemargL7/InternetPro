@@ -128,12 +128,11 @@ public class ServiceUserImpl implements ServiceUser {
     }
 
     /**
-     * Function is updating all user`s block statuses and balances
+     * Function is updating user`s block statuses and balances
      * @return boolean, if all users have updated - true, else - false
      */
-    @Override
-    public boolean updateAllUsersBalances() {
-        logger.info("ServiceUserImpl | updateAllUsersBalances");
-        return daoUser.updateAllUsersBalances();
+    public boolean updateStatus(int id) {
+        logger.info("ServiceUserImpl | updateStatus " + id);
+        return daoUser.updateStatus(id);
     }
 }
