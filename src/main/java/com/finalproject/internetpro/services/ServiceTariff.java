@@ -1,6 +1,6 @@
 package com.finalproject.internetpro.services;
 
-import com.finalproject.internetpro.model.Tariff;
+import com.finalproject.internetpro.entity.Tariff;
 
 import java.util.List;
 import java.util.Optional;

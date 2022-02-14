@@ -1,6 +1,6 @@
-import com.finalproject.internetpro.database.Database;
-import com.finalproject.internetpro.model.User;
-import com.finalproject.internetpro.model.UserAccess;
+import com.finalproject.internetpro.database.DBManager;
+import com.finalproject.internetpro.entity.User;
+import com.finalproject.internetpro.entity.UserAccess;
 import com.finalproject.internetpro.services.impl.ServiceUserImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -11,7 +11,7 @@ import java.sql.Date;
 public class TestServices {
     @Test
     public void testUserService(){
-        ServiceUserImpl serviceUser = new ServiceUserImpl();
+        ServiceUserImpl serviceUser = ServiceUserImpl.getInstance();
         Assertions.assertFalse(serviceUser.register(new User()));
         Assertions.assertFalse(serviceUser.update(new User()));
 
@@ -52,7 +52,7 @@ public class TestServices {
     {
         try {
             String sql = "ALTER TABLE "+table+" AUTO_INCREMENT =1;";
-            Connection con = Database.getConnection();
+            Connection con = DBManager.getInstance().getConnection();
             con.prepareStatement(sql).executeUpdate();
             System.out.println("clear");
         }catch (Exception e){

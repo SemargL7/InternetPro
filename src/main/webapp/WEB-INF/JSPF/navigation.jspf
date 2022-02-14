@@ -1,0 +1,65 @@
+<%@ include file="/WEB-INF/JSPF/directive/page.jspf" %>
+<%@ include file="/WEB-INF/JSPF/directive/taglib.jspf" %>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="/">InternetPRO</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <c:choose>
+                    <c:when test="${logUser.getUserAccess().toString().equals(\"MANAGER\")}">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="users-nav-link" aria-current="page" href="/home/usersList">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" id="manager-tariffs-nav-link" aria-current="page" href="/home/managerTariffsList">Tariffs</a>
+                        </li>
+                    </c:when>
+                    <c:when test="${logUser.getUserAccess().toString().equals(\"USER\")}">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="user-connected-tariff-nav-list" aria-current="page" href="/home/userTariffsList">My Tariffs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" id="user-tariff-nav-link" aria-current="page" href="/home/tariffsList">Tariffs</a>
+                        </li>
+                    </c:when>
+                </c:choose>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <c:choose>
+                    <c:when test="${logUser == null}">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="login-nav-link" aria-current="page" href="/login">Sign In</a>
+                        </li>
+                    </c:when>
+                    <c:when test="${logUser != null}">
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                        ${logUser.name}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item" id="acc-nav-link" href="/home">Account</a></li>
+                                    <c:if test="${logUser.getUserAccess().toString() == \"USER\"}">
+                                        <li><a class="dropdown-item" id="balance-nav-link" href="/home/balance">Balance:${logUser.balance}</a></li>
+                                    </c:if>
+                                    <li><a class="dropdown-item" id="login-out-nav-list" href="/home/logOut">Sign Out</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </c:when>
+                </c:choose>
+                <li class="nav-item">
+                    <a class="nav-link active" id="lang-nav-link" aria-current="page" href="/changeLanguage" onmouseup="changeLanguage((language === 2)?1:2)">Eng/Ua</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

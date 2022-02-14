@@ -1,7 +1,7 @@
 package com.finalproject.internetpro.services.impl;
 
-import com.finalproject.internetpro.dao.DAOrealisation.DAOService;
-import com.finalproject.internetpro.model.Service;
+import com.finalproject.internetpro.database.dao.DAOrealisation.DAOService;
+import com.finalproject.internetpro.entity.Service;
 import com.finalproject.internetpro.services.ServiceService;
 import org.apache.log4j.Logger;
 
@@ -18,6 +18,17 @@ public class ServiceServiceImpl implements ServiceService {
     private static final Logger logger = Logger.getLogger(ServiceServiceImpl.class);
 
     private final DAOService daoService = DAOService.getInstance();
+
+    private static ServiceServiceImpl instance;
+
+    public static ServiceServiceImpl getInstance(){
+        if(instance == null)
+            instance = new ServiceServiceImpl();
+        return instance;
+    }
+
+    private ServiceServiceImpl() {
+    }
 
     @Override
     public Optional<Service> get(long id) {

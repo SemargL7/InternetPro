@@ -1,6 +1,6 @@
 package com.finalproject.internetpro.services;
 
-import com.finalproject.internetpro.model.Service;
+import com.finalproject.internetpro.entity.Service;
 
 import java.util.List;
 import java.util.Optional;

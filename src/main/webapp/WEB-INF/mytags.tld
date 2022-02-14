@@ -12,6 +12,6 @@
 
     <tag>
         <name>today</name>
-        <tag-class>com.finalproject.internetpro.tag.MyTag</tag-class>
+        <tag-class>com.finalproject.internetpro.web.tag.MyTag</tag-class>
     </tag>
 </taglib>

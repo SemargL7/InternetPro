@@ -1,0 +1,21 @@
+<%@ include file="/WEB-INF/JSPF/directive/page.jspf" %>
+<%@ include file="/WEB-INF/JSPF/directive/taglib.jspf" %>
+
+
+
+<footer class="bg-dark text-center text-lg-start text-light mt-auto">
+    <div class="container p-2">
+        <div class="row">
+            <div class="links">
+                <h5>project made by <small>Roman Dubil</small></h5>
+                <a href="https://github.com/SemargL7">GitHub</a>
+                <a href="https://t.me/DRRua">Telegram</a>
+                <a href="#">Phone:+380984041302</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+        2022
+    </div>
+</footer>

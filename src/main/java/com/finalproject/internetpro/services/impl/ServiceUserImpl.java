@@ -1,8 +1,8 @@
 package com.finalproject.internetpro.services.impl;
 
-import com.finalproject.internetpro.dao.DAOrealisation.DAOUser;
-import com.finalproject.internetpro.model.User;
-import com.finalproject.internetpro.model.UserAccess;
+import com.finalproject.internetpro.database.dao.DAOrealisation.DAOUser;
+import com.finalproject.internetpro.entity.User;
+import com.finalproject.internetpro.entity.UserAccess;
 import com.finalproject.internetpro.services.ServiceUser;
 import org.apache.log4j.Logger;
 
@@ -20,6 +20,17 @@ public class ServiceUserImpl implements ServiceUser {
     private static final Logger logger = Logger.getLogger(ServiceUserImpl.class);
 
     private final DAOUser daoUser = DAOUser.getInstance();
+
+    private static ServiceUserImpl instance;
+
+    public static ServiceUserImpl getInstance(){
+        if(instance == null)
+            instance = new ServiceUserImpl();
+        return instance;
+    }
+
+    private ServiceUserImpl() {
+    }
 
     /**
      * Function is getting User from Database
@@ -133,6 +144,6 @@ public class ServiceUserImpl implements ServiceUser {
      */
     public boolean updateStatus(int id) {
         logger.info("ServiceUserImpl | updateStatus " + id);
-        return daoUser.updateStatus(id);
+        return daoUser.updateStatus(id) && daoUser.continueConnection(id);
     }
 }

@@ -1,11 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: roman
-  Date: 02.02.2022
-  Time: 0:28
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/JSPF/directive/page.jspf" %>
+<%@ include file="/WEB-INF/JSPF/directive/taglib.jspf" %>
 <html>
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;900&display=swap" rel="stylesheet">

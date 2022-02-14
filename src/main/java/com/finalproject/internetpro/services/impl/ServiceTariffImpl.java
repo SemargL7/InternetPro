@@ -1,7 +1,7 @@
 package com.finalproject.internetpro.services.impl;
 
-import com.finalproject.internetpro.dao.DAOrealisation.DAOTariff;
-import com.finalproject.internetpro.model.Tariff;
+import com.finalproject.internetpro.database.dao.DAOrealisation.DAOTariff;
+import com.finalproject.internetpro.entity.Tariff;
 import com.finalproject.internetpro.services.ServiceTariff;
 import org.apache.log4j.Logger;
 
@@ -19,6 +19,17 @@ public class ServiceTariffImpl implements ServiceTariff {
     private static final Logger logger = Logger.getLogger(ServiceTariffImpl.class);
 
     private final DAOTariff daoTariff = DAOTariff.getInstance();
+
+    private static ServiceTariffImpl instance;
+
+    public static ServiceTariffImpl getInstance(){
+        if(instance == null)
+            instance = new ServiceTariffImpl();
+        return instance;
+    }
+
+    private ServiceTariffImpl() {
+    }
 
     @Override
     public Optional<Tariff> get(long id) {

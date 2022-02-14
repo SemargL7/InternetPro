@@ -5,12 +5,12 @@
          version="4.0">
     <listener>
         <description>sessionAttributeListener</description>
-        <listener-class>com.finalproject.internetpro.listener.MyHttpSessionAttributeListener</listener-class>
+        <listener-class>com.finalproject.internetpro.web.listener.MyHttpSessionAttributeListener</listener-class>
     </listener>
 
     <filter>
         <filter-name>utfFilter</filter-name>
-        <filter-class>com.finalproject.internetpro.filter.ServletFilter</filter-class>
+        <filter-class>com.finalproject.internetpro.web.filter.ServletFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>utfFilter</filter-name>
@@ -19,7 +19,7 @@
 
     <filter>
         <filter-name>authFilter</filter-name>
-        <filter-class>com.finalproject.internetpro.filter.AuthFilter</filter-class>
+        <filter-class>com.finalproject.internetpro.web.filter.AuthFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>authFilter</filter-name>
@@ -28,7 +28,7 @@
 
     <filter>
         <filter-name>pageAccessFilter</filter-name>
-        <filter-class>com.finalproject.internetpro.filter.PageAccessFilter</filter-class>
+        <filter-class>com.finalproject.internetpro.web.filter.PageAccessFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>pageAccessFilter</filter-name>

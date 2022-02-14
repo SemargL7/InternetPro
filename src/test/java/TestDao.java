@@ -1,20 +1,18 @@
-import com.finalproject.internetpro.dao.DAOrealisation.DAOService;
-import com.finalproject.internetpro.dao.DAOrealisation.DAOTariff;
-import com.finalproject.internetpro.dao.DAOrealisation.DAOUser;
-import com.finalproject.internetpro.database.Database;
-import com.finalproject.internetpro.model.Service;
-import com.finalproject.internetpro.model.Tariff;
-import com.finalproject.internetpro.model.User;
-import com.finalproject.internetpro.model.UserAccess;
+import com.finalproject.internetpro.database.dao.DAOrealisation.DAOService;
+import com.finalproject.internetpro.database.dao.DAOrealisation.DAOTariff;
+import com.finalproject.internetpro.database.dao.DAOrealisation.DAOUser;
+import com.finalproject.internetpro.database.DBManager;
+import com.finalproject.internetpro.entity.Service;
+import com.finalproject.internetpro.entity.Tariff;
+import com.finalproject.internetpro.entity.User;
+import com.finalproject.internetpro.entity.UserAccess;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class TestDao {
     private DAOService daoService = DAOService.getInstance();
@@ -291,7 +289,7 @@ public class TestDao {
     {
         try {
             String sql = "ALTER TABLE "+table+" AUTO_INCREMENT =1;";
-            Connection con = Database.getConnection();
+            Connection con = DBManager.getInstance().getConnection();
             con.prepareStatement(sql).executeUpdate();
             System.out.println("clear");
         }catch (Exception e){
