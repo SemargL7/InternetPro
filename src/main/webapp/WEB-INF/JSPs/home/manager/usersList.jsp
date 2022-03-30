@@ -44,14 +44,14 @@
             <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
-                <th id="thName" scope="col">Name</th>
-                <th id="thSurname" scope="col">Surname</th>
-                <th id="thDate" scope="col">Date birth</th>
-                <th id="thEmail" scope="col">Email</th>
-                <th id="thBalance" scope="col">Balance</th>
-                <th id="thBlocked" scope="col">Blocked</th>
-                <th id="thUserStatus" scope="col">User Status</th>
-                <th id="thAction" scope="col">Actions</th>
+                <th id="thName" scope="col"><fmt:message key="name"/></th>
+                <th id="thSurname" scope="col"><fmt:message key="surname"/></th>
+                <th id="thDate" scope="col"><fmt:message key="birth"/></th>
+                <th id="thEmail" scope="col"><fmt:message key="email"/></th>
+                <th id="thBalance" scope="col"><fmt:message key="table.user.balance"/></th>
+                <th id="thBlocked" scope="col"><fmt:message key="table.user.blocked"/></th>
+                <th id="thUserStatus" scope="col"><fmt:message key="table.user.status"/></th>
+                <th id="thAction" scope="col"><fmt:message key="opportunity"/></th>
             </tr>
             </thead>
             <tbody>
@@ -82,13 +82,13 @@
                     <td>
                         <c:out value="${user.getUserAccess().toString()}" />
                     </td>
-                    <td style="font-size: large;"><a class="btn btn-outline-dark" title="${user.blocked?"Unblock":"Block"}" href="/home/blockSwitcher?id=<c:out value='${user.id}' />">
+                    <td style="font-size: large;"><a class="btn btn-outline-dark" href="/home/blockSwitcher?id=<c:out value='${user.id}' />">
                         <c:choose>
                             <c:when test="${user.blocked == true}">
-                                ◉
+                                <fmt:message key="table.user.manager.action.block"/>
                             </c:when>
                             <c:otherwise>
-                                〇
+                                <fmt:message key="table.user.manager.action.unblock"/>
                             </c:otherwise>
                         </c:choose>
                     </a>
@@ -127,35 +127,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-<script type="text/javascript">
-    let lang=["users-nav-link","manager-tariffs-nav-link","user-connected-tariff-nav-list","user-tariff-nav-link","login-nav-link","acc-nav-link","balance-nav-link","login-out-nav-list","lang-nav-link",
-        "thName", "thSurname", "thDate",
-        "thEmail", "thBalance", "thBlocked", "thUserStatus", "thAction"
-    ];
-    let langEng =["Users","Tariffs","My Tariffs","Tariffs","Sign In","Account","Balance:${logUser.balance}","Sign Out","Eng/Ua",
-        "Name", "Surname", "Date of Birth",
-        "Email", "Balance", "Blocked", "User Status", "Action"
-    ];
-    let langUa =["Користувачі", "Тарифи", "Мої тарифи", "Тарифи", "Вхід", "Обліковий запис", "Баланс:${logUser.balance}", "Вийти", "Укр/Анл",
-        "Ім’я", "Прізвище", "Дата народження",
-        "Електронна пошта", "Баланс", "Заблоковано", "Статус користувача", "Дія"
-    ];
-    let language = parseInt('${(language).intValue()}');
-    function changeLanguage(id_lang){
-        if(id_lang === 2) {
-            for (i = 0; i < lang.length; i++) {
-                var el = document.getElementById(lang[i]);
-                if (el) el.textContent = langUa[i];
-            }
-        }
-        else {
-            for (i = 0; i < lang.length; i++) {
-                var el = document.getElementById(lang[i]);
-                if (el) el.textContent = langEng[i];
-            }
-        }
-    }
-    changeLanguage(language);
-</script>
 </body>
 </html>

@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,11 +35,13 @@ public class AddTariffServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Optional<Service> service = ServiceServiceImpl.getInstance().get(Long.parseLong(req.getParameter("serviceId")));
+        String[] services = req.getParameterValues("services");
+        List<Service> serviceList = new LinkedList<>();
+        Arrays.stream(services).map(x->ServiceServiceImpl.getInstance().get(Long.parseLong(x))).forEach(x->x.ifPresent(serviceList::add));
 
-        if(service.isPresent()) {
+        if(!serviceList.isEmpty()) {
             Tariff tariff = new Tariff();
-            tariff.setService(service.get());
+            tariff.setService(serviceList);
             tariff.setCost(Double.parseDouble(req.getParameter("cost")));
             tariff.setDaysOfTariff(Integer.parseInt(req.getParameter("daysOfTariff")));
             tariff.putDescription(1, req.getParameter("descriptionENG"));

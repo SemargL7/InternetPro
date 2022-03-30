@@ -24,11 +24,11 @@ import java.util.Optional;
 public class DAOService implements DAO<Service> {
     private static final Logger logger = Logger.getLogger(DAOService.class);
 
-    private static final String SQL_GET_SERVICE_BY_ID = "SELECT * from Services where id = ?";
-    private static final String SQL_GET_ALL_SERVICES = "SELECT * from Services";
-    private static final String SQL_INSERT_SERVICE = "INSERT INTO Services VALUES (?, ?)";
-    private static final String SQL_UPDATE_SERVICE = "UPDATE Services SET name = ? WHERE Services.id = ?";
-    private static final String SQL_DELETE_SERVICE = "DELETE FROM Services where Services.id = ?";
+    private static final String SQL_GET_SERVICE_BY_ID = "SELECT * from Service where id = ?";
+    private static final String SQL_GET_ALL_SERVICES = "SELECT * from Service";
+    private static final String SQL_INSERT_SERVICE = "INSERT INTO Service VALUES (?, ?)";
+    private static final String SQL_UPDATE_SERVICE = "UPDATE Service SET name = ? WHERE Service.id = ?";
+    private static final String SQL_DELETE_SERVICE = "DELETE FROM Service where Service.id = ?";
 
 
     private static DAOService instance;
@@ -50,8 +50,9 @@ public class DAOService implements DAO<Service> {
     @Override
     public Optional<Service> get(long id){
         Service service = null;
-        try(Connection con = DBManager.getInstance().getConnection()) {
-            PreparedStatement statement = con.prepareStatement(SQL_GET_SERVICE_BY_ID);
+
+        try(Connection con = DBManager.getInstance().getConnection();
+            PreparedStatement statement = con.prepareStatement(SQL_GET_SERVICE_BY_ID);) {
             statement.setLong(1, id);
 
             ResultSet result = statement.executeQuery();
@@ -65,8 +66,6 @@ public class DAOService implements DAO<Service> {
                 service=null;
 
             result.close();
-            statement.close();
-            con.close();
 
             logger.info("get|"+id);
         }catch (Exception e)
@@ -96,8 +95,6 @@ public class DAOService implements DAO<Service> {
             }
 
             result.close();
-            statement.close();
-            con.close();
 
             logger.error("getAll");
         }catch (Exception e){
@@ -113,16 +110,13 @@ public class DAOService implements DAO<Service> {
      */
     @Override
     public boolean save(Service service){
-        try(Connection con = DBManager.getInstance().getConnection()) {
+        try(Connection con = DBManager.getInstance().getConnection();
+            PreparedStatement posted = con.prepareStatement(SQL_INSERT_SERVICE);) {
 
-            PreparedStatement posted = con.prepareStatement(SQL_INSERT_SERVICE);
             posted.setInt(1,service.getId());
             posted.setString(2, service.getServiceName());
 
             posted.executeUpdate();
-
-            posted.close();
-            con.close();
 
             logger.info("save|"+service);
             return true;
@@ -139,15 +133,12 @@ public class DAOService implements DAO<Service> {
      */
     @Override
     public boolean update(Service service){
-        try(Connection con = DBManager.getInstance().getConnection()) {
-            PreparedStatement posted = con.prepareStatement(SQL_UPDATE_SERVICE);
+        try(Connection con = DBManager.getInstance().getConnection();
+            PreparedStatement posted = con.prepareStatement(SQL_UPDATE_SERVICE);) {
             posted.setString(1, service.getServiceName());
             posted.setLong(2,service.getId());
 
             posted.executeUpdate();
-
-            posted.close();
-            con.close();
 
             logger.info("update|"+service);
             return true;
@@ -164,16 +155,12 @@ public class DAOService implements DAO<Service> {
      */
     @Override
     public boolean delete(int id){
-        try(Connection con = DBManager.getInstance().getConnection()) {
-
-            PreparedStatement posted = con.prepareStatement(SQL_DELETE_SERVICE);
+        try(Connection con = DBManager.getInstance().getConnection();
+            PreparedStatement posted = con.prepareStatement(SQL_DELETE_SERVICE)) {
 
             posted.setInt(1, id);
 
             posted.executeUpdate();
-
-            posted.close();
-            con.close();
 
             logger.info("delete|"+id);
             return true;

@@ -4,6 +4,8 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/JSPF/directive/page.jspf" %>
 <%@ include file="/WEB-INF/JSPF/directive/taglib.jspf" %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,25 +53,7 @@
 
 <script type="text/javascript">
 
-    let lang=["users-nav-link","manager-tariffs-nav-link","user-connected-tariff-nav-list","user-tariff-nav-link","login-nav-link","acc-nav-link","balance-nav-link","login-out-nav-list","lang-nav-link"];
-    let langEng =["Users","Tariffs","My Tariffs","Tariffs","Sign In","Account","Balance:${logUser.balance}","Sign Out","Eng/Ua"];
-    let langUa =["Користувачі", "Тарифи", "Мої тарифи", "Тарифи", "Вхід", "Обліковий запис", "Баланс:${logUser.balance}", "Вийти", "Укр/Анл"];
-    let language = parseInt('${(language).intValue()}');
-    function changeLanguage(id_lang){
-        if(id_lang === 2) {
-            for (i = 0; i < lang.length; i++) {
-                var el = document.getElementById(lang[i]);
-                if (el) el.textContent = langUa[i];
-            }
-        }
-        else {
-            for (i = 0; i < lang.length; i++) {
-                var el = document.getElementById(lang[i]);
-                if (el) el.textContent = langEng[i];
-            }
-        }
-    }
-    changeLanguage(language);
+
 </script>
 
 </body>

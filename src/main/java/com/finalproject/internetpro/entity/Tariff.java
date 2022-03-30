@@ -1,12 +1,13 @@
 package com.finalproject.internetpro.entity;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Tariff {
     protected static final long serialVersionUID = 1L;
     protected int id;
-    protected Service service;
+    protected List<Service> services;
     protected double cost;
     protected int daysOfTariff;
     protected Map<Integer,String> description;
@@ -15,8 +16,9 @@ public class Tariff {
     public Integer getId() {return id;}
     public void setId(int id) {this.id = id; }
 
-    public Service getService() {return service;}
-    public void setService(Service service) {this.service = service;}
+    public String getServiceStr() {return String.valueOf(services);}
+    public List<Service> getService() {return services;}
+    public void setService(List<Service> services) {this.services = services;}
 
     public Double getCost() {return cost;}
     public void setCost(double cost) {this.cost = cost;}
@@ -36,16 +38,16 @@ public class Tariff {
 
     public Tariff() {}
 
-    public Tariff(int id, Service service, double cost, int daysOfTariff) {
+    public Tariff(int id, List<Service> services, double cost, int daysOfTariff) {
         this.id = id;
-        this.service = service;
+        this.services = services;
         this.cost = cost;
         this.daysOfTariff = daysOfTariff;
     }
 
-    public Tariff(int id, Service service, double cost, int daysOfTariff, Map<Integer, String> description) {
+    public Tariff(int id, List<Service> services, double cost, int daysOfTariff, Map<Integer, String> description) {
         this.id = id;
-        this.service = service;
+        this.services = services;
         this.cost = cost;
         this.daysOfTariff = daysOfTariff;
         this.description = description;
@@ -62,7 +64,7 @@ public class Tariff {
     public String toString() {
         return "Tariff{" +
                 "id=" + id +
-                ", service=" + service +
+                ", service=" + services +
                 ", cost=" + cost +
                 ", daysOfTariff=" + daysOfTariff +
                 ", description=" + description +
@@ -78,19 +80,19 @@ public class Tariff {
 
         if (Double.compare(tariff.cost, cost) != 0) return false;
         if (daysOfTariff != tariff.daysOfTariff) return false;
-        if (service != null ? !service.equals(tariff.service) : tariff.service != null) return false;
-        return description != null ? description.equals(tariff.description) : tariff.description == null;
+        if (description != null ? !description.equals(tariff.description) : tariff.description != null) return false;
+        return status != null ? status.equals(tariff.status) : tariff.status == null;
     }
 
     @Override
     public int hashCode() {
         int result;
         long temp;
-        result = service != null ? service.hashCode() : 0;
         temp = Double.doubleToLongBits(cost);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = (int) (temp ^ (temp >>> 32));
         result = 31 * result + daysOfTariff;
         result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 }

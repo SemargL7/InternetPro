@@ -41,34 +41,34 @@
 <main class="mt-1">
     <div class="container-fluid w-75 p-3 text-light d-flex justify-content-center">
         <form class="p-3 bg-dark rounded" action="/home/register" method="post">
-            <h1 id="signUpLogo">Register</h1>
+            <h1 id="signUpLogo"><fmt:message key="sign-up.logo"/></h1>
             <div class="form-group">
-                <label id="signUpInputNameLabel" for="signUpInputName">Name</label>
+                <label id="signUpInputNameLabel" for="signUpInputName"><fmt:message key="name"/> </label>
                 <input type="text" class="form-control" id="signUpInputName" placeholder="Enter name" name="name" pattern="[A-Za-z]{1,32}" required>
             </div>
             <div class="form-group">
-                <label id="signUpInputSurnameLabel" for="signUpInputSurname">Surname</label>
+                <label id="signUpInputSurnameLabel" for="signUpInputSurname"><fmt:message key="surname"/></label>
                 <input type="text" class="form-control" id="signUpInputSurname" placeholder="Enter surname" name="surname" pattern="[A-Za-z]{1,32}" required>
             </div>
             <div class="form-group">
-                <label id="signUpInputEmailLabel" for="signUpInputEmail">Email</label>
+                <label id="signUpInputEmailLabel" for="signUpInputEmail"><fmt:message key="email"/></label>
                 <input type="email" class="form-control" id="signUpInputEmail" aria-describedby="emailHelp" placeholder="Enter email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
             </div>
             <div class="form-group">
-                <label id="signUpInputBirthLabel" for="signUpInputBirth">Date of Birth</label>
+                <label id="signUpInputBirthLabel" for="signUpInputBirth"><fmt:message key="birth"/></label>
                 <input type="date" class="form-control" id="signUpInputBirth" placeholder="Date of Birth" name="dataOfBirth" min='1900-01-01' max='2100-01-01' required>
             </div>
 
             <div class="form-group">
-                <label id="signUpInputBlockStatusLabel" for="signUpInputBlockStatus">Block Status</label>
+                <label id="signUpInputBlockStatusLabel" for="signUpInputBlockStatus"><fmt:message key="account.user-block-status"/></label>
                 <select id="signUpInputBlockStatus" class="form-control" name="blocked" >
-                    <option>Blocked</option>
-                    <option>Unblocked</option>
+                    <option><fmt:message key="account.blocked"/></option>
+                    <option><fmt:message key="account.unblocked"/></option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label id="signUpInputAccessStatusLabel" for="signUpInputBlockStatus">Block Status</label>
+                <label id="signUpInputAccessStatusLabel" for="signUpInputBlockStatus"><fmt:message key="account.user-status"/></label>
                 <select id="signUpInputAccessStatus" class="form-control" name="access" >
                     <option>User</option>
                     <option>Manager</option>
@@ -77,12 +77,11 @@
 
 
             <div class="form-group">
-                <label id="signUpInputPasswordLabel" for="signUpInputPassword">Password</label>
+                <label id="signUpInputPasswordLabel" for="signUpInputPassword"><fmt:message key="password"/></label>
                 <input type="password" class="form-control" id="signUpInputPassword" placeholder="Password" name="password" required>
             </div>
 
-            <button type="submit" class="btn btn-primary mt-1" id="signUpSubmitBtn">Submit</button>
-            <small id="signUpOr">or</small> <a id="signUpSignInBtn" href="/login">Sign In</a>
+            <button type="submit" class="btn btn-primary mt-1" id="signUpSubmitBtn"><fmt:message key="sign-up.submit"/></button>
         </form>
     </div>
 
@@ -109,40 +108,6 @@
     }
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById("signUpInputBirth").setAttribute("max", today);
-
-
-    let lang=["users-nav-link","manager-tariffs-nav-link","user-connected-tariff-nav-list","user-tariff-nav-link","login-nav-link","acc-nav-link","balance-nav-link","login-out-nav-list","lang-nav-link",
-
-        "signUpLogo","signUpInputNameLabel","signUpInputSurnameLabel",
-        "signUpInputEmailLabel","signUpInputPasswordLabel","signUpInputBirthLabel",
-        "signUpSubmitBtn","signUpOr","signUpSignInBtn"
-    ];
-    let langEng =["Users","Tariffs","My Tariffs","Tariffs","Sign In","Account","Balance:${logUser.balance}","Sign Out","Eng/Ua",
-        "Register","Name","Surname",
-        "Email","Password","Date of Birth",
-        "Submit","or","Sign In"
-    ];
-    let langUa =["Користувачі", "Тарифи", "Мої тарифи", "Тарифи", "Вхід", "Обліковий запис", "Баланс:${logUser.balance}", "Вийти", "Укр/Анл",
-        "Зареєструвати", "Ім’я", "Прізвище",
-        "Електронна пошта", "Пароль", "Дата народження",
-        "Надіслати", "або", "Увійти"
-    ];
-    let language = parseInt('${(language).intValue()}');
-    function changeLanguage(id_lang){
-        if(id_lang === 2) {
-            for (i = 0; i < lang.length; i++) {
-                var el = document.getElementById(lang[i]);
-                if (el) el.textContent = langUa[i];
-            }
-        }
-        else {
-            for (i = 0; i < lang.length; i++) {
-                var el = document.getElementById(lang[i]);
-                if (el) el.textContent = langEng[i];
-            }
-        }
-    }
-    changeLanguage(language);
 </script>
 
 </body>

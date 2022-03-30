@@ -12,3 +12,6 @@ JSTL functions tag library.
 JSTL i18n tag library.
 ===========================================================================--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<fmt:setLocale value="${language == 2?\"ua\":\"eng\"}"/>
+<fmt:setBundle basename="lang"/>

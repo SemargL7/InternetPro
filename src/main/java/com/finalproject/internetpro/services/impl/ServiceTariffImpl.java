@@ -46,13 +46,31 @@ public class ServiceTariffImpl implements ServiceTariff {
     @Override
     public boolean save(Tariff tariff) {
         logger.info("ServiceTariffImpl | save" + tariff);
-        return daoTariff.save(tariff);
+        if(!daoTariff.save(tariff))return false;
+        daoTariff.getAll().stream().filter(x->x.equals(tariff)).findFirst().ifPresent(x->tariff.getService().forEach(y->daoTariff.addService(x.getId(), y.getId())));
+        return true;
     }
 
     @Override
     public boolean update(Tariff tariff) {
         logger.info("ServiceTariffImpl | update " + tariff);
-        return daoTariff.update(tariff);
+        //return daoTariff.update(tariff);
+
+        Optional<Tariff> oldTariff = daoTariff.get(tariff.getId());
+        if(oldTariff.isPresent()) {
+            tariff.getService().stream()
+                    .filter(x -> !oldTariff.get().getService().contains(x))
+                    .forEach(x ->{
+                        daoTariff.addService(tariff.getId(),x.getId());
+                    });
+            oldTariff.get().getService().stream()
+                    .filter(x -> !tariff.getService().contains(x))
+                    .forEach(x -> daoTariff.deleteService(tariff.getId(),x.getId()));
+
+            daoTariff.update(tariff);
+            return true;
+        }
+        return false;
     }
 
     @Override

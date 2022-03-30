@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 @WebServlet("/home/managerTariffsList")
 public class ManagerTariffsListServlet extends HttpServlet {
@@ -31,9 +32,18 @@ public class ManagerTariffsListServlet extends HttpServlet {
 
         List<Tariff> listTariff = ServiceTariffImpl.getInstance().getAll();
 
-        Sorting.listSort(listTariff,
-                (Boolean) req.getSession().getAttribute("AZ"),
-                (Boolean) req.getSession().getAttribute("cost"));
+        String[] filters = req.getParameterValues("filter");
+
+
+        if(filters!=null){
+            boolean AZ = !Arrays.asList(filters).contains("az");
+            boolean cost = !Arrays.asList(filters).contains("cost");
+            Sorting.listSort(listTariff,
+                    AZ,
+                    cost);
+        }
+
+
 
         int start = (page-1)*5;
         int end = start+5;

@@ -8,6 +8,8 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Locale;
+import java.util.regex.Pattern;
 
 /**
  * Filter class that mapped for all URLs.
@@ -27,18 +29,12 @@ public class ServletFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-        Integer lang = (Integer) request.getSession().getAttribute("language");
-        if(lang == null)
-            request.getSession().setAttribute("language",1);
+        String lang = request.getParameter("lang");
+        if(request.getSession().getAttribute("language") != null && lang != null)
+            request.getSession().setAttribute("language", lang.equals("ua") ?2:1);//1-eng 2-ua
+        else if(request.getSession().getAttribute("language") == null)
+            request.getSession().setAttribute("language", 1);//1-eng
 
-        Boolean AZ = (Boolean) request.getSession().getAttribute("AZ");
-        if(AZ == null)
-            AZ = true;
-        request.getSession().setAttribute("AZ",AZ);
-        Boolean cost  = (Boolean) request.getSession().getAttribute("cost");
-        if(cost == null)
-            cost = true;
-        request.getSession().setAttribute("cost",cost);
 
         User logUser = (User) request.getSession().getAttribute("logUser");
         if(logUser != null) {

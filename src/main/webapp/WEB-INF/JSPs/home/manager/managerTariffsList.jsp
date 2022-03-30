@@ -34,15 +34,23 @@
 
 <main class="mt-1">
     <div class="container-fluid w-75 p-3">
+
         <div class="d-flex flex-row-reverse">
             <form action="/home/addTariff" method="get">
                 <input class="btn btn-dark ms-1" title="Add Tariff" type="submit" value="✚" />
             </form>
-            <form action="/home/changeSortParAZ" method="post">
-                <input class="btn btn-dark ms-1"  type="submit" value="AZ" />
-            </form>
-            <form action="/home/changeSortParCost" method="post">
-                <input class="btn btn-dark ms-1"  type="submit" value="Cost" />
+            <form action="/home/managerTariffsList" method="get">
+
+                <div class="form-check form-switch text-light">
+                    <input class="form-check-input" type="checkbox" name="filter" id="filter-by-alphabet" value="az">
+                    <label class="form-check-label" for="filter-by-alphabet"><fmt:message key="table.tariff.filter.alphabet"/> </label>
+                </div>
+                <div class="form-check form-switch text-light">
+                    <input class="form-check-input" type="checkbox" name="filter" id="filter-by-cost" value="cost">
+                    <label class="form-check-label" for="filter-by-cost"><fmt:message key="table.tariff.filter.cost"/></label>
+                </div>
+
+                <input class="btn btn-dark ms-1" type="submit" value=<fmt:message key="filtering"/> />
             </form>
         </div>
 
@@ -51,11 +59,11 @@
             <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
-                <th id="thService" scope="col">Service</th>
-                <th id="thCost" scope="col">Cost</th>
-                <th id="thDays" scope="col">Days of Tariff</th>
-                <th id="thDesc" scope="col">Description</th>
-                <th id="thAction" scope="col">Action</th>
+                <th id="thService" scope="col"><fmt:message key="table.tariff.service"/></th>
+                <th id="thCost" scope="col"><fmt:message key="table.tariff.cost"/></th>
+                <th id="thDays" scope="col"><fmt:message key="table.tariff.days"/></th>
+                <th id="thDesc" scope="col"><fmt:message key="table.tariff.description"/></th>
+                <th id="thAction" scope="col"><fmt:message key="opportunity"/></th>
 
             </tr>
             </thead>
@@ -67,7 +75,7 @@
                         <c:out value="${tariff.id}" />
                     </td>
                     <td>
-                        <c:out value="${tariff.service.getServiceName()}" />
+                        <c:out value="${tariff.getServiceStr()}" />
                     </td>
                     <td>
                         <c:out value="${tariff.cost}" />
@@ -79,9 +87,9 @@
                         <c:out value="${tariff.description[(language).intValue()]}" />
                     </td>
                     <td style="font-size: large;">
-                        <a class="btn btn-outline-dark" id="change_HTML" title="Edit" href="/home/editTariff?id=<c:out value='${tariff.id}' />">⚙</a>
+                        <a class="btn btn-outline-dark" id="change_HTML" title="Edit" href="/home/editTariff?id=<c:out value='${tariff.id}' />"><fmt:message key="table.tariff.manager.action.edit"/></a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a class="btn btn-outline-dark" id="delete_HTML" title="Delete" href="/home/deleteTariff?id=<c:out value='${tariff.id}' />">🗑</a>
+                        <a class="btn btn-outline-dark" id="delete_HTML" title="Delete" href="/home/deleteTariff?id=<c:out value='${tariff.id}' />"><fmt:message key="table.tariff.manager.action.delete"/></a>
                     </td>
                 </tr>
             </c:forEach>
@@ -118,32 +126,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-<script type="text/javascript">
-    let lang=["users-nav-link","manager-tariffs-nav-link","user-connected-tariff-nav-list","user-tariff-nav-link","login-nav-link","acc-nav-link","balance-nav-link","login-out-nav-list","lang-nav-link",
-        "thService","thCost","thDays","thDesc","thAction"
-    ];
-    let langEng =["Users","Tariffs","My Tariffs","Tariffs","Sign In","Account","Balance:${logUser.balance}","Sign Out","Eng/Ua",
-        "Service","Cost","Days of Tariff","Description","Action"
-    ];
-    let langUa =["Користувачі", "Тарифи", "Мої тарифи", "Тарифи", "Вхід", "Обліковий запис", "Баланс:${logUser.balance}", "Вийти", "Укр/Анл",
-        "Послуга", "Вартість", "Дні тарифу", "Опис", "Дія"
-    ];
-    let language = parseInt('${(language).intValue()}');
-    function changeLanguage(id_lang){
-        if(id_lang === 2) {
-            for (i = 0; i < lang.length; i++) {
-                var el = document.getElementById(lang[i]);
-                if (el) el.textContent = langUa[i];
-            }
-        }
-        else {
-            for (i = 0; i < lang.length; i++) {
-                var el = document.getElementById(lang[i]);
-                if (el) el.textContent = langEng[i];
-            }
-        }
-    }
-    changeLanguage(language);
-</script>
 </body>
 </html>

@@ -5,6 +5,7 @@ import com.finalproject.internetpro.services.impl.ServiceUserImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.Date;
 

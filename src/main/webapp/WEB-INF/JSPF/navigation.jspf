@@ -16,18 +16,18 @@
                 <c:choose>
                     <c:when test="${logUser.getUserAccess().toString().equals(\"MANAGER\")}">
                         <li class="nav-item">
-                            <a class="nav-link active" id="users-nav-link" aria-current="page" href="/home/usersList">Users</a>
+                            <a class="nav-link active" id="users-nav-link" aria-current="page" href="/home/usersList"><fmt:message key="nav.manager.users"/></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" id="manager-tariffs-nav-link" aria-current="page" href="/home/managerTariffsList">Tariffs</a>
+                            <a class="nav-link active" id="manager-tariffs-nav-link" aria-current="page" href="/home/managerTariffsList"><fmt:message key="nav.tariffs"/></a>
                         </li>
                     </c:when>
                     <c:when test="${logUser.getUserAccess().toString().equals(\"USER\")}">
                         <li class="nav-item">
-                            <a class="nav-link active" id="user-connected-tariff-nav-list" aria-current="page" href="/home/userTariffsList">My Tariffs</a>
+                            <a class="nav-link active" id="user-connected-tariff-nav-list" aria-current="page" href="/home/userTariffsList"><fmt:message key="nav.user.connected-tariff"/></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" id="user-tariff-nav-link" aria-current="page" href="/home/tariffsList">Tariffs</a>
+                            <a class="nav-link active" id="user-tariff-nav-link" aria-current="page" href="/home/tariffsList"><fmt:message key="nav.tariffs"/></a>
                         </li>
                     </c:when>
                 </c:choose>
@@ -36,7 +36,7 @@
                 <c:choose>
                     <c:when test="${logUser == null}">
                         <li class="nav-item">
-                            <a class="nav-link active" id="login-nav-link" aria-current="page" href="/login">Sign In</a>
+                            <a class="nav-link active" id="login-nav-link" aria-current="page" href="/login"><fmt:message key="nav.sign-in"/></a>
                         </li>
                     </c:when>
                     <c:when test="${logUser != null}">
@@ -46,18 +46,18 @@
                                         ${logUser.name}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item" id="acc-nav-link" href="/home">Account</a></li>
+                                    <li><a class="dropdown-item" id="acc-nav-link" href="/home"><fmt:message key="nav.account"/> </a></li>
                                     <c:if test="${logUser.getUserAccess().toString() == \"USER\"}">
-                                        <li><a class="dropdown-item" id="balance-nav-link" href="/home/balance">Balance:${logUser.balance}</a></li>
+                                        <li><a class="dropdown-item" id="balance-nav-link" href="/home/balance"><fmt:message key="nav.user.balance"/>:${logUser.balance}</a></li>
                                     </c:if>
-                                    <li><a class="dropdown-item" id="login-out-nav-list" href="/home/logOut">Sign Out</a></li>
+                                    <li><a class="dropdown-item" id="login-out-nav-list" href="/home/logOut"><fmt:message key="nav.sign-out"/></a></li>
                                 </ul>
                             </div>
                         </li>
                     </c:when>
                 </c:choose>
                 <li class="nav-item">
-                    <a class="nav-link active" id="lang-nav-link" aria-current="page" href="/changeLanguage" onmouseup="changeLanguage((language === 2)?1:2)">Eng/Ua</a>
+                    <a class="nav-link active" id="lang-nav-link" aria-current="page" href="?lang=${language == 2?"eng":"ua"}"><fmt:message key="nav.lang"/></a>
                 </li>
             </ul>
         </div>

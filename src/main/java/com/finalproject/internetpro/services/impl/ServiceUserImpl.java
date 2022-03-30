@@ -6,6 +6,9 @@ import com.finalproject.internetpro.entity.UserAccess;
 import com.finalproject.internetpro.services.ServiceUser;
 import org.apache.log4j.Logger;
 
+import javax.xml.bind.DatatypeConverter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,7 +65,7 @@ public class ServiceUserImpl implements ServiceUser {
     @Override
     public Optional<User> loggingUser(String email, String password){
         logger.info("ServiceUserImpl | loggingUser " + email + " " + password);
-        Integer id = daoUser.loggingUser(email,password);
+        Integer id = daoUser.loggingUser(email,hashPassword(password));
         if(id != null){
             return daoUser.get(id);
         }
@@ -78,6 +81,7 @@ public class ServiceUserImpl implements ServiceUser {
     public boolean register(User user) {
         logger.info("ServiceUserImpl | register " + user);
         if(daoUser.mailFree(user.getEmail())){
+            user.setPassword(hashPassword(user.getPassword()));
             return daoUser.save(user);
         }
         return false;
@@ -104,7 +108,7 @@ public class ServiceUserImpl implements ServiceUser {
             oldUser.get().getTariffs().stream()
                     .filter(x -> !user.getTariffs().contains(x))
                     .forEach(x -> daoUser.deleteTariffConnection(user.getId(), x.getId()));
-
+            user.setPassword(hashPassword(user.getPassword()));
             daoUser.update(user);
             return true;
         }
@@ -145,5 +149,18 @@ public class ServiceUserImpl implements ServiceUser {
     public boolean updateStatus(int id) {
         logger.info("ServiceUserImpl | updateStatus " + id);
         return daoUser.updateStatus(id) && daoUser.continueConnection(id);
+    }
+
+
+    private String hashPassword(String password){
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(password.getBytes());
+            byte[] digest = md.digest();
+            return DatatypeConverter
+                    .printHexBinary(digest).toUpperCase();
+        }catch (Exception e){
+            return password;
+        }
     }
 }

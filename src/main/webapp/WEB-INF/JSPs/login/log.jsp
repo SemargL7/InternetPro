@@ -44,16 +44,16 @@
 <main class="mt-1">
     <div class="container-fluid w-75 p-3 text-light d-flex justify-content-center">
         <form class="p-3 bg-dark rounded" action="/login" method="post">
-            <h1 id="signInLogo">Sign In</h1>
+            <h1 id="signInLogo"><fmt:message key="sign-in.logo"/> </h1>
             <div class="form-group">
-                <label id="signInInputEmailLabel" for="signInInputEmail">Email address</label>
+                <label id="signInInputEmailLabel" for="signInInputEmail"><fmt:message key="sign-in.email"/></label>
                 <input type="email" class="form-control" id="signInInputEmail" aria-describedby="emailHelp" placeholder="Enter email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
             </div>
             <div class="form-group">
-                <label id="signInInputPasswordLabel" for="signInInputPassword">Password</label>
+                <label id="signInInputPasswordLabel" for="signInInputPassword"><fmt:message key="sign-in.password"/></label>
                 <input type="password" class="form-control" id="signInInputPassword" placeholder="Password" name="password" required>
             </div>
-            <button type="submit" class="btn btn-primary mt-1" id="signInSubmitBtn">Submit</button>
+            <button type="submit" class="btn btn-primary mt-1" id="signInSubmitBtn"><fmt:message key="sign-in.submit"/></button>
         </form>
     </div>
 </main>
@@ -65,37 +65,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous">
-</script>
-
-<script type="text/javascript">
-    let lang=["users-nav-link","manager-tariffs-nav-link","user-connected-tariff-nav-list","user-tariff-nav-link","login-nav-link","acc-nav-link","balance-nav-link","login-out-nav-list","lang-nav-link",
-
-        "signInLogo","signInInputEmailLabel","signInInputPasswordLabel","signInSubmitBtn","signInOr","signInSignUpBtn"
-    ];
-    let langEng =["Users","Tariffs","My Tariffs","Tariffs","Sign In","Account","Balance:${logUser.balance}","Sign Out","Eng/Ua",
-
-        "Sign In","Email","Password","Submit","or","Sign Up"
-    ];
-    let langUa =["Користувачі", "Тарифи", "Мої тарифи", "Тарифи", "Вхід", "Обліковий запис", "Баланс:${logUser.balance}", "Вийти", "Укр/Анл",
-
-        "Вхід", "Електронна пошта", "Пароль", "Увійти", "або", "Зареєструватися"
-    ];
-    let language = parseInt('${(language).intValue()}');
-    function changeLanguage(id_lang){
-        if(id_lang === 2) {
-            for (i = 0; i < lang.length; i++) {
-                var el = document.getElementById(lang[i]);
-                if (el) el.textContent = langUa[i];
-            }
-        }
-        else {
-            for (i = 0; i < lang.length; i++) {
-                var el = document.getElementById(lang[i]);
-                if (el) el.textContent = langEng[i];
-            }
-        }
-    }
-    changeLanguage(language);
 </script>
 
 </body>

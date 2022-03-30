@@ -7,6 +7,10 @@ import com.finalproject.internetpro.entity.User;
 import com.finalproject.internetpro.entity.UserAccess;
 import org.apache.log4j.Logger;
 
+import java.io.Closeable;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -36,6 +40,9 @@ public class DAOUser implements DAO<User> {
     private static final String SQL_SET_USER_BLOCK_STATUS ="update users set blocked = ? where users.id = ?";
     private static final String SQL_SELECT_USER_ID_BY_EMAIL = "SELECT id from Users where email = ?";
     private static final String SQL_CONTINUE_CONNECTION = "SELECT tariff.id FROM tariffconnected INNER JOIN tariff ON tariff.id = tariffconnected.idTariff WHERE tariffconnected.idUser = ? and tariffconnected.connection_status = true and date_end_connection IS NOT null";
+    private static final String SQL_UPDATE_USER_STATUS = "UPDATE TariffConnected inner join Tariff on Tariff.id = TariffConnected.idTariff " +
+            "inner join TariffConnected on TariffConnected.idUser = Users.id set TariffConnected.dateOfLastConnection = case when (now() - dateOfLastConnection > day(Tariff.daysOfTariff)) then null when (now() - dateOfLastConnection > day(Tariff.daysOfTariff)) then now() end; where Users.id = ?";
+    private static final String SQL_CHECK_CONNECTION_STATUS = "SELECT * FROM internetprovider.tariffconnected where idUser = ? and idTariff = ? and connection_status = 1";
 
 
     private static DAOUser instance;
@@ -57,17 +64,23 @@ public class DAOUser implements DAO<User> {
     public Optional<User> get(long id){
 
         User user = new User();
+        Connection con = null;
+        PreparedStatement statement = null;
+        PreparedStatement statement2 = null;
+        ResultSet result = null;
+        ResultSet result2 = null;
+        try{
+            con = DBManager.getInstance().getConnection();
+            con.setAutoCommit(false);
 
-        try(Connection con = DBManager.getInstance().getConnection()) {
-
-            PreparedStatement statement = con.prepareStatement(SQL_GET_USER_BY_ID);
-            PreparedStatement statement2 = con.prepareStatement(SQL_GET_USER_CONNECTIONS);
+            statement = con.prepareStatement(SQL_GET_USER_BY_ID);
+            statement2 = con.prepareStatement(SQL_GET_USER_CONNECTIONS);
 
             statement.setLong(1, id);
             statement2.setLong(1, id);
 
-            ResultSet result = statement.executeQuery();
-            ResultSet result2 = statement2.executeQuery();
+            result = statement.executeQuery();
+            result2 = statement2.executeQuery();
 
 
 
@@ -93,7 +106,6 @@ public class DAOUser implements DAO<User> {
                 }
             }
 
-
             user.setTariffs(tariffs);
 
             if(user.getId()==0)
@@ -101,16 +113,20 @@ public class DAOUser implements DAO<User> {
 
 
 
-            result.close();
-            result2.close();
-            statement.close();
-            statement2.close();
-            con.close();
+            DBManager.getInstance().commitAndClose(con);
+
 
             logger.info("get|"+id);
         }catch (Exception e){
+            if(con != null)
+                DBManager.getInstance().rollbackAndClose(con);
             logger.error("get|ERROR:"+e);
             user = null;
+        }finally {
+            DBManager.getInstance().tryClose(result);
+            DBManager.getInstance().tryClose(result2);
+            DBManager.getInstance().tryClose(statement);
+            DBManager.getInstance().tryClose(statement2);
         }
         return Optional.ofNullable(user);
     }
@@ -123,9 +139,9 @@ public class DAOUser implements DAO<User> {
     public List<User> getAll(){
         List<User> users = null;
 
-        try(Connection con = DBManager.getInstance().getConnection()) {
+        try(Connection con = DBManager.getInstance().getConnection();
+            PreparedStatement statement = con.prepareStatement(SQL_GET_ALL_USER_ID);) {
             logger.info("Start getALL");
-            PreparedStatement statement = con.prepareStatement(SQL_GET_ALL_USER_ID);
             ResultSet result = statement.executeQuery();
             DAOUser daoUser = new DAOUser();
             users = new LinkedList<>();
@@ -133,8 +149,6 @@ public class DAOUser implements DAO<User> {
                 users.add(daoUser.get(result.getInt(1)).get());
 
             result.close();
-            statement.close();
-            con.close();
 
             logger.info("End getALL");
         }catch (Exception e){
@@ -150,9 +164,8 @@ public class DAOUser implements DAO<User> {
      */
     @Override
     public boolean save(User user){
-        try(Connection con = DBManager.getInstance().getConnection()){
-
-            PreparedStatement posted = con.prepareStatement(SQL_INSERT_USER);
+        try(Connection con = DBManager.getInstance().getConnection();
+            PreparedStatement posted = con.prepareStatement(SQL_INSERT_USER)){
 
             posted.setLong(1, user.getId());
             posted.setString(2, user.getName());
@@ -165,9 +178,6 @@ public class DAOUser implements DAO<User> {
             posted.setString(9, user.getUserAccess().toString());
 
             posted.executeUpdate();
-
-            posted.close();
-            con.close();
 
             logger.info("save|"+user);
             return true;
@@ -184,9 +194,9 @@ public class DAOUser implements DAO<User> {
      */
     @Override
     public boolean update(User user){
-        try(Connection con = DBManager.getInstance().getConnection()) {
+        try(Connection con = DBManager.getInstance().getConnection();
+            PreparedStatement posted = con.prepareStatement(SQL_UPDATE_USER)) {
 
-            PreparedStatement posted = con.prepareStatement(SQL_UPDATE_USER);
             posted.setString(1,user.getName());
             posted.setString(2,user.getSurname());
             posted.setDate(3,user.getDateOfBirth());
@@ -198,9 +208,6 @@ public class DAOUser implements DAO<User> {
             posted.setLong(9,user.getId());
 
             posted.executeUpdate();
-
-            posted.close();
-            con.close();
 
             logger.info("update|"+user);
             return true;
@@ -217,16 +224,12 @@ public class DAOUser implements DAO<User> {
      */
     @Override
     public boolean delete(int id){
-        try (Connection con = DBManager.getInstance().getConnection()){
-
-            PreparedStatement posted = con.prepareStatement(SQL_DELETE_USER);
+        try (Connection con = DBManager.getInstance().getConnection();
+             PreparedStatement posted = con.prepareStatement(SQL_DELETE_USER)){
 
             posted.setLong(1, id);
 
             posted.executeUpdate();
-
-            posted.close();
-            con.close();
 
             logger.info("delete|"+id);
             return true;
@@ -243,9 +246,8 @@ public class DAOUser implements DAO<User> {
      * @return res/null if your is in database function returning id of User
      */
     public Integer loggingUser(String email,String password) {
-        try (Connection con = DBManager.getInstance().getConnection()) {
-
-            PreparedStatement statement = con.prepareStatement(SQL_GET_USER_ID_BY_EMAIL_AND_PASSWORD);
+        try (Connection con = DBManager.getInstance().getConnection();
+             PreparedStatement statement = con.prepareStatement(SQL_GET_USER_ID_BY_EMAIL_AND_PASSWORD)) {
 
             statement.setString(1,email);
             statement.setString(2,password);
@@ -257,8 +259,6 @@ public class DAOUser implements DAO<User> {
                 res = result.getInt(1);
 
             result.close();
-            statement.close();
-            con.close();
 
             logger.info("loggingUser|"+email+"|"+password);
             return res;
@@ -275,8 +275,8 @@ public class DAOUser implements DAO<User> {
      */
     public void deleteTariffConnection(int idUser,int idTariff)
     {
-        try (Connection con = DBManager.getInstance().getConnection()){
-            PreparedStatement posted = con.prepareStatement(SQL_DISCONNECT_USER_CONNECTION);
+        try (Connection con = DBManager.getInstance().getConnection();
+             PreparedStatement posted = con.prepareStatement(SQL_DISCONNECT_USER_CONNECTION)){
 
             SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
             Date date = new Date(System.currentTimeMillis());
@@ -288,8 +288,6 @@ public class DAOUser implements DAO<User> {
 
             posted.executeUpdate();
 
-            posted.close();
-            con.close();
 
             logger.info("deleteTariffConnection|"+idUser+"|"+idTariff);
         } catch(Exception e ) {
@@ -304,9 +302,9 @@ public class DAOUser implements DAO<User> {
      */
     public void connectTariffConnection(int idUser,int idTariff)
     {
-        try(Connection con = DBManager.getInstance().getConnection()){
+        try(Connection con = DBManager.getInstance().getConnection();
+            PreparedStatement posted = con.prepareStatement(SQL_CONNECT_USER_CONNECTION)){
 
-            PreparedStatement posted = con.prepareStatement(SQL_CONNECT_USER_CONNECTION);
             SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
             Date date = new Date(System.currentTimeMillis());
 
@@ -316,8 +314,6 @@ public class DAOUser implements DAO<User> {
 
             posted.executeUpdate();
 
-            posted.close();
-            con.close();
 
             logger.info("connectTariffConnection|"+idUser+"|"+idTariff);
         } catch(Exception e ) {
@@ -331,16 +327,14 @@ public class DAOUser implements DAO<User> {
      * @param block status(block - true, unblock - false)
      */
     public boolean blockStatusUser(int id, boolean block){
-        try (Connection con = DBManager.getInstance().getConnection()){
+        try (Connection con = DBManager.getInstance().getConnection();
+             PreparedStatement posted = con.prepareStatement(SQL_SET_USER_BLOCK_STATUS)){
 
-            PreparedStatement posted = con.prepareStatement(SQL_SET_USER_BLOCK_STATUS);
             posted.setBoolean(1,block);
             posted.setLong(2,id);
 
             posted.executeUpdate();
 
-            posted.close();
-            con.close();
 
             logger.info("blockStatusUser|"+id+"|"+block);
             return true;
@@ -356,16 +350,12 @@ public class DAOUser implements DAO<User> {
      * @param id User`s id
      */
     public boolean updateStatus(int id){
-        try(Connection con = DBManager.getInstance().getConnection()) {
-
-            PreparedStatement posted = con.prepareStatement("UPDATE TariffConnected inner join Tariff on Tariff.id = TariffConnected.idTariff " +
-                    "inner join TariffConnected on TariffConnected.idUser = Users.id set TariffConnected.dateOfLastConnection = case when (now() - dateOfLastConnection > day(Tariff.daysOfTariff)) then null when (now() - dateOfLastConnection > day(Tariff.daysOfTariff)) then now() end; where Users.id = ?");
+        try(Connection con = DBManager.getInstance().getConnection();
+            PreparedStatement posted = con.prepareStatement(SQL_UPDATE_USER_STATUS)) {
 
             posted.setInt(1,id);
             posted.executeUpdate();
 
-            posted.close();
-            con.close();
 
             logger.info("updateStatus " + id);
             return true;
@@ -381,9 +371,9 @@ public class DAOUser implements DAO<User> {
      * @return TRUE/False, if mail is free - true, else - false
      */
     public boolean mailFree(String email){
-        try(Connection con = DBManager.getInstance().getConnection()) {
+        try(Connection con = DBManager.getInstance().getConnection();
+            PreparedStatement statement = con.prepareStatement(SQL_SELECT_USER_ID_BY_EMAIL);) {
 
-            PreparedStatement statement = con.prepareStatement(SQL_SELECT_USER_ID_BY_EMAIL);
             statement.setString(1,email);
 
             ResultSet result = statement.executeQuery();
@@ -393,8 +383,6 @@ public class DAOUser implements DAO<User> {
                 res = result.getInt(1);
 
             result.close();
-            statement.close();
-            con.close();
 
             logger.error("mailFree|"+email);
             return (res == null);
@@ -406,8 +394,9 @@ public class DAOUser implements DAO<User> {
 
 
     public boolean continueConnection(int id){
-        try(Connection con = DBManager.getInstance().getConnection()){
-            PreparedStatement statement = con.prepareStatement(SQL_CONTINUE_CONNECTION);
+        try(Connection con = DBManager.getInstance().getConnection();
+            PreparedStatement statement = con.prepareStatement(SQL_CONTINUE_CONNECTION)){
+
             List<Tariff> tariffs = new ArrayList<>();
             Optional<User> user = get(id);
             statement.setLong(1,id);
@@ -427,7 +416,7 @@ public class DAOUser implements DAO<User> {
             }
 
             result.close();
-            statement.close();
+
             return true;
         }catch (Exception e){
             e.printStackTrace();
@@ -441,9 +430,8 @@ public class DAOUser implements DAO<User> {
     //2-not connected
     //3-error
     public int checkConnectionStatus(int idUser, int idTariff){
-        try(Connection con = DBManager.getInstance().getConnection()){
-            PreparedStatement statement = con.prepareStatement("SELECT * FROM internetprovider.tariffconnected where idUser = ? and idTariff = ? and connection_status = 1");
-
+        try(Connection con = DBManager.getInstance().getConnection();
+            PreparedStatement statement = con.prepareStatement(SQL_CHECK_CONNECTION_STATUS);){
 
             statement.setInt(1,idUser);
             statement.setInt(2,idTariff);
@@ -456,8 +444,9 @@ public class DAOUser implements DAO<User> {
                 str = result.getString("date_end_connection");
             }
             logger.info("Connection status: " + paid + "|User " + idUser + "|Tariff " + idTariff);
-            System.out.println(str);
-            System.out.println(paid?0:1);
+
+            result.close();
+
             if(paid != null)return paid?0:1;
             else return 2;
         }catch (Exception e){
@@ -465,4 +454,5 @@ public class DAOUser implements DAO<User> {
             return 3;
         }
     }
+
 }

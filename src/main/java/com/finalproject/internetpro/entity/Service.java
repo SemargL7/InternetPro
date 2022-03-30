@@ -19,10 +19,7 @@ public class Service {
 
     @Override
     public String toString() {
-        return "Service{" +
-                "id=" + id +
-                ", serviceName='" + serviceName + '\'' +
-                '}';
+        return serviceName;
     }
 
     @Override

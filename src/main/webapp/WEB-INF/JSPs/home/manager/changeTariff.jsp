@@ -32,31 +32,31 @@
 <main class="mt-1">
     <div class="container-fluid w-75 p-3 text-light d-flex justify-content-center">
         <form class="p-3 bg-dark rounded" action="/home/editTariff" method="post">
-            <h1 id="changeTariffLogo">Edit Tariff</h1>
+            <h1 id="changeTariffLogo"><fmt:message key="edit-tariff"/></h1>
 
             <input type="hidden" name="id" value="<c:out value='${tariff.id}' />" />
 
             <div class="form-group p-1">
-                <label id="inputCostLabel" for="inputCost">Cost</label>
+                <label id="inputCostLabel" for="inputCost"><fmt:message key="table.tariff.cost"/></label>
                 <input type="number" class="form-control" id="inputCost" placeholder="Enter cost" name="cost" min="0" value="${tariff.cost}" required>
             </div>
 
             <div class="form-group p-1">
-                <label id="daysOfTariffLabel" for="daysOfTariff">Days</label>
+                <label id="daysOfTariffLabel" for="daysOfTariff"><fmt:message key="table.tariff.days"/></label>
                 <input type="number" class="form-control" id="daysOfTariff" placeholder="Enter days of tariff" name="daysOfTariff" min="0" value="${tariff.daysOfTariff}" required>
             </div>
 
             <div class="form-group p-1">
-                <label id="inputDescEngLabel" for="inputDescEng">Description Eng</label>
+                <label id="inputDescEngLabel" for="inputDescEng"><fmt:message key="desc-eng"/></label>
                 <input type="text" class="form-control" id="inputDescEng" placeholder="Eng" name="descriptionENG" min="0" value="${tariff.description[(1).intValue()]}" required>
             </div>
 
             <div class="form-group p-1">
-                <label id="inputDescUaLabel" for="inputDescUa">Description Ua</label>
+                <label id="inputDescUaLabel" for="inputDescUa"><fmt:message key="desc-ua"/></label>
                 <input type="text" class="form-control" id="inputDescUa" placeholder="Ua" name="descriptionUa" min="0" value="${tariff.description[(2).intValue()]}" required>
             </div>
 
-            <button type="submit" class="btn btn-primary ms-1" id="changeTariffSubmitBtn">Submit</button>
+            <button type="submit" class="btn btn-primary ms-1" id="changeTariffSubmitBtn"><fmt:message key="account.action.save"/></button>
         </form>
     </div>
 </main>
@@ -66,32 +66,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-<script type="text/javascript">
-    let lang=["users-nav-link","manager-tariffs-nav-link","user-connected-tariff-nav-list","user-tariff-nav-link","login-nav-link","acc-nav-link","balance-nav-link","login-out-nav-list","lang-nav-link",
-        "changeTariffLogo","inputServiceLabel","inputCostLabel","daysOfTariffLabel","inputDescEngLabel","inputDescUaLabel","changeTariffSubmitBtn"
-    ];
-    let langEng =["Users","Tariffs","My Tariffs","Tariffs","Sign In","Account","Balance:${logUser.balance}","Sign Out","Eng/Ua",
-        "Edit Tariff","Service","Cost","Days Of Tariff","Description Eng","Description Ua","Add"
-    ];
-    let langUa =["Користувачі", "Тарифи", "Мої тарифи", "Тарифи", "Вхід", "Обліковий запис", "Баланс:${logUser.balance}", "Вийти", "Укр/Анл",
-        "Редагування тариф", "Послуга", "Вартість", "Дні тарифу", "Опис Англ", "Опис Укр", "Редагувати"
-    ];
-    let language = parseInt('${(language).intValue()}');
-    function changeLanguage(id_lang){
-        if(id_lang === 2) {
-            for (i = 0; i < lang.length; i++) {
-                var el = document.getElementById(lang[i]);
-                if (el) el.textContent = langUa[i];
-            }
-        }
-        else {
-            for (i = 0; i < lang.length; i++) {
-                var el = document.getElementById(lang[i]);
-                if (el) el.textContent = langEng[i];
-            }
-        }
-    }
-    changeLanguage(language);
-</script>
 </body>
 </html>

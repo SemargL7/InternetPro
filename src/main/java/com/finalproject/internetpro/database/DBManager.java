@@ -6,6 +6,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+import java.io.Closeable;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -53,6 +55,7 @@ public class DBManager {
     public void commitAndClose(Connection con) {
         try {
             con.commit();
+            con.setAutoCommit(true);
             con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -67,12 +70,22 @@ public class DBManager {
     public void rollbackAndClose(Connection con) {
         try {
             con.rollback();
+            con.setAutoCommit(true);
             con.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
 
-
+    public <T> void tryClose(T closeable){
+        if(closeable != null){
+            try {
+                if(closeable instanceof Closeable)
+                    ((Closeable) closeable).close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 }

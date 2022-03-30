@@ -35,7 +35,7 @@ public class DownloadFileServlet extends HttpServlet {
 
         for (Tariff tariff : tariffList) {
             str += ("\nID:" + (tariff.getId()));
-            str += ("\nService:" + (tariff.getService().getServiceName()));
+            str += ("\nService:" + (tariff.getService()));
             str += ("\nCost:" + (tariff.getCost()));
             str += ("\nDescription ENG:" + (tariff.getDescription().get(1)));
             str += ("\nDescription UA:" + (tariff.getDescription().get(2)));

@@ -32,37 +32,39 @@
 <main class="mt-1">
     <div class="container-fluid w-75 p-3 text-light d-flex justify-content-center">
         <form class="p-3 bg-dark rounded" action="/home/addTariff" method="post">
-            <h1 id="addTariffLogo">Add Tariff</h1>
+            <h1 id="addTariffLogo"><fmt:message key="add-tariff"/></h1>
             <div class="form-group p-1">
-                <label id="inputServiceLabel" for="inputService">Service</label>
-                <select id="inputService" class="form-control" name="serviceId" >
-                    <c:forEach var="service" items="${listService}">
-                        <option value="<c:out value="${service.id}" />"><c:out value="${service.serviceName}" /></option>
-                    </c:forEach>
-                </select>
+
+                <c:forEach var="service" items="${listService}">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" name="services" id="${service.serviceName}" value="${service.id}">
+                        <label class="form-check-label" for="${service.serviceName}">${service.serviceName}</label>
+                    </div>
+                </c:forEach>
+
             </div>
 
             <div class="form-group p-1">
-                <label id="inputCostLabel" for="inputCost">Cost</label>
+                <label id="inputCostLabel" for="inputCost"><fmt:message key="table.tariff.cost"/></label>
                 <input type="number" class="form-control" id="inputCost" placeholder="Enter cost" name="cost" min="0" required>
             </div>
 
             <div class="form-group p-1">
-                <label id="daysOfTariffLabel" for="daysOfTariff">Days</label>
+                <label id="daysOfTariffLabel" for="daysOfTariff"><fmt:message key="table.tariff.days"/></label>
                 <input type="number" class="form-control" id="daysOfTariff" placeholder="Enter days of tariff" name="daysOfTariff" min="0" required>
             </div>
 
             <div class="form-group p-1">
-                <label id="inputDescEngLabel" for="inputDescEng">Description Eng</label>
+                <label id="inputDescEngLabel" for="inputDescEng"><fmt:message key="desc-eng"/></label>
                 <input type="text" class="form-control" id="inputDescEng" placeholder="Eng" name="descriptionENG" min="0" required>
             </div>
 
             <div class="form-group p-1">
-                <label id="inputDescUaLabel" for="inputDescUa">Description Ua</label>
+                <label id="inputDescUaLabel" for="inputDescUa"><fmt:message key="desc-ua"/></label>
                 <input type="text" class="form-control" id="inputDescUa" placeholder="Ua" name="descriptionUA" min="0" required>
             </div>
 
-            <button type="submit" class="btn btn-primary ms-1" id="addTariffSubmitBtn">Submit</button>
+            <button type="submit" class="btn btn-primary ms-1" id="addTariffSubmitBtn"><fmt:message key="add-tariff.submit"/></button>
         </form>
     </div>
 </main>
@@ -73,32 +75,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-<script type="text/javascript">
-    let lang=["users-nav-link","manager-tariffs-nav-link","user-connected-tariff-nav-list","user-tariff-nav-link","login-nav-link","acc-nav-link","balance-nav-link","login-out-nav-list","lang-nav-link",
-        "addTariffLogo","inputServiceLabel","inputCostLabel","daysOfTariffLabel","inputDescEngLabel","inputDescUaLabel","addTariffSubmitBtn"
-    ];
-    let langEng =["Users","Tariffs","My Tariffs","Tariffs","Sign In","Account","Balance:${logUser.balance}","Sign Out","Eng/Ua",
-        "Add Tariff","Service","Cost","Days Of Tariff","Description Eng","Description Ua","Add"
-    ];
-    let langUa =["Користувачі", "Тарифи", "Мої тарифи", "Тарифи", "Вхід", "Обліковий запис", "Баланс:${logUser.balance}", "Вийти", "Укр/Анл",
-        "Додати тариф", "Послуга", "Вартість", "Дні тарифу", "Опис Англ", "Опис Укр", "Додати"
-    ];
-    let language = parseInt('${(language).intValue()}');
-    function changeLanguage(id_lang){
-        if(id_lang === 2) {
-            for (i = 0; i < lang.length; i++) {
-                var el = document.getElementById(lang[i]);
-                if (el) el.textContent = langUa[i];
-            }
-        }
-        else {
-            for (i = 0; i < lang.length; i++) {
-                var el = document.getElementById(lang[i]);
-                if (el) el.textContent = langEng[i];
-            }
-        }
-    }
-    changeLanguage(language);
-</script>
 </body>
 </html>
